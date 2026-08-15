@@ -1,0 +1,67 @@
+name: Render
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Uma publicação por vez, sem cancelar a que estiver em andamento.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    # A conversão dos diagramas Mermaid em PNG depende de um navegador e trava
+    # de forma intermitente. Sem limite, o job ficaria preso até o teto de seis
+    # horas. Renderização saudável varia de 2 a 6 minutos, então 10 minutos
+    # distingue lentidão de travamento sem derrubar build legítimo.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+      # O navegador vem do próprio Quarto, e não do que a imagem do runner traz
+      # naquele dia. Sem esta linha, o Mermaid depende do Chrome da imagem, que
+      # foi onde a renderização travou.
+      - name: Instalar o navegador usado nos diagramas
+        run: quarto install chrome-headless-shell --no-prompt
+      - name: Render book
+        run: quarto render
+      - name: Render slides
+        run: quarto render
+        working-directory: slides
+      - name: Desativar o processamento Jekyll
+        run: touch _output/.nojekyll
+      - name: Upload output
+        uses: actions/upload-artifact@v7
+        with:
+          name: output
+          path: _output/
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _output/
+
+  deploy:
+    needs: render
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

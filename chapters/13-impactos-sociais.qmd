@@ -1,0 +1,24 @@
+---
+title: "Impactos sociais da Computação"
+---
+
+## Objetivos de aprendizagem
+
+- Reconhecer as dimensões da exclusão digital além do acesso ao equipamento.
+- Identificar como um viés entra em um sistema computacional.
+- Avaliar uma interface quanto à acessibilidade.
+- Analisar criticamente o papel da tecnologia na circulação de desinformação.
+
+## Conteúdo previsto
+
+- Inclusão e exclusão digital: acesso, conectividade, repertório e
+  permanência.
+- Vieses em dados e em sistemas de decisão.
+- Acessibilidade e desenho para todos.
+- Desinformação, curadoria algorítmica e circulação de conteúdo.
+- Cidadania digital e serviços públicos digitais.
+- Trabalho, automação e mudança nas ocupações.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@wazlawick2016].

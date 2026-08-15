@@ -1,0 +1,25 @@
+---
+title: "Aritmética binária e representação de dados"
+subtitle: "Capítulo 6"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Adição e subtração binária, com vai-um e vem-um.
+- Multiplicação e divisão binária, em casos simples.
+- Números negativos: sinal e magnitude, complemento de um e complemento de
+  dois.
+- Estouro de representação e seus efeitos.
+- Bit, byte e múltiplos.
+
+## Roteiro, continuação
+
+- Representação de texto, imagem e som.
+- Relação entre bits, instruções e processamento.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

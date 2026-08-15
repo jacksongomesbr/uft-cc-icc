@@ -1,0 +1,117 @@
+# Apresentação {.unnumbered}
+
+Este livro reúne o material didático da disciplina **Introdução à Ciência da
+Computação**, do Curso de Ciência da Computação da Universidade Federal do
+Tocantins (UFT), Câmpus Palmas.
+
+O conteúdo está organizado em capítulos. Para cada capítulo há uma apresentação
+própria em `slides/`, produzida em Reveal.js a partir do mesmo projeto Quarto.
+
+## Objetivo da disciplina
+
+Compreender os fundamentos históricos, técnicos, profissionais, éticos e sociais
+da Ciência da Computação, articulando noções de hardware, software e sistemas
+numéricos para analisar criticamente o papel da computação na sociedade e na
+futura atuação profissional.
+
+Os objetivos específicos aparecem no início de cada capítulo, como objetivos de
+aprendizagem, e a @tbl-objetivos mostra onde cada um é tratado.
+
+| **Objetivo específico** | **Capítulos** |
+|---|---|
+| Reconhecer marcos da história da Computação e relacioná-los à evolução das tecnologias | 2, 15 |
+| Identificar a estrutura funcional básica de um computador | 3, 4 |
+| Diferenciar conceitos fundamentais de software | 7 |
+| Reconhecer as principais áreas da Computação e o perfil do bacharel | 8, 9 |
+| Compreender a relevância do pensamento computacional em diferentes contextos | 1, 8, 16 |
+| Converter valores entre sistemas numéricos e operar em aritmética binária | 5, 6 |
+| Analisar questões éticas, legais e profissionais | 10, 11, 12 |
+| Avaliar impactos sociais e ambientais das tecnologias digitais | 13, 14 |
+| Discutir atualidades em informática com base em fontes confiáveis | 15, 16 |
+
+: Objetivos específicos e os capítulos em que são tratados. {#tbl-objetivos}
+
+Um objetivo tratado em mais de um capítulo não é repetição. A ética, por
+exemplo, aparece como princípio no capítulo 10, como regra jurídica nos
+capítulos 11 e 12, e como consequência nos capítulos 13 e 14.
+
+## Organização didática
+
+A disciplina ocupa 18 encontros: 16 aulas expositivas, que correspondem aos 16
+capítulos deste livro, e 2 encontros de avaliação. A @tbl-encontros mostra a
+distribuição.
+
+| **Encontro** | **Bloco** | **Conteúdo** |
+|---:|---|---|
+| 1 a 8 | Fundamentos técnicos | Capítulos 1 a 8 |
+| 9 | Avaliação | Prova 1, sobre os capítulos 1 a 8 |
+| 10 a 17 | Profissão, ética e sociedade | Capítulos 9 a 16 |
+| 18 | Avaliação | Prova 2, sobre os capítulos 9 a 16 |
+
+: Distribuição dos 18 encontros da disciplina. {#tbl-encontros}
+
+O semestre tem duas metades com propósitos distintos. Na primeira, o objetivo é
+entender o computador como objeto técnico: o que existe dentro dele, como a
+informação é representada e como um programa chega a ser executado. Na segunda,
+o objeto passa a ser a computação como atividade humana: a profissão, as regras
+que a governam e os efeitos do que ela produz.
+
+As duas metades não são independentes. Não se discute impacto ambiental de um
+centro de dados sem saber o que consome energia dentro dele, nem se discute
+LGPD sem saber o que é um dado armazenado. A ordem dos capítulos existe por
+isso.
+
+## Conhecimentos prévios e escopo
+
+Esta é uma disciplina do 1º período, e a primeira de Computação que a turma
+cursa. Ela não pressupõe programação, matemática além do ensino médio, nem
+qualquer contato anterior com a área.
+
+Isso tem duas consequências que valem em todo o livro.
+
+A primeira é que nenhum capítulo pode se apoiar em disciplina posterior.
+Arquitetura de computadores, sistemas operacionais, redes e engenharia de
+software vêm depois, e o que este livro apresenta desses assuntos é o suficiente
+para reconhecer o problema, não para resolvê-lo. Quando um capítulo nomeia um
+conceito que só será tratado adiante, ele diz isso.
+
+A segunda é que a turma é heterogênea de um modo particular. Parte dos alunos
+programa desde a adolescência; parte nunca abriu um terminal. Um material
+calibrado para o primeiro grupo perde o segundo em silêncio, e o inverso
+desperdiça o tempo do primeiro. Por isso cada capítulo distingue o que é piso do
+que é extensão.
+
+Lógica de Programação, Introdução à Prática Extensionista e Empreendedorismo e
+Inovação são cursadas em paralelo, no mesmo período. O livro pode dialogar com
+elas, mas não pode depender delas.
+
+## O trabalho integrador
+
+A disciplina não produz artigo científico. Ela produz duas análises, que são a
+forma de verificar se os objetivos mais altos foram atingidos: os que pedem
+"analisar criticamente", "avaliar" e "discutir".
+
+A @tbl-marcos distribui as entregas ao longo do semestre.
+
+| **Marco** | **Encontro** | **Evidência esperada** |
+|---|---:|---|
+| Formação das equipes e escolha do objeto | 3 | Equipe definida e uma solução computacional real escolhida para estudo |
+| Estudo de caso técnico | 8 | Descrição do objeto em termos de hardware, software, dados e representação |
+| Levantamento de fontes | 12 | Fontes confiáveis sobre o objeto, com avaliação de procedência |
+| Análise integradora e apresentação | 16 e 17 | Análise escrita e comunicação oral de dez minutos |
+
+: Marcos do trabalho integrador. {#tbl-marcos}
+
+O objeto de estudo é uma solução computacional que a equipe use ou conheça: um
+aplicativo, um serviço público digital, um dispositivo. A análise final examina
+esse mesmo objeto sob todas as dimensões da disciplina, do hardware que o
+sustenta até a lei que o regula e o efeito que ele produz.
+
+Não se espera originalidade. Espera-se que a equipe consiga olhar para algo
+comum e enxergar as camadas que a disciplina apresentou.
+
+## Como usar este material
+
+- Leiam os capítulos na sequência indicada no menu do livro.
+- Usem os slides correspondentes para acompanhar as aulas e revisar.
+- Consultem as referências bibliográficas compartilhadas em `references.bib`.

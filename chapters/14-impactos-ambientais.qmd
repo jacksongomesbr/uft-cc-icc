@@ -1,0 +1,25 @@
+---
+title: "Impactos ambientais e Computação sustentável"
+---
+
+## Objetivos de aprendizagem
+
+- Estimar a ordem de grandeza do consumo energético de uma atividade
+  computacional.
+- Descrever o ciclo de vida de um equipamento, da extração ao descarte.
+- Reconhecer o que caracteriza lixo eletrônico e como ele é tratado.
+- Propor práticas de uso mais sóbrio de recursos computacionais.
+
+## Conteúdo previsto
+
+- Consumo energético de dispositivos, redes e centros de dados.
+- Ciclo de vida de um equipamento: extração, fabricação, uso e descarte.
+- Lixo eletrônico, logística reversa e legislação aplicável.
+- Obsolescência programada e vida útil de equipamentos.
+- Eficiência de código e eficiência energética.
+- Práticas de Computação sustentável.
+- Responsabilidade profissional no uso de recursos.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@forouzan2011].

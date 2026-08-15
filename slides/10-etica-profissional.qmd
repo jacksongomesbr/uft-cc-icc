@@ -1,0 +1,24 @@
+---
+title: "Ética profissional em Computação"
+subtitle: "Capítulo 10"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Ética, moral e legislação: três conjuntos que não coincidem.
+- Códigos de conduta profissional em Computação.
+- Responsabilidade técnica pelo que se constrói.
+- Sigilo profissional e confidencialidade.
+- Privacidade e restrição da liberdade individual.
+
+## Roteiro, continuação
+
+- Decisões automatizadas e a questão de quem responde por elas.
+- Estudos de caso e discussão dirigida.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

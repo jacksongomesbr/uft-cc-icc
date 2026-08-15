@@ -1,0 +1,23 @@
+---
+title: "Conceitos de software"
+---
+
+## Objetivos de aprendizagem
+
+- Distinguir programa, código-fonte, código executável e processo.
+- Diferenciar compilador, interpretador e montador pela função de cada um.
+- Descrever o percurso do código-fonte até a execução.
+- Reconhecer as categorias de software e a função de um sistema operacional.
+
+## Conteúdo previsto
+
+- O que é um programa e o que é uma linguagem de programação.
+- Código-fonte, código de máquina e código intermediário.
+- Compiladores, interpretadores e montadores.
+- Editores, ambientes de desenvolvimento e ferramentas de apoio.
+- Software básico e software aplicativo.
+- O papel do sistema operacional.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@ascencio2012] e [@forouzan2011].

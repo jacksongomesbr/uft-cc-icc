@@ -1,0 +1,26 @@
+---
+title: "Aritmética binária e representação de dados"
+---
+
+## Objetivos de aprendizagem
+
+- Realizar adição, subtração e multiplicação em base binária.
+- Representar números negativos em complemento de dois.
+- Explicar como caracteres, imagens e sons são reduzidos a sequências de
+  bits.
+- Relacionar a quantidade de bits ao intervalo de valores representáveis.
+
+## Conteúdo previsto
+
+- Adição e subtração binária, com vai-um e vem-um.
+- Multiplicação e divisão binária, em casos simples.
+- Números negativos: sinal e magnitude, complemento de um e complemento de
+  dois.
+- Estouro de representação e seus efeitos.
+- Bit, byte e múltiplos.
+- Representação de texto, imagem e som.
+- Relação entre bits, instruções e processamento.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@forouzan2011] e [@brookshear2013].

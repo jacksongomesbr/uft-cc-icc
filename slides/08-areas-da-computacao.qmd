@@ -1,0 +1,26 @@
+---
+title: "Principais áreas da Computação"
+subtitle: "Capítulo 8"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Engenharia de software e desenvolvimento de sistemas.
+- Arquitetura e organização de computadores.
+- Bancos de dados e ciência de dados.
+- Redes de computadores e sistemas distribuídos.
+- Inteligência artificial e aprendizado de máquina.
+
+## Roteiro, continuação
+
+- Segurança da informação.
+- Interação humano-computador.
+- Computação aplicada a outras áreas do conhecimento.
+- Estudo de caso integrador do primeiro bimestre.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

@@ -1,0 +1,22 @@
+---
+title: "Apresentação do curso e da Ciência da Computação"
+subtitle: "Capítulo 1"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Apresentação da disciplina, do plano de ensino e dos critérios de
+  avaliação.
+- O curso e sua organização curricular: os oito períodos e as dependências
+  entre disciplinas.
+- Panorama dos componentes do primeiro período e como eles se relacionam.
+- Diagnóstico de conhecimentos prévios, sem valor de nota.
+- Pensamento computacional: decomposição, reconhecimento de padrões,
+  abstração e algoritmo.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

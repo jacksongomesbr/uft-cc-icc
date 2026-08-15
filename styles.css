@@ -1,0 +1,22 @@
+/* Estilos compartilhados pelas saídas HTML do documento. */
+
+body {
+  line-height: 1.6;
+}
+
+blockquote {
+  border-left: 0.25rem solid #0d6efd;
+  padding-left: 1rem;
+}
+
+/* Lista de referências: alinhamento à esquerda, espaçamento simples e uma
+   linha em branco entre entradas, conforme a apresentação acadêmica ABNT. */
+#refs,
+.references {
+  text-align: left;
+}
+
+.csl-entry {
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}

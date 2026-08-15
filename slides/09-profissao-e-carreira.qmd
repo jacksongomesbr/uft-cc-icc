@@ -1,0 +1,24 @@
+---
+title: "A profissão de bacharel em Ciência da Computação"
+subtitle: "Capítulo 9"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- O perfil do egresso e as diretrizes curriculares da área.
+- Ciência da Computação, Engenharia de Computação, Sistemas de Informação e
+  Licenciatura.
+- Áreas de atuação e papéis profissionais.
+- Trabalho em equipe, comunicação e documentação como competências técnicas.
+- Pesquisa, pós-graduação e carreira acadêmica.
+
+## Roteiro, continuação
+
+- Formação continuada e tendências de carreira.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

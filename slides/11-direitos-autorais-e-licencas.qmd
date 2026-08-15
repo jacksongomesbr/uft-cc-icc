@@ -1,0 +1,24 @@
+---
+title: "Direitos autorais, licenças e autoria de código"
+subtitle: "Capítulo 11"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Propriedade intelectual: direito autoral, patente e marca.
+- Direito autoral aplicado a software no Brasil.
+- Software proprietário, software livre e código aberto.
+- Licenças permissivas e licenças recíprocas.
+- Plágio e autoria em trabalhos acadêmicos e em código.
+
+## Roteiro, continuação
+
+- Ferramentas de geração automática de código: autoria, atribuição e
+  verificação.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

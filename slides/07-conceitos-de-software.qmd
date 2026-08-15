@@ -1,0 +1,23 @@
+---
+title: "Conceitos de software"
+subtitle: "Capítulo 7"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- O que é um programa e o que é uma linguagem de programação.
+- Código-fonte, código de máquina e código intermediário.
+- Compiladores, interpretadores e montadores.
+- Editores, ambientes de desenvolvimento e ferramentas de apoio.
+- Software básico e software aplicativo.
+
+## Roteiro, continuação
+
+- O papel do sistema operacional.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

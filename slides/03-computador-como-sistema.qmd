@@ -1,0 +1,19 @@
+---
+title: "O computador como sistema"
+subtitle: "Capítulo 3"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- A noção de sistema: partes, relações e fronteira.
+- Hardware, software, dados, usuários e redes como componentes que interagem.
+- Estrutura funcional básica: entrada, processamento, armazenamento e saída.
+- O ciclo de busca e execução de instruções, em visão geral.
+- Camadas de abstração e por que elas existem.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

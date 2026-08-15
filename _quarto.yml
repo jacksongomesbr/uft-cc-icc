@@ -1,0 +1,97 @@
+project:
+  type: book
+  output-dir: _output
+  render:
+    - index.qmd
+    - chapters/*.qmd
+    - apresentacoes.qmd
+
+lang: pt-BR
+license: CC BY-SA
+bibliography: references.bib
+csl: abnt.csl
+link-citations: true
+
+# O Quarto traduz "proof" como "Comprovação" em pt-BR. O termo usado em
+# matemática é "Demonstração".
+language:
+  environment-proof-title: "Demonstração"
+
+book:
+  title: "Introdução à Ciência da Computação"
+  # Sem acento no nome do arquivo: o PDF é servido por URL, e caractere
+  # acentuado vira sequência percent-encoded frágil no link do apêndice.
+  output-file: "Introducao-a-Ciencia-da-Computacao"
+  author: "Prof. Dr. Jackson Gomes de Souza"
+  date: last-modified
+  date-format: long
+  site-url: https://jacksongomesbr.github.io/uft-cc-icc/
+  repo-url: https://github.com/jacksongomesbr/uft-cc-icc
+  downloads: [pdf]
+  page-footer:
+    left: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+    right: "Introdução à Ciência da Computação"
+  chapters:
+    - index.qmd
+    - part: "Fundamentos técnicos"
+      chapters:
+        - chapters/01-apresentacao-e-panorama.qmd
+        - chapters/02-historia-da-computacao.qmd
+        - chapters/03-computador-como-sistema.qmd
+        - chapters/04-organizacao-do-hardware.qmd
+        - chapters/05-sistemas-numericos.qmd
+        - chapters/06-aritmetica-binaria.qmd
+        - chapters/07-conceitos-de-software.qmd
+        - chapters/08-areas-da-computacao.qmd
+    - part: "Profissão, ética e sociedade"
+      chapters:
+        - chapters/09-profissao-e-carreira.qmd
+        - chapters/10-etica-profissional.qmd
+        - chapters/11-direitos-autorais-e-licencas.qmd
+        - chapters/12-lgpd-e-protecao-de-dados.qmd
+        - chapters/13-impactos-sociais.qmd
+        - chapters/14-impactos-ambientais.qmd
+        - chapters/15-atualidades-em-informatica.qmd
+        - chapters/16-sintese-integradora.qmd
+    - chapters/referencias.qmd
+  appendices:
+    - apresentacoes.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-location: left
+    number-sections: true
+    html-math-method: katex
+    citations-hover: true
+    reference-location: document
+    code-copy: true
+    code-overflow: wrap
+    syntax-highlighting: github
+    mermaid:
+      theme: neutral
+  pdf:
+    pdf-engine: lualatex
+    documentclass: scrreprt
+    fontsize: 12pt
+    papersize: a4
+    geometry:
+      - left=3cm
+      - right=2cm
+      - top=3cm
+      - bottom=2cm
+    toc: true
+    toc-title: "Sumário"
+    number-sections: true
+    linestretch: 1.25
+    reference-section-title: "Referências"
+    include-in-header: latex/abnt.tex
+    code-line-numbers: false
+    syntax-highlighting: github
+    mermaid-format: png
+execute:
+  echo: true
+  warning: false
+  freeze: auto

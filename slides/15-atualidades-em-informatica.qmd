@@ -1,0 +1,25 @@
+---
+title: "Atualidades em informática"
+subtitle: "Capítulo 15"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Fontes confiáveis: publicação científica, documentação oficial, imprensa
+  especializada e divulgação.
+- Como avaliar uma afirmação técnica encontrada na internet.
+- Inteligência artificial: capacidades atuais, limites e promessas.
+- Computação em nuvem e concentração de infraestrutura.
+- Cibersegurança e superfície de ataque.
+
+## Roteiro, continuação
+
+- Internet das Coisas e computação embarcada.
+- Seminário de atualidades, conduzido pelas equipes.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

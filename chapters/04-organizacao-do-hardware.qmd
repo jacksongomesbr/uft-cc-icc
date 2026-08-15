@@ -1,0 +1,29 @@
+---
+title: "Organização básica do hardware"
+---
+
+## Objetivos de aprendizagem
+
+- Identificar os componentes da unidade central de processamento e a função
+  de cada um.
+- Distinguir os tipos de memória pela velocidade, custo e volatilidade.
+- Explicar a função dos barramentos e das interfaces na comunicação entre
+  componentes.
+- Classificar periféricos e dispositivos por sua função de entrada, saída ou
+  ambas.
+
+## Conteúdo previsto
+
+- Unidade central de processamento: unidade de controle, unidade lógica e
+  aritmética, registradores.
+- Hierarquia de memória: registradores, cache, memória principal e
+  armazenamento secundário.
+- Memória volátil e não volátil.
+- Barramentos de dados, endereços e controle.
+- Interfaces e portas de comunicação.
+- Periféricos e dispositivos de entrada e saída.
+- Tipos de instruções e o repertório de uma máquina.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@forouzan2011] e [@velloso2004].

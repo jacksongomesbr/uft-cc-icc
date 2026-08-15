@@ -1,0 +1,25 @@
+---
+title: "Síntese integradora"
+---
+
+## Objetivos de aprendizagem
+
+- Analisar uma solução computacional em todas as dimensões da disciplina.
+- Articular hardware, software, dados e representação na descrição de um
+  sistema.
+- Avaliar a mesma solução quanto a ética, legislação e impacto.
+- Comunicar oralmente uma análise técnica em tempo limitado.
+
+## Conteúdo previsto
+
+- Roteiro de análise de uma solução computacional.
+- Dimensão técnica: hardware, software, dados e representação da informação.
+- Dimensão profissional: quem constrói, com que competências e sob que
+  responsabilidade.
+- Dimensão ética e legal: conduta, direitos autorais e proteção de dados.
+- Dimensão social e ambiental: quem é afetado e a que custo.
+- Apresentação e discussão das análises das equipes.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@forouzan2011].

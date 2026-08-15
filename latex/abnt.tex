@@ -1,0 +1,86 @@
+% Ajustes de apresentação para o PDF acadêmico em ABNT.
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% Tipografia pensada para leitura em tela: o livro é distribuído em PDF e HTML,
+% não impresso. XCharter (extensão do Bitstream Charter, de Matthew Carter)
+% tem hastes robustas e contraste baixo, desenhados para sobreviver a
+% rasterização grosseira — o oposto do Latin Modern, herdeiro do Computer
+% Modern, cujos traços finos afinam demais em tela. Fira Mono, mais escuro e
+% aberto que o mono padrão, equilibra o peso do texto nos exemplos de código.
+\setmainfont{XCharter}[
+  Extension      = .otf,
+  UprightFont    = *-Roman,
+  ItalicFont     = *-Italic,
+  BoldFont       = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+]
+\setmonofont{FiraMono}[
+  Extension   = .otf,
+  UprightFont = *-Regular,
+  BoldFont    = *-Bold,
+  Scale       = 0.86,
+]
+
+% Títulos com a mesma serifada do corpo, em vez do sem-serifa padrão da classe.
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Tabelas: o espaçamento de 1,5 do corpo do texto deixa as células frouxas.
+% Dentro das tabelas usa-se entrelinha simples e ganha-se legibilidade com
+% uma folga maior entre as linhas, não dentro delas.
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{%
+  \setstretch{1.0}%
+  \setlength{\extrarowheight}{6pt}%
+}
+\renewcommand{\arraystretch}{1.2}
+
+% Blocos de código também pedem entrelinha simples: a indentação já organiza a
+% leitura, e o espaçamento do texto corrido só afasta linhas que devem ser
+% lidas como um bloco.
+\AtBeginEnvironment{Shaded}{\setstretch{1.0}}
+
+% NBR 14724: numeração em algarismos arábicos, no canto superior direito da
+% folha, a partir da primeira folha da parte textual (a capa não é numerada).
+% Cabeçalho corrente com o capítulo atual nas páginas de continuação; nas
+% páginas de abertura de capítulo (estilo "plain"), mostra-se só o número.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% NBR 14724: folha de rosto com instituição, curso, natureza do trabalho,
+% cidade e ano, além de título e autoria.
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+    {\large UNIVERSIDADE FEDERAL DO TOCANTINS\par}
+    \vspace{0.15cm}
+    {\large Câmpus de Palmas\par}
+    \vspace{0.15cm}
+    {\large Curso de Ciência da Computação\par}
+    \vfill
+    {\Huge\bfseries \@title \par}
+    \vspace{1.2cm}
+    {\large \@author \par}
+    \vfill
+    {\normalsize Material didático da disciplina Introdução à Ciência da\\
+      Computação, do Curso de Ciência da Computação da Universidade\\
+      Federal do Tocantins (UFT), Câmpus Palmas.\par}
+    \vfill
+    {\large Palmas -- TO\par}
+    {\large \@date \par}
+  \end{titlepage}
+}
+\makeatother

@@ -1,0 +1,24 @@
+---
+title: "História da Computação"
+subtitle: "Capítulo 2"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Cálculo mecânico: ábaco, Pascal, Leibniz, Jacquard.
+- Babbage e Lovelace: a máquina analítica e a ideia de programa.
+- Turing, Von Neumann e a arquitetura de programa armazenado.
+- Gerações de computadores: válvula, transistor, circuito integrado,
+  microprocessador.
+- Computação pessoal, redes e a Web.
+
+## Roteiro, continuação
+
+- Transformações sociais associadas a cada etapa.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

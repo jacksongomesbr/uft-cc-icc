@@ -1,0 +1,27 @@
+---
+title: "Apresentação do curso e da Ciência da Computação"
+---
+
+## Objetivos de aprendizagem
+
+- Situar o curso de Ciência da Computação na sua organização curricular.
+- Reconhecer o que a Ciência da Computação estuda, e o que ela não estuda.
+- Identificar o próprio ponto de partida em relação aos conhecimentos da
+  área.
+- Descrever o que é pensamento computacional, em termos acessíveis a quem
+  ainda não programa.
+
+## Conteúdo previsto
+
+- Apresentação da disciplina, do plano de ensino e dos critérios de
+  avaliação.
+- O curso e sua organização curricular: os oito períodos e as dependências
+  entre disciplinas.
+- Panorama dos componentes do primeiro período e como eles se relacionam.
+- Diagnóstico de conhecimentos prévios, sem valor de nota.
+- Pensamento computacional: decomposição, reconhecimento de padrões,
+  abstração e algoritmo.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@forouzan2011] e [@brookshear2013].

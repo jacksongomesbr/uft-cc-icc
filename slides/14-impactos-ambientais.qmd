@@ -1,0 +1,24 @@
+---
+title: "Impactos ambientais e Computação sustentável"
+subtitle: "Capítulo 14"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Consumo energético de dispositivos, redes e centros de dados.
+- Ciclo de vida de um equipamento: extração, fabricação, uso e descarte.
+- Lixo eletrônico, logística reversa e legislação aplicável.
+- Obsolescência programada e vida útil de equipamentos.
+- Eficiência de código e eficiência energética.
+
+## Roteiro, continuação
+
+- Práticas de Computação sustentável.
+- Responsabilidade profissional no uso de recursos.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

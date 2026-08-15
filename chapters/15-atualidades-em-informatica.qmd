@@ -1,0 +1,25 @@
+---
+title: "Atualidades em informática"
+---
+
+## Objetivos de aprendizagem
+
+- Avaliar a procedência de uma fonte de informação técnica.
+- Distinguir o que uma tecnologia faz do que se anuncia que ela faz.
+- Identificar riscos e oportunidades associados a uma tendência.
+- Apresentar uma análise fundamentada sobre um tema atual da área.
+
+## Conteúdo previsto
+
+- Fontes confiáveis: publicação científica, documentação oficial, imprensa
+  especializada e divulgação.
+- Como avaliar uma afirmação técnica encontrada na internet.
+- Inteligência artificial: capacidades atuais, limites e promessas.
+- Computação em nuvem e concentração de infraestrutura.
+- Cibersegurança e superfície de ataque.
+- Internet das Coisas e computação embarcada.
+- Seminário de atualidades, conduzido pelas equipes.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@wazlawick2016] e [@brookshear2013].

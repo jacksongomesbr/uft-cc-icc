@@ -1,0 +1,24 @@
+---
+title: "LGPD e proteção de dados"
+---
+
+## Objetivos de aprendizagem
+
+- Identificar o que a lei define como dado pessoal e como dado sensível.
+- Reconhecer os princípios que regem o tratamento de dados pessoais.
+- Distinguir os papéis de titular, controlador, operador e encarregado.
+- Avaliar se um tratamento de dados descrito em um caso atende à lei.
+
+## Conteúdo previsto
+
+- O que a Lei nº 13.709/2018 regula e a quem ela se aplica.
+- Dado pessoal, dado sensível e dado anonimizado.
+- Princípios: finalidade, adequação, necessidade, transparência e segurança.
+- Bases legais para o tratamento e o papel do consentimento.
+- Titular, controlador, operador e encarregado.
+- Direitos do titular.
+- Incidentes de segurança e a responsabilidade de quem desenvolve.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@lgpd2018] e [@brookshear2013].

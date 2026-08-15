@@ -1,0 +1,23 @@
+---
+title: "Sistemas numéricos e conversão entre bases"
+subtitle: "Capítulo 5"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Sistemas de numeração posicionais e a noção de base.
+- Sistema decimal, binário, octal e hexadecimal.
+- Conversão de uma base qualquer para decimal.
+- Conversão de decimal para uma base qualquer, por divisões sucessivas.
+- Conversões diretas entre binário, octal e hexadecimal.
+
+## Roteiro, continuação
+
+- Representação de parte fracionária.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

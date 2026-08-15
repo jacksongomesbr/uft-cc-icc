@@ -1,0 +1,24 @@
+---
+title: "Impactos sociais da Computação"
+subtitle: "Capítulo 13"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Inclusão e exclusão digital: acesso, conectividade, repertório e
+  permanência.
+- Vieses em dados e em sistemas de decisão.
+- Acessibilidade e desenho para todos.
+- Desinformação, curadoria algorítmica e circulação de conteúdo.
+- Cidadania digital e serviços públicos digitais.
+
+## Roteiro, continuação
+
+- Trabalho, automação e mudança nas ocupações.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

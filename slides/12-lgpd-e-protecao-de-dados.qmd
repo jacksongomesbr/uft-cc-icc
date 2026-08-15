@@ -1,0 +1,24 @@
+---
+title: "LGPD e proteção de dados"
+subtitle: "Capítulo 12"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- O que a Lei nº 13.709/2018 regula e a quem ela se aplica.
+- Dado pessoal, dado sensível e dado anonimizado.
+- Princípios: finalidade, adequação, necessidade, transparência e segurança.
+- Bases legais para o tratamento e o papel do consentimento.
+- Titular, controlador, operador e encarregado.
+
+## Roteiro, continuação
+
+- Direitos do titular.
+- Incidentes de segurança e a responsabilidade de quem desenvolve.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

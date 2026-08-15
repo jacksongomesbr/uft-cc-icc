@@ -1,0 +1,23 @@
+---
+title: "O computador como sistema"
+---
+
+## Objetivos de aprendizagem
+
+- Descrever um computador como um sistema com partes que interagem.
+- Distinguir os papéis de hardware, software, dados, usuários e redes.
+- Explicar o ciclo básico de funcionamento de um computador.
+- Reconhecer que um mesmo problema pode ser resolvido em camadas diferentes
+  do sistema.
+
+## Conteúdo previsto
+
+- A noção de sistema: partes, relações e fronteira.
+- Hardware, software, dados, usuários e redes como componentes que interagem.
+- Estrutura funcional básica: entrada, processamento, armazenamento e saída.
+- O ciclo de busca e execução de instruções, em visão geral.
+- Camadas de abstração e por que elas existem.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@forouzan2011] e [@velloso2004].

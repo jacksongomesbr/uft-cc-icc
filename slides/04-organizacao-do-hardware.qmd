@@ -1,0 +1,26 @@
+---
+title: "Organização básica do hardware"
+subtitle: "Capítulo 4"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Unidade central de processamento: unidade de controle, unidade lógica e
+  aritmética, registradores.
+- Hierarquia de memória: registradores, cache, memória principal e
+  armazenamento secundário.
+- Memória volátil e não volátil.
+- Barramentos de dados, endereços e controle.
+- Interfaces e portas de comunicação.
+
+## Roteiro, continuação
+
+- Periféricos e dispositivos de entrada e saída.
+- Tipos de instruções e o repertório de uma máquina.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::

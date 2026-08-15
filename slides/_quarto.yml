@@ -1,0 +1,27 @@
+project:
+  type: default
+  output-dir: ../_output/slides
+
+lang: pt-BR
+bibliography: ../references.bib
+csl: ../abnt.csl
+link-citations: true
+
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    preview-links: true
+    footer: "Introdução à Ciência da Computação — UFT, Câmpus Palmas"
+    code-copy: true
+    code-overflow: wrap
+    code-block-height: 520px
+    syntax-highlighting: github
+    mermaid:
+      theme: neutral
+
+execute:
+  echo: true
+  warning: false
+  freeze: auto

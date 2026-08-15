@@ -1,0 +1,24 @@
+---
+title: "História da Computação"
+---
+
+## Objetivos de aprendizagem
+
+- Reconhecer os marcos que separam as gerações de computadores.
+- Relacionar cada marco ao problema que ele resolvia.
+- Identificar pessoas cuja contribuição costuma ficar fora das listas usuais.
+- Explicar por que a história da área ajuda a entender as tecnologias atuais.
+
+## Conteúdo previsto
+
+- Cálculo mecânico: ábaco, Pascal, Leibniz, Jacquard.
+- Babbage e Lovelace: a máquina analítica e a ideia de programa.
+- Turing, Von Neumann e a arquitetura de programa armazenado.
+- Gerações de computadores: válvula, transistor, circuito integrado,
+  microprocessador.
+- Computação pessoal, redes e a Web.
+- Transformações sociais associadas a cada etapa.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@wazlawick2016] e [@brookshear2013].

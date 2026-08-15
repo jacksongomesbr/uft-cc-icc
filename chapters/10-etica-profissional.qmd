@@ -1,0 +1,25 @@
+---
+title: "Ética profissional em Computação"
+---
+
+## Objetivos de aprendizagem
+
+- Distinguir o que é legal, o que é ético e o que é tecnicamente possível.
+- Reconhecer situações de conflito entre interesse do cliente, do usuário e
+  da sociedade.
+- Aplicar um código de conduta profissional a um caso concreto.
+- Argumentar sobre responsabilidade técnica em decisões automatizadas.
+
+## Conteúdo previsto
+
+- Ética, moral e legislação: três conjuntos que não coincidem.
+- Códigos de conduta profissional em Computação.
+- Responsabilidade técnica pelo que se constrói.
+- Sigilo profissional e confidencialidade.
+- Privacidade e restrição da liberdade individual.
+- Decisões automatizadas e a questão de quem responde por elas.
+- Estudos de caso e discussão dirigida.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@forouzan2011].

@@ -1,0 +1,25 @@
+---
+title: "Direitos autorais, licenças e autoria de código"
+---
+
+## Objetivos de aprendizagem
+
+- Distinguir direito autoral, patente e marca no contexto da Computação.
+- Interpretar as licenças de software mais comuns e o que cada uma permite.
+- Reconhecer o que caracteriza plágio em texto e em código.
+- Decidir sobre o uso responsável de ferramentas de geração automática de
+  código.
+
+## Conteúdo previsto
+
+- Propriedade intelectual: direito autoral, patente e marca.
+- Direito autoral aplicado a software no Brasil.
+- Software proprietário, software livre e código aberto.
+- Licenças permissivas e licenças recíprocas.
+- Plágio e autoria em trabalhos acadêmicos e em código.
+- Ferramentas de geração automática de código: autoria, atribuição e
+  verificação.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@wazlawick2016].

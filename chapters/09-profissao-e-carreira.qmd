@@ -1,0 +1,25 @@
+---
+title: "A profissão de bacharel em Ciência da Computação"
+---
+
+## Objetivos de aprendizagem
+
+- Descrever o perfil profissional do bacharel em Ciência da Computação.
+- Distinguir os cursos de Computação e o que diferencia cada formação.
+- Reconhecer as áreas de atuação e os papéis existentes no mercado.
+- Identificar competências que a formação desenvolve além do conhecimento
+  técnico.
+
+## Conteúdo previsto
+
+- O perfil do egresso e as diretrizes curriculares da área.
+- Ciência da Computação, Engenharia de Computação, Sistemas de Informação e
+  Licenciatura.
+- Áreas de atuação e papéis profissionais.
+- Trabalho em equipe, comunicação e documentação como competências técnicas.
+- Pesquisa, pós-graduação e carreira acadêmica.
+- Formação continuada e tendências de carreira.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@guimaraes1985].

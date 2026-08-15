@@ -1,0 +1,27 @@
+---
+title: "Principais áreas da Computação"
+---
+
+## Objetivos de aprendizagem
+
+- Reconhecer as principais áreas da Computação e o objeto de estudo de cada
+  uma.
+- Relacionar uma área a problemas concretos que ela resolve.
+- Identificar como as áreas se combinam em uma solução real.
+- Descrever uma solução computacional em termos das áreas envolvidas.
+
+## Conteúdo previsto
+
+- Engenharia de software e desenvolvimento de sistemas.
+- Arquitetura e organização de computadores.
+- Bancos de dados e ciência de dados.
+- Redes de computadores e sistemas distribuídos.
+- Inteligência artificial e aprendizado de máquina.
+- Segurança da informação.
+- Interação humano-computador.
+- Computação aplicada a outras áreas do conhecimento.
+- Estudo de caso integrador do primeiro bimestre.
+
+## Leituras recomendadas
+
+Capítulos correspondentes em [@brookshear2013] e [@forouzan2011].

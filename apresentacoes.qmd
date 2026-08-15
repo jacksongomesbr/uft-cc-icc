@@ -1,0 +1,41 @@
+# Apresentações {.unnumbered}
+
+Cada capítulo tem uma apresentação própria, em Reveal.js, usada nas aulas. A
+@tbl-apresentacoes reúne todas, e os links abrem os slides no navegador, sem
+instalação. Os endereços são absolutos, para que funcionem também a partir do
+PDF do livro.
+
+Nos slides, `s` abre as notas do apresentador, `f` entra em tela cheia, `o`
+mostra a visão geral dos quadros e `?` lista os demais atalhos. Para gerar um PDF
+de uma apresentação, acrescente `?print-pdf` ao endereço e use a impressão do
+navegador.
+
+A tabela é indexada por capítulo, e não por encontro. Os dois números não
+coincidem: os capítulos 1 a 8 ocupam os encontros 1 a 8, e os capítulos 9 a 16
+ocupam os encontros 10 a 17, porque o encontro 9 é de avaliação. A
+@tbl-encontros, na apresentação do livro, mostra a correspondência completa.
+
+| **Capítulo** | **Apresentação** |
+|---:|---|
+| 1 | [Apresentação do curso e da Ciência da Computação](https://jacksongomesbr.github.io/uft-cc-icc/slides/01-apresentacao-e-panorama.html) |
+| 2 | [História da Computação](https://jacksongomesbr.github.io/uft-cc-icc/slides/02-historia-da-computacao.html) |
+| 3 | [O computador como sistema](https://jacksongomesbr.github.io/uft-cc-icc/slides/03-computador-como-sistema.html) |
+| 4 | [Organização básica do hardware](https://jacksongomesbr.github.io/uft-cc-icc/slides/04-organizacao-do-hardware.html) |
+| 5 | [Sistemas numéricos e conversão entre bases](https://jacksongomesbr.github.io/uft-cc-icc/slides/05-sistemas-numericos.html) |
+| 6 | [Aritmética binária e representação de dados](https://jacksongomesbr.github.io/uft-cc-icc/slides/06-aritmetica-binaria.html) |
+| 7 | [Conceitos de software](https://jacksongomesbr.github.io/uft-cc-icc/slides/07-conceitos-de-software.html) |
+| 8 | [Principais áreas da Computação](https://jacksongomesbr.github.io/uft-cc-icc/slides/08-areas-da-computacao.html) |
+| 9 | [A profissão de bacharel em Ciência da Computação](https://jacksongomesbr.github.io/uft-cc-icc/slides/09-profissao-e-carreira.html) |
+| 10 | [Ética profissional em Computação](https://jacksongomesbr.github.io/uft-cc-icc/slides/10-etica-profissional.html) |
+| 11 | [Direitos autorais, licenças e autoria de código](https://jacksongomesbr.github.io/uft-cc-icc/slides/11-direitos-autorais-e-licencas.html) |
+| 12 | [LGPD e proteção de dados](https://jacksongomesbr.github.io/uft-cc-icc/slides/12-lgpd-e-protecao-de-dados.html) |
+| 13 | [Impactos sociais da Computação](https://jacksongomesbr.github.io/uft-cc-icc/slides/13-impactos-sociais.html) |
+| 14 | [Impactos ambientais e Computação sustentável](https://jacksongomesbr.github.io/uft-cc-icc/slides/14-impactos-ambientais.html) |
+| 15 | [Atualidades em informática](https://jacksongomesbr.github.io/uft-cc-icc/slides/15-atualidades-em-informatica.html) |
+| 16 | [Síntese integradora](https://jacksongomesbr.github.io/uft-cc-icc/slides/16-sintese-integradora.html) |
+
+: Apresentações por capítulo da disciplina. {#tbl-apresentacoes}
+
+O livro completo também está disponível em PDF, pelo botão de download no topo da
+barra lateral, ou diretamente em
+<https://jacksongomesbr.github.io/uft-cc-icc/Introducao-a-Ciencia-da-Computacao.pdf>.

@@ -1,0 +1,24 @@
+---
+title: "Síntese integradora"
+subtitle: "Capítulo 16"
+author: "Prof. Dr. Jackson Gomes de Souza"
+institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
+---
+
+## Roteiro
+
+- Roteiro de análise de uma solução computacional.
+- Dimensão técnica: hardware, software, dados e representação da informação.
+- Dimensão profissional: quem constrói, com que competências e sob que
+  responsabilidade.
+- Dimensão ética e legal: conduta, direitos autorais e proteção de dados.
+- Dimensão social e ambiental: quem é afetado e a que custo.
+
+## Roteiro, continuação
+
+- Apresentação e discussão das análises das equipes.
+
+## Referências {.scrollable}
+
+::: {#refs}
+:::
