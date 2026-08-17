@@ -5,20 +5,492 @@ author: "Prof. Dr. Jackson Gomes de Souza"
 institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 ---
 
-## Roteiro
+## O propósito deste capítulo
 
-- Cálculo mecânico: ábaco, Pascal, Leibniz, Jacquard.
-- Babbage e Lovelace: a máquina analítica e a ideia de programa.
-- Boole e a álgebra de dois valores, retomada nos capítulos 5 e 6.
-- Turing, Von Neumann e a arquitetura de programa armazenado.
-- Gerações de computadores: válvula, transistor, circuito integrado,
-  microprocessador.
+> Ser capaz de avaliar uma afirmação sobre a origem de uma tecnologia,
+> declarando o critério que a sustenta e distinguindo a data da ideia, a da
+> primeira implementação e a da adoção em escala.
 
-## Roteiro, continuação
+. . .
 
-- Computação pessoal, redes e a Web.
-- Computação móvel: o smartphone e os serviços conectados.
-- Transformações sociais associadas a cada etapa.
+O propósito não é reconhecer marcos. É **julgar afirmações sobre eles**.
+
+## Objetivos de aprendizagem {.smaller}
+
+- Justificar, com o critério declarado, por que um artefato é chamado de
+  primeiro em alguma coisa.
+- Distinguir a data da ideia, a da primeira implementação e a da adoção em
+  escala.
+- Reconhecer os marcos que separam as gerações de computadores e relacionar
+  cada um ao problema que ele resolvia.
+- Identificar pessoas cuja contribuição costuma ficar fora das listas usuais.
+- Explicar por que a história da área ajuda a entender as tecnologias atuais.
+
+# Cinco máquinas e uma pergunta
+
+## Z3 {.smaller}
+
+Konrad Zuse, Alemanha.
+
+- Construída com **relés**, que são interruptores acionados eletricamente.
+- Recebia a sequência de operações em fita perfurada.
+- Funcionou.
+
+## Colossus
+
+![](../diagrams/02/colossus.jpg){fig-align="center" width="62%"}
+
+Bletchley Park, Reino Unido. Construído com válvulas para quebrar cifras.
+Eletrônico, funcionou durante a guerra, fazia criptanálise.
+
+::: {.smaller}
+Imagem em domínio público, obtida no Wikimedia Commons.
+:::
+
+## Atanasoff-Berry Computer
+
+Estados Unidos.
+
+- Aplicava eletrônica à solução de sistemas de equações lineares.
+- Nunca chegou a operar de forma plenamente confiável.
+
+## Harvard Mark I
+
+- Eletromecânico.
+- Ocupava uma sala.
+- Recebia instruções em fita.
+- Produziu cálculos por anos seguidos.
+
+## ENIAC
+
+![](../diagrams/02/eniac.jpg){fig-align="center" width="62%"}
+
+Eletrônico, resolvia problemas de tipos variados, funcionou. Programado por
+cabos e chaves: trocar o problema levava dias.
+
+::: {.smaller}
+Fotografia de TexasDex, licenciada em CC BY-SA 3.0, obtida no Wikimedia Commons.
+:::
+
+# Parem aqui {background-color="#1a1a1a"}
+
+## Escrevam agora {background-color="#1a1a1a" .r-fit-text}
+
+1. Qual dessas cinco foi o **primeiro computador**?
+
+2. Em uma frase, **por que** essa e não as outras?
+
+## Guardem a folha {background-color="#1a1a1a"}
+
+A segunda pergunta é a que interessa.
+
+. . .
+
+Escrevam mesmo que a resposta pareça óbvia.
+
+. . .
+
+A folha será usada duas vezes: daqui a cinco minutos e no fim do capítulo.
+
+# Por que a resposta não fecha
+
+## Comparem com dois colegas
+
+::: {.incremental}
+- **ENIAC**: "resolvia problemas de tipos diferentes"
+- **Colossus**: "era eletrônico, os outros tinham peças que se moviam"
+- **Z3**: "recebia um programa e podia ser reprogramado"
+- **Harvard Mark I**: "funcionou de verdade, por anos"
+:::
+
+## Nenhuma dessas frases está errada
+
+E é exatamente esse o problema.
+
+. . .
+
+Cada uma usa um **critério diferente** sem dizer que o está usando.
+
+. . .
+
+Versatilidade. Tecnologia. Programabilidade. Uso efetivo.
+
+## O que falta não é dado
+
+Duas pessoas que conheçam todos os fatos continuarão discordando enquanto não
+disserem qual critério estão aplicando.
+
+. . .
+
+**O que falta é instrumento.**
+
+## A pergunta de aprendizagem
+
+> Que instrumentos permitem julgar uma afirmação sobre origem de tecnologia, em
+> vez de apenas ter uma opinião sobre ela?
+
+# Os instrumentos que faltavam
+
+## Instrumento 1: o critério declarado {.smaller}
+
+Peguem a folha de vocês. A frase contém um critério, mesmo sem nomeá-lo.
+
+| **Critério** | **Pergunta que ele faz** |
+|---|---|
+| Eletrônico | Os sinais passam por componentes eletrônicos, e não por peças que se movem? |
+| Programável | A sequência pode ser alterada sem reconstruir a máquina? |
+| Propósito geral | Resolve classes variadas de problemas, ou apenas um? |
+| Programa armazenado | As instruções ficam na memória, junto com os dados? |
+| Operacional | Houve uso documentado e repetível, ou apenas um protótipo? |
+
+Localizem o critério que vocês usaram sem nomear.
+
+## O superlativo sem critério é propaganda
+
+Quando lerem que uma empresa lançou o primeiro telefone com tela sensível ao
+toque ou a primeira rede social, a pergunta é sempre a mesma:
+
+. . .
+
+**Primeiro sob qual critério?**
+
+. . .
+
+Protótipo, patente, venda, escala de adoção e influência são coisas distintas.
+
+## Instrumento 2: as três camadas
+
+![](../diagrams/02/regua-de-calculo.png){fig-align="center" width="92%"}
+
+Problema, representação, mecanismo. A régua multiplica sem que o mecanismo saiba
+multiplicar: ele só soma comprimentos.
+
+## Instrumento 3: três datas diferentes
+
+::: {.incremental}
+- A data em que alguém **formulou a ideia**.
+- A data em que alguém **construiu** um artefato que a incorpora.
+- A data em que ele passou a ser **usado em escala**.
+:::
+
+. . .
+
+A máquina analítica de Babbage: ideia sim, implementação não.
+
+## Instrumento 4: evitar anacronismo
+
+O ábaco não é um computador lento. É um registro de valores por posição.
+
+. . .
+
+Os cartões de Jacquard não são software. São um meio de controle.
+
+. . .
+
+Apontem a continuidade **e** a diferença de escala, meio físico e capacidade.
+
+# A cronologia
+
+## Onze períodos
+
+![](../diagrams/02/linha-do-tempo.png){fig-align="center" width="92%"}
+
+## O ábaco e a convenção de leitura
+
+![](../diagrams/02/abaco-suanpan.jpg){fig-align="center" width="52%"}
+
+O resultado não está nas peças. Está na **convenção de leitura**. A mesma lição
+volta no capítulo 5, com bits.
+
+::: {.smaller}
+Fotografia de Felix Winkelnkemper, licenciada em CC BY-SA 4.0,
+Wikimedia Commons.
+:::
+
+## Pascalina: a engrenagem executa a convenção
+
+![](../diagrams/02/pascalina.jpg){fig-align="center" width="55%"}
+
+$8 + 7$: ao completar dez posições, a roda volta a zero e empurra uma unidade na
+roda das dezenas. Ela não sabe aritmética.
+
+::: {.smaller}
+Fotografia de Rama, licenciada em CC BY-SA 3.0 fr, Wikimedia Commons.
+:::
+
+## Computador era uma pessoa
+
+Por muito tempo, **computador** designava alguém contratado para executar
+cálculos e produzir tabelas.
+
+. . .
+
+O trabalho era organizado como linha de produção: cada pessoa executava uma
+etapa sobre o resultado da anterior, muitas vezes sem conhecer o objetivo do
+conjunto.
+
+. . .
+
+Boa parte eram mulheres, e as equipes que operaram os primeiros computadores
+eletrônicos vieram desse trabalho.
+
+## A automação não fez o trabalho sumir
+
+Ela o reorganizou, e com frequência tornou invisível quem o executava.
+
+. . .
+
+Reparem nas fotografias do Colossus e do ENIAC: em ambas há operadoras
+trabalhando, e em nenhuma lista de "quem inventou o computador" elas aparecem.
+
+. . .
+
+É um padrão que volta no capítulo 13, com casos atuais.
+
+## Jacquard: controle separado do mecanismo
+
+![](../diagrams/02/tear-de-jacquard.jpg){fig-align="center" width="58%"}
+
+Trocar a sequência de cartões troca o produto sem reconstruir o tear.
+
+::: {.smaller}
+Fotografia de Stephencdickson, licenciada em CC BY-SA 4.0, Wikimedia Commons.
+:::
+
+## Babbage: as quatro funções
+
+![](../diagrams/02/babbage-funcoes.png){fig-align="center" width="88%"}
+
+A mesma divisão reaparece nos capítulos 3 e 4, proposta um século antes de
+existir máquina capaz de realizá-la.
+
+## Lovelace e Boole
+
+:::: {.columns}
+::: {.column width="50%"}
+![](../diagrams/02/ada-lovelace.jpg){width="72%"}
+
+Os símbolos não precisam representar quantidades.
+:::
+::: {.column width="50%"}
+![](../diagrams/02/george-boole.jpg){width="72%"}
+
+Uma álgebra de dois valores, sem máquina em vista.
+:::
+::::
+
+::: {.smaller}
+Imagens em domínio público, obtidas no Wikimedia Commons.
+:::
+
+## Hollerith: a categoria vem antes do dado
+
+![](../diagrams/02/cartao-hollerith.jpg){fig-align="center" width="88%"}
+
+Um dado que não coube na categoria prevista não aparece no total, e ninguém que
+leia o total percebe a ausência.
+
+::: {.smaller}
+Imagem em domínio público, obtida no Wikimedia Commons.
+:::
+
+## Turing: os limites antes dos instrumentos
+
+Nos anos 1930, antes de qualquer computador eletrônico [@turing1937].
+
+. . .
+
+Fita, cabeçote, estados e regras. Ninguém pretendia construir isso.
+
+. . .
+
+**A área conheceu seus limites antes de conhecer seus instrumentos.**
+
+# Voltando às cinco máquinas
+
+## Agora com instrumento
+
+![](../diagrams/02/matriz-criterios.png){fig-align="center" width="92%"}
+
+## Duas linhas resolvidas {.smaller}
+
+**Z3**: programável (fita trocável) e operacional. Não eletrônica (relés se
+movem), não é de propósito geral, não guarda programa. Duas colunas favoráveis.
+
+. . .
+
+**Colossus**: eletrônico e operacional, programável apenas em parte. Não é de
+propósito geral.
+
+. . .
+
+Nenhuma é melhor que a outra: são favoráveis em **colunas diferentes**.
+
+## Completem as outras três
+
+ABC, Harvard Mark I e ENIAC.
+
+. . .
+
+Depois leiam por **coluna**, e não por linha: cada coluna tem pelo menos uma
+resposta favorável, e nenhuma linha da guerra é favorável em tudo.
+
+. . .
+
+Só a linha do pós-guerra é favorável nas cinco.
+
+## O programa armazenado
+
+| Posição | Conteúdo | Papel |
+|---|---|---|
+| 0 | somar | Instrução |
+| 1 | parar | Instrução |
+| 2 | 4 | Dado |
+| 3 | 5 | Dado |
+
+Para trocar a soma por uma subtração, altera-se a posição 0. Sem cabo para
+religar, sem cartão para reordenar.
+
+## Três consequências {.smaller}
+
+::: {.incremental}
+- Programar deixa de ser trabalho físico e passa a ser **escrita**.
+- Uma instrução, por estar na memória como dado, pode ser lida e escrita por
+  outro programa. É o compilador do capítulo 7.
+- Instrução e dado só se distinguem pelo uso. Essa fragilidade é a origem de
+  toda uma família de problemas de segurança.
+:::
+
+# Do transistor ao telefone
+
+## As quatro gerações {.smaller}
+
+| Geração | Componente | O que a transição resolveu |
+|---|---|---|
+| Primeira | Válvula | Velocidade eletrônica, sem peça móvel |
+| Segunda | Transistor | Confiabilidade, tamanho e consumo |
+| Terceira | Circuito integrado | Custo por função e compatibilidade |
+| Quarta | Microprocessador | Processador em uma peça |
+
+A tabela conta a história pelo componente. Linguagem, sistema operacional,
+interface e rede não aparecem nela, e explicam tanto quanto.
+
+## O transistor
+
+![](../diagrams/02/primeiro-transistor.jpg){fig-align="center" width="40%"}
+
+Comparem com os painéis do ENIAC. Uma máquina confiável pode ser vendida a quem
+não tem equipe de manutenção própria.
+
+::: {.smaller}
+Fotografia de Revol Web, licenciada em CC BY-SA 2.0, Wikimedia Commons.
+:::
+
+## O circuito integrado
+
+![](../diagrams/02/intel-4004-layout.jpg){fig-align="center" width="50%"}
+
+Compatibilidade preserva investimento, e por isso pesa mais que desempenho bruto
+em quase toda decisão real.
+
+::: {.smaller}
+Desenho de projeto do Intel 4004. Fotografia de Wolfgang Stief, em CC0,
+Wikimedia Commons.
+:::
+
+## O que os anos 1960 anteciparam
+
+![](../diagrams/02/mouse-engelbart.jpg){fig-align="center" width="45%"}
+
+Entre esse objeto de madeira e o equipamento de vocês há mais de uma década.
+Ideia, implementação e adoção outra vez.
+
+::: {.smaller}
+Fotografia de Michael Hicks, licenciada em CC BY 2.0, Wikimedia Commons.
+:::
+
+## Por que uma planilha vende um computador
+
+Antes, testar uma hipótese exigia refazer todas as contas à mão, e por isso se
+testava uma ou duas.
+
+. . .
+
+Depois, testar custa uma digitação, e por isso se testam vinte.
+
+. . .
+
+A máquina virou meio, e a aplicação virou motivo.
+
+## Internet e Web não são a mesma coisa
+
+![](../diagrams/02/camadas-web.png){fig-align="center" width="38%"}
+
+A Internet é anterior à Web em décadas. Correio eletrônico e transferência de
+arquivos usam a Internet sem serem Web.
+
+## Nuvem
+
+Nuvem **não** elimina máquina física.
+
+. . .
+
+Ela desloca processamento e armazenamento para centros de dados que pertencem a
+alguém, ficam em algum país, consomem energia de alguma matriz e estão sujeitos
+a alguma legislação.
+
+. . .
+
+Cada um desses quatro fatos vira um capítulo do segundo bloco.
+
+# Fechamento
+
+## A etiqueta temporal {.smaller}
+
+| Classe | Formulação segura |
+|---|---|
+| Marco documentado | "O livro registra que, em tal ano, ..." |
+| Tendência observada | "O autor identifica uma tendência de ..." |
+| Previsão | "O livro projeta que ..." |
+| Estado atual | Verificar em fonte recente e datada |
+
+Uma previsão impressa em um livro sério continua sendo uma previsão.
+
+## Quatro padrões que se repetem {.smaller}
+
+::: {.incremental}
+- A **solução costuma preceder o problema**. A base dois esperou séculos por um
+  circuito; a álgebra de Boole esperou quase um século por Shannon.
+- A **adoção depende de aplicação concreta**, não de qualidade técnica isolada.
+- **Compatibilidade e ecossistema** decidem disputas que a especificação não
+  decide.
+- Toda automação **reorganiza trabalho humano**, e o torna menos visível em vez
+  de fazê-lo desaparecer.
+:::
+
+## A tarefa desta semana {.smaller}
+
+**Aplicação.** Um marco da linha do tempo, com os quatro instrumentos: três
+camadas, critério declarado, três datas, continuidade e diferença.
+
+. . .
+
+**Transferência.** Uma alegação de pioneirismo sobre um produto atual. Sob que
+critério ela é verdadeira, e sob qual é falsa?
+
+. . .
+
+**Integração.** Recuperem a folha da abertura. Que critério vocês usaram sem
+saber? O que conseguem decidir hoje que não conseguiam no início da aula?
+
+## A pergunta que fecha
+
+Se a resposta for "nada mudou, apenas sei mais nomes e datas", o capítulo falhou
+com vocês.
+
+. . .
+
+O propósito não era reconhecer marcos. Era **julgar afirmações sobre eles**.
 
 ## Referências {.scrollable}
 

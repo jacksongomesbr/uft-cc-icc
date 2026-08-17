@@ -12,6 +12,10 @@ format:
     theme: simple
     slide-number: true
     transition: fade
+    # Os títulos de nível 1 viram divisórias de seção, e o Pandoc os transforma
+    # em pilhas verticais. Sem isto, a seta para a direita do apresentador de
+    # slides pula o conteúdo da seção inteira em vez de avançar um slide.
+    navigation-mode: linear
     preview-links: true
     footer: "Introdução à Ciência da Computação — UFT, Câmpus Palmas"
     code-copy: true

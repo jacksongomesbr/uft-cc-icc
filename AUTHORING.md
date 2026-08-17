@@ -156,4 +156,11 @@ quarto render
 (cd slides && quarto render)
 ```
 
+**A ordem importa, e não é intercambiável.** Os slides saem em `_output/slides/`
+e referenciam as imagens como `../diagrams/`, que resolve para
+`_output/diagrams/`. Essa pasta é criada pelo render do livro. Renderizar apenas
+os slides em um `_output/` limpo produz um deck com todas as imagens quebradas,
+sem nenhum aviso durante a renderização. O fluxo do GitHub Actions já executa os
+dois na ordem correta.
+
 Ao acrescentar Mermaid, confira principalmente o PDF e a apresentação HTML.

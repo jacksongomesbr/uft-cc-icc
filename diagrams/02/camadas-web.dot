@@ -1,0 +1,20 @@
+// As camadas envolvidas em uma página da Web. Cada uma se apoia na de baixo.
+// Em Graphviz, e não em Mermaid, porque a figura aparece no capítulo e no
+// slide: uma única fonte evita que as duas versões divirjam.
+// Orientação vertical porque a metáfora é de empilhamento, e porque quatro
+// caixas em linha produzem uma figura larga demais para a mancha da página.
+digraph camadas_web {
+  rankdir=TB;
+  bgcolor="white";
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.20, ranksep=0.34];
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", margin="0.20,0.10", width=3.1];
+  edge [color="#666666", arrowsize=0.7];
+
+  S [label="Serviço\nbusca, venda, publicação", fillcolor="#dcefdc"];
+  N [label="Navegador\nsolicita e apresenta recursos", fillcolor="#dceff0"];
+  W [label="Web\nURL, HTTP e hipertexto", fillcolor="#dcedf7"];
+  I [label="Internet\ntransporta dados entre redes", fillcolor="#e6dcf7"];
+
+  S -> N -> W -> I;
+}

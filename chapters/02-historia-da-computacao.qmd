@@ -963,18 +963,7 @@ existe sob licenças dessa família.
 A Internet e a Web não são a mesma coisa, e a confusão entre as duas é o erro
 mais comum deste assunto. A @fig-camadas-web separa as camadas.
 
-```{mermaid}
-%%| label: fig-camadas-web
-%%| fig-cap: "As camadas envolvidas em uma página. Cada uma se apoia na de baixo e não se confunde com ela."
-%%| fig-width: 6
-%%| echo: false
-flowchart LR
-  S["Servico<br/>busca, venda,<br/>publicacao"]
-  N["Navegador<br/>solicita e<br/>apresenta recursos"]
-  W["Web<br/>URL, HTTP<br/>e hipertexto"]
-  I["Internet<br/>transporta dados<br/>entre redes"]
-  S --> N --> W --> I
-```
+![As camadas envolvidas em uma página. Cada uma se apoia na de baixo e não se confunde com ela. Elaboração própria.](../diagrams/02/camadas-web.png){#fig-camadas-web width=52% fig-alt="Quatro caixas ligadas da esquerda para a direita por setas rotuladas apoia-se em. Serviço, com busca, venda e publicação, apoia-se em Navegador, que solicita e apresenta; este apoia-se em Web, com URL, HTTP e hipertexto; e esta apoia-se em Internet, que transporta dados entre redes."}
 
 A Internet transporta dados entre redes e é anterior à Web em décadas. A Web
 organiza recursos por endereços, protocolos e ligações de hipertexto, e é um
@@ -1187,7 +1176,6 @@ apenas sei mais nomes e datas", o capítulo falhou com vocês, e vale dizer isso
 ao professor. O propósito enunciado na abertura não era reconhecer marcos: era
 julgar afirmações sobre eles.
 
-Guardem as duas folhas. O capítulo 16 pede uma análise integradora da mesma
-natureza, sobre um objeto escolhido pela equipe, e a comparação entre o que
-vocês escreviam na segunda semana e na décima sexta é uma das evidências que a
-disciplina usa.
+Guardem as duas folhas. O capítulo 16 fecha o semestre com uma análise da
+mesma natureza, e a comparação entre o que vocês escreviam na segunda semana e
+na décima sexta é uma das evidências que a disciplina usa.
