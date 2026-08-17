@@ -18,6 +18,7 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 - Segurança da informação.
 - Interação humano-computador.
 - Computação aplicada a outras áreas do conhecimento.
+- Limites da computação: o problema lento e o problema sem algoritmo geral.
 - Estudo de caso integrador do primeiro bimestre.
 
 ## Referências {.scrollable}

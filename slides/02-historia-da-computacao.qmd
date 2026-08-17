@@ -9,13 +9,15 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 
 - Cálculo mecânico: ábaco, Pascal, Leibniz, Jacquard.
 - Babbage e Lovelace: a máquina analítica e a ideia de programa.
+- Boole e a álgebra de dois valores, retomada nos capítulos 5 e 6.
 - Turing, Von Neumann e a arquitetura de programa armazenado.
 - Gerações de computadores: válvula, transistor, circuito integrado,
   microprocessador.
-- Computação pessoal, redes e a Web.
 
 ## Roteiro, continuação
 
+- Computação pessoal, redes e a Web.
+- Computação móvel: o smartphone e os serviços conectados.
 - Transformações sociais associadas a cada etapa.
 
 ## Referências {.scrollable}

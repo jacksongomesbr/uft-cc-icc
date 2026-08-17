@@ -9,6 +9,7 @@ title: "Principais áreas da Computação"
 - Relacionar uma área a problemas concretos que ela resolve.
 - Identificar como as áreas se combinam em uma solução real.
 - Descrever uma solução computacional em termos das áreas envolvidas.
+- Distinguir um problema lento de um problema sem algoritmo geral.
 
 ## Conteúdo previsto
 
@@ -20,6 +21,7 @@ title: "Principais áreas da Computação"
 - Segurança da informação.
 - Interação humano-computador.
 - Computação aplicada a outras áreas do conhecimento.
+- Limites da computação: o problema lento e o problema sem algoritmo geral.
 - Estudo de caso integrador do primeiro bimestre.
 
 ## Leituras recomendadas
