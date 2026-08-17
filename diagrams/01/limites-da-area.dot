@@ -1,0 +1,42 @@
+// Quatro categorias de problema que a Computação não resolve por si.
+// Capítulo 1, seção "Os problemas que a área não resolve".
+digraph limites_da_area {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.14,0.09"];
+  edge [color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.30, ranksep=0.35];
+
+  raiz [label="Um problema chega à equipe", fillcolor="#eeeeee", shape=box,
+        style="filled,rounded"];
+
+  q1 [label="Existe algoritmo?", shape=diamond, fillcolor="#f7f3dc"];
+  q2 [label="O custo cabe\nno prazo útil?", shape=diamond,
+      fillcolor="#f7f3dc"];
+  q3 [label="O pedido diz o que\nconta como cumprido?", shape=diamond,
+      fillcolor="#f7f3dc"];
+  q4 [label="O problema é técnico?", shape=diamond, fillcolor="#f7f3dc"];
+
+  ok [label="A Computação resolve", fillcolor="#dcedf7",
+      style="filled,rounded"];
+
+  n1 [label="Indecidível\nNão existe algoritmo, e está\ndemonstrado que não existe",
+      fillcolor="#f7e3dc"];
+  n2 [label="Intratável na prática\nTroca-se a resposta exata\npor uma resposta boa o bastante",
+      fillcolor="#f7e3dc"];
+  n3 [label="Mal especificado\nNinguém consegue verificar\nse a entrega cumpre o pedido",
+      fillcolor="#f7e3dc"];
+  n4 [label="Não é problema técnico\nO sistema aplica a regra\nmais rápido e a mais gente",
+      fillcolor="#f7e3dc"];
+
+  raiz -> q1;
+  q1 -> q2 [label=" sim"];
+  q1 -> n1 [label=" não"];
+  q2 -> q3 [label=" sim"];
+  q2 -> n2 [label=" não"];
+  q3 -> q4 [label=" sim"];
+  q3 -> n3 [label=" não"];
+  q4 -> ok [label=" sim"];
+  q4 -> n4 [label=" não"];
+}

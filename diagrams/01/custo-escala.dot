@@ -1,0 +1,82 @@
+// Custo de duas soluções para o mesmo problema, à medida que a entrada dobra.
+// A barra é proporcional ao esforço. O método B cresce quatro vezes a cada
+// duplicação da entrada e sai da escala do desenho antes do método A.
+// Capítulo 1, seção "O custo de uma solução".
+digraph custo_escala {
+  bgcolor="white";
+  node [shape=plaintext, fontname="Helvetica", fontsize=11];
+  graph [fontname="Helvetica", fontsize=11];
+
+  tabela [label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="0">
+      <TR>
+        <TD COLSPAN="18" ALIGN="LEFT" CELLPADDING="4">
+          <B>Método A — o esforço dobra quando a entrada dobra</B>
+        </TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">1 mil</TD>
+        <TD BGCOLOR="#2c6ea3" FIXEDSIZE="TRUE" WIDTH="14" HEIGHT="13"></TD>
+        <TD COLSPAN="15" FIXEDSIZE="TRUE" WIDTH="238" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">1</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">2 mil</TD>
+        <TD BGCOLOR="#2c6ea3" COLSPAN="2" FIXEDSIZE="TRUE" WIDTH="30" HEIGHT="13"></TD>
+        <TD COLSPAN="14" FIXEDSIZE="TRUE" WIDTH="222" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">2</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">4 mil</TD>
+        <TD BGCOLOR="#2c6ea3" COLSPAN="4" FIXEDSIZE="TRUE" WIDTH="62" HEIGHT="13"></TD>
+        <TD COLSPAN="12" FIXEDSIZE="TRUE" WIDTH="190" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">4</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">8 mil</TD>
+        <TD BGCOLOR="#2c6ea3" COLSPAN="8" FIXEDSIZE="TRUE" WIDTH="126" HEIGHT="13"></TD>
+        <TD COLSPAN="8" FIXEDSIZE="TRUE" WIDTH="126" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">8</TD>
+      </TR>
+
+      <TR><TD COLSPAN="18" HEIGHT="10"></TD></TR>
+
+      <TR>
+        <TD COLSPAN="18" ALIGN="LEFT" CELLPADDING="4">
+          <B>Método B — o esforço quadruplica quando a entrada dobra</B>
+        </TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">1 mil</TD>
+        <TD BGCOLOR="#a35c2c" FIXEDSIZE="TRUE" WIDTH="14" HEIGHT="13"></TD>
+        <TD COLSPAN="15" FIXEDSIZE="TRUE" WIDTH="238" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">1</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">2 mil</TD>
+        <TD BGCOLOR="#a35c2c" COLSPAN="4" FIXEDSIZE="TRUE" WIDTH="62" HEIGHT="13"></TD>
+        <TD COLSPAN="12" FIXEDSIZE="TRUE" WIDTH="190" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">4</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">4 mil</TD>
+        <TD BGCOLOR="#a35c2c" COLSPAN="16" FIXEDSIZE="TRUE" WIDTH="254" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">16</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" CELLPADDING="4">8 mil</TD>
+        <TD BGCOLOR="#a35c2c" COLSPAN="16" FIXEDSIZE="TRUE" WIDTH="254" HEIGHT="13"></TD>
+        <TD ALIGN="LEFT" CELLPADDING="4">
+          <FONT POINT-SIZE="10">64 — fora da escala</FONT>
+        </TD>
+      </TR>
+
+      <TR>
+        <TD COLSPAN="18" ALIGN="LEFT" CELLPADDING="6"><FONT POINT-SIZE="10">
+          O esforço está em unidades arbitrárias, e as duas barras de 1 mil
+          itens valem a mesma unidade.
+        </FONT></TD>
+      </TR>
+    </TABLE>
+  >];
+}

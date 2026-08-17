@@ -1,0 +1,24 @@
+// Camadas de abstração: cada camada esconde a de baixo.
+// Capítulo 1, seção "Abstração".
+digraph camadas_abstracao {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=11, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", width=3.4, height=0.5,
+        fixedsize=false, margin="0.14,0.08"];
+  edge [fontname="Helvetica", fontsize=10, color="#666666"];
+  graph [fontname="Helvetica", fontsize=11, ranksep=0.28];
+
+  app  [label="Aplicativo de caronas", fillcolor="#dcedf7"];
+  so   [label="Sistema operacional — capítulo 7", fillcolor="#e6eff5"];
+  hw   [label="Blocos do computador e barramentos — capítulo 4",
+        fillcolor="#eef3f7"];
+  circ [label="Circuitos lógicos — Sistemas Digitais, 4º período",
+        fillcolor="#f4f6f8"];
+  fis  [label="Física dos materiais — fora do curso", fillcolor="#fafafa"];
+
+  app -> so   [label="  esconde"];
+  so -> hw    [label="  esconde"];
+  hw -> circ  [label="  esconde"];
+  circ -> fis [label="  esconde"];
+}

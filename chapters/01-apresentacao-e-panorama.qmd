@@ -24,4 +24,879 @@ title: "Apresentação do curso e da Ciência da Computação"
 
 ## Leituras recomendadas
 
-Capítulos correspondentes em [@forouzan2011] e [@brookshear2013].
+Capítulos correspondentes em [@forouzan2011] e [@brookshear2013]. Quem quiser
+ir além do panorama encontra a formulação original de pensamento computacional
+em @wing2006 e um exame crítico dessa formulação em @denning2019.
+
+## O que a Ciência da Computação estuda
+
+Quase todo aluno chega a este curso pelo uso. Vocês trocam mensagens, assistem
+a vídeos, jogam em rede e movimentam dinheiro pelo telefone. Esse uso é
+repertório real e é a melhor porta de entrada para os assuntos deste livro. Ele
+também produz uma expectativa que precisa ser corrigida na primeira aula.
+
+Operar um sistema e construir um sistema são atividades distintas. Quem dirige
+um carro não precisa saber como o motor converte combustível em movimento, nem
+como o sistema de freios distribui a força entre as rodas. O motorista precisa
+saber o que o carro faz. Quem projeta o motor precisa saber por que ele faz.
+Vocês entraram no curso que estuda o porquê.
+
+A pergunta central da área não é como usar um computador. A pergunta é o que
+pode ser calculado, com que recursos e em quanto tempo. Um problema que ninguém
+sabe resolver não vira solução porque o computador é rápido. Um problema
+resolvido de forma ruim continua ruim depois de programado, e às vezes fica
+pior, porque o erro passa a ser cometido milhões de vezes por segundo.
+
+### O computador como objeto de estudo
+
+@forouzan2011 apresenta o computador como uma máquina de processamento de
+dados: ela recebe dados de entrada, transforma esses dados segundo um programa
+armazenado e produz dados de saída. A definição parece modesta, e é justamente
+por ser modesta que ela funciona. Ela vale para o telefone no bolso de vocês,
+para o computador da secretaria do curso e para o equipamento que processa uma
+transferência bancária.
+
+Dessa definição saem quase todos os capítulos deste livro. Se o computador
+recebe dados, alguém precisa decidir como representar um número, uma letra, uma
+foto e um som em uma máquina que só distingue dois estados elétricos. Esse é o
+assunto dos capítulos 5 e 6. Se o computador executa um programa armazenado,
+alguém precisa explicar onde esse programa fica, como ele chega ao processador
+e o que acontece enquanto ele roda. Esse é o assunto dos capítulos 3, 4 e 7.
+
+O termo **algoritmo** aparece aqui pela primeira vez e volta em quase todo
+capítulo. Um algoritmo é uma sequência finita de instruções, sem ambiguidade,
+que leva de uma entrada a um resultado. @brookshear2013 organiza a área inteira
+em torno desse conceito: a Ciência da Computação estuda algoritmos, o que eles
+podem fazer, como são construídos e quais problemas resistem a eles. A máquina
+é o instrumento que executa o algoritmo, e não o objeto final do estudo.
+
+Essa delimitação não é opinião de um autor. As diretrizes curriculares
+internacionais da área, revisadas por uma comissão conjunta da ACM, da IEEE
+Computer Society e da AAAI, organizam a Computação em áreas de conhecimento que
+incluem algoritmos, estruturas de dados, inteligência artificial e também as
+questões sociais, éticas e profissionais [@cs2023]. O capítulo 8 percorre essas
+áreas, e o segundo bloco do semestre trata das últimas.
+
+Um algoritmo não é um programa. O algoritmo é o raciocínio; o programa é a
+escrita desse raciocínio em uma linguagem que a máquina aceita. O mesmo
+algoritmo pode ser escrito em linguagens diferentes, e a escolha da linguagem
+não altera se ele está certo. Lógica de Programação, que vocês cursam neste
+mesmo período, trata da escrita. Esta disciplina trata do raciocínio e do
+contexto.
+
+### O que a área não é
+
+Três expectativas comuns levam alunos a se decepcionar no primeiro ano.
+
+A primeira é que o curso é sobre aprender a usar programas. Editor de texto,
+planilha e ferramenta de edição de imagem são instrumentos de trabalho, e vocês
+vão usá-los. O curso não os ensina, do mesmo modo que um curso de Letras não
+ensina a segurar a caneta. Quem procurava um curso de operação de sistemas está
+no lugar errado, e é melhor descobrir isso agora do que no quarto período.
+
+A segunda é que o curso forma técnico de manutenção. Vocês vão estudar a
+estrutura interna do equipamento nos capítulos 3 e 4, e vão voltar a ela em
+Sistemas Digitais e Organização de Computadores, mais adiante no curso. O
+objetivo desse estudo é entender os limites da máquina, porque todo programa
+roda em hardware real, com quantidade finita de memória, de energia e de tempo.
+Trocar uma peça com defeito é ofício respeitável e não é o ofício para o qual
+este curso forma.
+
+A terceira é que o curso é um curso de programação. A programação é a
+ferramenta central da área, e vocês vão programar muito, em várias linguagens,
+durante os oito períodos. Ela continua sendo ferramenta. Um escritor precisa da
+gramática, e a gramática não é o romance. O produto do trabalho de vocês será a
+solução de problemas, e o código é a forma que essa solução assume no fim.
+
+### Três casos em que o detalhe custou caro
+
+Um defeito escrito em um programa não fica contido no programa. A
+@fig-casos-reais reúne casos documentados, cada um ligado ao capítulo que trata
+do assunto por trás dele.
+
+![Casos reais citados neste capítulo e o assunto que cada um antecipa.](../diagrams/01/casos-reais.png){#fig-casos-reais width=92% fig-alt="Quatro casos em sequência horizontal, cada um ligado por linha tracejada ao capítulo correspondente: Ariane 5 em 1996 e representação de números no capítulo 6; Mars Climate Orbiter em 1999 e precisão e unidade no capítulo 6; Pix a partir de 2020 e escala e infraestrutura nos capítulos 3, 4 e 7; atualização da CrowdStrike em 2024 e dependência e impacto nos capítulos 13 e 14."}
+
+Em 4 de junho de 1996, o foguete Ariane 5 explodiu 40 segundos depois do
+lançamento, no voo inaugural. O conselho de inquérito da Agência Espacial
+Europeia encontrou a causa em uma linha do sistema de navegação: um número
+guardado em um formato grande foi convertido para um formato pequeno demais
+para contê-lo, a conversão falhou e o computador de bordo se desligou
+[@esa1996]. O trecho defeituoso nem precisava estar rodando naquele momento,
+porque servia apenas ao alinhamento da plataforma antes da decolagem. O
+capítulo 6 mostra por que um número pode não caber no espaço reservado a ele.
+
+Em setembro de 1999, a sonda Mars Climate Orbiter se perdeu ao chegar a Marte,
+depois de nove meses de viagem. O relatório da NASA apontou que dois programas
+trocavam dados de impulso em unidades diferentes: um deles escrevia os valores
+no sistema inglês, e o outro os lia como se estivessem no sistema métrico
+[@nasa1999]. Nenhum dos dois estava errado sozinho, e a @fig-mars-orbiter
+mostra o equipamento que se perdeu pela combinação dos dois.
+
+![A sonda Mars Climate Orbiter, perdida em 1999 por incompatibilidade de unidades entre dois programas. Imagem da NASA/JPL, em domínio público, obtida no Wikimedia Commons.](../diagrams/01/mars-climate-orbiter-nasa.jpg){#fig-mars-orbiter width=52% fig-alt="Representação da sonda Mars Climate Orbiter, com corpo em formato de caixa, um painel solar retangular estendido de um dos lados e uma antena parabólica voltada para a frente."}
+
+Em 19 de julho de 2024, uma atualização de um programa de segurança travou
+computadores com Windows no mundo inteiro. A Microsoft estimou 8,5 milhões de
+equipamentos afetados, menos de 1% do total de máquinas com aquele sistema
+[@microsoft2024]. Esse menos de 1% bastou para parar aeroporto, como registra a
+@fig-crowdstrike. O capítulo 13 trata dessa dependência e o capítulo 14 trata
+do custo que ela impõe.
+
+![Painéis de um aeroporto de Nova Iorque durante a falha de julho de 2024. Fotografia de Smishra1, licenciada em CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/01/crowdstrike-bsod-lga.jpg){#fig-crowdstrike width=72% fig-alt="Fila de monitores suspensos em um saguão de aeroporto, todos exibindo a tela azul de erro do Windows em vez das informações de voo."}
+
+Em nenhum dos três casos a equipe errou o objetivo do sistema. O erro esteve em
+um detalhe de representação, de unidade ou de distribuição, e se propagou muito
+além do trecho em que estava escrito. É o motivo pelo qual este livro gasta
+quatro capítulos com a forma como a informação é representada dentro da
+máquina.
+
+### O custo de uma solução
+
+A diferença entre uma solução boa e uma solução ruim raramente aparece em
+exemplos pequenos. Colocar dez nomes em ordem alfabética é tarefa que qualquer
+método resolve, inclusive um método atrapalhado, e a diferença some no tempo do
+café. Colocar em ordem os registros de todas as transações de um banco em um
+dia é outro problema, com a mesma descrição.
+
+O que muda é a escala. Um método que dobra o esforço quando o número de itens
+dobra é aceitável. Um método que multiplica o esforço por quatro quando o
+número de itens dobra funciona no teste com dez nomes e trava com um milhão.
+Os dois métodos produzem a mesma lista ordenada, e um deles é inútil na
+prática. A @fig-custo-escala compara os dois em quatro duplicações da entrada.
+
+![Esforço de dois métodos que resolvem o mesmo problema, à medida que a entrada dobra.](../diagrams/01/custo-escala.png){#fig-custo-escala width=88% fig-alt="Dois conjuntos de barras horizontais. No método A, as barras crescem de 1 para 2, 4 e 8 unidades conforme a entrada vai de mil a oito mil itens. No método B, com a mesma entrada, as barras vão de 1 para 4, 16 e 64 unidades, e as duas últimas já ultrapassam a largura do desenho."}
+
+A barra do método B sai do desenho antes de a entrada chegar a oito mil itens,
+e oito mil é pouco. Em 2025, o Pix registrou quase 80 bilhões de transações,
+movimentou mais de 35 trilhões de reais e foi usado por cerca de 148 milhões de
+pessoas, o equivalente a 86% da população adulta do país [@bcb2026]. Ordenar e
+conferir esse volume é o mesmo problema dos dez nomes, com muitos zeros a mais.
+Um método que quadruplica o esforço a cada duplicação não chega ao fim do dia.
+
+Medir esse custo com rigor é assunto de Projeto e Análise de Algoritmos, no
+sexto período. Nada neste livro depende dessa medida formal. O que vocês
+precisam levar deste capítulo é o hábito de perguntar quanto custa, e não
+apenas se funciona. É a pergunta que separa o profissional da área de quem
+apenas escreve código que roda na própria máquina.
+
+Custo também não é só tempo. Um sistema consome memória, consome energia,
+consome atenção de quem o mantém e produz calor que precisa ser dissipado. O
+capítulo 14 mostra que essas contas, somadas, aparecem na conta de luz de um
+centro de dados e no impacto ambiental do setor. A pergunta sobre custo, feita
+no primeiro período, é a mesma que retorna no décimo quarto capítulo com outro
+vocabulário.
+
+### Ciência, engenharia e matemática na mesma área
+
+O nome do curso diz ciência, e o trabalho do egresso costuma parecer
+engenharia. As duas posturas convivem na área, junto com uma terceira, e boa
+parte da confusão sobre o que a Computação é vem de tomar uma delas pelo todo.
+
+A parte matemática trata de objetos que existem independentemente de qualquer
+máquina. Um algoritmo de ordenação é correto ou não é, e a demonstração disso
+não depende do equipamento em que ele roda. Os limites do que pode ser
+calculado, estudados em Teoria da Computação, valeriam mesmo que nunca tivesse
+sido construído um computador. É a parte da área que mais se parece com
+matemática, e ela sustenta todo o resto.
+
+A parte científica observa. Um sistema real em uso produz comportamento que
+ninguém previu no projeto, e entender esse comportamento exige medir, formular
+hipótese e testar. Quando uma equipe investiga por que um serviço fica lento
+apenas às segundas de manhã, ela está fazendo trabalho experimental, com o
+sistema no lugar do fenômeno natural.
+
+A parte de engenharia constrói sob restrição. Prazo, orçamento, equipe
+disponível e equipamento existente limitam a solução tanto quanto a matemática
+do problema. Engenharia de Software, no quarto período, trata dessas restrições
+com método próprio.
+
+Um profissional da área transita entre as três posturas no mesmo dia, e o curso
+distribui as três ao longo dos oito períodos. Um aluno que gosta apenas de uma
+delas encontra disciplinas em que se sente em casa e outras em que se sente
+estrangeiro. Isso é esperado, e não é sinal de escolha errada de curso.
+
+### Os problemas que a área não resolve
+
+Quatro categorias de problema resistem à Computação, e conhecê-las desde o
+primeiro período protege vocês de prometer o que não se cumpre. A
+@fig-limites-da-area apresenta as quatro como perguntas que a equipe faz antes
+de aceitar um pedido.
+
+![As quatro categorias de problema que resistem à Computação, na forma das perguntas que as separam.](../diagrams/01/limites-da-area.png){#fig-limites-da-area width=90% fig-alt="Fluxograma que parte de um problema recebido pela equipe e faz quatro perguntas em sequência. Se não existe algoritmo, o problema é indecidível. Se o custo não cabe no prazo útil, é intratável na prática. Se o pedido não diz o que conta como cumprido, é mal especificado. Se o problema não é técnico, o sistema apenas aplica a regra mais rápido e a mais gente. Só quando as quatro respostas são favoráveis a Computação resolve."}
+
+Existem problemas para os quais está demonstrado que não existe algoritmo. Não
+se trata de ninguém ter encontrado ainda: trata-se de prova de que a solução
+geral não existe, para nenhuma máquina e nenhuma linguagem. O exemplo mais
+conhecido é a pergunta sobre se um programa qualquer termina ou fica repetindo
+passos para sempre, feita sobre um programa qualquer, sem executá-lo.
+@turing1937 demonstrou que nenhum procedimento responde a essa pergunta em
+todos os casos, mais de dez anos antes de existir o primeiro computador
+eletrônico de programa armazenado. @brookshear2013 apresenta esses limites em panorama, e
+Teoria da Computação, no sexto período, refaz a demonstração.
+
+Existem problemas com algoritmo conhecido e custo proibitivo. A solução existe,
+está escrita, e o tempo que ela levaria para casos grandes é maior do que
+qualquer prazo útil. Nesses casos, a área troca a resposta exata por uma
+resposta boa o bastante, obtida rápido. Pesquisa Operacional e Inteligência
+Artificial, no sexto período, tratam dessas trocas.
+
+Existem problemas mal especificados. Quando o cliente pede um sistema que seja
+intuitivo, ninguém consegue verificar se a entrega cumpre o pedido, porque o
+pedido não diz o que contaria como cumprido. O trabalho de transformar desejo
+em requisito verificável é parte da profissão, e é onde se perde a maior parte
+dos projetos que fracassam.
+
+E existem problemas que não são técnicos. Um sistema de matrícula não conserta
+uma regra de matrícula injusta; ele a aplica mais rápido e a mais gente. A
+tentação de tratar problema social como defeito de software é constante na
+área, e o segundo bloco do semestre volta a ela com casos concretos, nos
+capítulos 13 e 14.
+
+## O curso e sua organização curricular
+
+O curso tem oito períodos. Cada período reúne disciplinas que ampliam a
+capacidade de vocês em uma direção, e a ordem entre elas não é arbitrária. A
+@tbl-matriz reproduz a matriz curricular conforme o projeto pedagógico do curso
+(PPC). A coordenação publica a versão em vigor, e é ela que vale em caso de
+divergência com esta tabela.
+
+| **Período** | **Disciplinas** |
+|---:|---|
+| 1 | Lógica Matemática · Lógica de Programação · Introdução à Ciência da Computação · Empreendedorismo e Inovação · Introdução à Prática Extensionista |
+| 2 | Probabilidade e Estatística · Estrutura de Dados 1 · Programação Orientada a Objetos · Cálculo Diferencial e Integral 1 · Práticas Extensionistas 1 · Metodologia Científica |
+| 3 | Matemática Discreta · Estrutura de Dados 2 · Banco de Dados · Cálculo Diferencial e Integral 2 · Práticas Extensionistas 2 · Interface Homem Computador |
+| 4 | Teoria dos Grafos · Sistemas Digitais · Cálculo Numérico · Geometria Analítica e Álgebra Linear · Práticas Extensionistas 3 · Engenharia de Software |
+| 5 | Linguagens Formais e Autômatos · Organização de Computadores · Redes de Computadores · Computação Gráfica · Projeto de Sistemas · Desenvolvimento WebMobile |
+| 6 | Teoria da Computação · Inteligência Artificial · Pesquisa Operacional · Processamento de Imagens · Estágio Supervisionado · Projeto e Análise de Algoritmos |
+| 7 | Optativa 1 · Sistemas Distribuídos · Compiladores · Segurança e Auditoria de Sistemas · Projeto de Graduação I · Sistemas Operacionais |
+| 8 | Optativas 2 a 5 · Projeto de Graduação II · Gestão de Projetos e Serviços |
+
+: Matriz curricular do Curso de Ciência da Computação da UFT, Câmpus Palmas. {#tbl-matriz}
+
+Procurem na @tbl-matriz as disciplinas cujo nome vocês não reconhecem. Em uma
+turma de primeiro período, a lista costuma ser longa, e ela encurta ao longo
+deste semestre. Dar nome e sentido a essas palavras é um dos serviços que esta
+disciplina presta.
+
+### Por que existem pré-requisitos
+
+Uma disciplina é **pré-requisito** de outra quando o conteúdo da primeira é
+necessário para entender a segunda. A universidade impede a matrícula fora
+dessa ordem. A regra não existe por burocracia: ela existe porque a segunda
+disciplina começa a falar no ponto em que a primeira parou.
+
+Estrutura de Dados 2 discute como organizar dados em memória para que a busca
+seja rápida. A discussão pressupõe que vocês já saibam o que é uma estrutura
+de dados, e isso vem de Estrutura de Dados 1. Esta, por sua vez, pressupõe que
+vocês saibam escrever e depurar um programa, e isso vem de Lógica de
+Programação. A @fig-cadeia-algoritmos mostra a cadeia completa até uma
+disciplina do sexto período.
+
+```{mermaid}
+%%| label: fig-cadeia-algoritmos
+%%| fig-cap: "Dependência de conteúdo entre disciplinas, do primeiro ao sexto período."
+%%| fig-width: 6
+%%| echo: false
+flowchart LR
+  A["Lógica de Programação<br/>1º período"] --> B["Estrutura de Dados 1<br/>2º período"]
+  B --> C["Estrutura de Dados 2<br/>3º período"]
+  C --> D["Projeto e Análise de<br/>Algoritmos — 6º período"]
+```
+
+A lista formal de pré-requisitos está no PPC, e é ela que o sistema de
+matrícula aplica. A @fig-cadeia-algoritmos mostra outra coisa, mais útil agora:
+a dependência de conteúdo. Uma reprovação no primeiro período não atrasa um
+semestre, atrasa a cadeia inteira que sai dele. É o motivo prático pelo qual
+Lógica de Programação e esta disciplina merecem atenção desde a primeira
+semana.
+
+### As cadeias que atravessam o curso
+
+Três conjuntos de disciplinas percorrem a matriz de ponta a ponta, e cada um
+responde a uma pergunta diferente sobre a mesma solução. A
+@fig-cadeias-do-curso mostra os três com o período de cada disciplina.
+
+![As três cadeias de disciplinas que atravessam os oito períodos.](../diagrams/01/cadeias-do-curso.png){#fig-cadeias-do-curso width=82% fig-alt="Três grupos de disciplinas ligadas por setas. O grupo construir a solução vai de Lógica de Programação, no primeiro período, a Estrutura de Dados, Programação Orientada a Objetos e Projeto e Análise de Algoritmos, no sexto. O grupo garantir que está correta vai de Lógica Matemática a Probabilidade e Estatística, Matemática Discreta e Cálculo Numérico. O grupo onde a solução roda vai de Sistemas Digitais a Organização de Computadores, Redes de Computadores, Sistemas Operacionais e Sistemas Distribuídos."}
+
+A cadeia de programação e algoritmos responde à pergunta sobre como construir a
+solução. A cadeia de matemática responde à pergunta sobre como garantir que a
+solução está correta antes de gastar meses construindo-a. A máquina é rigorosa,
+e a matemática é a linguagem em que se conversa com esse rigor. Sem ela, o
+profissional testa a solução em alguns casos e torce para que os outros se
+comportem, que é o tipo de lacuna por onde entram os casos da
+@fig-casos-reais.
+
+A cadeia de sistemas responde à pergunta sobre onde a solução vai rodar. Este
+livro toca essa cadeia nos capítulos 3, 4 e 7, no nível de reconhecer os blocos
+e a função de cada um.
+
+Fora dessas cadeias ficam as disciplinas de contexto e de aplicação, como
+Engenharia de Software, Banco de Dados, Interface Homem Computador,
+Inteligência Artificial e as práticas extensionistas. O capítulo 8 apresenta as
+áreas da Computação com mais cuidado, e é lá que cada uma dessas disciplinas
+ganha o campo a que pertence.
+
+### O que compõe a formação, além das disciplinas
+
+A @tbl-matriz mostra disciplinas, e a formação de vocês não se esgota nelas.
+Quatro elementos aparecem na matriz com nome próprio e função diferente da de
+uma disciplina comum.
+
+As práticas extensionistas ocupam do primeiro ao quarto período, uma em cada
+semestre. Elas existem porque a extensão é componente curricular obrigatório da
+graduação brasileira, e não atividade voluntária [@cne2018]. O que vocês
+produzem nelas atende alguém fora da universidade, e essa é a diferença em
+relação a um trabalho de disciplina, que atende ao professor.
+
+O estágio supervisionado aparece no sexto período. Ele coloca vocês em ambiente
+profissional, com as restrições que nenhum exercício reproduz: sistema antigo
+que ninguém quer tocar, prazo definido por outra pessoa e código escrito por
+quem já foi embora. O capítulo 9 trata do que esperar desse contato.
+
+Projeto de Graduação I e II ocupam o sétimo e o oitavo período. É o trabalho
+final do curso, em que vocês investigam um problema com profundidade e
+apresentam o resultado a uma banca. Metodologia Científica, no segundo período,
+começa a preparar essa entrega, e o trabalho integrador desta disciplina é a
+primeira experiência de análise em equipe, em escala muito menor.
+
+As optativas aparecem no sétimo e no oitavo período, em número de cinco. Elas
+são o espaço em que vocês escolhem a direção do próprio curso, depois de
+conhecer as áreas. O capítulo 8 apresenta essas áreas justamente para que a
+escolha, três anos depois, seja feita com informação e não por eliminação.
+
+## Os componentes do primeiro período
+
+O primeiro período tem cinco componentes, e eles não são cinco assuntos
+soltos. A @tbl-primeiro-periodo indica o papel de cada um e o que ele entrega
+ao restante do curso.
+
+| **Componente** | **O que trata** | **O que entrega ao curso** |
+|---|---|---|
+| Lógica Matemática | Proposição, valor lógico, conectivo, inferência | A linguagem formal usada em condições, provas e circuitos |
+| Lógica de Programação | Como escrever e testar um programa | A ferramenta de construção, usada em todas as disciplinas seguintes |
+| Introdução à Ciência da Computação | O panorama da área, da máquina à profissão | O mapa do curso e o vocabulário comum |
+| Empreendedorismo e Inovação | Como uma solução técnica vira produto ou serviço | O critério de valor: para quem a solução serve |
+| Introdução à Prática Extensionista | Como a universidade atua junto à comunidade | O contato com problemas reais, fora do laboratório |
+
+: Componentes do primeiro período e a função de cada um. {#tbl-primeiro-periodo}
+
+### Lógica de Programação e esta disciplina
+
+Os dois componentes de Computação do período ocorrem em paralelo e têm papéis
+complementares. Lógica de Programação ensina a construir: vocês vão traduzir
+uma intenção em passos que a máquina executa, e vão descobrir na prática que a
+máquina faz exatamente o que foi escrito, e não o que se quis escrever. É uma
+disciplina de método e de técnica, e ela se aprende programando.
+
+Esta disciplina ensina o contexto. Ela explica o que existe dentro da máquina
+que executa aquele programa, como a informação é representada lá dentro, quais
+áreas compõem a Computação e quais regras jurídicas e éticas governam o
+trabalho de quem programa. Enquanto Lógica de Programação responde como
+programar, esta disciplina responde para quê, sobre o quê e com quais
+responsabilidades.
+
+Nenhuma das duas depende da outra para funcionar. Elas se apoiam. Quando o
+capítulo 7 apresentar a diferença entre código-fonte e programa em execução,
+vocês já terão escrito código-fonte em Lógica de Programação, e a explicação
+vai se encaixar em algo concreto. Quando esta disciplina apresentar a aritmética
+binária, vocês vão entender por que um número muito grande se comporta de forma
+estranha em um programa.
+
+O trecho de código que eventualmente aparecer neste livro serve para ilustrar,
+nunca para explicar. Nenhuma explicação deste material depende de saber
+programar, e vocês podem ler qualquer capítulo sem ter escrito uma linha.
+
+### Lógica Matemática
+
+Lógica Matemática é a disciplina que a turma costuma subestimar, por parecer
+distante do computador. Ela trata de proposições, de valores lógicos e das
+regras que permitem concluir uma coisa a partir de outra. Essas regras são as
+mesmas que aparecem em toda condição de um programa, na álgebra booleana de
+Sistemas Digitais e na verificação de que um algoritmo faz o que promete.
+
+A relação com esta disciplina é direta em um ponto. O capítulo 5 mostra que o
+computador representa tudo com dois estados, e a lógica de dois valores é a
+matemática desses dois estados. As duas disciplinas olham para o mesmo par de
+símbolos por ângulos diferentes: uma pergunta o que se pode concluir com eles,
+a outra pergunta o que se pode representar com eles.
+
+### Extensão e inovação
+
+O ensino superior brasileiro se organiza em ensino, pesquisa e extensão. A
+**extensão universitária** é a atuação da universidade junto à comunidade
+externa, levando conhecimento e trazendo problemas reais para dentro do curso.
+Introdução à Prática Extensionista abre essa frente, e ela continua nas
+disciplinas de Práticas Extensionistas do segundo ao quarto período. A presença
+dessas disciplinas na matriz cumpre norma nacional: a extensão deve compor no
+mínimo 10% da carga horária curricular de todo curso de graduação
+[@cne2018].
+
+Empreendedorismo e Inovação trata de como uma solução técnica encontra quem
+precise dela. A pergunta desse componente é simples de enunciar e difícil de
+responder: uma solução tecnicamente correta que ninguém usa resolveu algum
+problema? O trabalho integrador desta disciplina, descrito adiante, pede
+exatamente esse olhar, quando manda vocês escolherem uma solução computacional
+real e examinarem para quem ela serve.
+
+## O ponto de partida de cada um
+
+A turma de vocês é heterogênea de um modo que as turmas dos períodos seguintes
+não são. Parte dos alunos programa desde a adolescência, montou o próprio
+computador e chega com vocabulário técnico. Parte nunca teve computador em
+casa, usou apenas telefone e chega sem nenhum desses termos. Os dois grupos
+estão na mesma sala, e essa é uma observação de experiência docente, não um
+dado de pesquisa.
+
+O material desta disciplina foi escrito para as duas situações ao mesmo tempo.
+Nenhum conceito técnico entra sem ser definido antes, e nenhuma explicação
+supõe contato prévio com a área. Ao mesmo tempo, cada capítulo indica o que
+existe além do piso, para que o aluno com experiência tenha o que fazer.
+
+### Diagnóstico de conhecimentos prévios
+
+A primeira aula inclui um diagnóstico sem valor de nota. Ele não classifica
+ninguém e não é registrado: serve para vocês localizarem o próprio ponto de
+partida e para o professor calibrar o ritmo. Responder com sinceridade é do
+interesse de quem responde.
+
+O diagnóstico tem perguntas como estas. Leiam a lista agora e marquem
+mentalmente as que vocês saberiam responder a um colega, em voz alta, sem
+consultar nada.
+
+- O que acontece dentro do computador entre apertar um botão e a tela mudar?
+- Qual a diferença entre memória e armazenamento?
+- Por que um arquivo de vídeo ocupa mais espaço que um arquivo de texto?
+- O que significa dizer que um computador trabalha em base dois?
+- O que é um sistema operacional, e o que ele faz enquanto vocês usam um
+  aplicativo?
+- Vocês já escreveram um programa que funcionou? E um que não funcionou?
+- Vocês já usaram um terminal, isto é, uma janela em que se digitam comandos em
+  vez de clicar em botões?
+- O que a Ciência da Computação estuda, além de programação?
+
+Quem respondeu poucas não está atrasado. Cada pergunta da lista é respondida por
+um capítulo deste livro, como mostra a @tbl-diagnostico, e nenhuma delas é
+pré-requisito para acompanhar as aulas.
+
+| **Pergunta do diagnóstico** | **Capítulo que a responde** |
+|---|---:|
+| O que acontece entre apertar um botão e a tela mudar | 3 |
+| Diferença entre memória e armazenamento | 4 |
+| Por que um vídeo ocupa mais espaço que um texto | 6 |
+| O que significa trabalhar em base dois | 5 |
+| O que faz um sistema operacional | 7 |
+| O que a área estuda, além de programação | 1 e 8 |
+
+: Perguntas do diagnóstico e os capítulos que as respondem. {#tbl-diagnostico}
+
+As duas perguntas restantes, sobre já ter escrito um programa e já ter usado um
+terminal, não têm capítulo correspondente. Elas medem contato prévio, e servem
+para o professor saber com que turma está falando. Quem nunca usou um terminal
+vai usar em Lógica de Programação, e não precisa se antecipar a isso agora.
+
+Quem respondeu quase todas encontra a extensão na última seção deste capítulo.
+
+### Piso e extensão
+
+Este livro distingue duas camadas em cada capítulo, e a @tbl-piso-extensao
+mostra o que cada uma exige.
+
+| **Camada** | **A quem se dirige** | **O que exige** |
+|---|---|---|
+| Piso | Todos, sem exceção | Reconhecer o conceito, explicá-lo com as próprias palavras e aplicá-lo a um caso dado |
+| Extensão | Quem já domina o piso do capítulo | Buscar o detalhe indicado, relacionar o conceito a outro capítulo e trazer um caso novo |
+
+: As duas camadas de exigência do material. {#tbl-piso-extensao}
+
+O piso é o que a avaliação cobra de todos. A extensão não vale nota extra, e
+serve para que quem já sabe use bem o tempo de estudo. As duas camadas estão
+sinalizadas no texto de cada capítulo, e a última seção deste traz o primeiro
+par.
+
+Cada grupo tem uma advertência própria.
+
+Para quem chega sem experiência: o incômodo das primeiras semanas é normal e
+não é sinal de incapacidade. O curso é longo e a base se constrói por
+acumulação. O que parece óbvio para o colega ao lado costuma ser resultado de
+anos de contato, e não de talento. O risco real desse grupo é o silêncio, e a
+observação de experiência é que quem fica para trás no primeiro período
+raramente pergunta.
+
+Para quem chega programando: a experiência prévia acelera a escrita de código e
+costuma falhar nas fundações. É comum conhecer a sintaxe de uma linguagem e não
+saber por que o resultado de uma divisão saiu errado, o que é assunto do
+capítulo 6. O risco real desse grupo é confundir familiaridade com domínio, e
+descobrir a diferença tarde, em uma disciplina que já não perdoa.
+
+O trabalho integrador reúne os dois grupos na mesma equipe, de propósito. A
+realimentação dentro da equipe nivela mais rápido do que qualquer aula: quem
+explica um conceito o consolida, e quem recebe a explicação de um colega a
+recebe no vocabulário certo.
+
+## Pensamento computacional
+
+Antes de existir código, existe um trabalho que não aparece na tela. Alguém
+precisa entender o problema, quebrá-lo em partes, decidir o que importa e
+escrever a solução em passos que não deixem margem a interpretação. Esse
+trabalho tem nome: **pensamento computacional** é a forma estruturada de
+abordar um problema de modo que a solução possa ser executada por um agente que
+não interpreta, não intui e não completa lacunas.
+
+@wing2006 defende que essa habilidade não pertence apenas a quem programa, e
+que ela é útil a qualquer pessoa, em qualquer área. A defesa faz sentido pelo
+motivo inverso ao que se costuma imaginar. O pensamento computacional não é
+pensar como uma máquina; é organizar o próprio raciocínio com a clareza que uma
+máquina exigiria, e essa clareza também serve para instruir uma pessoa, montar
+um processo de trabalho ou planejar um evento.
+
+@aho2012 propõe uma definição mais estreita e mais fácil de verificar:
+pensamento computacional é o processo de formular um problema de maneira que a
+solução possa ser expressa como passos de computação, isto é, como algoritmo.
+Por essa definição, um problema que ninguém conseguiu enunciar nesses termos
+ainda não entrou no alcance da área.
+
+A ideia tem crítica dentro da própria Computação, e vocês vão encontrá-la assim
+que procurarem a bibliografia. @denning2019 sustentam que essa habilidade se
+desenvolve projetando computações de verdade, e que apresentar uma lista de
+pilares como receita geral promete mais do que a prática entrega. A lista das
+próximas quatro seções organiza a explicação; ela não substitui o exercício.
+
+A @fig-pilares mostra os quatro pilares que estruturam esse trabalho.
+
+```{mermaid}
+%%| label: fig-pilares
+%%| fig-cap: "Os quatro pilares do pensamento computacional, com o retorno que a prática impõe."
+%%| fig-width: 6
+%%| echo: false
+flowchart LR
+  P[Problema] --> A[Decomposição]
+  A --> B[Reconhecimento<br/>de padrões]
+  B --> C[Abstração]
+  C --> D[Algoritmo]
+  D -.->|revisão| A
+```
+
+A seta pontilhada da @fig-pilares é a parte que os desenhos costumam omitir. A
+ordem dos quatro pilares organiza a explicação, e o trabalho real volta atrás
+o tempo todo: ao escrever o algoritmo de uma parte, vocês descobrem que a parte
+ainda estava grande demais e voltam a decompor.
+
+Uma equipe de alunos quer construir um sistema de caronas entre os moradores da
+cidade e o câmpus. Esse mesmo exemplo percorre as quatro seções seguintes,
+porque ele é da experiência de vocês e não exige nenhum conhecimento de
+programação.
+
+### Decomposição
+
+**Decomposição** é a quebra de um problema grande em partes que possam ser
+resolvidas separadamente. O sistema de caronas, enunciado assim, é impossível
+de atacar: não há por onde começar. A equipe não escreve um sistema de caronas.
+Ela escreve o cadastro de quem oferece carona, depois o cadastro de quem
+procura, depois a busca por horário e origem, depois a combinação entre os dois
+lados, depois o registro de quem confirmou.
+
+Cada parte pode ser dividida de novo, quando ainda estiver grande. A combinação
+entre os dois lados, por exemplo, se divide em encontrar candidatos compatíveis,
+ordenar os candidatos por proximidade e apresentar o resultado. A divisão
+termina quando a peça isolada é pequena o bastante para que uma pessoa a
+descreva por inteiro em poucas frases.
+
+A decomposição tem dois efeitos práticos, além de tornar o problema abordável.
+O primeiro é permitir que a equipe trabalhe em paralelo, com cada integrante em
+uma parte. O segundo é isolar o defeito: quando o resultado sai errado, a
+equipe sabe em qual das partes procurar, em vez de reler tudo.
+
+O erro característico da decomposição é dividir por telas, e não por
+responsabilidades. Uma divisão feita pela aparência do sistema costuma espalhar
+a mesma regra por vários pedaços, e a regra passa a ser corrigida em vários
+lugares.
+
+### Reconhecimento de padrões
+
+**Reconhecimento de padrões** é a identificação de semelhanças entre as partes,
+ou entre a parte atual e algo já resolvido antes. No sistema de caronas, o
+cadastro de quem oferece e o cadastro de quem procura guardam dados diferentes
+e têm a mesma estrutura: receber os dados, conferir se estão completos,
+guardar, permitir alterar e permitir remover.
+
+Reconhecido o padrão, a equipe resolve o problema uma vez e reaproveita a
+solução nos dois cadastros. O ganho não está apenas em escrever menos. Está em
+ter um lugar só para corrigir quando a regra mudar, e em oferecer ao usuário
+duas telas que se comportam do mesmo jeito.
+
+O padrão também aparece entre problemas de áreas distintas. Ordenar alunos por
+nome, ordenar caronas por horário de saída e ordenar livros por autor são o
+mesmo problema com dados diferentes. É por isso que uma disciplina inteira do
+curso pode estudar ordenação em abstrato: o que se aprende ali vale para
+qualquer lista.
+
+O erro característico aqui é enxergar padrão onde há apenas coincidência. Duas
+partes que hoje se parecem podem evoluir em direções diferentes, e uni-las cedo
+demais cria um pedaço de solução cheio de exceções. Quando as diferenças forem
+mais numerosas que as semelhanças, o padrão não existe.
+
+### Abstração
+
+**Abstração** é a decisão consciente sobre o que ignorar. Todo problema real
+vem com uma quantidade de detalhes que não influi na solução, e carregá-los
+custa esforço e atenção. No sistema de caronas, a cor do carro, o modelo do
+telefone de quem pede e o nome do bairro em que o motorista nasceu não alteram
+o resultado da combinação. Origem, destino, horário e número de vagas alteram.
+
+O mapa de transporte público é o exemplo clássico de abstração visual. Ele
+mostra estações e conexões, e mente sobre a geometria: as linhas ficam retas, as
+distâncias ficam iguais e as curvas dos túneis desaparecem. O mapa é mais útil
+que uma fotografia aérea da cidade justamente por causa do que descartou, porque
+quem o consulta quer saber onde baldear, e não a curvatura da via.
+
+Abstrair é diferente de simplificar por preguiça. A decisão precisa ser
+justificada pelo uso: um dado é dispensável quando nenhuma decisão do sistema
+depende dele. Se amanhã o sistema de caronas passar a exigir carro com
+porta-malas grande, o modelo do veículo deixa de ser detalhe irrelevante e
+entra na abstração.
+
+A abstração aparece em camadas em toda a Computação, e este livro é um exemplo
+disso. O capítulo 4 apresenta o computador como blocos ligados por barramentos,
+e ignora os circuitos dentro de cada bloco. Sistemas Digitais, no quarto
+período, abre esses circuitos e ignora a física dos materiais. A
+@fig-camadas-abstracao mostra a cadeia inteira, do aplicativo de caronas até o
+ponto em que o curso para de descer.
+
+![Camadas de abstração entre o aplicativo e a física, e o que cada camada esconde da camada acima.](../diagrams/01/camadas-abstracao.png){#fig-camadas-abstracao width=58% fig-alt="Cinco caixas empilhadas verticalmente, ligadas por setas rotuladas esconde. De cima para baixo: aplicativo de caronas, sistema operacional tratado no capítulo 7, blocos do computador e barramentos tratados no capítulo 4, circuitos lógicos vistos em Sistemas Digitais no quarto período, e física dos materiais, fora do curso."}
+
+É essa cadeia de camadas escondidas que torna possível escrever um aplicativo
+sem pensar em elétrons. Cada camada da @fig-camadas-abstracao é uma abstração
+que alguém decidiu, com o mesmo critério da equipe de caronas: o que a camada
+de cima precisa decidir, e o que ela pode ignorar sem prejuízo.
+
+### Algoritmo
+
+O quarto pilar produz a receita: uma sequência finita de passos, sem
+ambiguidade, que leva da entrada ao resultado desejado. A comparação com receita
+culinária ajuda até certo ponto e falha no ponto que interessa. Uma receita
+manda assar até dourar e temperar a gosto, e funciona porque quem cozinha
+enxerga a cor e prova a comida.
+
+O computador não enxerga nem prova. Ele executa "asse por quarenta e cinco
+minutos a duzentos graus" e não tem como executar "asse até dourar". Toda
+instrução precisa ser verificável por quem executa, sem julgamento. Escrever o
+algoritmo do sistema de caronas significa dizer, para cada pedido, quais
+ofertas são candidatas, como comparar duas candidatas e quando parar de
+procurar.
+
+Escrito por extenso, o algoritmo que atende um pedido de carona fica assim:
+
+1. Receber o pedido, com origem, destino, horário desejado e nome de quem pede.
+2. Separar as ofertas cujo destino seja o mesmo do pedido.
+3. Entre essas, manter apenas as que saem no intervalo de trinta minutos em
+   torno do horário desejado.
+4. Entre as que restaram, manter apenas as que ainda têm vaga.
+5. Se nenhuma oferta restou, avisar quem pediu que não há carona compatível e
+   encerrar.
+6. Ordenar as ofertas restantes pela distância entre a origem do pedido e o
+   ponto de partida da oferta, da menor para a maior.
+7. Apresentar a primeira oferta da lista a quem pediu.
+
+Nada nesse texto é linguagem de programação, e ele já é um algoritmo: cada
+passo pode ser executado por uma pessoa que não conheça o problema, e dois
+executores diferentes chegam ao mesmo resultado. O intervalo de trinta minutos
+do passo 3 é uma decisão de projeto, e não uma verdade sobre caronas. Quem
+escreve o algoritmo escolhe esse número, e precisa saber que escolheu.
+
+O passo 5 existe por um motivo que a versão inicial deste exemplo não tinha. Sem
+ele, o algoritmo chega ao passo 6 com a lista vazia e não diz o que fazer.
+Encontrar essas lacunas é o trabalho de quem escreve algoritmos, e ele é feito
+antes de existir programa.
+
+Um algoritmo bem construído tem três propriedades que vocês vão reencontrar em
+Lógica de Programação. Ele termina, isto é, não fica preso repetindo o mesmo
+passo para sempre. Ele produz o mesmo resultado sempre que recebe a mesma
+entrada. E ele funciona para toda entrada válida, e não apenas para o exemplo
+que o autor tinha em mente ao escrevê-lo.
+
+A última propriedade é a que mais custa a ser aprendida. É natural testar a
+solução com o caso confortável: dois pedidos, duas ofertas, horários que casam
+bem. O caso desconfortável é o que revela o defeito. O que acontece quando não
+há nenhuma oferta compatível? E quando duas ofertas são igualmente boas? E
+quando o pedido chega depois de o carro sair? Um algoritmo que não responde a
+essas perguntas está incompleto, mesmo que rode.
+
+### Os quatro pilares fora do computador
+
+@wing2006 sustenta que essa forma de raciocinar serve a qualquer área, e o
+argumento se verifica em uma tarefa sem nenhuma máquina envolvida. A
+coordenação precisa montar a escala de monitoria de um laboratório, com doze
+monitores, seis horários e duas salas.
+
+A decomposição separa o problema em três partes independentes: levantar a
+disponibilidade de cada monitor, cobrir cada horário com pelo menos um nome e
+distribuir a carga de forma parecida entre os doze. O reconhecimento de padrões
+identifica que cobrir um horário é o mesmo problema repetido doze vezes, e que
+a segunda sala repete a estrutura da primeira. A abstração decide que a escala
+depende da disponibilidade declarada e da carga de cada monitor, e não do
+período que cada um cursa nem de quem é amigo de quem. O algoritmo escreve a
+regra: percorrer os horários do mais difícil de cobrir para o mais fácil,
+escolher entre os disponíveis quem acumula menos horas e, no empate, quem tem
+menos horários seguidos.
+
+Quem monta escalas na mão faz alguma versão disso sem nomear os passos. A
+diferença que os quatro pilares produzem é que a regra fica explícita, pode ser
+conferida por outra pessoa e produz o mesmo resultado quando outra pessoa a
+aplica. Uma regra escrita nesse nível de detalhe também pode ser programada, e
+essa é a ponte entre o raciocínio e a máquina.
+
+### O que o pensamento computacional não resolve
+
+Os quatro pilares organizam a construção da solução e não decidem se a solução
+deve existir. Essa segunda pergunta é do segundo bloco do semestre.
+
+Um sistema de caronas eficiente precisa saber onde cada usuário mora e a que
+horas ele sai de casa. Esses dados são pessoais, e a Lei Geral de Proteção de
+Dados regula o que pode ser feito com eles [@lgpd2018]. A equipe que decompõe,
+abstrai e escreve o algoritmo sem essa pergunta produz um sistema que funciona
+e que talvez não possa ser posto em uso. O capítulo 12 trata do assunto, e o
+capítulo 10 trata do julgamento profissional que antecede a lei.
+
+O pensamento computacional é ferramenta, com o mesmo estatuto da programação:
+ele torna vocês capazes de construir e não diz o que construir. O critério para
+essa decisão vem dos capítulos 9 a 16.
+
+## O plano de ensino
+
+A disciplina ocupa 18 encontros, sendo 16 aulas expositivas e 2 avaliações. Os
+16 capítulos deste livro correspondem, um a um, às 16 aulas. A apresentação do
+livro traz a distribuição completa dos encontros e os marcos do trabalho
+integrador; esta seção trata do que isso exige de vocês.
+
+### Os dois blocos do semestre
+
+O semestre tem duas metades com objetos distintos. Nos capítulos 1 a 8, o
+objeto é o computador: a história do equipamento, a estrutura interna, a
+representação da informação e o software. Nos capítulos 9 a 16, o objeto é a
+computação como atividade humana: a profissão, a ética, as regras jurídicas e
+os efeitos sociais e ambientais.
+
+A ordem não é reversível. Não se discute o consumo de energia de um centro de
+dados sem saber o que há dentro dele consumindo energia, e não se discute
+proteção de dados pessoais sem saber o que significa armazenar um dado. O
+segundo bloco usa o vocabulário que o primeiro construiu.
+
+### As avaliações
+
+Duas provas fecham os blocos: a primeira no encontro 9, sobre os capítulos 1 a
+8, e a segunda no encontro 18, sobre os capítulos 9 a 16. Elas cobram o piso
+definido na @tbl-piso-extensao, com o verbo dos objetivos de aprendizagem de
+cada capítulo. Um objetivo que diz "converter valores entre sistemas numéricos"
+é cobrado com uma conversão, e não com uma pergunta sobre a definição de
+sistema numérico.
+
+O trabalho integrador corre em paralelo, em equipe, com entregas ao longo do
+semestre. A equipe escolhe uma solução computacional real, que os integrantes
+usem ou conheçam, e a examina sob todas as dimensões da disciplina. A
+@tbl-trabalho mostra o que cada entrega pede e qual parte do livro sustenta
+essa entrega.
+
+| **Entrega** | **O que a equipe apresenta** | **Capítulos que sustentam** |
+|---|---|---|
+| Escolha do objeto | Equipe formada e uma solução computacional real escolhida, com justificativa | 1 e 2 |
+| Estudo de caso técnico | Descrição do objeto em termos de hardware, software, dados e representação | 3 a 8 |
+| Levantamento de fontes | Fontes sobre o objeto, com avaliação de procedência | 11, 12 e 15 |
+| Análise integradora e apresentação | Análise escrita e comunicação oral de dez minutos | 9 a 16 |
+
+: Entregas do trabalho integrador e os capítulos que dão a ferramenta de cada uma. {#tbl-trabalho}
+
+Não se espera originalidade e não se espera artigo científico. Metodologia
+Científica vem no segundo período, e esta disciplina não pode cobrar o que
+ainda não foi ensinado a ninguém. Espera-se que a equipe olhe para algo comum,
+que já usa, e enxergue as camadas que a disciplina apresentou.
+
+O objeto escolhido acompanha a equipe o semestre inteiro. Escolher um objeto
+sobre o qual não existe informação pública disponível transforma as entregas
+seguintes em uma sequência de becos sem saída. Um aplicativo de uso amplo, um
+serviço público digital ou um dispositivo comum resolvem esse ponto.
+
+### O ritmo da universidade
+
+A mudança de ritmo entre o ensino médio e a graduação pega parte da turma
+desprevenida, e ela não tem relação com dificuldade do conteúdo. No ensino
+médio, a escola distribui o estudo: há tarefa para a aula seguinte, prova
+marcada com antecedência curta e alguém perguntando pelo caderno. Na
+universidade, cinco componentes correm em paralelo, cada um com calendário
+próprio, e ninguém avisa que chegou a hora de estudar determinado assunto.
+
+A carga de estudo fora da sala é a parte que costuma ser subestimada. Cada
+disciplina supõe leitura e exercício além do horário de aula, e a soma dos
+cinco componentes não cabe na véspera das provas. Um cronograma semanal fixo,
+escrito, resolve mais do que qualquer técnica de estudo sofisticada. Esta é uma
+observação de experiência docente.
+
+A frequência às aulas é exigida por regulamento, e a reprovação por falta
+existe e não depende de nota. Vale ler o regulamento acadêmico em vigor no
+início do semestre, porque ele responde também sobre trancamento,
+aproveitamento de disciplina e prazo de integralização do curso.
+
+A reprovação em uma disciplina do primeiro período custa além do semestre, pelo
+motivo que a @fig-cadeia-algoritmos mostra. Procurar ajuda cedo, com o
+professor ou com a monitoria, é decisão mais barata do que recuperar a cadeia
+depois.
+
+### Como estudar nesta disciplina
+
+O material tem três formatos, com funções distintas. Os slides seguem a
+sequência da aula e servem para acompanhar a exposição e para revisar depois. O
+capítulo do livro traz o texto completo, com as definições que o slide resume em
+uma linha. A bibliografia indicada em cada capítulo aprofunda o que o livro
+apresenta em panorama.
+
+A ordem que funciona é ler o capítulo antes da aula, mesmo sem entender tudo. A
+leitura prévia transforma a aula de primeira apresentação em segunda passagem, e
+a segunda passagem é onde o assunto assenta. Quem lê depois da aula estuda o
+mesmo conteúdo duas vezes na condição de quem vê pela primeira vez.
+
+Cada capítulo abre com os objetivos de aprendizagem, e essa lista é o critério
+de estudo. Um objetivo diz o verbo que a avaliação vai cobrar: reconhecer,
+descrever, converter, analisar. Estudar até conseguir executar o verbo, com o
+livro fechado, é o que separa a leitura da preparação.
+
+Alguns conceitos são acumulativos e não admitem atraso. A conversão entre
+bases, do capítulo 5, é usada sem aviso no capítulo 6, e é aí que a turma
+costuma se dividir entre quem acompanhou e quem parou. Quando um capítulo não
+fechar, o lugar de resolver isso é a semana dele, e não a véspera da prova.
+
+Duas práticas ajudam quem chega sem repertório, e são observação de experiência
+docente, não resultado de estudo. A primeira é explicar o conceito em voz alta
+para alguém, porque a explicação revela a lacuna que a leitura esconde. A
+segunda é escrever a dúvida por escrito antes de perguntar, porque metade das
+dúvidas se resolve na formulação e a outra metade chega ao professor em forma
+respondível.
+
+## A primeira tarefa
+
+O piso desta semana tem duas partes, e as duas cabem em uma folha.
+
+A primeira parte é uma frase. Escrevam, com as palavras de vocês, o que a
+Ciência da Computação estuda, sem usar a palavra computador. A restrição parece
+um jogo e tem um propósito: ela obriga vocês a nomear o objeto real da área, e
+o resultado dessa frase vai ser comparado com o que vocês escreverem sobre a
+mesma pergunta no capítulo 16.
+
+A segunda parte é uma decomposição. Escolham uma tarefa que vocês executam sem
+pensar, como pagar uma conta pelo aplicativo do banco ou pedir uma refeição por
+um aplicativo de entrega. Quebrem essa tarefa em passos, na forma exigida do
+algoritmo: cada passo precisa ser verificável por quem executa, sem julgamento
+e sem intuição. Contem quantos passos surgiram e quais deles vocês nunca tinham
+percebido que existiam.
+
+A extensão desta semana também tem duas partes, e é para quem terminou o piso
+sem esforço.
+
+Peguem a decomposição que vocês escreveram e procurem os pontos em que ela
+falha. O que acontece quando o dado digitado está errado? E quando a conexão
+cai no meio? E quando a mesma operação é enviada duas vezes? Cada resposta
+dessas é um passo que faltava, e é exatamente esse tipo de omissão que produz
+defeito em software real.
+
+Depois, escolham uma disciplina da @tbl-matriz cujo nome vocês não reconhecem e
+descubram do que ela trata. Tragam a resposta em duas frases na próxima aula. A
+turma monta o mapa do curso mais rápido dividindo o trabalho, e o capítulo 2
+começa a percorrer esse mapa pela história das máquinas que deram origem a
+tudo isso.

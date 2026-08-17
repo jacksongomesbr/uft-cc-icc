@@ -1,0 +1,44 @@
+// As três cadeias de disciplinas que atravessam os oito períodos.
+// Capítulo 1, seção "As cadeias que atravessam o curso".
+digraph cadeias_do_curso {
+  rankdir=LR;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled,rounded",
+        color="#333333", fillcolor="#ffffff", margin="0.10,0.06"];
+  edge [color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.20, ranksep=0.40];
+
+  // A ordem de declaração dos clusters define a ordem vertical no PNG.
+  subgraph cluster_prog {
+    label="Construir a solução";
+    fontname="Helvetica"; fontsize=11; color="#2c6ea3"; style="rounded";
+    p1 [label="Lógica de\nProgramação\n1º", fillcolor="#dcedf7"];
+    p2 [label="Estrutura de\nDados 1 e 2\n2º e 3º", fillcolor="#dcedf7"];
+    p3 [label="Programação\nOrientada a Objetos\n2º", fillcolor="#dcedf7"];
+    p4 [label="Projeto e Análise\nde Algoritmos\n6º", fillcolor="#dcedf7"];
+    p1 -> p2 -> p4;
+    p1 -> p3;
+  }
+
+  subgraph cluster_mat {
+    label="Garantir que está correta";
+    fontname="Helvetica"; fontsize=11; color="#7a5c9e"; style="rounded";
+    m1 [label="Lógica\nMatemática\n1º", fillcolor="#e9e2f2"];
+    m2 [label="Probabilidade\ne Estatística\n2º", fillcolor="#e9e2f2"];
+    m3 [label="Matemática\nDiscreta\n3º", fillcolor="#e9e2f2"];
+    m4 [label="Cálculo\nNumérico\n4º", fillcolor="#e9e2f2"];
+    m1 -> m2 -> m3 -> m4;
+  }
+
+  subgraph cluster_sis {
+    label="Onde a solução roda";
+    fontname="Helvetica"; fontsize=11; color="#a35c2c"; style="rounded";
+    s1 [label="Sistemas\nDigitais\n4º", fillcolor="#f7e3dc"];
+    s2 [label="Organização de\nComputadores\n5º", fillcolor="#f7e3dc"];
+    s3 [label="Redes de\nComputadores\n5º", fillcolor="#f7e3dc"];
+    s4 [label="Sistemas\nOperacionais\n7º", fillcolor="#f7e3dc"];
+    s5 [label="Sistemas\nDistribuídos\n7º", fillcolor="#f7e3dc"];
+    s1 -> s2 -> s4 -> s5;
+    s2 -> s3 -> s5;
+  }
+}

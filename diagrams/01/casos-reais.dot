@@ -1,0 +1,37 @@
+// Casos reais citados no capítulo 1, e o capítulo que trata de cada assunto.
+digraph casos_reais {
+  rankdir=LR;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.14,0.09"];
+  edge [color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.25, ranksep=0.50];
+
+  c1 [label="1996 — Ariane 5, voo 501\nConversão de um número grande\npara um formato pequeno\ndestrói o foguete em 40 segundos",
+      fillcolor="#f7e3dc"];
+  c2 [label="1999 — Mars Climate Orbiter\nDois programas trocam dados\nem unidades diferentes\ne a sonda se perde",
+      fillcolor="#f7e3dc"];
+  c3 [label="2020 em diante — Pix\nUm sistema de pagamento\ninstantâneo em escala nacional",
+      fillcolor="#dcedf7"];
+  c4 [label="2024 — atualização da CrowdStrike\nUm defeito distribuído a milhões\nde máquinas ao mesmo tempo",
+      fillcolor="#f7e3dc"];
+
+  t1 [label="capítulo 6\nrepresentação de números", shape=plaintext,
+      fillcolor="none", fontsize=9];
+  t2 [label="capítulo 6\nprecisão e unidade", shape=plaintext,
+      fillcolor="none", fontsize=9];
+  t3 [label="capítulos 3, 4 e 7\nescala e infraestrutura", shape=plaintext,
+      fillcolor="none", fontsize=9];
+  t4 [label="capítulos 13 e 14\ndependência e impacto", shape=plaintext,
+      fillcolor="none", fontsize=9];
+
+  c1 -> c2 -> c3 -> c4 [style=invis];
+
+  c1 -> t1 [style=dashed, arrowhead=none, color="#999999"];
+  c2 -> t2 [style=dashed, arrowhead=none, color="#999999"];
+  c3 -> t3 [style=dashed, arrowhead=none, color="#999999"];
+  c4 -> t4 [style=dashed, arrowhead=none, color="#999999"];
+
+  { rank=same; c1; c2; c3; c4; }
+  { rank=same; t1; t2; t3; t4; }
+}
