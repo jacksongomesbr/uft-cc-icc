@@ -23,4 +23,985 @@ title: "História da Computação"
 
 ## Leituras recomendadas
 
-Capítulos correspondentes em [@wazlawick2016] e [@brookshear2013].
+Capítulos correspondentes em [@wazlawick2016] e [@brookshear2013]. A obra de
+Wazlawick é a fonte principal deste capítulo e organiza a história em doze
+partes, da contagem por marcas até as previsões registradas no momento em que
+o livro foi escrito. Quem quiser ler a fonte primária de um dos marcos aqui
+tratados encontra em @turing1937 o artigo que define a máquina abstrata
+discutida na seção sobre os primeiros computadores.
+
+## Por que a história entra em uma disciplina técnica
+
+Este capítulo não existe para vocês decorarem nomes e datas. Ele existe porque
+quase toda decisão técnica que vocês vão encontrar no curso tem uma explicação
+histórica, e sem ela a decisão parece arbitrária.
+
+Um exemplo serve de aviso. No capítulo 5, vocês vão aprender que o computador
+representa tudo em base dois. A explicação usual é que o circuito eletrônico
+distingue dois estados com facilidade, o que é verdade e é incompleto. A base
+dois já tinha sido formulada como sistema numérico no século XVII, e a álgebra
+que opera sobre dois valores lógicos foi construída em meados do século XIX,
+antes de existir qualquer circuito. Quando a eletrônica precisou de uma
+representação, ela encontrou uma pronta, esperando havia décadas. O binário não
+foi inventado pelo computador; ele foi adotado por ele.
+
+Esse padrão se repete tantas vezes na história da área que convém enunciá-lo
+antes de percorrer a cronologia: a solução costuma existir antes do problema
+que a torna útil. Guardem a observação e verifiquem se ela se confirma nas
+seções seguintes.
+
+### As três camadas de qualquer tecnologia de cálculo
+
+Ao examinar um instrumento antigo, separem três camadas. É o método que
+@wazlawick2016 usa, e ele evita a confusão mais comum deste assunto.
+
+A primeira camada é o **problema**: contar um rebanho, prever um eclipse,
+cobrar um imposto, decifrar uma mensagem. O problema é humano e antecede
+qualquer máquina.
+
+A segunda é a **representação**: as marcas, os dígitos, as posições, os
+símbolos ou as escalas que tornam o problema manipulável. Uma quantidade não
+pode ser somada; a representação dela pode.
+
+A terceira é o **mecanismo**: a pessoa, o papel, a madeira, a engrenagem, o
+relé ou o circuito que executa a manipulação.
+
+Uma inovação pode estar em qualquer uma das três, e as três avançam em ritmos
+diferentes. A @fig-tres-camadas aplica a separação a um instrumento que vocês
+talvez nunca tenham visto funcionando.
+
+```{mermaid}
+%%| label: fig-tres-camadas
+%%| fig-cap: "As três camadas aplicadas à régua de cálculo. A inovação está na camada do meio."
+%%| fig-width: 6
+%%| echo: false
+flowchart LR
+  P["Problema<br/>multiplicar dois numeros"]
+  R["Representacao<br/>distancias proporcionais<br/>a logaritmos"]
+  M["Mecanismo<br/>duas escalas<br/>que deslizam"]
+  P --> R --> M
+```
+
+A régua de cálculo resolve uma multiplicação sem que o mecanismo saiba
+multiplicar. Ele só sabe somar comprimentos. Quem fez o trabalho difícil foi a
+representação, que converteu multiplicação em soma antes de a madeira entrar na
+história. Voltaremos a esse instrumento adiante.
+
+### O critério antes do superlativo
+
+A pergunta "qual foi o primeiro computador?" aparece em toda conversa sobre
+este assunto e não tem resposta única. A pergunta não é difícil. Ela é mal
+formulada.
+
+@wazlawick2016 propõe substituí-la por uma matriz de critérios. Em vez de
+disputar um pódio, declara-se sob que aspecto uma máquina vem antes das outras.
+A @tbl-criterios-primeiro lista os cinco critérios que separam as candidatas do
+período da Segunda Guerra, e a seção sobre os primeiros computadores os aplica.
+
+| **Critério** | **Pergunta que ele faz** |
+|---|---|
+| Eletrônico | Os sinais são processados por componentes eletrônicos, e não por peças que se movem? |
+| Programável | A sequência de instruções pode ser alterada sem reconstruir a máquina? |
+| Propósito geral | A máquina resolve classes variadas de problemas, ou apenas um? |
+| Programa armazenado | As instruções ficam na memória, junto com os dados? |
+| Operacional | Houve uso documentado e repetível, ou apenas um protótipo? |
+
+: Os cinco critérios que tornam a pergunta sobre o primeiro computador respondível. {#tbl-criterios-primeiro}
+
+A regra vale para além deste capítulo. Quando vocês lerem que uma empresa
+lançou o primeiro telefone com tela sensível ao toque ou a primeira rede
+social, a pergunta correta é sempre a mesma: primeiro sob qual critério.
+Protótipo, patente, venda, escala de adoção e influência sobre o que veio
+depois são coisas distintas, e o superlativo sem critério costuma ser
+propaganda.
+
+### Ideia, implementação e adoção
+
+O terceiro hábito de leitura é separar três datas que raramente coincidem: a
+data em que alguém formulou a ideia, a data em que alguém construiu um artefato
+que a incorpora e a data em que o artefato passou a ser usado em escala.
+
+A máquina analítica de Babbage foi projetada no século XIX e não foi concluída
+como planejado. A ideia estava lá; a implementação, não. O correio eletrônico
+funcionava entre pesquisadores muito antes de a maioria das pessoas ter um
+endereço. A implementação estava lá; a adoção, não.
+
+Confundir as três datas produz duas distorções. A primeira trata como fracasso
+uma ideia que apenas chegou cedo demais para a tecnologia de fabricação
+disponível. A segunda atribui a quem popularizou uma técnica o mérito de quem a
+concebeu. Nenhuma das duas ajuda a entender por que as coisas aconteceram na
+ordem em que aconteceram.
+
+### Anacronismo
+
+O último cuidado é o mais difícil. Um artefato antigo não é uma versão
+incompleta de um computador moderno, e descrevê-lo assim apaga o que ele de
+fato fazia.
+
+O ábaco não é um computador lento. Ele é um registro de valores por posição,
+operado por uma pessoa que conhece as regras. Os cartões de Jacquard não são
+software. Eles são um meio de controle que seleciona ações em um tear. As
+semelhanças com a computação atual são reais e valem ser apontadas, desde que
+venham acompanhadas das diferenças de escala, de meio físico e de capacidade.
+
+A @tbl-periodos apresenta a divisão de períodos que este capítulo segue, na
+forma da transformação dominante de cada um. Ela serve de mapa para as seções
+seguintes, e vale voltar a ela quando um marco parecer solto.
+
+| **Período** | **Transformação dominante** |
+|---|---|
+| Até 1622 | Contar e calcular por representações externas ao corpo |
+| Séculos XVII a XIX | Mecanizar a operação aritmética e controlar máquina por cartões |
+| 1830 a 1900 | Unir lógica, telecomunicação e processamento de dados |
+| 1900 a 1940 | Preparar eletrônica, memória e organizações de informação |
+| 1936 a 1950 | Formalizar a computação e construir os primeiros computadores |
+| Anos 1950 | Transistor, linguagens de programação e sistemas operacionais |
+| Anos 1960 | Circuitos integrados, interação e redes experimentais |
+| Anos 1970 | Microprocessador, computador pessoal e plataformas de software |
+| Anos 1980 | Padronização do computador pessoal e interconexão crescente |
+| Anos 1990 | Web, mecanismos de busca e serviços online |
+| Anos 2000 | Plataformas participativas, smartphones e computação móvel |
+
+: Períodos da história da computação e a transformação dominante de cada um, conforme @wazlawick2016. {#tbl-periodos}
+
+## Contar antes de calcular
+
+A computação antecede o computador em milhares de anos. O que existia antes não
+eram máquinas ruins: eram soluções para o mesmo problema, na camada da
+representação.
+
+### Externalizar a contagem
+
+Dedos, entalhes em osso ou madeira e fichas de barro tiram a contagem da
+cabeça e a colocam em um objeto. Um
+pastor que guarda uma pedra por ovelha não precisa saber contar. Ele precisa
+saber emparelhar, e o monte de pedras faz o resto.
+
+Essa transferência é o primeiro movimento da história inteira. A informação
+passa a existir fora da pessoa, em uma forma que outra pessoa pode ler, que
+sobrevive ao esquecimento e que pode ser manipulada segundo regras. Toda memória
+de computador é descendente do monte de pedras.
+
+### O ábaco e a convenção de leitura
+
+O ábaco organiza valores por posição. Uma conta em uma haste vale um, e a mesma
+conta na haste seguinte vale dez. O objeto físico é o mesmo; o valor muda com o
+lugar.
+
+Este ponto reaparece no capítulo 5 com outro nome. O
+resultado de uma operação no ábaco não está nas peças. Ele está na convenção de
+leitura combinada entre quem opera e quem interpreta. Duas pessoas com
+convenções diferentes olham para a mesma configuração de contas e leem números
+diferentes, e nenhuma das duas está errada sobre o que vê.
+
+@brookshear2013 formula a mesma ideia para o computador: um padrão de bits não
+tem significado próprio, e a codificação é que decide se ele representa um
+número, uma letra, uma cor ou uma instrução. A lição do ábaco e a lição do bit
+são a mesma lição, separadas por três mil anos de tecnologia.
+
+### O zero e a numeração indo-arábica
+
+O sistema de numeração que vocês usam desde a infância é uma tecnologia, e não
+uma propriedade natural dos números. Ele tem duas características que os
+algarismos romanos não têm.
+
+A primeira é o valor posicional: o mesmo símbolo vale uma quantidade diferente
+conforme a coluna que ocupa. A segunda é o zero, que marca uma coluna vazia e
+permite escrever a diferença entre trinta e cinco e trezentos e cinco.
+
+A consequência prática é que as operações passam a ser executáveis por regras
+fixas sobre símbolos, sem raciocínio novo a cada conta. Somar dois números
+romanos exige entender o que eles significam. Somar dois números escritos em
+notação posicional exige seguir um procedimento, coluna por coluna, com uma
+regra de transporte. É a diferença entre resolver e executar, e ela é a razão
+de a aritmética escrita ter podido ser mecanizada séculos depois.
+
+### Al-Khwarizmi e a palavra algoritmo
+
+O matemático persa al-Khwarizmi escreveu, no século IX, tratados sobre
+procedimentos de cálculo com a numeração indo-arábica. A tradução latina de seu
+nome deu origem à palavra **algoritmo**, que o capítulo 1 já definiu como
+sequência finita de instruções sem ambiguidade que leva de uma entrada a um
+resultado.
+
+A origem da palavra registra uma coisa que é fácil esquecer. Algoritmo não é um
+conceito de informática. Ele é anterior ao computador em mais de mil anos, e
+descreve um procedimento que uma pessoa executa com papel. O computador não
+criou o algoritmo; ele criou um executor incansável para algoritmos que já
+existiam, e depois tornou possíveis algoritmos que nenhuma pessoa executaria em
+tempo útil.
+
+### Napier, os logaritmos e a régua de cálculo
+
+No início do século XVII, Napier publicou os logaritmos. A propriedade que
+interessa aqui cabe em uma linha:
+
+$$\log(a \times b) = \log(a) + \log(b)$$
+
+A multiplicação de dois números vira a soma de dois logaritmos. Como somar é
+muito mais barato que multiplicar, quem tivesse uma tabela de logaritmos podia
+multiplicar números grandes com uma soma e duas consultas.
+
+A régua de cálculo materializa a mesma propriedade em madeira. Ela coloca os
+valores em escalas cujas distâncias são proporcionais aos logaritmos. Alinhar
+o início de uma escala com o valor $a$ na outra e procurar o valor $b$ equivale
+a somar as duas distâncias, e a marca encontrada é uma aproximação de
+$a \times b$.
+
+Duas observações fecham o assunto. A primeira é que o operador não precisa
+conhecer a demonstração para usar o instrumento, mas precisa saber que o
+resultado é aproximado e depende da leitura da escala. A segunda é que a régua
+de cálculo foi o instrumento de trabalho de engenheiros e cientistas até a
+década de 1970, quando a calculadora eletrônica de bolso a aposentou em poucos
+anos. Os projetos que levaram o ser humano à Lua foram calculados com o
+instrumento da @fig-tres-camadas.
+
+## Delegar o cálculo a engrenagens
+
+Entre os séculos XVII e XIX, o cálculo começa a ser transferido para
+mecanismos. Dois movimentos acontecem em paralelo, e confundi-los custa caro:
+automatizar a operação aritmética é um problema, e programar o padrão de uma
+operação é outro.
+
+### Pascal, Leibniz e o transporte de vai-um
+
+As máquinas de Schickard, a Pascalina de Pascal e os dispositivos de Morland
+buscam realizar adição e subtração com rodas dentadas. O problema central
+dessas máquinas não é a soma. O problema central é o transporte.
+
+Somem $8 + 7$ em uma calculadora de rodas. A roda das unidades avança oito
+posições e depois mais sete. Ao completar dez posições, ela volta a zero e
+empurra uma unidade na roda das dezenas. O resultado, $15$, aparece como um $1$
+na roda das dezenas e um $5$ na das unidades.
+
+Reparem no que a engrenagem faz. Ela não sabe aritmética. Ela materializa uma
+regra da representação decimal, a de que dez unidades formam uma dezena, e essa
+regra é a mesma que vocês aplicam ao escrever o vai-um em uma conta no papel. O
+mecanismo executa a convenção; ele não a compreende. É a primeira vez que essa
+frase aparece neste capítulo e não será a última.
+
+Leibniz aperfeiçoou máquinas de calcular e formulou o sistema binário, que
+representa qualquer número com apenas dois símbolos. A distância entre uma
+coisa e outra é grande: Leibniz descreveu a base dois como sistema numérico e
+construiu máquinas decimais. Representação e mecanismo permanecem problemas
+ligados e distintos, e a base dois esperaria quase três séculos por um
+mecanismo que a favorecesse.
+
+### Os computadores humanos
+
+Durante todo esse período, e por muito tempo depois, a palavra **computador**
+designava uma pessoa. Um computador humano era alguém contratado para executar
+cálculos, produzir tabelas astronômicas, financeiras ou balísticas e conferir
+resultados de outros computadores humanos.
+
+O trabalho era organizado como uma linha de produção. Uma equipe recebia um
+procedimento decomposto em etapas simples, e cada pessoa executava sua etapa
+sobre os resultados da anterior, muitas vezes sem conhecer o objetivo do
+conjunto. Quem organizava a decomposição fazia, com pessoas, o que hoje se faz
+com processos em paralelo.
+
+Esse é um dos pontos em que a história corrige a lista usual de nomes. Boa parte
+dos computadores humanos eram mulheres, e as equipes que operaram os primeiros
+computadores eletrônicos vieram desse trabalho. A automação não fez o trabalho
+desaparecer: ela o reorganizou e, com frequência, tornou invisível quem o
+executava.
+
+### Jacquard e o controle separado do mecanismo
+
+O tear de Jacquard, do início do século XIX, não calcula nada. Ele aparece em
+todo livro de história da computação por outro motivo, e é o motivo mais
+importante deste capítulo até aqui.
+
+O tear usa cartões perfurados para definir o desenho do tecido. Em cada
+posição, o furo ou a ausência de furo seleciona se um fio sobe ou permanece. A
+sequência de cartões determina o padrão inteiro. A @fig-jacquard-controle mostra
+o percurso.
+
+```{mermaid}
+%%| label: fig-jacquard-controle
+%%| fig-cap: "O controle por cartões no tear de Jacquard. Trocar a sequência muda o resultado sem alterar a máquina."
+%%| fig-width: 6
+%%| echo: false
+flowchart LR
+  C["Cartao<br/>furo ou ausencia de furo"]
+  L["Leitura mecanica<br/>a agulha encontra ou nao o furo"]
+  A["Acao selecionada<br/>o fio sobe ou permanece"]
+  T["Padrao do tecido"]
+  C --> L --> A --> T
+  N["Nova sequencia de cartoes"] -.-> C
+```
+
+O que Jacquard separou foi o mecanismo do comportamento. A máquina permanece
+fisicamente a mesma e produz tecidos diferentes conforme a entrada que recebe.
+Para mudar o produto, troca-se a sequência de cartões, e não o tear.
+
+Essa separação é o antepassado direto da programação, e é aqui que o cuidado
+com o anacronismo precisa ser exercido. Os cartões de Jacquard não são um
+programa no sentido atual: eles não têm decisão, não têm repetição condicional
+e não podem ser alterados pela própria máquina durante a execução. O que eles
+antecipam é a ideia de que o comportamento de uma máquina pode ser informação
+externa a ela.
+
+O aritmômetro de Thomas de Colmar, do mesmo período, marca outra passagem: a de
+demonstrações isoladas para calculadoras produzidas e vendidas para uso
+continuado. Uma máquina que funciona uma vez em uma sala é prova de conceito;
+uma máquina que trabalha todo dia em um escritório é tecnologia.
+
+## A máquina que não foi construída
+
+O século XIX aproxima quatro linhas que vinham separadas: a automação
+industrial, a lógica formal, a telecomunicação e o processamento de dados
+administrativos. Todas convergem depois, e as quatro nascem aqui.
+
+### Babbage e as quatro funções
+
+Charles Babbage projetou máquinas de diferenças, destinadas a produzir tabelas
+por somas sucessivas, e depois a Máquina Analítica, que é o marco. O projeto não
+foi concluído como planejado, e seu valor histórico está na articulação que ele
+propôs.
+
+A Máquina Analítica separa quatro funções, apresentadas na @tbl-babbage-funcoes
+com os nomes que Babbage usou.
+
+| **Função** | **Nome de Babbage** | **Papel no projeto** |
+|---|---|---|
+| Memória | store | Guarda números e resultados intermediários |
+| Processamento | mill | Executa as operações aritméticas |
+| Entrada e controle | cartões | Fornece os dados e a sequência de operações |
+| Saída | impressão | Torna o resultado utilizável fora da máquina |
+
+: As quatro funções da Máquina Analítica de Babbage. {#tbl-babbage-funcoes}
+
+Comparem essa tabela com a estrutura funcional que o capítulo 3 vai apresentar,
+e com os componentes do capítulo 4. A correspondência é direta, e ela foi
+proposta um século antes de existir máquina capaz de realizá-la.
+
+O cuidado a tomar é o de sempre. Babbage não projetou um computador moderno em
+tamanho reduzido. Ele não trabalhava com programa armazenado, e as instruções
+ficavam nos cartões, fora da memória de trabalho. A distinção parece pequena e
+é justamente a que definirá a arquitetura dominante, cem anos depois.
+
+### Ada Lovelace e o deslocamento do cálculo para o símbolo
+
+Ada Lovelace escreveu, sobre a Máquina Analítica, notas que descrevem como os
+cartões poderiam coordenar uma sequência de operações. A contribuição que
+importa não é a de ter escrito instruções.
+
+O que as notas dela deslocam é o objeto. Enquanto a discussão tratava de
+calcular, a máquina era uma calculadora rápida. Ao observar que os símbolos
+manipulados não precisam representar quantidades, o texto abre a possibilidade
+de a máquina operar sobre qualquer coisa que se possa codificar segundo regras.
+Números são um caso particular.
+
+Vocês encontram essa ideia em uso todos os dias, e ela é a razão de o mesmo
+equipamento tocar música, corrigir texto e calcular imposto. A máquina não trata
+de sons, palavras ou dinheiro: ela trata de símbolos codificados, e a
+interpretação está do lado de fora.
+
+### Boole e a álgebra de dois valores
+
+Em meados do século XIX, George Boole formulou uma álgebra em que as
+proposições assumem valores lógicos e podem ser combinadas por operações. Onde
+a álgebra comum opera sobre quantidades com soma e multiplicação, a álgebra
+booleana opera sobre verdadeiro e falso com conjunção, disjunção e negação.
+
+O trabalho de Boole era filosófico e matemático. Ele não tinha máquina em vista,
+e a formalização ficou disponível por quase um século sem aplicação técnica.
+
+A convergência aconteceu já no século XX, quando Shannon aproximou a álgebra
+booleana dos circuitos de comutação, mostrando que os dois valores lógicos
+correspondem a chave aberta e chave fechada, e que uma combinação de chaves
+executa uma expressão lógica [@wazlawick2016]. A partir daí, projetar um
+circuito passou a ser um problema algébrico, com regras de simplificação e
+verificação.
+
+Esta seção é a razão de o capítulo 5 apresentar a base dois e de o
+capítulo 6 operar sobre ela, e é a origem de Sistemas Digitais, que vocês vão
+cursar mais adiante no curso. Quando aquela disciplina pedir a simplificação de
+uma expressão lógica, o que estará em jogo é a álgebra que Boole construiu sem
+imaginar um circuito.
+
+### Hollerith e o censo de 1890
+
+Herman Hollerith aplicou cartões perfurados e máquinas tabuladoras ao censo
+norte-americano de 1890, reduzindo drasticamente o tempo de apuração. É o
+primeiro caso em que o processamento mecanizado de dados demonstra valor em
+escala administrativa, e não em cálculo científico.
+
+O procedimento merece atenção porque ele antecipa algo que o capítulo 12 vai
+retomar sob outro nome. Cada pessoa vira um cartão. Cada característica da
+pessoa vira uma posição no cartão, e cada posição admite um conjunto fixo de
+valores previstos. O operador configura a máquina para contar os cartões que
+combinam determinadas perfurações, e a máquina acumula totais.
+
+A velocidade não vem só da máquina. Ela vem da padronização prévia: alguém
+precisou decidir quais categorias existem, quantos valores cada uma admite e o
+que fazer com quem não se encaixa em nenhum. Esse trabalho de codificação é
+anterior ao processamento, é uma decisão humana e determina o que o resultado
+pode dizer. Um dado que não coube na categoria prevista não aparece no total,
+e ninguém que leia o total percebe a ausência.
+
+A empresa que Hollerith fundou está entre as que deram origem à IBM, e é por
+isso que o processamento de dados comercial e o cálculo científico chegam ao
+século XX como duas tradições distintas, com máquinas, clientes e vocabulários
+próprios.
+
+## Eletrônica, guerra e os primeiros computadores
+
+A primeira metade do século XX prepara os componentes, os meios de registro e as
+organizações que tornam possível processar sinais em alta velocidade. Nenhuma
+máquina isolada inaugura o período: ele resulta da convergência entre indústria
+de escritório, telecomunicações, ciência e urgência militar.
+
+### Da engrenagem ao relé, do relé à válvula
+
+O telégrafo e o telefone transformaram a transmissão e a comutação de sinais em
+problemas de engenharia, e produziram o relé, um interruptor acionado
+eletricamente. Um relé comuta em milésimos de segundo, contra os décimos de
+segundo de uma peça que precisa vencer a própria inércia.
+
+A válvula eletrônica substitui o movimento por controle de corrente e comuta
+milhares de vezes mais rápido que o relé, sem peça móvel. O ganho é enorme e o
+preço também: a válvula é grande, consome muita energia, esquenta e queima. Um
+computador com dezenas de milhares de válvulas passa parte do tempo com alguma
+delas queimada, e a manutenção é atividade contínua, não eventual.
+
+Essa limitação é a causa direta do marco seguinte da cronologia. O transistor
+não apareceu por curiosidade científica; ele resolveu um problema industrial
+que já estava travando o crescimento das máquinas.
+
+### O flip-flop e a memória de um bit
+
+O flip-flop é um circuito com dois estados estáveis, capaz de permanecer em um
+deles até receber um sinal que o altere. Definam o estado baixo como $0$ e o
+alto como $1$: um pulso em uma entrada leva o circuito ao estado alto, e a
+informação permanece depois de o pulso terminar.
+
+Repare-se na formulação, que é a mesma da seção sobre o ábaco. O componente não
+entende números. Ele tem dois estados físicos, e uma convenção associa esses
+estados a dígitos binários. Trocada a convenção, o mesmo circuito representa
+outra coisa.
+
+No mesmo período, a gravação magnética, os tambores e os discos inauguram meios
+de armazenamento regraváveis, capazes de guardar informação sem energia
+aplicada. A hierarquia de memória que o capítulo 4 apresenta começa a se formar
+aqui, com a distinção entre o que é rápido e volátil e o que é lento e
+permanente.
+
+Uma alternativa perdeu, e conhecê-la evita uma leitura ingênua da
+cronologia. As calculadoras analógicas resolvem
+problemas representando grandezas por quantidades físicas contínuas, como
+tensão ou posição, e obtêm resultados sem discretizar nada. Elas não são
+computadores primitivos: são outra família, com outra questão central. Onde o
+digital se preocupa com codificação e estados, o analógico se preocupa com
+precisão e calibração. A escolha entre os dois dependia do problema, e chamar o
+digital de melhor sem dizer em que aspecto é exatamente o erro que este capítulo
+vem tentando evitar.
+
+### Turing e a máquina que não é uma máquina
+
+Nos anos 1930, antes de qualquer computador eletrônico, Alan Turing descreveu um
+dispositivo abstrato: uma fita infinita dividida em posições, um cabeçote que lê
+e escreve símbolos, e um conjunto finito de estados e regras que dizem o que
+fazer diante de cada símbolo lido [@turing1937].
+
+O ponto que costuma se perder é que ninguém pretendia construir isso. A máquina
+de Turing é um instrumento de raciocínio, e serve para responder perguntas
+sobre computação em geral, sem depender de nenhuma tecnologia. Com ela é
+possível perguntar o que pode ser calculado por qualquer procedimento mecânico,
+e o capítulo 1 já mencionou a resposta mais famosa: existe pergunta que nenhum
+procedimento responde em todos os casos.
+
+A cronologia aqui vale por si. A demonstração de que existem limites absolutos
+para o que uma máquina pode calcular veio mais de dez anos antes da primeira
+máquina eletrônica de programa armazenado. A área conheceu seus limites antes de
+conhecer seus instrumentos, o que é raro na história da técnica.
+
+### Cinco máquinas e nenhum campeão
+
+A Segunda Guerra acelerou tudo. O período reúne máquinas com propósitos,
+tecnologias e graus de programabilidade muito diferentes, e a lista abaixo
+serve para ser cruzada com a @tbl-criterios-primeiro.
+
+A série Z, desenvolvida por Konrad Zuse na Alemanha, chega com a Z3 a um marco
+de automação eletromecânica programável, construída com relés.
+
+Em Bletchley Park, no Reino Unido, o esforço de criptanálise produziu a Bombe e
+depois o Colossus, máquinas especializadas em quebrar cifras. O Colossus é
+eletrônico e não é de propósito geral: ele foi construído para uma tarefa.
+
+O Atanasoff-Berry Computer, nos Estados Unidos, aplica eletrônica à solução de
+sistemas de equações, também sem propósito geral.
+
+O Harvard Mark I é eletromecânico, grande e operacional, usado para cálculos
+durante anos.
+
+O ENIAC é eletrônico, de propósito geral e operacional, e sua programação era
+feita por cabos e chaves. Trocar o problema significava reconectar a máquina, o
+que levava dias.
+
+Nenhuma dessas máquinas vence em todos os cinco critérios, e é por isso que a
+pergunta sobre a primeira não fecha. Cada uma vem antes sob um aspecto. Somem-se
+a isso as disputas de autoria, comuns em projetos militares e de laboratório,
+em que o trabalho é coletivo e o crédito é atribuído depois, e vocês têm o
+retrato de um período que resiste a listas simples.
+
+### O programa armazenado
+
+O relatório sobre o EDVAC consolidou a organização que resolve a limitação do
+ENIAC, e ela costuma ser associada ao nome de von Neumann, embora tenha sido
+construída por muitos pesquisadores. A ideia é curta de enunciar e difícil de
+superestimar: as instruções ficam na memória, no mesmo lugar e no mesmo formato
+que os dados.
+
+A @tbl-programa-armazenado mostra uma memória minúscula com um programa dentro.
+
+| **Posição** | **Conteúdo** | **Papel** |
+|---|---|---|
+| 0 | somar | Instrução |
+| 1 | parar | Instrução |
+| 2 | 4 | Dado |
+| 3 | 5 | Dado |
+
+: Uma memória com instruções e dados no mesmo espaço de endereços. {#tbl-programa-armazenado}
+
+O processador busca a instrução na posição $0$, aplica a soma aos dados das
+posições $2$ e $3$, chega a $9$ e depois busca a instrução seguinte, que manda
+parar. Para trocar a soma por uma subtração, basta alterar o conteúdo da posição
+$0$. Não há cabo para religar, nem cartão para reordenar.
+
+Três consequências saem daí, e as três estão neste livro.
+
+A primeira é que programar deixa de ser trabalho físico e passa a ser escrita.
+Isso muda quem pode fazê-lo, quanto tempo leva e quantas versões cabem em um
+dia.
+
+A segunda é que uma instrução, por estar na memória em forma de dado, pode ser
+lida e escrita por outro programa. É o que torna possível o compilador do
+capítulo 7, que é um programa cuja saída é outro programa.
+
+A terceira é que instrução e dado, ocupando o mesmo espaço com o mesmo formato,
+só se distinguem pelo uso que se faz deles. Um erro que faça o processador
+buscar instrução onde há dado produz comportamento sem sentido, e essa
+fragilidade é a origem de toda uma família de problemas de segurança que vocês
+vão estudar mais adiante.
+
+O Manchester Baby, o EDSAC e outras máquinas do fim da década tornaram o
+programa armazenado operacional. A partir delas, a arquitetura descrita aqui
+passa a ser a organização dominante, e continua sendo a do equipamento em que
+vocês vão programar neste semestre.
+
+## As gerações e o que cada uma mudou
+
+A divisão da história dos computadores em gerações organiza o assunto por
+componente dominante. A @tbl-geracoes reúne as quatro, com o ganho que cada
+transição trouxe.
+
+| **Geração** | **Componente** | **Período aproximado** | **O que a transição resolveu** |
+|---|---|---|---|
+| Primeira | Válvula | Anos 1940 e 1950 | Velocidade eletrônica, sem peça móvel |
+| Segunda | Transistor | Anos 1950 e 1960 | Confiabilidade, tamanho e consumo |
+| Terceira | Circuito integrado | Anos 1960 e 1970 | Custo por função e compatibilidade entre modelos |
+| Quarta | Microprocessador | A partir dos anos 1970 | Processador em uma peça, ao alcance de pequenos fabricantes |
+
+: As quatro gerações de computadores e o problema que cada transição resolveu. {#tbl-geracoes}
+
+A tabela é útil e tem um defeito conhecido. Ela conta a história pelo
+componente, e boa parte do que mudou no período não é
+componente. Linguagem de programação, sistema operacional, interface e rede não
+aparecem nela, e explicam tanto quanto as válvulas e os transistores.
+
+### O transistor e a industrialização
+
+O transistor comuta sinais como a válvula e resolve seus três problemas de uma
+vez: é pequeno, consome pouco e não queima com facilidade. A máquina que antes
+ocupava uma sala e parava toda semana passa a caber em um armário e a funcionar
+por meses.
+
+O efeito não é apenas técnico. Uma máquina confiável pode ser vendida a quem não
+tem equipe de manutenção própria, e é nos anos 1950 que o computador vira
+produto comercial. O UNIVAC e as máquinas que o seguem levam o processamento
+eletrônico para folha de pagamento, controle de estoque e faturamento, que são
+os problemas de quem paga a conta.
+
+### O software vira assunto próprio
+
+Enquanto o componente mudava, uma separação mais importante se consolidava: a de
+que o programa é um objeto de estudo distinto da máquina que o executa.
+
+Grace Hopper e o compilador A-0 abrem o caminho dos tradutores, programas que
+convertem uma descrição legível por pessoas em instruções de máquina. A partir
+daí, a linguagem de programação passa a mediar humano e equipamento, e o
+capítulo 7 vai tratar dessa mediação em detalhe.
+
+As linguagens do período mostram que a mediação não é única. FORTRAN foi
+construído para cálculo científico e queria produtividade em fórmulas. LISP
+explora manipulação de símbolos, e não de quantidades, retomando o deslocamento
+que Lovelace havia apontado um século antes. ALGOL influenciou a descrição
+formal de linguagens e a notação com que se escreve algoritmo até hoje.
+
+No mesmo período aparece o primeiro sistema operacional, e a motivação dele é
+prosaica. Antes, um operador humano preparava cada trabalho, carregava os dados,
+executava e recolhia o resultado, e a máquina ficava parada entre um trabalho e
+outro. O processamento em lote organiza os trabalhos em sequência, e um programa
+supervisor carrega o próximo assim que o anterior termina. O ganho não é
+inteligência: é a eliminação do tempo ocioso de um equipamento caríssimo.
+
+### O circuito integrado e a compatibilidade
+
+O circuito integrado reúne muitos componentes em uma mesma peça de material
+semicondutor. O efeito imediato é o custo por função, que cai de forma
+sustentada por décadas.
+
+O efeito menos evidente é estratégico, e o IBM System/360 é o exemplo do
+período. Uma família de computadores com modelos de portes diferentes, capaz de
+executar os mesmos programas, muda a decisão de compra. O cliente que cresce
+troca de modelo sem reescrever seus sistemas nem retreinar sua equipe.
+
+Daí sai um modelo de análise que explica disputas de mercado até hoje.
+Compatibilidade preserva investimento, e por isso pesa mais que
+desempenho bruto em quase toda decisão real. Uma empresa com dez programas
+escritos para uma arquitetura pode preferir uma máquina compatível e mais lenta
+a uma máquina superior que exija reescrever tudo.
+
+A pergunta a fazer, sempre, é compatível com o quê: com o conjunto de
+instruções, com o formato dos dados, com o sistema operacional ou com os
+periféricos. São compatibilidades diferentes, e um fornecedor que promete a
+palavra sem o complemento está prometendo pouco.
+
+### Tempo compartilhado e o computador que responde
+
+Nos anos 1960, o time-sharing transforma a relação entre pessoa e máquina. Em
+vez de entregar um trabalho e voltar no dia seguinte, várias pessoas usam o
+mesmo computador ao mesmo tempo, cada uma em um terminal.
+
+O mecanismo é a alternância rápida. O sistema executa o trabalho do primeiro
+terminal por uma fatia de tempo, salva o estado, passa ao segundo, depois ao
+terceiro, e repete o ciclo. Como a alternância é muito mais rápida que a
+percepção humana, cada pessoa tem a impressão de dispor da máquina inteira.
+
+Não confundam isso com dividir fisicamente o computador em três. O processador
+faz uma coisa de cada vez, e a interatividade depende de memória suficiente para
+manter os estados, de uma política de escalonamento que decida a ordem e de
+terminais acessíveis. O capítulo 7 volta ao assunto ao tratar do papel do
+sistema operacional.
+
+A consequência cultural é grande. Um computador que responde em segundos permite
+experimentar, errar e corrigir, e é esse regime que produz a programação como
+atividade exploratória. O regime anterior, em que cada erro custava um dia de
+espera, produzia outro tipo de programador e outro tipo de programa.
+
+### O que os anos 1960 anteciparam
+
+Três linhas nascem nessa década e só se tornam cotidianas muito depois, e as
+três ilustram a distância entre ideia e adoção.
+
+O Sketchpad, o mouse, os primeiros experimentos com computação gráfica e a
+proposta do Dynabook antecipam a interação visual e o computador pessoal. Nada
+disso era produto: eram demonstrações em laboratórios de pesquisa.
+
+A ARPANET, com comutação de pacotes, estabelece as bases técnicas e sociais da
+interconexão entre redes. A ARPANET não é a Internet pronta. Ela é um
+experimento de rede, e entre ele e a Internet de uso público existem
+protocolos, décadas e uma mudança completa de escala e de propósito.
+
+O Apollo Guidance Computer mostra software embarcado em missão crítica, com
+restrições severas de memória, peso e confiabilidade. É o mesmo tipo de
+restrição que o capítulo 1 discutiu ao tratar dos casos em que um detalhe custou
+caro.
+
+A década também produziu a expressão crise do software, que nomeia um problema
+que a técnica não resolveu: projetos grandes atrasavam, estouravam orçamento e
+falhavam com regularidade, apesar de máquinas cada vez melhores. A observação de
+que acrescentar pessoas a um projeto atrasado tende a atrasá-lo mais, por causa
+do custo de coordenação, vem desse período. Engenharia de Software, no quarto
+período, trata do assunto com método próprio, e o capítulo 8 o apresenta como
+área.
+
+## O computador pessoal
+
+Nos anos 1970, o microprocessador concentra em uma única peça as funções que
+antes se espalhavam por muitos componentes. A consequência econômica é imediata:
+construir um computador deixa de exigir uma indústria e passa a exigir uma
+oficina.
+
+### O microprocessador e o que veio junto
+
+A sequência de processadores do período, do Intel 4004 aos que o seguiram, e
+peças como o Z80 e o MOS 6502, barateia o componente central a ponto de tornar
+viável um mercado de máquinas pequenas.
+
+Barateamento sozinho não explica o que aconteceu. O computador pessoal nasce de
+uma rede de elementos que precisam existir ao mesmo tempo: o processador, o
+sistema operacional, a linguagem, as interfaces de expansão, as aplicações e uma
+comunidade capaz de produzir e trocar programas. O Altair, o Apple I e o Apple
+II, o TRS-80 e outras máquinas do período tiveram graus muito diferentes de
+sucesso, e a diferença raramente esteve na especificação do processador.
+
+### Por que uma planilha vende um computador
+
+O caso do VisiCalc é o exemplo mais claro da história da área sobre a relação
+entre máquina e aplicação.
+
+Uma planilha organiza valores em células e permite que uma célula dependa de
+outras por uma fórmula registrada. Se a despesa registrada em uma célula muda de
+$100$ para $120$, o total recalcula sozinho, e todas as células que dependiam
+dele acompanham.
+
+O que isso muda no trabalho de quem faz orçamento não é a conta: é a simulação.
+Antes, testar uma hipótese exigia refazer todas as contas à mão, e por isso se
+testava uma ou duas. Depois, testar uma hipótese custa uma digitação, e por isso
+se testam vinte.
+
+O efeito comercial foi que muita gente comprou um computador para rodar um
+programa. A máquina virou meio, e a aplicação virou motivo. Esse padrão se
+repete em toda a história posterior, incluindo a dos telefones, e é a razão de
+comparar plataformas apenas por especificação técnica explicar tão pouco.
+
+### Padrão, ecossistema e dependência
+
+Os anos 1980 consolidam o computador pessoal como produto de massa. O IBM PC e o
+MS-DOS estabelecem uma plataforma cujo alcance vem tanto da máquina original
+quanto dos compatíveis e dos fornecedores de software que a cercaram.
+
+A interface gráfica sai do laboratório e chega ao produto com a Lisa, o
+Macintosh e depois o Windows, popularizando janelas, ícones e apontadores. Vale
+registrar o que ela não faz: uma interface gráfica não dispensa entender
+arquivo, dado e procedimento. Ela reduz o custo de aprender a operar, e não o de
+compreender o que está sendo operado.
+
+O modelo de análise que este período fornece é o par formado por padrão e
+dependência. Quando uma interface vira padrão, a compatibilidade reduz o custo
+de adoção para todo mundo, e o ecossistema cresce. Ao mesmo tempo, programas,
+dados e pessoas ficam ligados a formatos, ferramentas e fornecedores, e sair
+passa a ter custo.
+
+Para avaliar uma plataforma, portanto, não basta olhar o que ela faz hoje.
+Observem a licença, a documentação disponível, a possibilidade de outro
+fabricante produzir compatíveis e, principalmente, o custo de migrar para outra
+coisa daqui a cinco anos. O capítulo 11 volta a essas questões pelo lado
+jurídico, e o capítulo 15 pelo lado da concentração de infraestrutura.
+
+### Software livre
+
+Ainda nos anos 1980, o projeto GNU e a Free Software Foundation estruturam uma
+alternativa de produção e distribuição de software, baseada em licenças que
+asseguram liberdades definidas de uso, estudo, modificação e redistribuição.
+
+O ponto que interessa aqui é histórico, e o capítulo 11 tratará do jurídico. O
+software livre não nasceu como oposição ideológica abstrata: ele nasceu em
+reação a uma mudança concreta de prática. Programas que antes circulavam com o
+código-fonte entre pesquisadores e usuários passaram a ser distribuídos apenas
+em forma executável, e quem recebia não podia mais corrigir, adaptar ou
+aprender com eles.
+
+A alternativa construída então sustenta boa parte da infraestrutura que vocês
+usam hoje, muitas vezes sem saber. Grande parte dos servidores da Web, dos
+telefones e das ferramentas de desenvolvimento que vocês vão usar no curso
+existe sob licenças dessa família.
+
+## O mundo se conecta na Web
+
+A Internet e a Web não são a mesma coisa, e a confusão entre as duas é o erro
+mais comum deste assunto. A @fig-camadas-web separa as camadas.
+
+```{mermaid}
+%%| label: fig-camadas-web
+%%| fig-cap: "As camadas envolvidas em uma página. Cada uma se apoia na de baixo e não se confunde com ela."
+%%| fig-width: 6
+%%| echo: false
+flowchart LR
+  S["Servico<br/>busca, venda,<br/>publicacao"]
+  N["Navegador<br/>solicita e<br/>apresenta recursos"]
+  W["Web<br/>URL, HTTP<br/>e hipertexto"]
+  I["Internet<br/>transporta dados<br/>entre redes"]
+  S --> N --> W --> I
+```
+
+A Internet transporta dados entre redes e é anterior à Web em décadas. A Web
+organiza recursos por endereços, protocolos e ligações de hipertexto, e é um
+serviço que roda sobre a Internet. Correio eletrônico, transferência de arquivos
+e muitos outros serviços usam a Internet sem serem Web.
+
+### O que a Web acrescentou
+
+A proposta de Tim Berners-Lee, no fim dos anos 1980, reúne três convenções que
+já se apoiavam em tecnologia existente: um identificador para localizar qualquer
+recurso, um protocolo para pedi-lo e uma linguagem de marcação para descrever
+documentos com ligações entre si.
+
+O que essas convenções resolvem é o problema da publicação. Antes delas, colocar
+informação ao alcance de outras pessoas na rede exigia decidir formato,
+localização e forma de acesso a cada vez. Depois delas, publicar virou uma
+operação padronizada, e é essa padronização que produz o crescimento dos anos
+1990.
+
+Os navegadores gráficos, como o Mosaic e depois o Netscape, tornaram a
+navegação acessível a quem não era técnico, e é aí que a adoção sai do meio
+acadêmico.
+
+### Seguir um link
+
+Tocar em um link parece uma operação única e envolve várias convenções
+combinadas.
+
+O navegador interpreta o endereço e separa suas partes. Ele descobre, por um
+mecanismo de nomes, qual máquina responde por aquele endereço. Envia uma
+solicitação para essa máquina, segundo o protocolo combinado. Recebe uma
+resposta, que costuma ser um documento de marcação. Interpreta o documento,
+descobre que ele faz referência a imagens e a outros recursos, e repete o
+procedimento para cada um deles.
+
+Nada disso é visível, e tudo isso depende de convenções compartilhadas entre
+programas escritos por pessoas diferentes, em países diferentes, que nunca se
+falaram. A infraestrutura que sustenta a operação, e o custo dela, são assunto
+dos capítulos 13 e 14.
+
+### Publicar e localizar
+
+Uma consequência do crescimento merece registro, porque ela inverteu a
+importância de dois problemas.
+
+Enquanto a informação era escassa na rede, publicar era o problema difícil.
+Quando publicar ficou fácil, localizar virou o problema difícil, e mecanismos de
+busca passaram a ocupar a posição central. Quem organiza o acesso à informação
+tem poder sobre o que é encontrado, e o capítulo 13 trata dos efeitos disso na
+circulação de conteúdo.
+
+O período também produziu o comércio eletrônico e a mediação por plataformas.
+A narrativa linear de sucesso, ao estudar essa parte, engana: muitas
+empresas do período desapareceram, o financiamento era especulativo e o modelo
+de negócio de várias delas nunca se sustentou. A história que sobrou nos livros
+é a das que ficaram, e ela não é representativa do que aconteceu.
+
+## A computação móvel
+
+Entre 2000 e 2009, a computação deixa a mesa. A mudança não é apenas de tamanho
+do aparelho: é a combinação de conexão permanente, sensores, loja de aplicações
+e dados mantidos fora do equipamento.
+
+O iPhone, o Android e as lojas de aplicações consolidam plataformas móveis com
+tela sensível ao toque e ecossistemas de desenvolvedores. Serviços como
+Wikipedia, Skype, YouTube e as redes sociais do período mostram modelos
+distribuídos de troca, colaboração e publicação, em que o conteúdo vem de quem
+usa.
+
+### Mobilidade é um sistema, não um aparelho
+
+Um aplicativo que vocês usam depende de pelo menos cinco partes: o dispositivo,
+o sistema operacional, a rede, o serviço remoto e os dados do usuário. Falha,
+custo e questão de privacidade podem nascer em qualquer uma delas, e por isso
+não se explica um aplicativo apenas pela interface.
+
+Um aplicativo de navegação serve de exemplo. Ele coleta posição e velocidade de
+muitos aparelhos, agrega os dados por trecho de via, estima o congestionamento,
+compara caminhos possíveis e sugere uma rota. A estimativa muda quando chegam
+novas observações.
+
+Três perguntas surgem dessa descrição, e nenhuma delas é sobre a interface. Quem
+consentiu com o envio da posição, e em que termos? Qual a qualidade do dado em
+uma via com poucos aparelhos circulando? E o que acontece quando muitos
+motoristas recebem a mesma sugestão de desvio ao mesmo tempo? A primeira
+pergunta é assunto do capítulo 12; a terceira, do capítulo 13.
+
+### Nuvem
+
+O termo **computação em nuvem** designa o fornecimento remoto de processamento,
+armazenamento ou software por infraestrutura administrada por terceiros.
+
+A palavra é infeliz, porque sugere ausência de lugar. Nuvem não elimina
+máquina física. Ela desloca o processamento e o armazenamento para centros de
+dados que pertencem a alguém, ficam em algum
+país, consomem energia de alguma matriz elétrica e estão sujeitos a alguma
+legislação. Cada um desses quatro fatos vira um capítulo do segundo bloco deste
+livro.
+
+## O que a história ensina sobre o presente
+
+Falta tratar do trecho mais delicado de qualquer livro de história recente: o
+que ele diz sobre o próprio momento.
+
+### A etiqueta temporal
+
+A fonte principal deste capítulo foi publicada há cerca de uma década. Isso não
+é defeito, e é informação necessária para usá-la. Uma afirmação sobre um marco
+de 1890 continua válida; uma afirmação sobre o mercado de telefones, não.
+
+A regra prática é classificar cada afirmação antes de repeti-la, conforme a
+@tbl-etiqueta-temporal.
+
+| **Classe** | **Formulação segura** |
+|---|---|
+| Marco documentado | "O livro registra que, em tal ano, ..." |
+| Tendência observada | "O autor identifica uma tendência de ..." |
+| Previsão | "O livro projeta que ..." |
+| Estado atual | Verificar em fonte recente e datada antes de afirmar |
+
+: Como classificar uma afirmação retirada de uma fonte histórica antes de repeti-la. {#tbl-etiqueta-temporal}
+
+Uma previsão impressa em um livro sério continua sendo uma previsão. Ela não
+vira fato por ter sido publicada, e o teste de qualquer previsão exige três
+passos: registrar a formulação original com sua data, definir o que contaria
+como confirmação e procurar dados recentes. Sem os três, a avaliação vira
+impressão pessoal.
+
+Esta é a competência que o capítulo 15 vai cobrar de vocês no seminário de
+atualidades, e ela começa a ser treinada aqui.
+
+### Quatro padrões que se repetem
+
+A cronologia termina nos padrões que ela produz, porque são eles que vocês
+levam para os próximos capítulos.
+
+O primeiro é que a solução costuma preceder o problema. A base dois esperou
+séculos por um circuito. A álgebra de Boole esperou quase um século por
+Shannon. A interface gráfica esperou uma década entre o laboratório e o
+produto. Quando vocês encontrarem uma técnica que parece não servir para nada,
+guardem-na.
+
+O segundo é que a adoção depende de uma aplicação concreta, e não da qualidade
+técnica isolada. A planilha vendeu computadores. O navegador gráfico levou a
+Web ao público. Uma tecnologia sem motivo de uso permanece em laboratório,
+mesmo quando é superior.
+
+O terceiro é que compatibilidade e ecossistema decidem disputas que a
+especificação não decide. Quem escolhe uma plataforma escolhe também os
+programas que já tem, a equipe que já treinou e o custo de sair depois.
+
+O quarto é que toda automação reorganiza trabalho humano, e o torna menos
+visível em vez de fazê-lo desaparecer. Os computadores humanos viraram
+operadoras de máquina. Os operadores viraram programadores. A pergunta sobre
+quem executa o trabalho que a máquina não faz continua valendo hoje, e o
+capítulo 13 a retoma com casos atuais.
+
+O capítulo 3 volta ao presente e trata do computador como sistema, com as partes
+que a @tbl-babbage-funcoes já anunciou no século XIX.
+
+## A tarefa desta semana
+
+O piso desta semana tem duas partes.
+
+A primeira é um exercício de critério. Escolham uma das máquinas citadas na
+seção sobre os primeiros computadores e preencham, para ela, as cinco linhas da
+@tbl-criterios-primeiro, respondendo sim ou não a cada pergunta. Depois,
+escrevam uma frase no formato "a máquina X foi a primeira sob o critério Y",
+com a justificativa em uma linha. Tragam a frase escrita.
+
+A segunda é um exercício de camadas. Escolham uma tecnologia que vocês usam
+todo dia e separem as três camadas da @fig-tres-camadas: qual é o problema
+humano, qual é a representação escolhida e qual é o mecanismo que a executa.
+Uma linha para cada camada basta.
+
+A extensão é para quem terminou o piso sem esforço, e também tem duas partes.
+
+Peguem a tecnologia da segunda tarefa e procurem a data da ideia, a data da
+primeira implementação e a data da adoção em escala. Se as três coincidirem,
+provavelmente vocês encontraram só uma delas e as outras duas estão em outro
+lugar. Anotem quanto tempo separou a primeira da última.
+
+Depois, escolham uma afirmação sobre tecnologia que vocês tenham lido ou ouvido
+nos últimos dias, em qualquer lugar, e classifiquem-na segundo a
+@tbl-etiqueta-temporal. Digam se ela é marco documentado, tendência, previsão ou
+afirmação sobre o estado atual, e o que seria necessário para verificá-la. Essa
+é a mesma operação que o capítulo 15 vai pedir, e treiná-la agora, em um caso
+pequeno, é mais barato que descobri-la na semana do seminário.
