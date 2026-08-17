@@ -1,0 +1,20 @@
+// As quatro funções da Máquina Analítica, dispostas como um diagrama de blocos.
+// A posição relativa é a mesma usada nos capítulos 3 e 4, para que o aluno
+// reconheça a correspondência entre o projeto de Babbage e o computador atual.
+digraph babbage_funcoes {
+  rankdir=LR;
+  bgcolor="white";
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.35, ranksep=0.55];
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.18,0.12"];
+  edge [color="#666666", arrowsize=0.8, fontname="Helvetica", fontsize=9];
+
+  entrada [label="Entrada e controle\ncartões perfurados", fillcolor="#dcedf7"];
+  mill    [label="Processamento\nmill", fillcolor="#f7e3dc"];
+  store   [label="Memória\nstore", fillcolor="#e6dcf7"];
+  saida   [label="Saída\nimpressão", fillcolor="#dcedf7"];
+
+  entrada -> mill [label="dados e\nsequência"];
+  mill -> saida [label="resultado"];
+  store -> mill [label="guarda e\ndevolve", dir=both];
+}

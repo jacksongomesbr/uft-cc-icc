@@ -1,0 +1,72 @@
+// Linha do tempo do capítulo 2, em duas colunas para caber na página.
+// Cada período traz a transformação dominante e os marcos que o representam.
+// Esta figura substitui uma tabela de períodos: ela carrega a mesma divisão
+// temporal e acrescenta os marcos, que a tabela não comportava.
+digraph linha_do_tempo {
+  bgcolor="white";
+  graph [fontname="Helvetica", fontsize=11];
+  node [shape=plaintext, fontname="Helvetica", fontsize=9];
+
+  tempo [label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="6" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP">
+          <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5">
+            <TR><TD BGCOLOR="#f2ead9" ALIGN="LEFT">
+              <B>até 1622</B>  representações externas ao corpo<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">ábaco, zero, algoritmo, logaritmos</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#f2ead9" ALIGN="LEFT">
+              <B>séculos XVII a XIX</B>  mecanizar a operação<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">Pascalina, Leibniz, cartões de Jacquard</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#f7e3dc" ALIGN="LEFT">
+              <B>1830 a 1900</B>  lógica, telégrafo e dados<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">Babbage, Lovelace, Boole, Hollerith</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#f7e3dc" ALIGN="LEFT">
+              <B>1900 a 1940</B>  preparar a eletrônica<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">válvula, flip-flop, gravação magnética</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#f0dcdc" ALIGN="LEFT">
+              <B>1936 a 1950</B>  formalizar e construir<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">Turing, Z3, Colossus, ENIAC, programa armazenado</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#dcedf7" ALIGN="LEFT">
+              <B>anos 1950</B>  transistor e software<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">UNIVAC, FORTRAN, primeiro sistema operacional</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+          </TABLE>
+        </TD>
+
+        <TD VALIGN="TOP">
+          <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5">
+            <TR><TD BGCOLOR="#dcedf7" ALIGN="LEFT">
+              <B>anos 1960</B>  integração e interação<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">circuito integrado, tempo compartilhado, ARPANET</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#dceff0" ALIGN="LEFT">
+              <B>anos 1970</B>  microprocessador e computador pessoal<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">Intel 4004, Altair, Apple II, VisiCalc</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#dceff0" ALIGN="LEFT">
+              <B>anos 1980</B>  padronização e interconexão<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">IBM PC, interface gráfica, GNU, DNS</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#dcefdc" ALIGN="LEFT">
+              <B>anos 1990</B>  a Web<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">URL, HTTP, navegador gráfico, mecanismos de busca</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BGCOLOR="#dcefdc" ALIGN="LEFT">
+              <B>anos 2000</B>  computação móvel<BR ALIGN="LEFT"/>
+              <FONT POINT-SIZE="8">smartphone, lojas de aplicações, serviços participativos</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+            <TR><TD BORDER="0" ALIGN="LEFT">
+              <FONT POINT-SIZE="8">a coluna da esquerda continua na da direita</FONT><BR ALIGN="LEFT"/>
+            </TD></TR>
+          </TABLE>
+        </TD>
+      </TR>
+    </TABLE>
+  >];
+}

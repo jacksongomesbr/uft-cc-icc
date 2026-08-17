@@ -1,0 +1,88 @@
+# Procedência das imagens de origem externa — capítulo 2
+
+Os arquivos `.dot` desta pasta são de autoria própria e seguem a licença do
+livro. As imagens abaixo vêm de fora, não têm `.dot` correspondente e não são
+tocadas pelo `Makefile`. A licença de cada uma está declarada também na legenda
+da figura, no capítulo.
+
+Todas foram obtidas no Wikimedia Commons em 17/08/2026, pela API do site.
+
+## Tratamento aplicado a todas
+
+- Redimensionadas para 1200 px de largura, quando maiores que isso.
+- Metadados EXIF removidos, inclusive coordenadas de GPS gravadas por câmera.
+- Recomprimidas em JPEG progressivo, qualidade 86.
+
+As de largura menor que 1200 px foram mantidas no tamanho original e estão
+assinaladas abaixo. Elas não admitem ampliação além do tamanho em que aparecem
+no livro.
+
+## Licenças e atribuição
+
+| Arquivo | Autoria | Licença |
+|---|---|---|
+| `abaco-suanpan.jpg` | Felix Winkelnkemper | CC BY-SA 4.0 |
+| `pascalina.jpg` | Rama | CC BY-SA 3.0 fr |
+| `tear-de-jacquard.jpg` | Stephencdickson | CC BY-SA 4.0 |
+| `babbage-maquina-analitica.jpg` | Mrjohncummings | CC BY-SA 2.0 |
+| `ada-lovelace.jpg` | Alfred Edward Chalon | domínio público |
+| `george-boole.jpg` | autoria desconhecida | domínio público |
+| `cartao-hollerith.jpg` | autoria desconhecida | domínio público |
+| `colossus.jpg` | autoria desconhecida | domínio público |
+| `eniac.jpg` | TexasDex | CC BY-SA 3.0 |
+| `primeiro-transistor.jpg` | Revol Web | CC BY-SA 2.0 |
+| `intel-4004-layout.jpg` | Wolfgang Stief | CC0 |
+| `mouse-engelbart.jpg` | Michael Hicks | CC BY 2.0 |
+
+## Endereços de origem
+
+- `abaco-suanpan.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Chinese_Suanpan_Abacus.jpg>
+- `pascalina.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Pascaline-CnAM_823-1-IMG_1506-black.jpg>
+- `tear-de-jacquard.jpg`:
+  <https://commons.wikimedia.org/wiki/File:A_Jacquard_loom_showing_information_punchcards,_National_Museum_of_Scotland.jpg>
+- `babbage-maquina-analitica.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Babbages_Analytical_Engine,_1834-1871._(9660574685).jpg>
+- `ada-lovelace.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg>
+- `george-boole.jpg`:
+  <https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg>
+- `cartao-hollerith.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Hollerith_Punched_Card.jpg>
+- `colossus.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Colossus.jpg>
+- `eniac.jpg`:
+  <https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg>
+- `primeiro-transistor.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Replica_of_first_transistor.jpg>
+- `intel-4004-layout.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Intel_4004_Chip_Layout_(29983532570).jpg>
+- `mouse-engelbart.jpg`:
+  <https://commons.wikimedia.org/wiki/File:Douglas_Engelbart%27s_prototype_mouse_-_Computer_History_Museum.jpg>
+
+## Observações por arquivo
+
+`george-boole.jpg` tem 600 px de largura e `primeiro-transistor.jpg` tem 750 px.
+São as duas de menor resolução do capítulo, e por isso aparecem em largura
+reduzida no livro.
+
+`intel-4004-layout.jpg` é a fotografia de um cartaz do desenho de projeto do
+processador, exposto em museu, e não uma fotografia da pastilha. A imagem foi
+recortada para descartar a parede e os objetos ao redor, o que a licença CC0
+permite sem restrição. A legenda declara que se trata do desenho de projeto.
+
+`babbage-maquina-analitica.jpg` registra a montagem parcial da Máquina
+Analítica conservada em museu, e não uma máquina concluída em vida por Babbage.
+A legenda diz isso, porque a diferença é o assunto da seção.
+
+## Compatibilidade de licença
+
+CC BY-SA exige atribuição ao autor e manutenção da mesma licença na obra
+derivada. O livro é publicado em CC BY-SA, e a atribuição está na legenda de
+cada figura. CC BY exige apenas atribuição, e CC0 dispensa exigências; ambas
+são compatíveis com a publicação em CC BY-SA.
+
+As versões 2.0, 3.0 e 4.0 de CC BY-SA aparecem misturadas nesta lista porque
+cada autor escolheu a sua. Todas admitem uso em obra coletiva sob CC BY-SA,
+desde que a atribuição seja preservada.

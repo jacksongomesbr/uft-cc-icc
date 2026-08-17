@@ -1,0 +1,65 @@
+// Por que a régua de cálculo multiplica somando.
+//
+// As larguras NÃO são arbitrárias: cada marca fica a uma distância proporcional
+// ao logaritmo decimal do seu valor, em uma escala de 560 pontos. As larguras
+// entre marcas são as diferenças sucessivas de log, e por isso encolhem da
+// esquerda para a direita. A escala móvel aparece deslocada de
+// 169 pontos, que é log(2) na mesma escala, e é esse
+// deslocamento que executa a soma das distâncias.
+digraph regua_de_calculo {
+  bgcolor="white";
+  graph [fontname="Helvetica", fontsize=11];
+  node [shape=plaintext, fontname="Helvetica", fontsize=10];
+
+  desenho [label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10"><B>Escala fixa</B></FONT></TD></TR>
+      <TR>
+        <TD>
+          <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#f2ead9">
+            <TR>
+              <TD WIDTH="169" ALIGN="LEFT">1</TD>
+              <TD WIDTH="99" ALIGN="LEFT" BGCOLOR="#f0cfc2"><B>2</B></TD>
+              <TD WIDTH="70" ALIGN="LEFT">3</TD>
+              <TD WIDTH="54" ALIGN="LEFT">4</TD>
+              <TD WIDTH="44" ALIGN="LEFT">5</TD>
+              <TD WIDTH="37" ALIGN="LEFT" BGCOLOR="#f0cfc2"><B>6</B></TD>
+              <TD WIDTH="32" ALIGN="LEFT">7</TD>
+              <TD WIDTH="29" ALIGN="LEFT">8</TD>
+              <TD WIDTH="26" ALIGN="LEFT">9</TD>
+              <TD WIDTH="14" ALIGN="LEFT">10</TD>
+            </TR>
+          </TABLE>
+        </TD>
+      </TR>
+      <TR><TD HEIGHT="5"></TD></TR>
+      <TR>
+        <TD>
+          <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+            <TR>
+              <TD WIDTH="169"></TD>
+              <TD>
+                <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#dcedf7">
+                  <TR>
+                    <TD WIDTH="169" ALIGN="LEFT"><B>1</B></TD>
+                    <TD WIDTH="99" ALIGN="LEFT">2</TD>
+                    <TD WIDTH="70" ALIGN="LEFT" BGCOLOR="#b9d8ef"><B>3</B></TD>
+                    <TD WIDTH="54" ALIGN="LEFT">4</TD>
+                    <TD WIDTH="44" ALIGN="LEFT">5</TD>
+                  </TR>
+                </TABLE>
+              </TD>
+            </TR>
+          </TABLE>
+        </TD>
+      </TR>
+      <TR><TD ALIGN="LEFT">
+        <FONT POINT-SIZE="10"><B>Escala móvel</B>, deslizada até seu 1 cair sobre o 2 da fixa</FONT>
+      </TD></TR>
+      <TR><TD HEIGHT="10"></TD></TR>
+      <TR><TD ALIGN="LEFT">
+        <FONT POINT-SIZE="10">O 3 da escala móvel cai sobre o 6 da fixa: 2 × 3 = 6.</FONT>
+      </TD></TR>
+    </TABLE>
+  >];
+}

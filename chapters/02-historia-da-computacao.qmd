@@ -144,25 +144,12 @@ software. Eles são um meio de controle que seleciona ações em um tear. As
 semelhanças com a computação atual são reais e valem ser apontadas, desde que
 venham acompanhadas das diferenças de escala, de meio físico e de capacidade.
 
-A @tbl-periodos apresenta a divisão de períodos que este capítulo segue, na
-forma da transformação dominante de cada um. Ela serve de mapa para as seções
-seguintes, e vale voltar a ela quando um marco parecer solto.
+A @fig-linha-do-tempo apresenta a divisão de períodos que este capítulo segue,
+na forma da transformação dominante de cada um e dos marcos que o representam.
+Ela serve de mapa para as seções seguintes, e vale voltar a ela quando um marco
+parecer solto.
 
-| **Período** | **Transformação dominante** |
-|---|---|
-| Até 1622 | Contar e calcular por representações externas ao corpo |
-| Séculos XVII a XIX | Mecanizar a operação aritmética e controlar máquina por cartões |
-| 1830 a 1900 | Unir lógica, telecomunicação e processamento de dados |
-| 1900 a 1940 | Preparar eletrônica, memória e organizações de informação |
-| 1936 a 1950 | Formalizar a computação e construir os primeiros computadores |
-| Anos 1950 | Transistor, linguagens de programação e sistemas operacionais |
-| Anos 1960 | Circuitos integrados, interação e redes experimentais |
-| Anos 1970 | Microprocessador, computador pessoal e plataformas de software |
-| Anos 1980 | Padronização do computador pessoal e interconexão crescente |
-| Anos 1990 | Web, mecanismos de busca e serviços online |
-| Anos 2000 | Plataformas participativas, smartphones e computação móvel |
-
-: Períodos da história da computação e a transformação dominante de cada um, conforme @wazlawick2016. {#tbl-periodos}
+![Os períodos da história da computação, a transformação dominante de cada um e os marcos que este capítulo usa para representá-los. A leitura desce a coluna da esquerda e continua na da direita. Elaboração própria a partir de [@wazlawick2016].](../diagrams/02/linha-do-tempo.png){#fig-linha-do-tempo width=97% fig-alt="Onze faixas coloridas em duas colunas, em ordem cronológica. A coluna da esquerda vai de até 1622, com ábaco, zero, algoritmo e logaritmos, até os anos 1950, com transistor e software. A coluna da direita vai dos anos 1960, com circuito integrado e ARPANET, até os anos 2000, com smartphone e serviços participativos. A cor muda gradualmente do bege ao verde conforme o período avança."}
 
 ## Contar antes de calcular
 
@@ -193,6 +180,11 @@ resultado de uma operação no ábaco não está nas peças. Ele está na conven
 leitura combinada entre quem opera e quem interpreta. Duas pessoas com
 convenções diferentes olham para a mesma configuração de contas e leem números
 diferentes, e nenhuma das duas está errada sobre o que vê.
+
+![Um ábaco chinês, do tipo suanpan. O valor de cada conta depende da haste que ela ocupa e da barra que a separa, e não da conta em si. Fotografia de Felix Winkelnkemper, licenciada em CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/02/abaco-suanpan.jpg){#fig-abaco width=70% fig-alt="Ábaco de madeira com treze hastes verticais. Cada haste tem duas contas acima de uma barra horizontal e cinco contas abaixo dela. Algumas contas estão deslocadas em direção à barra, registrando um valor."}
+
+A @fig-abaco mostra um exemplar do tipo suanpan, com duas contas acima da barra
+e cinco abaixo em cada haste.
 
 @brookshear2013 formula a mesma ideia para o computador: um padrão de bits não
 tem significado próprio, e a codificação é que decide se ele representa um
@@ -248,6 +240,12 @@ o início de uma escala com o valor $a$ na outra e procurar o valor $b$ equivale
 a somar as duas distâncias, e a marca encontrada é uma aproximação de
 $a \times b$.
 
+A @fig-regua-de-calculo mostra o mecanismo com as distâncias na proporção
+correta. Reparem que os intervalos encolhem da esquerda para a direita: é isso
+que caracteriza uma escala logarítmica.
+
+![Como a régua de cálculo multiplica somando distâncias. Elaboração própria, com as marcas posicionadas a distâncias proporcionais ao logaritmo decimal de cada valor.](../diagrams/02/regua-de-calculo.png){#fig-regua-de-calculo width=92% fig-alt="Duas escalas horizontais sobrepostas. Na escala fixa, superior, as marcas de 1 a 10 ficam cada vez mais próximas da esquerda para a direita, e as marcas 2 e 6 estão destacadas. A escala móvel, inferior, é idêntica e aparece deslocada para a direita, de modo que seu 1 coincide com o 2 da escala fixa e seu 3 coincide com o 6 da escala fixa."}
+
 Duas observações fecham o assunto. A primeira é que o operador não precisa
 conhecer a demonstração para usar o instrumento, mas precisa saber que o
 resultado é aproximado e depende da leitura da escala. A segunda é que a régua
@@ -273,6 +271,11 @@ Somem $8 + 7$ em uma calculadora de rodas. A roda das unidades avança oito
 posições e depois mais sete. Ao completar dez posições, ela volta a zero e
 empurra uma unidade na roda das dezenas. O resultado, $15$, aparece como um $1$
 na roda das dezenas e um $5$ na das unidades.
+
+![Uma Pascalina, a calculadora de rodas dentadas construída por Pascal no século XVII. Cada roda registra um algarismo, e o transporte para a roda seguinte é feito por mecanismo interno. Fotografia de Rama, licenciada em CC BY-SA 3.0 fr, obtida no Wikimedia Commons.](../diagrams/02/pascalina.jpg){#fig-pascalina width=78% fig-alt="Caixa retangular de metal e madeira vista de cima, com uma fileira de rodas dentadas circulares numeradas na parte inferior e uma fileira de janelas retangulares na parte superior, onde aparecem os algarismos do resultado."}
+
+A @fig-pascalina mostra uma dessas máquinas, com as rodas de entrada embaixo e
+as janelas de resultado em cima.
 
 Reparem no que a engrenagem faz. Ela não sabe aritmética. Ela materializa uma
 regra da representação decimal, a de que dez unidades formam uma dezena, e essa
@@ -331,6 +334,12 @@ flowchart LR
   N["Nova sequencia de cartoes"] -.-> C
 ```
 
+![Um tear de Jacquard conservado em museu. À esquerda, os fios do urdume; à direita, a corrente de cartões perfurados que define o desenho. Fotografia de Stephencdickson, licenciada em CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/02/tear-de-jacquard.jpg){#fig-tear-de-jacquard width=88% fig-alt="Vista de um tear de madeira. Do lado esquerdo descem centenas de fios verticais tensionados. Do lado direito, uma longa corrente de cartões retangulares perfurados, unidos pelas bordas, pende dobrada sobre uma estrutura de madeira."}
+
+A @fig-tear-de-jacquard registra a separação de que trata esta seção. Os fios
+estão de um lado, a corrente de cartões do outro, e a máquina é a mesma
+qualquer que seja o desenho que os cartões descrevem.
+
 O que Jacquard separou foi o mecanismo do comportamento. A máquina permanece
 fisicamente a mesma e produz tecidos diferentes conforme a entrada que recebe.
 Para mudar o produto, troca-se a sequência de cartões, e não o tear.
@@ -360,17 +369,16 @@ por somas sucessivas, e depois a Máquina Analítica, que é o marco. O projeto 
 foi concluído como planejado, e seu valor histórico está na articulação que ele
 propôs.
 
-A Máquina Analítica separa quatro funções, apresentadas na @tbl-babbage-funcoes
-com os nomes que Babbage usou.
+![Parte da Máquina Analítica de Babbage, conservada em museu. O projeto não foi concluído em vida, e o que existe são montagens parciais construídas a partir dos desenhos. Fotografia de Mrjohncummings, licenciada em CC BY-SA 2.0, obtida no Wikimedia Commons.](../diagrams/02/babbage-maquina-analitica.jpg){#fig-babbage-maquina width=72% fig-alt="Montagem de engrenagens de latão e eixos de aço dispostos em colunas verticais sobre uma armação metálica, exposta em vitrine de museu."}
 
-| **Função** | **Nome de Babbage** | **Papel no projeto** |
-|---|---|---|
-| Memória | store | Guarda números e resultados intermediários |
-| Processamento | mill | Executa as operações aritméticas |
-| Entrada e controle | cartões | Fornece os dados e a sequência de operações |
-| Saída | impressão | Torna o resultado utilizável fora da máquina |
+A @fig-babbage-maquina mostra o que existe da máquina: uma montagem parcial,
+construída a partir dos desenhos, e não um equipamento que Babbage tenha visto
+funcionando.
 
-: As quatro funções da Máquina Analítica de Babbage. {#tbl-babbage-funcoes}
+A Máquina Analítica separa quatro funções, e a @fig-babbage-funcoes as dispõe
+como um diagrama de blocos.
+
+![As quatro funções da Máquina Analítica. Os cartões trazem dados e sequência de operações, o mill executa, o store guarda os resultados intermediários e a impressão entrega o resultado. A mesma divisão reaparece nos capítulos 3 e 4. Elaboração própria a partir de [@wazlawick2016].](../diagrams/02/babbage-funcoes.png){#fig-babbage-funcoes width=88% fig-alt="Diagrama de blocos em quatro caixas. Entrada e controle por cartões perfurados aponta para Processamento, chamado mill, que aponta para Saída por impressão. Abaixo do mill, uma caixa de Memória, chamada store, liga-se a ele por uma seta de mão dupla rotulada guarda e devolve."}
 
 Comparem essa tabela com a estrutura funcional que o capítulo 3 vai apresentar,
 e com os componentes do capítulo 4. A correspondência é direta, e ela foi
@@ -386,6 +394,8 @@ ficavam nos cartões, fora da memória de trabalho. A distinção parece pequena
 Ada Lovelace escreveu, sobre a Máquina Analítica, notas que descrevem como os
 cartões poderiam coordenar uma sequência de operações. A contribuição que
 importa não é a de ter escrito instruções.
+
+![Retrato de Ada Lovelace, por Alfred Edward Chalon. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/ada-lovelace.jpg){#fig-ada-lovelace width=46% fig-alt="Retrato pintado de uma mulher jovem sentada, em vestido claro de gola larga e mangas volumosas, segurando um leque, com o cabelo preso e cachos laterais."}
 
 O que as notas dela deslocam é o objeto. Enquanto a discussão tratava de
 calcular, a máquina era uma calculadora rápida. Ao observar que os símbolos
@@ -404,6 +414,12 @@ Em meados do século XIX, George Boole formulou uma álgebra em que as
 proposições assumem valores lógicos e podem ser combinadas por operações. Onde
 a álgebra comum opera sobre quantidades com soma e multiplicação, a álgebra
 booleana opera sobre verdadeiro e falso com conjunção, disjunção e negação.
+
+![George Boole. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/george-boole.jpg){#fig-george-boole width=40% fig-alt="Retrato de um homem de meia-idade, de terno escuro e gravata, cabelo penteado para trás e costeletas, olhando levemente para o lado."}
+
+A @fig-george-boole traz o autor dessa formalização, e a @fig-ada-lovelace, a
+autora das notas da seção anterior. Os dois trabalharam no mesmo país e no
+mesmo século, sobre problemas que só se encontrariam muito depois.
 
 O trabalho de Boole era filosófico e matemático. Ele não tinha máquina em vista,
 e a formalização ficou disponível por quase um século sem aplicação técnica.
@@ -433,6 +449,12 @@ retomar sob outro nome. Cada pessoa vira um cartão. Cada característica da
 pessoa vira uma posição no cartão, e cada posição admite um conjunto fixo de
 valores previstos. O operador configura a máquina para contar os cartões que
 combinam determinadas perfurações, e a máquina acumula totais.
+
+![Um cartão perfurado do sistema de Hollerith. Cada coluna corresponde a uma característica e cada linha a um valor previsto para ela; o furo seleciona o valor. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/cartao-hollerith.jpg){#fig-cartao-hollerith width=92% fig-alt="Cartão retangular de papel impresso com uma grade densa de números e abreviaturas organizados em colunas rotuladas. Alguns pontos da grade estão perfurados, formando uma diagonal irregular ao longo do cartão."}
+
+A @fig-cartao-hollerith mostra um cartão do sistema. Reparem que as categorias
+estão impressas no próprio cartão: quem o projetou já decidiu quais perguntas
+existem e quais respostas são admissíveis.
 
 A velocidade não vem só da máquina. Ela vem da padronização prévia: alguém
 precisou decidir quais categorias existem, quantos valores cada uma admite e o
@@ -536,15 +558,26 @@ sistemas de equações, também sem propósito geral.
 O Harvard Mark I é eletromecânico, grande e operacional, usado para cálculos
 durante anos.
 
+![O Colossus, em Bletchley Park, operado por duas integrantes do Women's Royal Naval Service. Era eletrônico e construído para uma tarefa: quebrar cifras. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/colossus.jpg){#fig-colossus width=82% fig-alt="Sala com um grande painel de equipamento eletrônico coberto de válvulas e cabos, ocupando toda a parede. Duas mulheres de uniforme trabalham diante do painel, uma delas manipulando um rolo de fita."}
+
 O ENIAC é eletrônico, de propósito geral e operacional, e sua programação era
 feita por cabos e chaves. Trocar o problema significava reconectar a máquina, o
-que levava dias.
+que levava dias. A @fig-colossus e a @fig-eniac mostram duas dessas máquinas, e
+as duas fotografias registram também quem as operava.
+
+![O ENIAC, na Universidade da Pensilvânia. A programação era feita conectando cabos e ajustando chaves, e não escrevendo instruções na memória. Fotografia de TexasDex, licenciada em CC BY-SA 3.0, obtida no Wikimedia Commons.](../diagrams/02/eniac.jpg){#fig-eniac width=82% fig-alt="Painéis altos de equipamento eletrônico alinhados ao longo de uma parede, cobertos de mostradores circulares, cabos e conectores. Uma pessoa em pé opera um dos painéis."}
 
 Nenhuma dessas máquinas vence em todos os cinco critérios, e é por isso que a
 pergunta sobre a primeira não fecha. Cada uma vem antes sob um aspecto. Somem-se
 a isso as disputas de autoria, comuns em projetos militares e de laboratório,
 em que o trabalho é coletivo e o crédito é atribuído depois, e vocês têm o
 retrato de um período que resiste a listas simples.
+
+A @fig-matriz-criterios aplica os cinco critérios às cinco máquinas. Leiam a
+figura por coluna, e não por linha: cada coluna tem pelo menos uma resposta
+favorável, e nenhuma linha do período da guerra é favorável em tudo.
+
+![Os cinco critérios aplicados às máquinas do período. Nenhuma linha é favorável nas cinco colunas até o pós-guerra, e é por isso que a pergunta sobre a primeira não tem resposta única. Elaboração própria a partir de [@wazlawick2016].](../diagrams/02/matriz-criterios.png){#fig-matriz-criterios width=95% fig-alt="Tabela com seis linhas de máquinas, da Z3 ao EDSAC, e cinco colunas de critérios: eletrônico, programável, propósito geral, programa armazenado e operacional. As células trazem sim, não ou em parte, com fundo verde para sim e vermelho para não. Só a última linha, do EDSAC e semelhantes, tem sim nas cinco colunas."}
 
 ### O programa armazenado
 
@@ -617,6 +650,11 @@ O transistor comuta sinais como a válvula e resolve seus três problemas de uma
 vez: é pequeno, consome pouco e não queima com facilidade. A máquina que antes
 ocupava uma sala e parava toda semana passa a caber em um armário e a funcionar
 por meses.
+
+![Réplica do primeiro transistor, construído nos laboratórios da Bell. A peça substitui a válvula sem partes móveis, em uma fração do tamanho e do consumo. Fotografia de Revol Web, licenciada em CC BY-SA 2.0, obtida no Wikimedia Commons.](../diagrams/02/primeiro-transistor.jpg){#fig-primeiro-transistor width=52% fig-alt="Dispositivo em forma de triângulo metálico apoiado sobre uma base, com um pequeno cristal na ponta inferior e contatos condutores presos por uma mola, montado sobre um suporte de laboratório."}
+
+A @fig-primeiro-transistor mostra a réplica do primeiro deles. Comparem o
+tamanho da peça com o dos painéis da @fig-eniac, que eram feitos de válvulas.
 
 O efeito não é apenas técnico. Uma máquina confiável pode ser vendida a quem não
 tem equipe de manutenção própria, e é nos anos 1950 que o computador vira
@@ -700,6 +738,13 @@ O Sketchpad, o mouse, os primeiros experimentos com computação gráfica e a
 proposta do Dynabook antecipam a interação visual e o computador pessoal. Nada
 disso era produto: eram demonstrações em laboratórios de pesquisa.
 
+![O protótipo de mouse construído no Stanford Research Institute, em madeira, com dois discos perpendiculares na base. Fotografia de Michael Hicks, licenciada em CC BY 2.0, obtida no Wikimedia Commons.](../diagrams/02/mouse-engelbart.jpg){#fig-mouse-engelbart width=62% fig-alt="Caixa de madeira do tamanho da palma da mão, com um botão vermelho na face superior e um cabo saindo pela parte de trás, exposta em vitrine de museu."}
+
+A @fig-mouse-engelbart mostra o protótipo de mouse do período. Entre esse
+objeto de madeira e o equipamento que vocês usam há mais de uma década de
+distância, e é essa distância que a seção sobre ideia, implementação e adoção
+pedia para vocês medirem.
+
 A ARPANET, com comutação de pacotes, estabelece as bases técnicas e sociais da
 interconexão entre redes. A ARPANET não é a Internet pronta. Ela é um
 experimento de rede, e entre ele e a Internet de uso público existem
@@ -730,6 +775,12 @@ oficina.
 A sequência de processadores do período, do Intel 4004 aos que o seguiram, e
 peças como o Z80 e o MOS 6502, barateia o componente central a ponto de tornar
 viável um mercado de máquinas pequenas.
+
+![Desenho de projeto do Intel 4004, exposto em museu. A imagem não é a pastilha, e sim o traçado de suas ligações internas, ampliado. Fotografia de Wolfgang Stief, em CC0, obtida no Wikimedia Commons.](../diagrams/02/intel-4004-layout.jpg){#fig-intel-4004 width=76% fig-alt="Desenho técnico ampliado do traçado interno de um circuito integrado, com milhares de trilhas verdes e vermelhas formando blocos densos e regulares, e conexões maiores nas bordas. No canto inferior direito lê-se a marca intel e o ano 71."}
+
+A @fig-intel-4004 mostra o traçado interno do 4004, ampliado a ponto de caber
+em uma parede. Cada linha do desenho é uma ligação que, na peça real, mede
+frações de milímetro.
 
 Barateamento sozinho não explica o que aconteceu. O computador pessoal nasce de
 uma rede de elementos que precisam existir ao mesmo tempo: o processador, o
@@ -975,7 +1026,7 @@ quem executa o trabalho que a máquina não faz continua valendo hoje, e o
 capítulo 13 a retoma com casos atuais.
 
 O capítulo 3 volta ao presente e trata do computador como sistema, com as partes
-que a @tbl-babbage-funcoes já anunciou no século XIX.
+que a @fig-babbage-funcoes já anunciou no século XIX.
 
 ## A tarefa desta semana
 

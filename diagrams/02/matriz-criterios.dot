@@ -1,0 +1,68 @@
+// Os cinco critérios do capítulo 2 aplicados às cinco máquinas do período da
+// Segunda Guerra. Nenhuma vence em todas as colunas, e é esse o ponto.
+digraph matriz_criterios {
+  bgcolor="white";
+  graph [fontname="Helvetica", fontsize=11];
+  node [shape=plaintext, fontname="Helvetica", fontsize=10];
+
+  matriz [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+      <TR>
+        <TD BGCOLOR="#e8e8e8" ALIGN="LEFT"><B>Máquina</B></TD>
+        <TD BGCOLOR="#e8e8e8">Eletrônico</TD>
+        <TD BGCOLOR="#e8e8e8">Programável</TD>
+        <TD BGCOLOR="#e8e8e8">Propósito<BR/>geral</TD>
+        <TD BGCOLOR="#e8e8e8">Programa<BR/>armazenado</TD>
+        <TD BGCOLOR="#e8e8e8">Operacional</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT"><B>Z3</B><BR/><FONT POINT-SIZE="8">relés</FONT></TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT"><B>Colossus</B><BR/><FONT POINT-SIZE="8">criptanálise</FONT></TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#f0eedc">em parte</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT"><B>ABC</B><BR/><FONT POINT-SIZE="8">sistemas de equações</FONT></TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#f0eedc">em parte</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT"><B>Harvard Mark I</B><BR/><FONT POINT-SIZE="8">eletromecânico</FONT></TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT"><B>ENIAC</B><BR/><FONT POINT-SIZE="8">cabos e chaves</FONT></TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#f7e3dc">não</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+      </TR>
+      <TR>
+        <TD ALIGN="LEFT" BGCOLOR="#dcedf7"><B>EDSAC e semelhantes</B><BR/><FONT POINT-SIZE="8">pós-guerra</FONT></TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+        <TD BGCOLOR="#dcefdc">sim</TD>
+      </TR>
+    </TABLE>
+  >];
+}
