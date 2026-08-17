@@ -4,8 +4,12 @@ title: "História da Computação"
 
 ## Objetivos de aprendizagem
 
-- Reconhecer os marcos que separam as gerações de computadores.
-- Relacionar cada marco ao problema que ele resolvia.
+- Justificar, com o critério declarado, por que um artefato é chamado de
+  primeiro em alguma coisa.
+- Distinguir a data da ideia, a da primeira implementação e a da adoção em
+  escala de uma mesma tecnologia.
+- Reconhecer os marcos que separam as gerações de computadores e relacionar
+  cada um ao problema que ele resolvia.
 - Identificar pessoas cuja contribuição costuma ficar fora das listas usuais.
 - Explicar por que a história da área ajuda a entender as tecnologias atuais.
 
@@ -30,11 +34,107 @@ o livro foi escrito. Quem quiser ler a fonte primária de um dos marcos aqui
 tratados encontra em @turing1937 o artigo que define a máquina abstrata
 discutida na seção sobre os primeiros computadores.
 
-## Por que a história entra em uma disciplina técnica
+## O propósito deste capítulo
 
-Este capítulo não existe para vocês decorarem nomes e datas. Ele existe porque
-quase toda decisão técnica que vocês vão encontrar no curso tem uma explicação
-histórica, e sem ela a decisão parece arbitrária.
+A finalidade deste capítulo decide o que entra nele e o que fica de fora:
+
+> Ser capaz de avaliar uma afirmação sobre a origem de uma tecnologia,
+> declarando o critério que a sustenta e distinguindo a data da ideia, a da
+> primeira implementação e a da adoção em escala.
+
+Reparem que o propósito não é reconhecer marcos, e sim julgar afirmações sobre
+eles. A cronologia deste capítulo existe para dar matéria a esse julgamento. É
+por isso que ele começa com uma pergunta em vez de começar pelo ábaco.
+
+## Cinco máquinas e uma pergunta
+
+A Segunda Guerra acelerou a construção de máquinas de calcular. O período reúne
+equipamentos com propósitos, tecnologias e graus de programabilidade muito
+diferentes. Cinco deles aparecem em quase toda lista.
+
+A **Z3**, desenvolvida por Konrad Zuse na Alemanha, era construída com relés,
+que são interruptores acionados eletricamente. Recebia a sequência de operações
+em fita perfurada e funcionou.
+
+O **Colossus**, em Bletchley Park, no Reino Unido, foi construído com válvulas
+para quebrar cifras alemãs. Era eletrônico, funcionou durante a guerra e fazia
+criptanálise.
+
+![O Colossus, em Bletchley Park, operado por duas integrantes do Women's Royal Naval Service. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/colossus.jpg){#fig-colossus width=82% fig-alt="Sala com um grande painel de equipamento eletrônico coberto de válvulas e cabos, ocupando toda a parede. Duas mulheres de uniforme trabalham diante do painel, uma delas manipulando um rolo de fita."}
+
+O **Atanasoff-Berry Computer**, nos Estados Unidos, aplicava eletrônica à
+solução de sistemas de equações lineares. Nunca chegou a operar de forma
+plenamente confiável.
+
+O **Harvard Mark I** era eletromecânico, ocupava uma sala, recebia instruções
+em fita e produziu cálculos por anos seguidos.
+
+O **ENIAC**, na Universidade da Pensilvânia, era eletrônico, resolvia problemas
+de tipos variados e funcionou. Era programado por cabos e chaves: trocar o
+problema significava reconectar a máquina, o que levava dias.
+
+![O ENIAC, na Universidade da Pensilvânia. A programação era feita conectando cabos e ajustando chaves. Fotografia de TexasDex, licenciada em CC BY-SA 3.0, obtida no Wikimedia Commons.](../diagrams/02/eniac.jpg){#fig-eniac width=82% fig-alt="Painéis altos de equipamento eletrônico alinhados ao longo de uma parede, cobertos de mostradores circulares, cabos e conectores. Uma pessoa em pé opera um dos painéis."}
+
+### Parem aqui e escrevam
+
+Antes de seguir para a próxima seção, respondam por escrito, em uma folha que
+vocês vão guardar até o fim do capítulo:
+
+1.  Qual dessas cinco máquinas foi o primeiro computador?
+
+2.  Em uma frase, por que essa e não as outras?
+
+A segunda pergunta é a que interessa. Escrevam-na mesmo que a resposta pareça
+óbvia, e escrevam antes de ler adiante. A folha será usada duas vezes: na
+próxima seção e no fim do capítulo.
+
+Quem preferir não escrever pode continuar lendo, e vai entender o capítulo do
+mesmo jeito. Vai perder, porém, a única evidência de como raciocinava antes de
+tê-lo lido, e essa evidência não pode ser reconstruída depois.
+
+### Por que a resposta não fecha
+
+Comparem a frase de vocês com a de dois colegas. Em uma turma de trinta pessoas,
+as cinco máquinas costumam aparecer, e quase todas as justificativas são
+defensáveis.
+
+Quem respondeu ENIAC provavelmente escreveu algo como "resolvia problemas de
+tipos diferentes". Quem respondeu Colossus provavelmente escreveu "era
+eletrônico, e os outros tinham peças que se moviam". Quem respondeu Z3 talvez
+tenha escrito "recebia um programa e podia ser reprogramado". Quem respondeu
+Harvard Mark I pode ter escrito "funcionou de verdade, por anos".
+
+Nenhuma dessas frases está errada. E é exatamente esse o problema.
+
+Cada uma delas usa um critério diferente sem dizer que o está usando. Uma fala
+de versatilidade, outra de tecnologia, outra de programabilidade, outra de uso
+efetivo. Como os critérios são diferentes, as respostas não competem entre si:
+elas respondem a perguntas distintas que soam como a mesma pergunta.
+
+Isso significa que a discussão sobre qual foi o primeiro computador não pode ser
+resolvida com mais informação histórica. Duas pessoas que conheçam todos os
+fatos continuarão discordando enquanto não disserem qual critério estão
+aplicando. O que falta não é dado. É instrumento.
+
+A pergunta de aprendizagem deste capítulo nasce daí:
+
+> Que instrumentos permitem julgar uma afirmação sobre origem de tecnologia,
+> em vez de apenas ter uma opinião sobre ela?
+
+As quatro seções seguintes constroem esses instrumentos, e a @sec-cinco-maquinas
+volta a estas cinco máquinas para vocês refazerem a pergunta com eles na mão.
+
+## Os instrumentos que faltavam
+
+A seção anterior terminou em um impasse: cinco respostas defensáveis, cada uma
+apoiada num critério que ninguém tinha declarado. Esta seção entrega os quatro
+instrumentos que desfazem o impasse, e o primeiro deles ataca diretamente a
+frase que vocês escreveram.
+
+Antes disso, uma observação sobre por que a história entra em uma disciplina
+técnica. Este capítulo não existe para vocês decorarem nomes e datas. Ele existe
+porque quase toda decisão técnica que vocês vão encontrar no curso tem uma
+explicação histórica, e sem ela a decisão parece arbitrária.
 
 Um exemplo serve de aviso. No capítulo 5, vocês vão aprender que o computador
 representa tudo em base dois. A explicação usual é que o circuito eletrônico
@@ -89,14 +189,19 @@ história. Voltaremos a esse instrumento adiante.
 
 ### O critério antes do superlativo
 
-A pergunta "qual foi o primeiro computador?" aparece em toda conversa sobre
-este assunto e não tem resposta única. A pergunta não é difícil. Ela é mal
-formulada.
+Peguem de novo a folha de vocês. A frase que justifica a escolha contém um
+critério, mesmo que ele não esteja nomeado. "Resolvia problemas de tipos
+diferentes" é um critério. "Era eletrônico" é outro. O defeito da resposta não
+está no critério escolhido: está em ele ter ficado implícito, o que impede
+qualquer comparação.
 
-@wazlawick2016 propõe substituí-la por uma matriz de critérios. Em vez de
-disputar um pódio, declara-se sob que aspecto uma máquina vem antes das outras.
-A @tbl-criterios-primeiro lista os cinco critérios que separam as candidatas do
-período da Segunda Guerra, e a seção sobre os primeiros computadores os aplica.
+A pergunta "qual foi o primeiro computador?" não é difícil. Ela é mal formulada,
+e é mal formulada porque omite o critério.
+
+@wazlawick2016 propõe substituí-la por uma matriz. Em vez de disputar um pódio,
+declara-se sob que aspecto uma máquina vem antes das outras. A
+@tbl-criterios-primeiro nomeia os cinco critérios que costumam estar escondidos
+nas respostas, incluindo o que estava na frase de vocês.
 
 | **Critério** | **Pergunta que ele faz** |
 |---|---|
@@ -107,6 +212,10 @@ período da Segunda Guerra, e a seção sobre os primeiros computadores os aplic
 | Operacional | Houve uso documentado e repetível, ou apenas um protótipo? |
 
 : Os cinco critérios que tornam a pergunta sobre o primeiro computador respondível. {#tbl-criterios-primeiro}
+
+Localizem, na tabela, o critério que vocês usaram sem nomear. Ele está lá, em
+alguma das cinco linhas, e reconhecê-lo é mais útil do que descobrir se a
+máquina escolhida foi a certa.
 
 A regra vale para além deste capítulo. Quando vocês lerem que uma empresa
 lançou o primeiro telefone com tela sensível ao toque ou a primeira rede
@@ -539,45 +648,43 @@ para o que uma máquina pode calcular veio mais de dez anos antes da primeira
 máquina eletrônica de programa armazenado. A área conheceu seus limites antes de
 conhecer seus instrumentos, o que é raro na história da técnica.
 
-### Cinco máquinas e nenhum campeão
+### Cinco máquinas, agora com instrumento {#sec-cinco-maquinas}
 
-A Segunda Guerra acelerou tudo. O período reúne máquinas com propósitos,
-tecnologias e graus de programabilidade muito diferentes, e a lista abaixo
-serve para ser cruzada com a @tbl-criterios-primeiro.
+Vocês conheceram estas cinco máquinas na abertura do capítulo e responderam,
+sem instrumento, qual delas seria a primeira. Agora têm o critério, as três
+camadas e a distinção entre ideia, implementação e adoção. A pergunta que não
+fechava passa a fechar, desde que reformulada.
 
-A série Z, desenvolvida por Konrad Zuse na Alemanha, chega com a Z3 a um marco
-de automação eletromecânica programável, construída com relés.
+Recuperem o que vocês escreveram. A @fig-matriz-criterios aplica os cinco
+critérios às cinco máquinas, e as duas primeiras linhas estão resolvidas aqui,
+para vocês compararem com o próprio raciocínio.
 
-Em Bletchley Park, no Reino Unido, o esforço de criptanálise produziu a Bombe e
-depois o Colossus, máquinas especializadas em quebrar cifras. O Colossus é
-eletrônico e não é de propósito geral: ele foi construído para uma tarefa.
+A Z3 é programável, porque a sequência de instruções vinha em fita perfurada e
+podia ser trocada, e é operacional, porque foi usada. Não é eletrônica, porque
+funcionava com relés, que são peças que se movem. Não é de propósito geral nem
+guarda o programa na memória. Duas colunas favoráveis, três desfavoráveis.
 
-O Atanasoff-Berry Computer, nos Estados Unidos, aplica eletrônica à solução de
-sistemas de equações, também sem propósito geral.
+O Colossus inverte parte disso. É eletrônico e é operacional, e foi programável
+apenas em parte, porque a configuração mudava dentro de um repertório fixo de
+operações de criptanálise. Não é de propósito geral, porque foi construído para
+uma tarefa, e não guarda o programa na memória.
 
-O Harvard Mark I é eletromecânico, grande e operacional, usado para cálculos
-durante anos.
-
-![O Colossus, em Bletchley Park, operado por duas integrantes do Women's Royal Naval Service. Era eletrônico e construído para uma tarefa: quebrar cifras. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/colossus.jpg){#fig-colossus width=82% fig-alt="Sala com um grande painel de equipamento eletrônico coberto de válvulas e cabos, ocupando toda a parede. Duas mulheres de uniforme trabalham diante do painel, uma delas manipulando um rolo de fita."}
-
-O ENIAC é eletrônico, de propósito geral e operacional, e sua programação era
-feita por cabos e chaves. Trocar o problema significava reconectar a máquina, o
-que levava dias. A @fig-colossus e a @fig-eniac mostram duas dessas máquinas, e
-as duas fotografias registram também quem as operava.
-
-![O ENIAC, na Universidade da Pensilvânia. A programação era feita conectando cabos e ajustando chaves, e não escrevendo instruções na memória. Fotografia de TexasDex, licenciada em CC BY-SA 3.0, obtida no Wikimedia Commons.](../diagrams/02/eniac.jpg){#fig-eniac width=82% fig-alt="Painéis altos de equipamento eletrônico alinhados ao longo de uma parede, cobertos de mostradores circulares, cabos e conectores. Uma pessoa em pé opera um dos painéis."}
-
-Nenhuma dessas máquinas vence em todos os cinco critérios, e é por isso que a
-pergunta sobre a primeira não fecha. Cada uma vem antes sob um aspecto. Somem-se
-a isso as disputas de autoria, comuns em projetos militares e de laboratório,
-em que o trabalho é coletivo e o crédito é atribuído depois, e vocês têm o
-retrato de um período que resiste a listas simples.
-
-A @fig-matriz-criterios aplica os cinco critérios às cinco máquinas. Leiam a
-figura por coluna, e não por linha: cada coluna tem pelo menos uma resposta
-favorável, e nenhuma linha do período da guerra é favorável em tudo.
+Reparem no que aconteceu entre as duas linhas. Nenhuma das duas máquinas é
+melhor que a outra: elas são favoráveis em colunas diferentes. Quem responder
+"a Z3" e quem responder "o Colossus" pode estar certo, e a discordância entre os
+dois não é sobre história, e sim sobre qual coluna importa.
 
 ![Os cinco critérios aplicados às máquinas do período. Nenhuma linha é favorável nas cinco colunas até o pós-guerra, e é por isso que a pergunta sobre a primeira não tem resposta única. Elaboração própria a partir de [@wazlawick2016].](../diagrams/02/matriz-criterios.png){#fig-matriz-criterios width=95% fig-alt="Tabela com seis linhas de máquinas, da Z3 ao EDSAC, e cinco colunas de critérios: eletrônico, programável, propósito geral, programa armazenado e operacional. As células trazem sim, não ou em parte, com fundo verde para sim e vermelho para não. Só a última linha, do EDSAC e semelhantes, tem sim nas cinco colunas."}
+
+Completem vocês as três linhas restantes, do ABC, do Harvard Mark I e do ENIAC,
+conferindo cada resposta com a figura. Depois leiam a figura por coluna, e não
+por linha: cada coluna tem pelo menos uma resposta favorável, e nenhuma linha do
+período da guerra é favorável em tudo. Só a última linha, já do pós-guerra, é
+favorável nas cinco.
+
+Somem-se a isso as disputas de autoria, comuns em projetos militares e de
+laboratório, em que o trabalho é coletivo e o crédito é atribuído depois, e
+vocês têm o retrato de um período que resiste a listas simples.
 
 ### O programa armazenado
 
@@ -1030,29 +1137,57 @@ que a @fig-babbage-funcoes já anunciou no século XIX.
 
 ## A tarefa desta semana
 
-O piso desta semana tem duas partes.
+As três partes desta tarefa não são alternativas. Elas cobrem operações
+diferentes: aplicar o instrumento ao caso conhecido, aplicá-lo a um caso novo e
+verificar o que mudou na compreensão de vocês.
 
-A primeira é um exercício de critério. Escolham uma das máquinas citadas na
-seção sobre os primeiros computadores e preencham, para ela, as cinco linhas da
-@tbl-criterios-primeiro, respondendo sim ou não a cada pergunta. Depois,
-escrevam uma frase no formato "a máquina X foi a primeira sob o critério Y",
-com a justificativa em uma linha. Tragam a frase escrita.
+### Aplicação: um marco com os quatro instrumentos
 
-A segunda é um exercício de camadas. Escolham uma tecnologia que vocês usam
-todo dia e separem as três camadas da @fig-tres-camadas: qual é o problema
-humano, qual é a representação escolhida e qual é o mecanismo que a executa.
-Uma linha para cada camada basta.
+Escolham um marco qualquer da @fig-linha-do-tempo, fora das cinco máquinas já
+trabalhadas, e escrevam sobre ele quatro parágrafos curtos, um por instrumento.
 
-A extensão é para quem terminou o piso sem esforço, e também tem duas partes.
+Separem as três camadas: qual era o problema humano, qual a representação
+escolhida e qual o mecanismo que a executava. Declarem sob que critério esse
+marco costuma ser chamado de primeiro em alguma coisa, e digam se o critério se
+sustenta. Procurem as três datas, da ideia, da primeira implementação e da
+adoção em escala, e anotem quanto tempo separou a primeira da última. Por fim,
+apontem uma continuidade com a computação atual e, na mesma frase, a diferença
+de escala ou de meio físico que impede tratá-los como equivalentes.
 
-Peguem a tecnologia da segunda tarefa e procurem a data da ideia, a data da
-primeira implementação e a data da adoção em escala. Se as três coincidirem,
-provavelmente vocês encontraram só uma delas e as outras duas estão em outro
-lugar. Anotem quanto tempo separou a primeira da última.
+### Transferência: a mesma pergunta fora da história
 
-Depois, escolham uma afirmação sobre tecnologia que vocês tenham lido ou ouvido
-nos últimos dias, em qualquer lugar, e classifiquem-na segundo a
-@tbl-etiqueta-temporal. Digam se ela é marco documentado, tendência, previsão ou
-afirmação sobre o estado atual, e o que seria necessário para verificá-la. Essa
-é a mesma operação que o capítulo 15 vai pedir, e treiná-la agora, em um caso
-pequeno, é mais barato que descobri-la na semana do seminário.
+Procurem, em qualquer lugar em que vocês leiam sobre tecnologia esta semana, uma
+afirmação de pioneirismo sobre um produto atual. Serve o anúncio de um telefone,
+de um modelo de inteligência artificial, de um serviço de pagamento.
+
+Apliquem a ela o instrumento do critério. Qual é a alegação exata, sob que
+critério ela seria verdadeira, e sob qual outro critério ela seria falsa? Depois
+classifiquem a afirmação segundo a @tbl-etiqueta-temporal: marco documentado,
+tendência, previsão ou afirmação sobre o estado atual.
+
+Esta parte é a que mais importa, e é a mais difícil. O critério é fácil de
+aplicar a máquinas de 1945, sobre as quais ninguém tem interesse comercial hoje.
+Aplicá-lo a um anúncio desta semana exige separar a alegação técnica da
+propaganda que a acompanha, e é essa a operação que o capítulo 15 vai cobrar de
+vocês no seminário de atualidades.
+
+### Integração: comparem com o que vocês escreveram
+
+Recuperem a folha da abertura do capítulo, aquela com a máquina escolhida e a
+justificativa em uma frase.
+
+Escrevam abaixo, sem apagar o que estava lá, as respostas a três perguntas. Que
+critério vocês usaram sem saber que estavam usando? A máquina que vocês
+escolheram continua sendo uma resposta defensável, agora que o critério está
+nomeado? E o que vocês conseguem decidir hoje que não conseguiam decidir na
+primeira página deste capítulo?
+
+A terceira pergunta é a que fecha o capítulo. Se a resposta for "nada mudou,
+apenas sei mais nomes e datas", o capítulo falhou com vocês, e vale dizer isso
+ao professor. O propósito enunciado na abertura não era reconhecer marcos: era
+julgar afirmações sobre eles.
+
+Guardem as duas folhas. O capítulo 16 pede uma análise integradora da mesma
+natureza, sobre um objeto escolhido pela equipe, e a comparação entre o que
+vocês escreviam na segunda semana e na décima sexta é uma das evidências que a
+disciplina usa.

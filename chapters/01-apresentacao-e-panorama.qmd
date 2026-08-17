@@ -852,6 +852,14 @@ leitura prévia transforma a aula de primeira apresentação em segunda passagem
 a segunda passagem é onde o assunto assenta. Quem lê depois da aula estuda o
 mesmo conteúdo duas vezes na condição de quem vê pela primeira vez.
 
+Há uma exceção, e ela é sinalizada dentro do próprio capítulo. Alguns capítulos
+abrem com uma tarefa curta, marcada por um título que manda parar e escrever,
+antes de qualquer explicação. Essa tarefa só funciona se a resposta for escrita
+sem consultar o restante do capítulo, porque o que ela mede é o raciocínio de
+vocês antes da leitura. Quando encontrarem uma dessas, respondam ali e só depois
+sigam adiante. Ler o capítulo inteiro e voltar para preencher a folha produz uma
+resposta correta e inútil.
+
 Cada capítulo abre com os objetivos de aprendizagem, e essa lista é o critério
 de estudo. Um objetivo diz o verbo que a avaliação vai cobrar: reconhecer,
 descrever, converter, analisar. Estudar até conseguir executar o verbo, com o
