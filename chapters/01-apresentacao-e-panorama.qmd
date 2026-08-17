@@ -355,8 +355,7 @@ quem já foi embora. O capítulo 9 trata do que esperar desse contato.
 Projeto de Graduação I e II ocupam o sétimo e o oitavo período. É o trabalho
 final do curso, em que vocês investigam um problema com profundidade e
 apresentam o resultado a uma banca. Metodologia Científica, no segundo período,
-começa a preparar essa entrega, e o trabalho integrador desta disciplina é a
-primeira experiência de análise em equipe, em escala muito menor.
+começa a preparar essa entrega.
 
 As optativas aparecem no sétimo e no oitavo período, em número de cinco. Elas
 são o espaço em que vocês escolhem a direção do próprio curso, depois de
@@ -433,9 +432,8 @@ mínimo 10% da carga horária curricular de todo curso de graduação
 Empreendedorismo e Inovação trata de como uma solução técnica encontra quem
 precise dela. A pergunta desse componente é simples de enunciar e difícil de
 responder: uma solução tecnicamente correta que ninguém usa resolveu algum
-problema? O trabalho integrador desta disciplina, descrito adiante, pede
-exatamente esse olhar, quando manda vocês escolherem uma solução computacional
-real e examinarem para quem ela serve.
+problema? O capítulo 13 retoma essa pergunta pelo lado de quem é afetado por uma
+solução, e o capítulo 16 a retoma na análise que fecha o semestre.
 
 ## O ponto de partida de cada um
 
@@ -527,8 +525,8 @@ saber por que o resultado de uma divisão saiu errado, o que é assunto do
 capítulo 6. O risco real desse grupo é confundir familiaridade com domínio, e
 descobrir a diferença tarde, em uma disciplina que já não perdoa.
 
-O trabalho integrador reúne os dois grupos na mesma equipe, de propósito. A
-realimentação dentro da equipe nivela mais rápido do que qualquer aula: quem
+As atividades em dupla ou em grupo reúnem os dois perfis de propósito. A
+realimentação entre colegas nivela mais rápido do que qualquer aula: quem
 explica um conceito o consolida, e quem recebe a explicação de um colega a
 recebe no vocabulário certo.
 
@@ -764,8 +762,8 @@ essa decisão vem dos capítulos 9 a 16.
 
 A disciplina ocupa 18 encontros, sendo 16 aulas expositivas e 2 avaliações. Os
 16 capítulos deste livro correspondem, um a um, às 16 aulas. A apresentação do
-livro traz a distribuição completa dos encontros e os marcos do trabalho
-integrador; esta seção trata do que isso exige de vocês.
+livro traz a distribuição completa dos encontros; esta seção trata do que isso
+exige de vocês.
 
 ### Os dois blocos do semestre
 
@@ -788,31 +786,6 @@ definido na @tbl-piso-extensao, com o verbo dos objetivos de aprendizagem de
 cada capítulo. Um objetivo que diz "converter valores entre sistemas numéricos"
 é cobrado com uma conversão, e não com uma pergunta sobre a definição de
 sistema numérico.
-
-O trabalho integrador corre em paralelo, em equipe, com entregas ao longo do
-semestre. A equipe escolhe uma solução computacional real, que os integrantes
-usem ou conheçam, e a examina sob todas as dimensões da disciplina. A
-@tbl-trabalho mostra o que cada entrega pede e qual parte do livro sustenta
-essa entrega.
-
-| **Entrega** | **O que a equipe apresenta** | **Capítulos que sustentam** |
-|---|---|---|
-| Escolha do objeto | Equipe formada e uma solução computacional real escolhida, com justificativa | 1 e 2 |
-| Estudo de caso técnico | Descrição do objeto em termos de hardware, software, dados e representação | 3 a 8 |
-| Levantamento de fontes | Fontes sobre o objeto, com avaliação de procedência | 11, 12 e 15 |
-| Análise integradora e apresentação | Análise escrita e comunicação oral de dez minutos | 9 a 16 |
-
-: Entregas do trabalho integrador e os capítulos que dão a ferramenta de cada uma. {#tbl-trabalho}
-
-Não se espera originalidade e não se espera artigo científico. Metodologia
-Científica vem no segundo período, e esta disciplina não pode cobrar o que
-ainda não foi ensinado a ninguém. Espera-se que a equipe olhe para algo comum,
-que já usa, e enxergue as camadas que a disciplina apresentou.
-
-O objeto escolhido acompanha a equipe o semestre inteiro. Escolher um objeto
-sobre o qual não existe informação pública disponível transforma as entregas
-seguintes em uma sequência de becos sem saída. Um aplicativo de uso amplo, um
-serviço público digital ou um dispositivo comum resolvem esse ponto.
 
 ### O ritmo da universidade
 
