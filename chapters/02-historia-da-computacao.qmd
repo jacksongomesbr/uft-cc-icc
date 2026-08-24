@@ -42,9 +42,9 @@ A finalidade deste capítulo decide o que entra nele e o que fica de fora:
 > declarando o critério que a sustenta e distinguindo a data da ideia, a da
 > primeira implementação e a da adoção em escala.
 
-Reparem que o propósito não é reconhecer marcos, e sim julgar afirmações sobre
-eles. A cronologia deste capítulo existe para dar matéria a esse julgamento. É
-por isso que ele começa com uma pergunta em vez de começar pelo ábaco.
+Reparem no verbo: julgar. A cronologia deste capítulo existe para dar matéria a
+esse julgamento, e reconhecer marcos é o meio, não o fim. É por isso que ele
+começa com uma pergunta em vez de começar pelo ábaco.
 
 ## Cinco máquinas e uma pergunta
 
@@ -56,9 +56,10 @@ A **Z3**, desenvolvida por Konrad Zuse na Alemanha, era construída com relés,
 que são interruptores acionados eletricamente. Recebia a sequência de operações
 em fita perfurada e funcionou.
 
-O **Colossus**, em Bletchley Park, no Reino Unido, foi construído com válvulas
-para quebrar cifras alemãs. Era eletrônico, funcionou durante a guerra e fazia
-criptanálise.
+O **Colossus**, em Bletchley Park, no Reino Unido, foi construído com
+**válvulas**, componentes que controlam a passagem de corrente sem nenhuma peça
+que se mova. Era eletrônico, funcionou durante a guerra e fazia **criptanálise**,
+que é a leitura de mensagens cifradas por quem não recebeu a chave.
 
 ![O Colossus, em Bletchley Park, operado por duas integrantes do Women's Royal Naval Service. Imagem em domínio público, obtida no Wikimedia Commons.](../diagrams/02/colossus.jpg){#fig-colossus width=82% fig-alt="Sala com um grande painel de equipamento eletrônico coberto de válvulas e cabos, ocupando toda a parede. Duas mulheres de uniforme trabalham diante do painel, uma delas manipulando um rolo de fita."}
 
@@ -114,7 +115,7 @@ elas respondem a perguntas distintas que soam como a mesma pergunta.
 Isso significa que a discussão sobre qual foi o primeiro computador não pode ser
 resolvida com mais informação histórica. Duas pessoas que conheçam todos os
 fatos continuarão discordando enquanto não disserem qual critério estão
-aplicando. O que falta não é dado. É instrumento.
+aplicando. O que falta é instrumento.
 
 A pergunta de aprendizagem deste capítulo nasce daí:
 
@@ -145,10 +146,10 @@ antes de existir qualquer circuito. Quando a eletrônica precisou de uma
 representação, ela encontrou uma pronta, esperando havia décadas. O binário não
 foi inventado pelo computador; ele foi adotado por ele.
 
-Esse padrão se repete tantas vezes na história da área que convém enunciá-lo
-antes de percorrer a cronologia: a solução costuma existir antes do problema
-que a torna útil. Guardem a observação e verifiquem se ela se confirma nas
-seções seguintes.
+A solução costuma existir antes do problema que a torna útil, e esse padrão se
+repete tantas vezes na história da área que vale enunciá-lo antes de percorrer a
+cronologia. Guardem a observação e verifiquem se ela se confirma nas seções
+seguintes.
 
 ### As três camadas de qualquer tecnologia de cálculo
 
@@ -195,8 +196,8 @@ diferentes" é um critério. "Era eletrônico" é outro. O defeito da resposta n
 está no critério escolhido: está em ele ter ficado implícito, o que impede
 qualquer comparação.
 
-A pergunta "qual foi o primeiro computador?" não é difícil. Ela é mal formulada,
-e é mal formulada porque omite o critério.
+A pergunta "qual foi o primeiro computador?" é mal formulada, e é mal formulada
+porque omite o critério.
 
 @wazlawick2016 propõe substituí-la por uma matriz. Em vez de disputar um pódio,
 declara-se sob que aspecto uma máquina vem antes das outras. A
@@ -247,11 +248,12 @@ O último cuidado é o mais difícil. Um artefato antigo não é uma versão
 incompleta de um computador moderno, e descrevê-lo assim apaga o que ele de
 fato fazia.
 
-O ábaco não é um computador lento. Ele é um registro de valores por posição,
-operado por uma pessoa que conhece as regras. Os cartões de Jacquard não são
-software. Eles são um meio de controle que seleciona ações em um tear. As
-semelhanças com a computação atual são reais e valem ser apontadas, desde que
-venham acompanhadas das diferenças de escala, de meio físico e de capacidade.
+O ábaco é um registro de valores por posição, operado por uma pessoa que conhece
+as regras, e chamá-lo de computador lento troca o que ele faz por uma versão
+piorada do que veio depois. Os cartões de Jacquard são um meio de controle que
+seleciona ações em um tear. As semelhanças com a computação atual são reais e
+valem ser apontadas, desde que venham acompanhadas das diferenças de escala, de
+meio físico e de capacidade.
 
 A @fig-linha-do-tempo apresenta a divisão de períodos que este capítulo segue,
 na forma da transformação dominante de cada um e dos marcos que o representam.
@@ -262,16 +264,16 @@ parecer solto.
 
 ## Contar antes de calcular
 
-A computação antecede o computador em milhares de anos. O que existia antes não
-eram máquinas ruins: eram soluções para o mesmo problema, na camada da
-representação.
+A computação antecede o computador em milhares de anos. O que existia antes eram
+soluções para o mesmo problema, na camada da representação, e julgá-las como
+máquinas mal-acabadas é ler o passado de trás para a frente.
 
 ### Externalizar a contagem
 
 Dedos, entalhes em osso ou madeira e fichas de barro tiram a contagem da
 cabeça e a colocam em um objeto. Um
-pastor que guarda uma pedra por ovelha não precisa saber contar. Ele precisa
-saber emparelhar, e o monte de pedras faz o resto.
+pastor que guarda uma pedra por ovelha precisa saber emparelhar, e o monte de
+pedras faz o resto por ele.
 
 Essa transferência é o primeiro movimento da história inteira. A informação
 passa a existir fora da pessoa, em uma forma que outra pessoa pode ler, que
@@ -284,9 +286,9 @@ O ábaco organiza valores por posição. Uma conta em uma haste vale um, e a mes
 conta na haste seguinte vale dez. O objeto físico é o mesmo; o valor muda com o
 lugar.
 
-Este ponto reaparece no capítulo 5 com outro nome. O
-resultado de uma operação no ábaco não está nas peças. Ele está na convenção de
-leitura combinada entre quem opera e quem interpreta. Duas pessoas com
+Este ponto reaparece no capítulo 5 com outro nome. O resultado de uma operação no
+ábaco está na convenção de leitura combinada entre quem opera e quem interpreta,
+e nunca nas peças. Duas pessoas com
 convenções diferentes olham para a mesma configuração de contas e leem números
 diferentes, e nenhuma das duas está errada sobre o que vê.
 
@@ -325,9 +327,9 @@ nome deu origem à palavra **algoritmo**, que o capítulo 1 já definiu como
 sequência finita de instruções sem ambiguidade que leva de uma entrada a um
 resultado.
 
-A origem da palavra registra uma coisa que é fácil esquecer. Algoritmo não é um
-conceito de informática. Ele é anterior ao computador em mais de mil anos, e
-descreve um procedimento que uma pessoa executa com papel. O computador não
+A origem da palavra registra uma coisa que é fácil esquecer. Algoritmo é anterior
+ao computador em mais de mil anos, e descreve um procedimento que uma pessoa
+executa com papel. O computador não
 criou o algoritmo; ele criou um executor incansável para algoritmos que já
 existiam, e depois tornou possíveis algoritmos que nenhuma pessoa executaria em
 tempo útil.
@@ -355,13 +357,17 @@ que caracteriza uma escala logarítmica.
 
 ![Como a régua de cálculo multiplica somando distâncias. Elaboração própria, com as marcas posicionadas a distâncias proporcionais ao logaritmo decimal de cada valor.](../diagrams/02/regua-de-calculo.png){#fig-regua-de-calculo width=92% fig-alt="Duas escalas horizontais sobrepostas. Na escala fixa, superior, as marcas de 1 a 10 ficam cada vez mais próximas da esquerda para a direita, e as marcas 2 e 6 estão destacadas. A escala móvel, inferior, é idêntica e aparece deslocada para a direita, de modo que seu 1 coincide com o 2 da escala fixa e seu 3 coincide com o 6 da escala fixa."}
 
-Duas observações fecham o assunto. A primeira é que o operador não precisa
-conhecer a demonstração para usar o instrumento, mas precisa saber que o
-resultado é aproximado e depende da leitura da escala. A segunda é que a régua
-de cálculo foi o instrumento de trabalho de engenheiros e cientistas até a
+O operador não precisa conhecer a demonstração para usar o instrumento, e
+precisa saber que o resultado é aproximado e depende da leitura da escala. A
+régua de cálculo foi o instrumento de trabalho de engenheiros e cientistas até a
 década de 1970, quando a calculadora eletrônica de bolso a aposentou em poucos
-anos. Os projetos que levaram o ser humano à Lua foram calculados com o
-instrumento da @fig-tres-camadas.
+anos.
+
+Boa parte do trabalho de projeto e de conferência do programa espacial norte-
+americano foi feita com esse instrumento, o que costuma ser resumido em uma
+frase forte demais. A navegação em voo não dependia de régua: ela dependia do
+computador de bordo que a seção sobre os anos 1960 apresenta. Régua de cálculo em
+terra, computador embarcado a bordo.
 
 ## Delegar o cálculo a engrenagens
 
@@ -386,9 +392,10 @@ na roda das dezenas e um $5$ na das unidades.
 A @fig-pascalina mostra uma dessas máquinas, com as rodas de entrada embaixo e
 as janelas de resultado em cima.
 
-Reparem no que a engrenagem faz. Ela não sabe aritmética. Ela materializa uma
-regra da representação decimal, a de que dez unidades formam uma dezena, e essa
-regra é a mesma que vocês aplicam ao escrever o vai-um em uma conta no papel. O
+Reparem no que a engrenagem faz. Ela materializa uma regra da representação
+decimal, a de que dez unidades formam uma dezena, sem saber nenhuma aritmética, e
+essa regra é a mesma que vocês aplicam ao escrever o vai-um em uma conta no
+papel. O
 mecanismo executa a convenção; ele não a compreende. É a primeira vez que essa
 frase aparece neste capítulo e não será a última.
 
@@ -398,6 +405,12 @@ coisa e outra é grande: Leibniz descreveu a base dois como sistema numérico e
 construiu máquinas decimais. Representação e mecanismo permanecem problemas
 ligados e distintos, e a base dois esperaria quase três séculos por um
 mecanismo que a favorecesse.
+
+O aritmômetro de Thomas de Colmar, já no século XIX, marca outra passagem: a de
+demonstrações isoladas para calculadoras produzidas e vendidas para uso
+continuado. Uma máquina que funciona uma vez em uma sala é prova de conceito;
+uma máquina que trabalha todo dia em um escritório é tecnologia. É a mesma
+distinção que voltará a aparecer entre o ENIAC e o UNIVAC I, um século depois.
 
 ### Os computadores humanos
 
@@ -454,16 +467,11 @@ fisicamente a mesma e produz tecidos diferentes conforme a entrada que recebe.
 Para mudar o produto, troca-se a sequência de cartões, e não o tear.
 
 Essa separação é o antepassado direto da programação, e é aqui que o cuidado
-com o anacronismo precisa ser exercido. Os cartões de Jacquard não são um
-programa no sentido atual: eles não têm decisão, não têm repetição condicional
-e não podem ser alterados pela própria máquina durante a execução. O que eles
-antecipam é a ideia de que o comportamento de uma máquina pode ser informação
-externa a ela.
-
-O aritmômetro de Thomas de Colmar, do mesmo período, marca outra passagem: a de
-demonstrações isoladas para calculadoras produzidas e vendidas para uso
-continuado. Uma máquina que funciona uma vez em uma sala é prova de conceito;
-uma máquina que trabalha todo dia em um escritório é tecnologia.
+com o anacronismo precisa ser exercido. Falta aos cartões de Jacquard quase tudo
+o que hoje define um programa: decisão, repetição condicional e a possibilidade
+de serem alterados pela própria máquina durante a execução. O que eles antecipam
+é a ideia de que o comportamento de uma máquina pode ser informação externa a
+ela.
 
 ## A máquina que não foi construída
 
@@ -493,10 +501,11 @@ Comparem essa tabela com a estrutura funcional que o capítulo 3 vai apresentar,
 e com os componentes do capítulo 4. A correspondência é direta, e ela foi
 proposta um século antes de existir máquina capaz de realizá-la.
 
-O cuidado a tomar é o de sempre. Babbage não projetou um computador moderno em
-tamanho reduzido. Ele não trabalhava com programa armazenado, e as instruções
-ficavam nos cartões, fora da memória de trabalho. A distinção parece pequena e
-é justamente a que definirá a arquitetura dominante, cem anos depois.
+O cuidado a tomar é o de sempre. Babbage não trabalhava com programa armazenado,
+e as instruções ficavam nos cartões, fora da memória de trabalho. Tratar a
+Máquina Analítica como um computador moderno em tamanho reduzido apaga essa
+diferença, que é justamente a que definirá a arquitetura dominante cem anos
+depois.
 
 ### Ada Lovelace e o deslocamento do cálculo para o símbolo
 
@@ -549,12 +558,18 @@ imaginar um circuito.
 ### Hollerith e o censo de 1890
 
 Herman Hollerith aplicou cartões perfurados e máquinas tabuladoras ao censo
-norte-americano de 1890, reduzindo drasticamente o tempo de apuração. É o
-primeiro caso em que o processamento mecanizado de dados demonstra valor em
-escala administrativa, e não em cálculo científico.
+norte-americano de 1890. É o primeiro caso em que o processamento mecanizado de
+dados demonstra valor em escala administrativa, e não em cálculo científico.
 
-O procedimento merece atenção porque ele antecipa algo que o capítulo 12 vai
-retomar sob outro nome. Cada pessoa vira um cartão. Cada característica da
+Os números desse censo pedem cuidado, e o cuidado é o mesmo que este capítulo
+vem pedindo desde a abertura. A contagem simples da população total foi divulgada
+após seis semanas de processamento, e é esse o número que costuma ser repetido. A
+apuração completa, com todas as características levantadas, levou seis anos,
+contra oito anos do censo de 1880. O ganho é real e é de 25%, e não da ordem de
+grandeza que a primeira cifra sugere. Quem repete só as seis semanas está
+comparando a contagem de cabeças com o trabalho inteiro.
+
+O procedimento antecipa algo que o capítulo 12 vai retomar sob outro nome. Cada pessoa vira um cartão. Cada característica da
 pessoa vira uma posição no cartão, e cada posição admite um conjunto fixo de
 valores previstos. O operador configura a máquina para contar os cartões que
 combinam determinadas perfurações, e a máquina acumula totais.
@@ -565,8 +580,8 @@ A @fig-cartao-hollerith mostra um cartão do sistema. Reparem que as categorias
 estão impressas no próprio cartão: quem o projetou já decidiu quais perguntas
 existem e quais respostas são admissíveis.
 
-A velocidade não vem só da máquina. Ela vem da padronização prévia: alguém
-precisou decidir quais categorias existem, quantos valores cada uma admite e o
+A velocidade vem da padronização prévia tanto quanto da máquina. Alguém precisou
+decidir quais categorias existem, quantos valores cada uma admite e o
 que fazer com quem não se encaixa em nenhum. Esse trabalho de codificação é
 anterior ao processamento, é uma decisão humana e determina o que o resultado
 pode dizer. Um dado que não coube na categoria prevista não aparece no total,
@@ -622,8 +637,8 @@ permanente.
 Uma alternativa perdeu, e conhecê-la evita uma leitura ingênua da
 cronologia. As calculadoras analógicas resolvem
 problemas representando grandezas por quantidades físicas contínuas, como
-tensão ou posição, e obtêm resultados sem discretizar nada. Elas não são
-computadores primitivos: são outra família, com outra questão central. Onde o
+tensão ou posição, e obtêm resultados sem discretizar nada. Elas formam outra
+família, com outra questão central, e não uma versão primitiva do digital. Onde o
 digital se preocupa com codificação e estados, o analógico se preocupa com
 precisão e calibração. A escolha entre os dois dependia do problema, e chamar o
 digital de melhor sem dizer em que aspecto é exatamente o erro que este capítulo
@@ -669,10 +684,10 @@ apenas em parte, porque a configuração mudava dentro de um repertório fixo de
 operações de criptanálise. Não é de propósito geral, porque foi construído para
 uma tarefa, e não guarda o programa na memória.
 
-Reparem no que aconteceu entre as duas linhas. Nenhuma das duas máquinas é
-melhor que a outra: elas são favoráveis em colunas diferentes. Quem responder
+Entre as duas linhas aconteceu o seguinte. Nenhuma das duas máquinas é melhor
+que a outra: elas são favoráveis em colunas diferentes. Quem responder
 "a Z3" e quem responder "o Colossus" pode estar certo, e a discordância entre os
-dois não é sobre história, e sim sobre qual coluna importa.
+dois é sobre qual coluna importa, e não sobre história.
 
 ![Os cinco critérios aplicados às máquinas do período. Nenhuma linha é favorável nas cinco colunas até o pós-guerra, e é por isso que a pergunta sobre a primeira não tem resposta única. Elaboração própria a partir de [@wazlawick2016].](../diagrams/02/matriz-criterios.png){#fig-matriz-criterios width=95% fig-alt="Tabela com seis linhas de máquinas, da Z3 ao EDSAC, e cinco colunas de critérios: eletrônico, programável, propósito geral, programa armazenado e operacional. As células trazem sim, não ou em parte, com fundo verde para sim e vermelho para não. Só a última linha, do EDSAC e semelhantes, tem sim nas cinco colunas."}
 
@@ -751,6 +766,9 @@ componente, e boa parte do que mudou no período não é
 componente. Linguagem de programação, sistema operacional, interface e rede não
 aparecem nela, e explicam tanto quanto as válvulas e os transistores.
 
+Esta seção percorre as quatro linhas da tabela. A seção seguinte volta ao mesmo
+período pelo lado que a tabela não mostra.
+
 ### O transistor e a industrialização
 
 O transistor comuta sinais como a válvula e resolve seus três problemas de uma
@@ -768,29 +786,6 @@ tem equipe de manutenção própria, e é nos anos 1950 que o computador vira
 produto comercial. O UNIVAC e as máquinas que o seguem levam o processamento
 eletrônico para folha de pagamento, controle de estoque e faturamento, que são
 os problemas de quem paga a conta.
-
-### O software vira assunto próprio
-
-Enquanto o componente mudava, uma separação mais importante se consolidava: a de
-que o programa é um objeto de estudo distinto da máquina que o executa.
-
-Grace Hopper e o compilador A-0 abrem o caminho dos tradutores, programas que
-convertem uma descrição legível por pessoas em instruções de máquina. A partir
-daí, a linguagem de programação passa a mediar humano e equipamento, e o
-capítulo 7 vai tratar dessa mediação em detalhe.
-
-As linguagens do período mostram que a mediação não é única. FORTRAN foi
-construído para cálculo científico e queria produtividade em fórmulas. LISP
-explora manipulação de símbolos, e não de quantidades, retomando o deslocamento
-que Lovelace havia apontado um século antes. ALGOL influenciou a descrição
-formal de linguagens e a notação com que se escreve algoritmo até hoje.
-
-No mesmo período aparece o primeiro sistema operacional, e a motivação dele é
-prosaica. Antes, um operador humano preparava cada trabalho, carregava os dados,
-executava e recolhia o resultado, e a máquina ficava parada entre um trabalho e
-outro. O processamento em lote organiza os trabalhos em sequência, e um programa
-supervisor carrega o próximo assim que o anterior termina. O ganho não é
-inteligência: é a eliminação do tempo ocioso de um equipamento caríssimo.
 
 ### O circuito integrado e a compatibilidade
 
@@ -827,8 +822,8 @@ percepção humana, cada pessoa tem a impressão de dispor da máquina inteira.
 
 Não confundam isso com dividir fisicamente o computador em três. O processador
 faz uma coisa de cada vez, e a interatividade depende de memória suficiente para
-manter os estados, de uma política de escalonamento que decida a ordem e de
-terminais acessíveis. O capítulo 7 volta ao assunto ao tratar do papel do
+manter os estados, de uma política de **escalonamento**, que é a regra que decide
+de quem é a vez, e de terminais acessíveis. O capítulo 7 volta ao assunto ao tratar do papel do
 sistema operacional.
 
 A consequência cultural é grande. Um computador que responde em segundos permite
@@ -852,10 +847,13 @@ objeto de madeira e o equipamento que vocês usam há mais de uma década de
 distância, e é essa distância que a seção sobre ideia, implementação e adoção
 pedia para vocês medirem.
 
-A ARPANET, com comutação de pacotes, estabelece as bases técnicas e sociais da
-interconexão entre redes. A ARPANET não é a Internet pronta. Ela é um
-experimento de rede, e entre ele e a Internet de uso público existem
-protocolos, décadas e uma mudança completa de escala e de propósito.
+A ARPANET estabelece as bases técnicas e sociais da interconexão entre redes. Ela
+usa **comutação de pacotes**: em vez de reservar um caminho inteiro para cada
+conversa, como faz a telefonia da época, a mensagem é quebrada em pedaços que
+viajam separados e são remontados na chegada. A ARPANET é um experimento de
+rede, e entre ele e a Internet de uso público existem décadas, uma mudança
+completa de escala e um conjunto de convenções que só a seção sobre a Web vai
+nomear.
 
 O Apollo Guidance Computer mostra software embarcado em missão crítica, com
 restrições severas de memória, peso e confiabilidade. É o mesmo tipo de
@@ -864,11 +862,321 @@ caro.
 
 A década também produziu a expressão crise do software, que nomeia um problema
 que a técnica não resolveu: projetos grandes atrasavam, estouravam orçamento e
-falhavam com regularidade, apesar de máquinas cada vez melhores. A observação de
-que acrescentar pessoas a um projeto atrasado tende a atrasá-lo mais, por causa
-do custo de coordenação, vem desse período. Engenharia de Software, no quarto
-período, trata do assunto com método próprio, e o capítulo 8 o apresenta como
-área.
+falhavam com regularidade, apesar de máquinas cada vez melhores.
+
+A observação mais conhecida sobre o assunto diz que acrescentar pessoas a um
+projeto atrasado tende a atrasá-lo mais, por causa do custo de coordenação. Ela
+nasceu da experiência de conduzir um grande projeto de software nos anos 1960 e
+foi publicada em 1975, e a diferença entre as duas datas é exatamente o segundo
+instrumento deste capítulo aplicado a um caso pequeno. Engenharia de Software, no
+quarto período, trata do assunto com método próprio, e o capítulo 8 o apresenta
+como área.
+
+## O software vira assunto próprio
+
+A seção anterior atravessou trinta anos pelo componente dominante, do transistor
+ao que os anos 1960 anteciparam. Esta volta ao início desse intervalo e percorre
+o mesmo período por outro fio.
+
+Enquanto o componente mudava, uma separação mais importante se consolidava: a de
+que o programa é um objeto de estudo distinto da máquina que o executa.
+
+Essa separação depende do programa armazenado, e vale reconstruir o vínculo. Em
+uma máquina programada por cabo ou por painel, como o ENIAC, não existe onde
+guardar um programa que produza outro programa: o resultado de um cálculo é um
+número, e a configuração da máquina é feita de fios. Quando as instruções passam
+a morar na memória, no mesmo formato dos dados, um programa pode escrever
+instruções e outro pode executá-las. É a segunda consequência apontada na seção
+sobre o programa armazenado, e ela deixa de ser observação técnica para virar
+uma indústria inteira.
+
+A separação também dependeu de uma mudança de quem paga a conta. Enquanto o
+computador foi equipamento de laboratório e de projeto militar, quem o
+programava era quem o havia construído, e a distância entre a máquina e a
+notação não incomodava ninguém. Quando o computador vira produto vendido a uma
+seguradora, o programador passa a ser um funcionário contratado que nunca viu o
+circuito, e a notação passa a ser um problema de custo.
+
+### O UNIVAC e o computador como produto
+
+O UNIVAC I foi projetado principalmente por J. Presper Eckert e John Mauchly, os
+mesmos do ENIAC, na empresa que os dois fundaram e que foi depois comprada pela
+Remington Rand. A primeira unidade foi aceita pelo Departamento do Censo dos
+Estados Unidos em 31 de março de 1951, e a cerimônia de entrega, registrada na
+@fig-univac-censo, ocorreu em 14 de junho do mesmo ano.
+
+![Cerimônia de entrega do UNIVAC I ao Departamento do Censo dos Estados Unidos, em 14 de junho de 1951. À direita, alinhadas, as unidades de fita magnética que substituíram os cartões perfurados. Fotografia de funcionários do U.S. Census Bureau, em domínio público, obtida no Wikimedia Commons.](../diagrams/02/univac-censo.jpg){#fig-univac-censo width=95% fig-alt="Sala ampla com o UNIVAC I. Ao fundo, ao centro, um gabinete alto com a palavra UNIVAC no alto e painéis abertos que mostram fileiras de componentes; um homem trabalha atrás dele. À esquerda, um operador sentado diante de um console inclinado coberto de interruptores e lâmpadas, com um teclado à frente. À direita, uma fileira de oito armários iguais, cada um com duas bobinas de fita magnética visíveis atrás de portas de vidro."}
+
+Dois números do equipamento bastam para situá-lo. A memória guardava doze mil
+caracteres, e a máquina executava cerca de duas mil operações por segundo. Para
+isso, pesava mais de sete toneladas e consumia 125 kW.
+
+Comparem esses números com o capítulo 3. Um processador atual executa da ordem
+de bilhões de ciclos por segundo, e a memória de um telefone comum guarda alguns
+bilhões de caracteres. O UNIVAC I fazia, em um segundo, menos do que um telefone
+faz enquanto a tela é desbloqueada, e por isso custava entre um e um milhão e
+meio de dólares da época nas unidades finais.
+
+A mudança que mais importa para este capítulo aparece à direita da
+@fig-univac-censo. O UNIVAC I lia e gravava em fita
+magnética, e nem sequer aceitava cartão perfurado nas primeiras unidades, o que
+exigia conversores externos. A fita comporta volumes de dados que nenhuma pilha
+de cartões comporta, e comporta-os em sequência, que é exatamente a forma como
+se percorre uma folha de pagamento ou um recenseamento. O equipamento foi
+projetado para o problema de quem paga a conta, e não para o problema de quem
+faz cálculo científico.
+
+Do UNIVAC I foram construídas 46 unidades. É a diferença entre um artefato e um
+produto, e é a razão de o software passar a ter mercado. Um programa escrito para
+uma máquina única serve a uma instalação; um programa escrito para uma família de
+46 máquinas iguais pode ser vendido, copiado e reaproveitado.
+
+Quarenta e seis é pouco para os padrões de hoje e é muito para 1951. Como recorde
+de quantidade, porém, o número dura pouco: o IBM 650, lançado em 1954, chegou
+perto de duas mil unidades, e é a ele que cabe o título de primeiro computador
+produzido em massa. Chamar o UNIVAC I de primeiro computador produzido em série,
+sem completar a frase, é o tipo de afirmação que a próxima subseção ensina a
+desmontar.
+
+### Primeiro computador comercial, sob qual critério
+
+O UNIVAC I é chamado com frequência de primeiro computador comercial, e a essa
+altura do capítulo vocês já sabem o que fazer com uma frase dessas. Peguem o
+instrumento do critério e apliquem-no à @tbl-primeiro-comercial.
+
+| **Máquina** | **Marco** | **Data** | **Sob que critério vem antes** |
+|---|---|---|---|
+| Ferranti Mark 1 | Entrega à Universidade de Manchester | Fevereiro de 1951 | Primeira máquina de programa armazenado e propósito geral posta à venda |
+| UNIVAC I | Aceitação pelo Departamento do Censo | 31 de março de 1951 | Primeira comprada por órgão civil de governo, e primeira produzida em série ampla |
+| LEO I | Primeira aplicação comercial em uso | 5 de setembro de 1951 | Primeiro computador usado em rotina administrativa de uma empresa |
+
+: Três máquinas de 1951 e o critério sob o qual cada uma vem antes. {#tbl-primeiro-comercial}
+
+As três datas estão no mesmo ano e as três respostas são defensáveis, como as
+cinco máquinas da @fig-matriz-criterios. O LEO I é o caso mais curioso das três:
+foi construído por uma empresa de casas de chá e padarias, para calcular o custo
+dos ingredientes de pães e bolos, o que mostra quem tinha o problema antes de
+quem tinha a máquina.
+
+A disputa não é sobre fatos. Ninguém discorda das datas. A divergência é sobre
+o que a palavra comercial quer dizer: posta à venda, comprada
+por cliente pagante ou usada em rotina de negócio. Declarado o sentido, a
+pergunta fecha.
+
+### Grace Hopper e a ideia de que a máquina pode traduzir
+
+Grace Murray Hopper era doutora em matemática e entrou na Marinha dos Estados
+Unidos em 1944, como tenente, sendo designada para o projeto de computação da
+Universidade Harvard. Ali trabalhou na programação do Harvard Mark I, sob
+direção de Howard Aiken, e ficou no grupo até 1949, quando foi para a empresa de
+Eckert e Mauchly. A @fig-hopper-univac a mostra em 1957, ao teclado de um UNIVAC.
+
+![Grace Murray Hopper ao teclado de um UNIVAC, em junho de 1957, com integrantes de sua equipe. Fotografia do Smithsonian Institution, licenciada em CC BY 2.0, obtida no Wikimedia Commons.](../diagrams/02/hopper-univac.jpg){#fig-hopper-univac width=62% fig-alt="Fotografia em preto e branco. Uma mulher de meia-idade, de óculos, sentada, segura folhas de papel e opera o teclado de um console coberto de interruptores, mostradores e lâmpadas. Três homens em torno dela observam o painel, dois em pé e um sentado à direita."}
+
+A contribuição dela é uma tese sobre a divisão do trabalho entre pessoa e
+máquina. A tese diz que a tradução de uma notação legível por
+pessoas para instruções de máquina é ela própria uma tarefa mecânica, repetitiva
+e sujeita a erro, e que por isso deve ser feita pela máquina. @hopper1952
+apresenta o argumento e vale pela formulação: o trabalho de montar um programa a
+partir de trechos conhecidos é exatamente o tipo de tarefa que se delega a um
+computador.
+
+O argumento parece óbvio hoje e não era. Hopper relatou que ouviu, de forma
+imediata, que aquilo não podia ser feito porque computadores não entendiam
+inglês, e que levou cerca de três anos até que a ideia fosse aceita
+[@beyer2009]. A
+resistência tinha uma base real: o equipamento era caríssimo e gastar ciclos
+dele traduzindo notação, em vez de calcular, parecia desperdício. A troca é a
+mesma que o capítulo 3 vai apresentar como escolha da camada em que se ataca um
+problema, e a resposta acabou sendo a mesma: tempo de máquina ficou barato,
+tempo de gente não.
+
+### Do A-0 ao FLOW-MATIC
+
+Em 1952, Hopper tinha em funcionamento o A-0, e aqui o instrumento do
+anacronismo é obrigatório. O A-0 era chamado de compilador na época, e a palavra
+mudou de sentido desde então. Ele montava um programa executável
+a partir de **sub-rotinas**, que são trechos de programa já escritos e guardados
+para reúso, neste caso em fita. O A-0 encadeava os trechos pedidos e ajustava os
+endereços de cada um para a posição que ele ocuparia na memória. Pelo vocabulário
+atual, isso é um ligador, que junta os trechos, e um carregador, que os coloca na
+memória para executar.
+
+A diferença importa porque o mérito muda de lugar quando ela é apagada. O A-0
+não traduzia uma linguagem de alto nível, e não precisava traduzir para provar o
+que precisava ser provado: que a máquina podia montar o próprio programa. Quem
+lê "primeiro compilador" e imagina algo que aceitava fórmulas está atribuindo ao
+A-0 uma capacidade que ele não tinha e, de quebra, tirando de vista o que ele
+efetivamente resolveu.
+
+A linguagem veio depois. Hopper propôs a ideia no fim de 1953, a equipe escreveu
+as especificações e um protótipo em 1955, e o resultado, chamado primeiro de B-0
+e depois de FLOW-MATIC, ficou disponível ao público no início de 1958 e
+substancialmente completo em 1959. Ele rodava no UNIVAC I, e foi a primeira
+linguagem de programação a expressar operações com frases parecidas com o
+inglês, em vez de símbolos sem significado próprio.
+
+O trecho abaixo dá a aparência do FLOW-MATIC. Ele serve para vocês verem a
+forma, e não para ser entendido linha a linha; nenhuma explicação deste capítulo
+depende dele.
+
+```
+COMPARE PRODUCT-NO (A) WITH PRODUCT-NO (B)
+IF EQUAL GO TO OPERATION 5
+READ-ITEM A ; IF END OF DATA GO TO OPERATION 14
+TRANSFER A TO C
+```
+
+Duas decisões do FLOW-MATIC sobreviveram a ele. A primeira é o nome longo e
+descritivo, como `PRODUCT-NO`, em lugar de uma letra. A segunda é a separação
+entre a descrição dos dados e a descrição das operações, escritas em partes
+distintas do programa.
+
+A motivação de Hopper para a aparência em inglês é o ponto que costuma se
+perder. Ela não estava buscando elegância: observou que os clientes comerciais
+não se sentiam à vontade com notação matemática e recusavam símbolos abstratos.
+O leitor mudou, e a notação mudou com ele. É o mesmo raciocínio das três camadas
+apresentado no início deste capítulo, aplicado à camada da representação: o
+problema é o mesmo, o mecanismo é o mesmo, e a representação foi trocada para
+caber em quem ia usá-la.
+
+### COBOL e a linguagem comercial de alto nível
+
+Uma **linguagem de alto nível** é aquela cujas construções são descritas em
+termos do problema, e não em termos das operações do processador. O "alto" não
+mede qualidade: mede distância da máquina. Quanto mais alto, mais o programa se
+parece com o enunciado do problema e menos com o conjunto de instruções, e maior
+é o trabalho de tradução que alguém precisa fazer no meio do caminho. Esse
+alguém é o compilador, assunto do capítulo 7.
+
+O COBOL é a linguagem de alto nível voltada ao processamento comercial, e a
+história dele mostra por que portabilidade vira exigência. Em 1959, o
+Departamento de Defesa dos Estados Unidos patrocinou o esforço depois de
+constatar um problema de custo: a instituição operava 225 computadores, e um
+programa escrito para um deles não servia aos outros [@sammet1978]. Reescrever
+tudo a cada troca de equipamento era caro, e a saída proposta foi uma linguagem
+comum a todos os fabricantes.
+
+O consórcio criado para isso foi o CODASYL, sigla de Conference on Data Systems
+Languages, estabelecido em 4 de junho de 1959. A especificação inicial foi
+aprovada em 8 de janeiro de 1960, e o primeiro programa em COBOL rodou em 17 de
+agosto do mesmo ano [@sammet1978]. Os objetivos declarados eram uso máximo do
+inglês, independência de máquina, facilidade de uso e portabilidade entre
+fabricantes.
+
+O comitê examinou três linguagens existentes, e o FLOW-MATIC foi a mais
+influente das três: dele vieram os nomes longos de variável, as palavras em
+inglês no lugar de símbolos e a separação entre dados e instruções
+[@sammet1978]. A herança é direta, e é por isso que a história de Hopper e a
+história do COBOL não se separam.
+
+Aqui, porém, o instrumento da atribuição de crédito precisa ser usado na direção
+contrária à habitual. Hopper é chamada com frequência de criadora do COBOL. O
+papel dela no projeto foi o de consultora técnica do comitê, e Jean Sammet, que
+liderou o projeto da linguagem, registrou explicitamente que a criação e o
+desenvolvimento do COBOL pertencem a outras pessoas [@sammet1978]. O crédito que
+cabe a Hopper é outro, e é grande: a linguagem que serviu de base ao COBOL foi
+construída pela equipe dela, e a tese de que a máquina podia traduzir uma notação
+legível era dela.
+
+O COBOL alcançou, na década de 1970, a posição de linguagem mais usada do mundo
+[@sammet1978]. A duração desse alcance é o objetivo de portabilidade da
+especificação de 1960 produzindo efeito por décadas: um programa que não depende
+do modelo do equipamento sobrevive à troca do equipamento, que é o argumento de
+compatibilidade apresentado na seção anterior, sobre o circuito integrado.
+
+Quanto ao presente, apliquem a @tbl-etiqueta-temporal antes de repetir o que se
+lê por aí. É comum ler que a maior parte das transações bancárias do mundo ainda
+passa por código COBOL, com percentuais que variam conforme quem publica e
+raramente vêm com metodologia. A formulação segura é outra: sistemas em COBOL
+seguiram em operação por décadas em bancos, seguradoras e órgãos públicos, e
+verificar quanto disso continua verdadeiro neste ano exige fonte recente e
+datada.
+
+Hopper permaneceu na Marinha e chegou a comodoro em 1983, posto redesignado como
+contra-almirante em 1985, um ano antes de se aposentar [@beyer2009]. A @fig-hopper-retrato é
+o retrato oficial desse período. A distância entre 1952, quando lhe disseram que
+computadores não entendiam inglês, e 1983 é a mesma distância entre ideia e
+adoção que este capítulo pede que vocês meçam em todo marco.
+
+![Retrato oficial de Grace M. Hopper como comodoro da Marinha dos Estados Unidos, em 1984. Fotografia de James S. Davis, em domínio público, obtida no Wikimedia Commons.](../diagrams/02/hopper-retrato.jpg){#fig-hopper-retrato width=42% fig-alt="Retrato de uma mulher idosa de óculos, em uniforme naval azul-escuro com galões dourados no punho e faixas de condecoração no peito, de quepe, braços cruzados, diante da bandeira dos Estados Unidos."}
+
+### As outras linguagens do período
+
+O FLOW-MATIC e o COBOL atendem ao processamento comercial, e a mediação entre
+pessoa e máquina não é única. Três outras linguagens do mesmo período perseguem
+objetivos incompatíveis com o dele e entre si.
+
+FORTRAN foi construído na IBM para cálculo científico e queria produtividade em
+fórmulas: quem o usava já estava à vontade com notação matemática, e a linguagem
+foi feita para se parecer com ela. É a decisão oposta à do FLOW-MATIC, tomada no
+mesmo período, e as duas estão certas, porque o leitor de cada uma era outro.
+
+LISP explora manipulação de símbolos, e não de quantidades, retomando o
+deslocamento que Lovelace havia apontado um século antes. ALGOL influenciou a
+descrição formal de linguagens e a notação com que se escreve algoritmo até hoje.
+
+Cada uma das quatro foi projetada contra um problema e contra um público, e a
+escolha entre elas era, desde o início, uma decisão técnica com justificativa
+declarável. O capítulo 7 volta ao tema com o vocabulário de tradução, e o
+capítulo 8 mostra a que áreas da Computação cada uma dessas tradições deu
+origem.
+
+### O supervisor de lote
+
+No mesmo período aparece o software que administra a própria máquina, e a
+motivação dele é prosaica. Antes, um operador humano preparava cada trabalho,
+carregava os dados, executava e recolhia o resultado, e a máquina ficava parada
+entre um trabalho e outro. Em um equipamento alugado por hora, esse intervalo era
+o item mais caro da conta.
+
+O processamento em lote resolve isso enfileirando os trabalhos, e um programa
+**supervisor** carrega o próximo assim que o anterior termina. O ganho está na
+eliminação do tempo ocioso, e há medida disso: no caso melhor documentado do
+período, o número de trabalhos processados por hora aumentou dez vezes
+[@patrick1987].
+
+O supervisor é um programa cujo trabalho é cuidar de outros programas, e ele só
+é possível pelo mesmo motivo que o A-0 é possível: com o programa armazenado, um
+programa pode carregar e executar outro. A ideia de sistema operacional e a ideia
+de tradutor saem da mesma propriedade da arquitetura.
+
+### Qual foi o primeiro sistema operacional
+
+A pergunta aparece sozinha ao fim da subseção anterior, e a esta altura vocês já
+sabem o que fazer com ela. Ela é da mesma família da pergunta sobre o primeiro
+computador e da pergunta sobre o primeiro computador comercial, e se resolve do
+mesmo jeito: declarando o critério.
+
+Sob o critério de ter rodado em produção, a resposta usual é o GM-NAA I/O, de
+1956, construído para o IBM 704. Ele nasceu nos laboratórios de pesquisa da
+General Motors, foi implementado junto com a North American Aviation e derivou de
+um programa monitor que a própria General Motors havia escrito em 1955 para o
+IBM 701 [@patrick1987]. O que ele fazia é o que a subseção anterior descreve:
+encadear trabalhos e recuperar a máquina quando um deles falhava.
+
+Sob o critério de reunir as funções que hoje definem um sistema operacional, a
+resposta é outra e vem seis anos depois. O supervisor do computador Atlas, da
+Universidade de Manchester, em operação a partir de 1962, administrava vários
+programas ao mesmo tempo e tratava a memória de modo que cada programa
+enxergasse mais espaço do que a máquina tinha fisicamente [@kilburn1961]. É por
+isso que ele costuma ser chamado de primeiro sistema operacional
+reconhecivelmente moderno.
+
+As duas respostas convivem, como as três máquinas de 1951. Quem responde 1956
+está falando de uso em produção; quem responde 1962 está falando de repertório de
+funções. A discordância se dissolve assim que cada lado diz de qual dos dois está
+tratando.
+
+Contra a expectativa, os primeiros sistemas operacionais foram escritos pelos
+clientes, e não pelos fabricantes das máquinas: uma montadora de automóveis e uma
+fabricante de aviões construíram o software que a IBM não fornecia. O fabricante vendia o equipamento, e quem
+precisava dele resolvia o resto.
+
+Este capítulo para aqui, na origem e na datação. O que um sistema operacional faz
+enquanto vocês usam o computador é assunto do capítulo 7, que trata do papel
+dele junto com as demais categorias de software, e o capítulo 3 já usa a
+expressão ao descrever o computador como sistema.
 
 ## O computador pessoal
 
@@ -883,7 +1191,7 @@ A sequência de processadores do período, do Intel 4004 aos que o seguiram, e
 peças como o Z80 e o MOS 6502, barateia o componente central a ponto de tornar
 viável um mercado de máquinas pequenas.
 
-![Desenho de projeto do Intel 4004, exposto em museu. A imagem não é a pastilha, e sim o traçado de suas ligações internas, ampliado. Fotografia de Wolfgang Stief, em CC0, obtida no Wikimedia Commons.](../diagrams/02/intel-4004-layout.jpg){#fig-intel-4004 width=76% fig-alt="Desenho técnico ampliado do traçado interno de um circuito integrado, com milhares de trilhas verdes e vermelhas formando blocos densos e regulares, e conexões maiores nas bordas. No canto inferior direito lê-se a marca intel e o ano 71."}
+![Desenho de projeto do Intel 4004, exposto em museu. A imagem mostra o traçado das ligações internas do processador, ampliado, e não a pastilha. Fotografia de Wolfgang Stief, em CC0, obtida no Wikimedia Commons.](../diagrams/02/intel-4004-layout.jpg){#fig-intel-4004 width=76% fig-alt="Desenho técnico ampliado do traçado interno de um circuito integrado, com milhares de trilhas verdes e vermelhas formando blocos densos e regulares, e conexões maiores nas bordas. No canto inferior direito lê-se a marca intel e o ano 71."}
 
 A @fig-intel-4004 mostra o traçado interno do 4004, ampliado a ponto de caber
 em uma parede. Cada linha do desenho é uma ligação que, na peça real, mede
@@ -906,7 +1214,7 @@ outras por uma fórmula registrada. Se a despesa registrada em uma célula muda 
 $100$ para $120$, o total recalcula sozinho, e todas as células que dependiam
 dele acompanham.
 
-O que isso muda no trabalho de quem faz orçamento não é a conta: é a simulação.
+A conta, quem faz orçamento já fazia. O que a planilha muda é a simulação.
 Antes, testar uma hipótese exigia refazer todas as contas à mão, e por isso se
 testava uma ou duas. Depois, testar uma hipótese custa uma digitação, e por isso
 se testam vinte.
@@ -923,10 +1231,10 @@ MS-DOS estabelecem uma plataforma cujo alcance vem tanto da máquina original
 quanto dos compatíveis e dos fornecedores de software que a cercaram.
 
 A interface gráfica sai do laboratório e chega ao produto com a Lisa, o
-Macintosh e depois o Windows, popularizando janelas, ícones e apontadores. Vale
-registrar o que ela não faz: uma interface gráfica não dispensa entender
-arquivo, dado e procedimento. Ela reduz o custo de aprender a operar, e não o de
-compreender o que está sendo operado.
+Macintosh e depois o Windows, popularizando janelas, ícones e apontadores. Uma
+interface gráfica reduz o custo de aprender a operar o equipamento, e deixa
+intacto o custo de compreender o que está sendo operado: arquivo, dado e
+procedimento continuam sendo assunto de quem usa.
 
 O modelo de análise que este período fornece é o par formado por padrão e
 dependência. Quando uma interface vira padrão, a compatibilidade reduz o custo
@@ -947,8 +1255,8 @@ alternativa de produção e distribuição de software, baseada em licenças que
 asseguram liberdades definidas de uso, estudo, modificação e redistribuição.
 
 O ponto que interessa aqui é histórico, e o capítulo 11 tratará do jurídico. O
-software livre não nasceu como oposição ideológica abstrata: ele nasceu em
-reação a uma mudança concreta de prática. Programas que antes circulavam com o
+software livre nasceu em reação a uma mudança concreta de prática, e não de uma
+disputa de ideias em abstrato. Programas que antes circulavam com o
 código-fonte entre pesquisadores e usuários passaram a ser distribuídos apenas
 em forma executável, e quem recebia não podia mais corrigir, adaptar ou
 aprender com eles.
@@ -973,9 +1281,12 @@ e muitos outros serviços usam a Internet sem serem Web.
 ### O que a Web acrescentou
 
 A proposta de Tim Berners-Lee, no fim dos anos 1980, reúne três convenções que
-já se apoiavam em tecnologia existente: um identificador para localizar qualquer
-recurso, um protocolo para pedi-lo e uma linguagem de marcação para descrever
-documentos com ligações entre si.
+já se apoiavam em tecnologia existente. A primeira é um identificador para
+localizar qualquer recurso. A segunda é um **protocolo**, que é o conjunto de
+regras combinadas de antemão sobre o que um programa envia, em que ordem e o que
+espera receber de volta. A terceira é uma **linguagem de marcação**, que é uma
+forma de escrever um documento misturando o texto e as instruções sobre a
+estrutura dele, incluindo as ligações para outros documentos.
 
 O que essas convenções resolvem é o problema da publicação. Antes delas, colocar
 informação ao alcance de outras pessoas na rede exigia decidir formato,
@@ -1006,8 +1317,7 @@ dos capítulos 13 e 14.
 
 ### Publicar e localizar
 
-Uma consequência do crescimento merece registro, porque ela inverteu a
-importância de dois problemas.
+O crescimento inverteu a importância de dois problemas.
 
 Enquanto a informação era escassa na rede, publicar era o problema difícil.
 Quando publicar ficou fácil, localizar virou o problema difícil, e mecanismos de
@@ -1023,9 +1333,9 @@ de negócio de várias delas nunca se sustentou. A história que sobrou nos livr
 
 ## A computação móvel
 
-Entre 2000 e 2009, a computação deixa a mesa. A mudança não é apenas de tamanho
-do aparelho: é a combinação de conexão permanente, sensores, loja de aplicações
-e dados mantidos fora do equipamento.
+Entre 2000 e 2009, a computação deixa a mesa. O tamanho do aparelho é a parte
+menor dessa mudança; o que a define é a combinação de conexão permanente,
+sensores, loja de aplicações e dados mantidos fora do equipamento.
 
 O iPhone, o Android e as lojas de aplicações consolidam plataformas móveis com
 tela sensível ao toque e ecossistemas de desenvolvedores. Serviços como
@@ -1056,11 +1366,10 @@ pergunta é assunto do capítulo 12; a terceira, do capítulo 13.
 O termo **computação em nuvem** designa o fornecimento remoto de processamento,
 armazenamento ou software por infraestrutura administrada por terceiros.
 
-A palavra é infeliz, porque sugere ausência de lugar. Nuvem não elimina
-máquina física. Ela desloca o processamento e o armazenamento para centros de
-dados que pertencem a alguém, ficam em algum
-país, consomem energia de alguma matriz elétrica e estão sujeitos a alguma
-legislação. Cada um desses quatro fatos vira um capítulo do segundo bloco deste
+A palavra é infeliz, porque sugere ausência de lugar. Por trás dela continua
+havendo máquina física: a nuvem desloca o processamento e o armazenamento para
+centros de dados que pertencem a alguém, ficam em algum país, consomem energia de
+alguma matriz elétrica e estão sujeitos a alguma legislação. Cada um desses quatro fatos vira um capítulo do segundo bloco deste
 livro.
 
 ## O que a história ensina sobre o presente
@@ -1126,22 +1435,39 @@ que a @fig-babbage-funcoes já anunciou no século XIX.
 
 ## A tarefa desta semana
 
-As três partes desta tarefa não são alternativas. Elas cobrem operações
-diferentes: aplicar o instrumento ao caso conhecido, aplicá-lo a um caso novo e
-verificar o que mudou na compreensão de vocês.
+As três partes cobrem operações diferentes: aplicar o instrumento a um caso
+conhecido, aplicá-lo a um caso novo e verificar o que mudou na compreensão de
+vocês. As três compõem o piso definido na @tbl-piso-extensao do capítulo 1, e
+cada uma traz ao fim uma extensão para quem terminou sem esforço.
 
 ### Aplicação: um marco com os quatro instrumentos
 
-Escolham um marco qualquer da @fig-linha-do-tempo, fora das cinco máquinas já
-trabalhadas, e escrevam sobre ele quatro parágrafos curtos, um por instrumento.
+Escolham um marco da @fig-linha-do-tempo que este capítulo já tenha tratado, fora
+das cinco máquinas trabalhadas na abertura, e escrevam sobre ele quatro
+parágrafos curtos, um por instrumento.
 
 Separem as três camadas: qual era o problema humano, qual a representação
 escolhida e qual o mecanismo que a executava. Declarem sob que critério esse
 marco costuma ser chamado de primeiro em alguma coisa, e digam se o critério se
-sustenta. Procurem as três datas, da ideia, da primeira implementação e da
+sustenta. Levantem as três datas, da ideia, da primeira implementação e da
 adoção em escala, e anotem quanto tempo separou a primeira da última. Por fim,
 apontem uma continuidade com a computação atual e, na mesma frase, a diferença
 de escala ou de meio físico que impede tratá-los como equivalentes.
+
+As datas saem de duas fontes, nesta ordem. A primeira é este capítulo, que traz
+boa parte delas no corpo do texto. A segunda é a obra de @wazlawick2016, indicada
+nas leituras recomendadas e disponível na biblioteca, que é a fonte principal
+daqui e organiza a cronologia por período.
+
+Se precisarem procurar fora dessas duas, três exigências mínimas valem, e elas
+são o começo do que Metodologia Científica vai tratar no segundo período. A fonte
+precisa ter autoria identificável, precisa dizer de onde tirou a data, e precisa
+ser possível dizer quando ela foi escrita. Página sem autor, sem referência e sem
+data não serve, por mais bem escrita que esteja. Anotem a fonte de cada data ao
+lado dela, porque a próxima parte da tarefa depende desse hábito.
+
+Extensão: refaçam o exercício com um marco que este capítulo não trata, e
+comparem quanto trabalho a mais custou levantar as três datas sem o texto pronto.
 
 ### Transferência: a mesma pergunta fora da história
 
@@ -1153,6 +1479,9 @@ Apliquem a ela o instrumento do critério. Qual é a alegação exata, sob que
 critério ela seria verdadeira, e sob qual outro critério ela seria falsa? Depois
 classifiquem a afirmação segundo a @tbl-etiqueta-temporal: marco documentado,
 tendência, previsão ou afirmação sobre o estado atual.
+
+Extensão: encontrem uma alegação que seja verdadeira sob um critério e falsa sob
+outro, e escrevam as duas leituras lado a lado.
 
 Esta parte é a que mais importa, e é a mais difícil. O critério é fácil de
 aplicar a máquinas de 1945, sobre as quais ninguém tem interesse comercial hoje.
@@ -1173,8 +1502,8 @@ primeira página deste capítulo?
 
 A terceira pergunta é a que fecha o capítulo. Se a resposta for "nada mudou,
 apenas sei mais nomes e datas", o capítulo falhou com vocês, e vale dizer isso
-ao professor. O propósito enunciado na abertura não era reconhecer marcos: era
-julgar afirmações sobre eles.
+ao professor. O propósito enunciado na abertura era julgar afirmações sobre
+marcos, e reconhecê-los era só o material de trabalho.
 
 Guardem as duas folhas. O capítulo 16 fecha o semestre com uma análise da
 mesma natureza, e a comparação entre o que vocês escreviam na segunda semana e

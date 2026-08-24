@@ -13,7 +13,7 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 
 . . .
 
-O propósito não é reconhecer marcos. É **julgar afirmações sobre eles**.
+O propósito é **julgar afirmações sobre marcos**. Reconhecê-los é o meio.
 
 ## Objetivos de aprendizagem {.smaller}
 
@@ -179,11 +179,11 @@ A máquina analítica de Babbage: ideia sim, implementação não.
 
 ## Instrumento 4: evitar anacronismo
 
-O ábaco não é um computador lento. É um registro de valores por posição.
+O ábaco é um registro de valores por posição, operado por quem conhece as regras.
 
 . . .
 
-Os cartões de Jacquard não são software. São um meio de controle.
+Os cartões de Jacquard são um meio de controle que seleciona ações em um tear.
 
 . . .
 
@@ -199,8 +199,8 @@ Apontem a continuidade **e** a diferença de escala, meio físico e capacidade.
 
 ![](../diagrams/02/abaco-suanpan.jpg){fig-align="center" width="52%"}
 
-O resultado não está nas peças. Está na **convenção de leitura**. A mesma lição
-volta no capítulo 5, com bits.
+O resultado está na **convenção de leitura** combinada entre quem opera e quem
+interpreta. A mesma lição volta no capítulo 5, com bits.
 
 ::: {.smaller}
 Fotografia de Felix Winkelnkemper, licenciada em CC BY-SA 4.0,
@@ -386,6 +386,185 @@ não tem equipe de manutenção própria.
 Fotografia de Revol Web, licenciada em CC BY-SA 2.0, Wikimedia Commons.
 :::
 
+# O software vira assunto próprio
+
+## O que a tabela das gerações não conta
+
+O programa como objeto de estudo distinto da máquina que o executa.
+
+. . .
+
+Depende do **programa armazenado**: sem instruções na memória, não há onde um
+programa guardar o programa que ele produziu.
+
+. . .
+
+E depende de quem paga a conta. No laboratório, quem programava era quem havia
+construído a máquina. Vendido a uma seguradora, o programador é um funcionário
+que nunca viu o circuito — e a notação vira **problema de custo**.
+
+## O UNIVAC I, 1951
+
+![](../diagrams/02/univac-censo.jpg){fig-align="center" width="62%"}
+
+Doze mil caracteres de memória, cerca de duas mil operações por segundo, sete
+toneladas. À direita, as fitas magnéticas que substituíram os cartões.
+
+::: {.smaller}
+Fotografia de funcionários do U.S. Census Bureau, em domínio público, Wikimedia
+Commons.
+:::
+
+## Primeiro computador comercial? {.smaller}
+
+| Máquina | Marco | Data |
+|---|---|---|
+| Ferranti Mark 1 | Entrega em Manchester | Fevereiro de 1951 |
+| UNIVAC I | Aceitação pelo Censo dos EUA | 31 de março de 1951 |
+| LEO I | Primeira aplicação comercial em uso | 5 de setembro de 1951 |
+
+. . .
+
+Ninguém discorda das datas. A divergência é sobre o que **comercial** quer dizer:
+posta à venda, comprada por cliente pagante ou usada em rotina de negócio.
+
+. . .
+
+O LEO I foi construído por uma empresa de casas de chá, para calcular o custo de
+pães e bolos.
+
+## Grace Hopper {.smaller}
+
+![](../diagrams/02/hopper-univac.jpg){fig-align="center" width="40%"}
+
+A tese: traduzir uma notação legível para instruções de máquina é **tarefa
+mecânica**, e por isso cabe à máquina.
+
+. . .
+
+A resposta que ela ouviu: "computadores não entendiam inglês". Cerca de **três
+anos** até a ideia ser aceita.
+
+. . .
+
+A objeção tinha base — gastar ciclos de um equipamento caríssimo traduzindo, em
+vez de calcular, parecia desperdício. Tempo de máquina ficou barato; tempo de
+gente, não.
+
+::: {.smaller}
+Hopper ao teclado de um UNIVAC, 1957. Smithsonian Institution, CC BY 2.0,
+Wikimedia Commons.
+:::
+
+## A-0, 1952: cuidado com o anacronismo
+
+Chamado de **compilador** na época.
+
+. . .
+
+Pelo vocabulário atual, é um **ligador e carregador**: juntava sub-rotinas
+guardadas em fita e ajustava os endereços.
+
+. . .
+
+Não traduzia linguagem de alto nível — e não precisava, para provar o que
+importava: a máquina pode montar o próprio programa.
+
+## FLOW-MATIC, 1955–1959 {.smaller}
+
+Primeira linguagem a expressar operações com frases parecidas com o inglês.
+
+```
+COMPARE PRODUCT-NO (A) WITH PRODUCT-NO (B)
+IF EQUAL GO TO OPERATION 5
+READ-ITEM A ; IF END OF DATA GO TO OPERATION 14
+```
+
+. . .
+
+A razão foi outra: os clientes comerciais recusavam notação matemática.
+
+. . .
+
+**O leitor mudou, e a notação mudou com ele.**
+
+## COBOL, 1959–1960
+
+**Linguagem de alto nível**: construções descritas em termos do problema, e não
+das operações do processador. "Alto" mede distância da máquina, não qualidade.
+
+. . .
+
+O Departamento de Defesa dos EUA operava 225 computadores, e um programa escrito
+para um não servia aos outros.
+
+. . .
+
+Objetivo declarado: **portabilidade entre fabricantes**. É o que faz o código
+sobreviver à troca do equipamento.
+
+## Crédito, na direção contrária
+
+Hopper é chamada com frequência de criadora do COBOL.
+
+. . .
+
+Ela foi **consultora técnica** do comitê. Jean Sammet liderou o projeto e
+registrou isso explicitamente.
+
+. . .
+
+O crédito que cabe a ela é outro, e é grande: o FLOW-MATIC, base do COBOL, saiu
+da equipe dela, e a tese sobre a máquina tradutora era dela.
+
+## FORTRAN, LISP, ALGOL
+
+Mesmo período, públicos incompatíveis.
+
+::: {.incremental}
+- **FORTRAN** — cálculo científico, feito para se parecer com notação matemática.
+  Decisão oposta à do FLOW-MATIC, e as duas estão certas.
+- **LISP** — manipulação de símbolos, não de quantidades. É o deslocamento que
+  Lovelace apontou um século antes.
+- **ALGOL** — a notação com que se escreve algoritmo até hoje.
+:::
+
+## O supervisor de lote
+
+Antes: um operador humano preparava cada trabalho, e a máquina ficava parada
+entre um e outro. Em equipamento alugado por hora, esse intervalo era o item mais
+caro da conta.
+
+. . .
+
+O processamento em lote põe um **programa supervisor** a carregar o próximo assim
+que o anterior termina. No caso melhor documentado, dez vezes mais trabalhos por
+hora.
+
+. . .
+
+O supervisor é possível pelo mesmo motivo que o A-0: com programa armazenado, um
+programa pode carregar e executar outro.
+
+## Qual foi o primeiro sistema operacional {.smaller}
+
+Mesma família da pergunta sobre o primeiro computador. Declarem o critério.
+
+. . .
+
+**Rodou em produção** — GM-NAA I/O, 1956, para o IBM 704. Feito pela General
+Motors com a North American Aviation.
+
+. . .
+
+**Tem as funções que hoje definem um SO** — o supervisor do Atlas, Manchester,
+1962: vários programas ao mesmo tempo e memória maior que a física.
+
+. . .
+
+Os primeiros sistemas operacionais foram escritos pelos **clientes**, não pelos
+fabricantes. O que um SO faz é assunto do capítulo 7.
+
 ## O circuito integrado
 
 ![](../diagrams/02/intel-4004-layout.jpg){fig-align="center" width="50%"}
@@ -490,7 +669,8 @@ com vocês.
 
 . . .
 
-O propósito não era reconhecer marcos. Era **julgar afirmações sobre eles**.
+O propósito era **julgar afirmações sobre marcos**. Reconhecê-los era só o
+material de trabalho.
 
 ## Referências {.scrollable}
 
