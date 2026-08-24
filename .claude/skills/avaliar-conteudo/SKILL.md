@@ -1,6 +1,6 @@
 ---
 name: avaliar-conteudo
-description: Avalia capítulos e slides do livro sob duas perspectivas independentes — professor da disciplina e aluno do 1º período. Use quando o usuário pedir avaliação, revisão pedagógica, parecer sobre um capítulo, ou invocar /avaliar-conteudo. Não roda automaticamente.
+description: Avalia capítulos e slides do livro sob duas perspectivas independentes — professor da disciplina e aluno do 1º período — e aplica no arquivo as correções mecânicas que o parecer aponta, deixando as decisões pedagógicas para o autor. Use quando o usuário pedir avaliação, revisão pedagógica, parecer sobre um capítulo, ou invocar /avaliar-conteudo. Não roda automaticamente.
 ---
 
 # Avaliação de conteúdo didático
@@ -8,6 +8,11 @@ description: Avalia capítulos e slides do livro sob duas perspectivas independe
 Produz um parecer sobre material já escrito, a partir de duas leituras
 independentes: a de quem ministra a disciplina e a de quem a cursa. As duas
 leituras respondem a perguntas diferentes e não devem ser fundidas.
+
+Terminadas as leituras, a skill aplica no arquivo os achados que têm uma única
+correção possível e deixa registrados, sem tocar no texto, os que dependem de
+decisão do autor. A seção "O que aplicar e o que apenas relatar" define a
+fronteira.
 
 ## Alvo
 
@@ -58,9 +63,10 @@ resolvida, diga isso e siga. Um relatório honesto com quatro achados vale mais
 que um com quinze inflados. Mas percorra a lista de verificação inteira antes
 de concluir que não há nada: o risco maior é o elogio genérico que não olhou.
 
-**Não reescreva o texto.** A saída é parecer, não edição. Sugira a direção da
-correção; a redação é do autor. Exceção: se o usuário pedir explicitamente
-que aplique as correções, aí sim edite.
+**Leia antes de escrever.** Nenhuma correção é aplicada durante as leituras. As
+duas leituras são escritas primeiro, inteiras, e só depois o arquivo é alterado.
+Corrigir enquanto lê contamina a leitura do aluno, que passa a procurar o que dá
+para consertar em vez de relatar onde travou.
 
 **Verifique o que é verificável.** Conversão entre bases, aritmética binária e
 representação de dados se conferem por cálculo, e devem ser conferidas, e não
@@ -77,6 +83,42 @@ Classifique cada achado:
 - **Atrapalha** — o aluno chega ao fim, mas com esforço desnecessário ou
   entendimento parcial. Corrigir na próxima revisão.
 - **Vale considerar** — melhoria real, sem urgência.
+
+## O que aplicar e o que apenas relatar
+
+Depois de escritas as duas leituras, aplique no arquivo os achados da primeira
+lista e deixe os da segunda apenas no parecer.
+
+**Aplique.** São os achados com uma única correção defensável, sem escolha
+pedagógica no meio:
+
+- Padrão de escrita proibido pelo `ESCRITA.md`, incluindo negação usada como
+  preparação, anunciar em vez de dizer, conclusão genérica, aspas curvas,
+  primeira pessoa do singular e termo fora da tabela de vocabulário controlado.
+- Termo técnico ou sigla sem glosa na primeira ocorrência.
+- Referência posicional a figura ou tabela, que o `AUTHORING.md` proíbe.
+- Erro de conta, de data ou de atribuição, depois de conferido na fonte.
+- Citação faltando para afirmação que já está no texto. Acrescente a fonte, nunca
+  a afirmação.
+- Divergência de termo entre capítulo e slides, alinhando os dois.
+
+**Apenas relate.** São os achados em que existe mais de uma direção defensável, e
+escolher é do autor:
+
+- Ordem, recorte e proporção entre seções.
+- O que entra e o que sai do escopo do capítulo.
+- Volume, piso e extensão, e o que a atividade exige.
+- Redação de atividade nova ou de seção nova.
+- Slides que faltam.
+- Qualquer achado em que o próprio parecer apresente duas saídas. A regra de
+  conduta da leitura do professor manda oferecer a alternativa em vez de impor
+  preferência, e aplicar uma delas contraria isso.
+
+Na dúvida sobre a qual lista um achado pertence, ele pertence à segunda.
+
+**Depois de aplicar**, renderize o alvo e rode os comandos da seção
+"Verificação" do `ESCRITA.md`. Uma correção que quebra a renderização ou que
+introduz outro padrão proibido custa mais que o defeito que ela removeu.
 
 ## Formato do parecer
 
@@ -105,14 +147,20 @@ Escreva em português direto e técnico, conforme `AGENTS.md`. Estrutura:
 
 ## Achados por severidade
 
-| Severidade | Local | Achado | Direção da correção |
-|---|---|---|---|
+| Severidade | Local | Achado | Direção da correção | Situação |
+|---|---|---|---|---|
 
 ## Síntese
 ```
 
+A coluna "Situação" recebe **aplicado** ou **pendente**, e o parecer é o registro
+de qual foi qual. Um achado aplicado descreve o que estava no arquivo antes da
+correção, porque é isso que a comparação entre pareceres de revisões diferentes
+vai precisar.
+
 Na síntese, responda em três a cinco linhas: o material está pronto para ir
-para a aula como está? Se não, o que precisa mudar primeiro?
+para a aula como está? Se não, o que precisa mudar primeiro? Diga também quantos
+achados foram aplicados e quantos ficaram pendentes de decisão do autor.
 
 ## Registro
 
@@ -122,3 +170,7 @@ sobrescreva um parecer anterior; crie um novo arquivo.
 
 Depois de salvar, apresente no chat apenas a tabela de achados e a síntese.
 O parecer completo fica no arquivo.
+
+Informe também o que foi alterado em cada arquivo do livro, para que a revisão do
+que a skill escreveu seja possível sem abrir o diff. Se o usuário pedir só o
+parecer, sem gravação, obedeça e marque todos os achados como pendentes.
