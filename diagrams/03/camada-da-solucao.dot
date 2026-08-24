@@ -1,0 +1,48 @@
+// Um mesmo sintoma pode ser atacado em quatro camadas do sistema. A posição
+// vertical importa: a camada mais alta é a mais barata de mudar, e a mais
+// baixa é a que atinge mais gente.
+// Capítulo 3, seção "Um mesmo problema em camadas diferentes".
+digraph camada_da_solucao {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.16,0.10"];
+  edge [fontname="Helvetica", fontsize=9, color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.40, ranksep=0.30];
+
+  sint [label="Sintoma: a lista de turmas leva oito segundos para aparecer",
+        fillcolor="#f7e3dc", style="filled,rounded"];
+
+  c1 [label="Camada do programa\nA busca percorre a lista inteira\npara cada turma exibida",
+      fillcolor="#dcedf7"];
+  c2 [label="Camada dos dados\nO banco de dados relê do disco\naquilo que já foi lido antes",
+      fillcolor="#e6eff5"];
+  c3 [label="Camada do sistema operacional\nO programa disputa o processador\ncom outros em execução",
+      fillcolor="#eef3f7"];
+  c4 [label="Camada do equipamento e da rede\nA memória não comporta os dados\ne a conexão é lenta",
+      fillcolor="#f4f6f8"];
+
+  a1 [label="Trocar o método de busca\nBarato, efeito imediato,\nnão afeta outros programas",
+      fillcolor="#e3f0e3", style="filled,rounded"];
+  a2 [label="Guardar o resultado já lido\nBarato, exige decidir quando\no dado guardado envelhece",
+      fillcolor="#e3f0e3", style="filled,rounded"];
+  a3 [label="Ajustar prioridade e limites\nSem custo de compra, afeta\ntodos os programas da máquina",
+      fillcolor="#f7f3dc", style="filled,rounded"];
+  a4 [label="Ampliar memória ou banda\nCaro, resolve o sintoma sem\nremover a causa nas camadas acima",
+      fillcolor="#f7e3dc", style="filled,rounded"];
+
+  sint -> c1;
+  c1 -> c2;
+  c2 -> c3;
+  c3 -> c4;
+
+  { rank=same; c1; a1; }
+  { rank=same; c2; a2; }
+  { rank=same; c3; a3; }
+  { rank=same; c4; a4; }
+
+  c1 -> a1 [label=" intervenção "];
+  c2 -> a2 [label=" intervenção "];
+  c3 -> a3 [label=" intervenção "];
+  c4 -> a4 [label=" intervenção "];
+}

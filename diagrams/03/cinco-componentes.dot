@@ -1,0 +1,35 @@
+// Os cinco componentes de um sistema computacional e as relações entre eles.
+// A posição importa: o usuário está sempre em cima, o hardware sempre embaixo,
+// e os dados atravessam as três camadas.
+// Capítulo 3, seção "Os cinco componentes de um sistema computacional".
+digraph cinco_componentes {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.16,0.10"];
+  edge [fontname="Helvetica", fontsize=9, color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.45, ranksep=0.42];
+
+  usu [label="Usuários\nDecidem o que pedir\ne julgam o resultado",
+       fillcolor="#f7f3dc", style="filled,rounded"];
+  sof [label="Software\nDiz ao hardware\nque passos executar", fillcolor="#dcedf7"];
+  har [label="Hardware\nExecuta os passos e\nguarda os estados", fillcolor="#e6eff5"];
+
+  dad [label="Dados\nO que entra, o que fica\nguardado e o que sai",
+       fillcolor="#f7e3dc"];
+  red [label="Redes\nLigam este sistema\na outros sistemas",
+       fillcolor="#e3f0e3", style="filled,rounded"];
+
+  usu -> sof [label=" pedido "];
+  sof -> har [label=" instruções "];
+  har -> sof [label=" resultado ", constraint=false];
+  sof -> usu [label=" resposta ", constraint=false];
+
+  { rank=same; dad; sof; red; }
+
+  dad -> sof [label=" leitura ", dir=both];
+  sof -> red [label=" troca ", dir=both];
+
+  har -> dad [label=" armazenamento ", constraint=false, style=dashed];
+  red -> usu [label="  outros usuários  ", constraint=false, style=dashed];
+}

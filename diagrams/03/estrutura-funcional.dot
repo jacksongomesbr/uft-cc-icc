@@ -1,0 +1,43 @@
+// Estrutura funcional básica: entrada, processamento, armazenamento e saída.
+// A posição de cada bloco é fixa e se repete no capítulo 4: entrada à
+// esquerda, saída à direita, processador ao centro, memória e armazenamento
+// secundário abaixo do processador.
+// Capítulo 3, seção "A estrutura funcional básica".
+digraph estrutura_funcional {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.15,0.10"];
+  edge [fontname="Helvetica", fontsize=9, color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.45, ranksep=0.45];
+
+  ent [label="Entrada\nTeclado, tela sensível,\nmicrofone, sensor",
+       fillcolor="#f7f3dc", style="filled,rounded"];
+  sai [label="Saída\nTela, alto-falante,\nimpressora, motor",
+       fillcolor="#f7f3dc", style="filled,rounded"];
+
+  proc [shape=plaintext, margin=0, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="6" CELLPADDING="6"
+           COLOR="#2c6ea3" BGCOLOR="#f4f8fb">
+      <TR><TD COLSPAN="3" BORDER="0"><B>Processador</B></TD></TR>
+      <TR>
+        <TD BGCOLOR="#dcedf7">Unidade de controle<BR/>Busca e decodifica<BR/>a instrução</TD>
+        <TD BGCOLOR="#dcedf7">Unidade lógica e aritmética<BR/>Soma, compara<BR/>e decide</TD>
+        <TD BGCOLOR="#dcedf7">Registradores<BR/>Guardam o que está<BR/>em uso agora</TD>
+      </TR>
+    </TABLE>
+  >];
+
+  mem [label="Memória principal\nInstruções e dados do que\nestá em execução agora",
+       fillcolor="#e6eff5"];
+  arm [label="Armazenamento secundário\nO que continua existindo com\no equipamento desligado",
+       fillcolor="#eef3f7"];
+
+  { rank=same; ent; proc; sai; }
+  { rank=same; mem; arm; }
+
+  ent -> proc [label=" dados "];
+  proc -> sai [label=" resultados "];
+  proc -> mem [label=" instrução e dado ", dir=both];
+  mem -> arm  [label=" carga e gravação ", dir=both];
+}

@@ -1,0 +1,42 @@
+// A fronteira de um sistema é uma decisão de quem o descreve.
+// Dentro, as partes que a equipe projeta e mantém; fora, o que ela apenas
+// recebe ou entrega.
+// Capítulo 3, seção "A fronteira é uma decisão, não um fato".
+digraph fronteira_sistema {
+  rankdir=LR;
+  bgcolor="white";
+  compound=true;
+  node [fontname="Helvetica", fontsize=10, shape=box, style="filled",
+        color="#333333", fillcolor="#ffffff", margin="0.14,0.09"];
+  edge [fontname="Helvetica", fontsize=9, color="#666666", arrowsize=0.7];
+  graph [fontname="Helvetica", fontsize=11, nodesep=0.28, ranksep=0.55];
+
+  aluno [label="Aluno", fillcolor="#eeeeee", style="filled,rounded"];
+  coord [label="Coordenação", fillcolor="#eeeeee", style="filled,rounded"];
+
+  subgraph cluster_dentro {
+    label="  Sistema de matrícula — o que a equipe projeta e mantém  ";
+    fontname="Helvetica";
+    fontsize=10;
+    color="#2c6ea3";
+    style="rounded";
+    bgcolor="#f4f8fb";
+
+    tela  [label="Telas de\nmatrícula", fillcolor="#dcedf7"];
+    regra [label="Regras de\npré-requisito e vaga", fillcolor="#dcedf7"];
+    banco [label="Banco de dados\nde matrículas", fillcolor="#dcedf7"];
+
+    tela -> regra;
+    regra -> banco;
+  }
+
+  email [label="Serviço de\ncorreio eletrônico", fillcolor="#f7f3dc",
+         style="filled,rounded"];
+  hist  [label="Sistema de\nhistórico escolar", fillcolor="#f7f3dc",
+         style="filled,rounded"];
+
+  aluno -> tela  [label=" pedido de matrícula "];
+  coord -> regra [label=" abertura de turma "];
+  banco -> email [label=" comprovante "];
+  banco -> hist  [label=" registro "];
+}
