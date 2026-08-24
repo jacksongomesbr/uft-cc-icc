@@ -487,8 +487,8 @@ pré-requisito para acompanhar as aulas.
 : Perguntas do diagnóstico e os capítulos que as respondem. {#tbl-diagnostico}
 
 As duas perguntas restantes, sobre já ter escrito um programa e já ter usado um
-terminal, não têm capítulo correspondente. Elas medem contato prévio, e servem
-para o professor saber com que turma está falando. Quem nunca usou um terminal
+terminal, ficam fora dessa lista porque medem contato prévio, e servem para o
+professor saber com que turma está falando. Quem nunca usou um terminal
 vai usar em Lógica de Programação, e não precisa se antecipar a isso agora.
 
 Quem respondeu quase todas encontra a extensão na última seção deste capítulo.
@@ -617,9 +617,9 @@ e têm a mesma estrutura: receber os dados, conferir se estão completos,
 guardar, permitir alterar e permitir remover.
 
 Reconhecido o padrão, a equipe resolve o problema uma vez e reaproveita a
-solução nos dois cadastros. O ganho não está apenas em escrever menos. Está em
-ter um lugar só para corrigir quando a regra mudar, e em oferecer ao usuário
-duas telas que se comportam do mesmo jeito.
+solução nos dois cadastros. Escrever menos é o ganho menor. O maior está em ter
+um lugar só para corrigir quando a regra mudar, e em oferecer ao usuário duas
+telas que se comportam do mesmo jeito.
 
 O padrão também aparece entre problemas de áreas distintas. Ordenar alunos por
 nome, ordenar caronas por horário de saída e ordenar livros por autor são o

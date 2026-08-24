@@ -171,6 +171,25 @@ parágrafo de fechamento que só recapitula.
 **Grupos de três forçados.** Enumerar três itens porque três soa completo. Se
 são dois, diga dois.
 
+**Negação usada como preparação.** É o padrão que mais denuncia texto gerado por
+máquina, e o mais frequente na revisão destes livros. A forma é sempre a mesma:
+nega-se alguma coisa e, logo depois de dois-pontos ou de um ponto, retoma-se o
+mesmo sujeito com verbo de ligação. "O ganho não é inteligência: é a eliminação
+do tempo ocioso." "A contribuição dela não é um programa: é uma tese." "O que
+falta não é dado. É instrumento."
+
+Escreva a afirmação primeiro e deixe a correção vir depois, ou suprima a negação
+quando ela for só cadência:
+
+- Evite: "O ábaco não é um computador lento. Ele é um registro de valores por
+  posição."
+- Prefira: "O ábaco é um registro de valores por posição, operado por uma pessoa
+  que conhece as regras, e chamá-lo de computador lento troca o que ele faz por
+  uma versão piorada do que veio depois."
+
+Contraste é pontuação normal do português e continua valendo. O que se proíbe é a
+revelação: negar para depois anunciar a resposta com "é", "e sim" ou "É".
+
 **Variação elegante.** Ver vocabulário controlado, acima. É o defeito mais
 frequente e o mais difícil de enxergar relendo o próprio texto.
 
@@ -189,6 +208,20 @@ LC_ALL=en_US.UTF-8 grep -rl '[“”‘’]' --include='*.qmd' --include='*.md' 
 ```bash
 LC_ALL=en_US.UTF-8 grep -rnwE "eu|meu|minha|meus|minhas" chapters slides
 ```
+
+A quarta busca é a da negação usada como preparação. Ela precisa de um comando
+próprio porque a construção quase sempre atravessa duas linhas, e `grep`, que
+compara linha a linha, encontra só a fração que coube em uma:
+
+```bash
+perl -0777 -n -e 's/(?<!\n)\n(?!\n)/ /g; while (/(?i:\bnão\b)[^.!?#|]{0,90}?(?::\s*(?:é|são|era|eram|foi|foram|o |a |os |as |um |uma )|,\s*e sim\b|\.\s+(?:É|São|Era|Eram|Foi|Foram)\b)/g) { my $m=$&; $m=~s/\s+/ /g; print "$ARGV: $m\n" }' chapters/*.qmd slides/*.qmd
+```
+
+O `-0777` lê o arquivo inteiro e a substituição junta as linhas de dentro de cada
+parágrafo, preservando as linhas em branco que os separam. O comando acusa
+travessia de título e legenda de figura, e é preferível assim: um comando que
+erra para mais custa uma conferência, e um que deixa passar custa a revisão
+inteira.
 
 Duas armadilhas de ambiente, ambas já resolvidas nas linhas acima. O `grep` do
 macOS não tem a opção `-P`, então os padrões usam apenas expressão regular

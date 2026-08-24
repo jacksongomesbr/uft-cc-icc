@@ -8,6 +8,26 @@ Três guias, sem sobreposição. Leia o que corresponde ao que você vai alterar
 - `AUTHORING.md` — figuras, tabelas, diagramas, código e referência cruzada.
 - `ABNT.md` — citação, referência bibliográfica e apresentação do PDF.
 
+## Verificação automática da escrita
+
+Depois de cada gravação, um hook roda os comandos da seção "Verificação" do
+`ESCRITA.md` sobre os `.qmd` modificados e reporta o que encontrou. Ele detecta e
+não altera nada: a decisão de corrigir é de quem está escrevendo.
+
+O que ele reporta admite falso positivo, e o próprio relatório diz quais são:
+termo dentro de citação direta, fala reproduzida entre aspas, nome de comando, e
+dois-pontos de explicação no lugar de revelação. Confira o contexto antes de
+trocar, e deixe como está o que for legítimo.
+
+O hook dispara pelo estado do repositório, e não pela ferramenta usada, então
+vale também para gravação feita por heredoc ou script. Ele fica em
+`~/.claude/hooks/escrita-check.sh` e serve aos quatro livros.
+
+Para prosa em `.md`, como parecer, guia ou changelog, vale a skill `humanizer`.
+Ela fica fora dos `.qmd` de propósito: as regras dela divergem do `ESCRITA.md` em
+travessão, negrito de glosa e grupo de três, e reescrever texto com notação
+LaTeX, chave de citação e referência cruzada é arriscado como passo automático.
+
 ## Linguagem do projeto
 
 O detalhamento está em `ESCRITA.md`. Estas são as regras que valem mesmo sem
