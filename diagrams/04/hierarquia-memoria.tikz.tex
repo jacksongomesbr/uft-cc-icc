@@ -1,0 +1,48 @@
+% A hierarquia de memória, em cinco níveis.
+%
+% A largura de cada faixa cresce de cima para baixo porque é ela que representa
+% a capacidade; as duas setas da esquerda dizem o que cresce em cada sentido.
+% Os números da direita são ordens de grandeza, e o capítulo diz isso no texto:
+% servem para comparar níveis, não para caracterizar um equipamento.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\begin{document}
+\begin{tikzpicture}
+
+  % --- As cinco faixas ---------------------------------------------------
+  % {largura em cm}{y}{estilo}{rótulo}{capacidade}{tempo de acesso}
+  \newcommand{\faixa}[6]{%
+    \node[#3, minimum width=#1cm, minimum height=11mm, rounded corners=2pt]
+      (n#2) at (0, #2) {#4};
+    \node[rotulo peq, anchor=west] at (6.2, #2) {#5};
+    \node[rotulo peq, anchor=west] at (9.6, #2) {#6};
+  }
+
+  \faixa{3.4}{4.8}{bloco proc}{Registradores}{dezenas de valores}{menos de 1 ns}
+  \faixa{5.4}{3.6}{bloco proc}{Memória cache}{de KB a dezenas de MB}{de 1 ns a 30 ns}
+  \faixa{7.6}{2.4}{bloco mem}{Memória principal}{unidades a dezenas de GB}{cerca de 100 ns}
+  \faixa{9.6}{1.2}{bloco dado}{Disco de estado sólido}{centenas de GB a TB}{dezenas de $\mu$s}
+  \faixa{11.4}{0.0}{bloco dado}{Disco magnético}{unidades de TB}{cerca de 10 ms}
+
+  % Cabeçalho das duas colunas de números.
+  \node[rotulo peq, anchor=west, font=\footnotesize\bfseries] at (6.2, 5.9)
+    {Capacidade típica};
+  \node[rotulo peq, anchor=west, font=\footnotesize\bfseries] at (9.6, 5.9)
+    {Tempo de acesso};
+
+  % --- O que cresce em cada sentido --------------------------------------
+  \draw[seta, line width=1.1pt] (-7.0, 0.0) -- (-7.0, 5.3);
+  \node[rotulo peq, rotate=90, anchor=south] at (-7.35, 2.6)
+    {velocidade e custo por byte};
+  \draw[seta, line width=1.1pt] (-6.2, 5.3) -- (-6.2, 0.0);
+  \node[rotulo peq, rotate=90, anchor=north] at (-5.85, 2.6)
+    {capacidade};
+
+  % --- Onde está a fronteira da volatilidade ------------------------------
+  \draw[dash pattern=on 3pt off 2pt, draw=destaque, line width=1pt]
+    (-5.3, 1.8) -- (12.6, 1.8);
+  \node[rotulo peq, anchor=west, text=destaque] at (-5.2, 2.05) {volátil};
+  \node[rotulo peq, anchor=west, text=destaque] at (-5.2, 1.55) {não volátil};
+
+\end{tikzpicture}
+\end{document}

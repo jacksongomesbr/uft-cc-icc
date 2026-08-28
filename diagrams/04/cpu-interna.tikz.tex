@@ -1,0 +1,56 @@
+% Dentro do processador: unidade de controle, unidade lógica e aritmética e o
+% conjunto de registradores, com as ligações que existem entre eles.
+%
+% A posição é herdada da figura da estrutura funcional do capítulo 3: o
+% processador ao centro, a memória principal abaixo dele. O aluno abriu a caixa
+% do capítulo anterior, e o desenho precisa deixar isso evidente.
+%
+% Os registradores ficam em uma linha só, embaixo, porque as duas unidades
+% conversam com eles e não entre si. Empilhados de lado, as ligações passariam
+% por cima das unidades.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\begin{document}
+\begin{tikzpicture}
+
+  % --- Registradores, em linha ------------------------------------------
+  \node[registrador, minimum width=25mm] (pc)  at (0,    0) {contador de\\programa};
+  \node[registrador, minimum width=25mm] (ri)  at (2.9,  0) {registrador de\\instrução};
+  \node[registrador, minimum width=25mm] (re)  at (5.8,  0) {registrador de\\endereço};
+  \node[registrador, minimum width=25mm] (rd)  at (8.7,  0) {registrador de\\dados};
+  \node[registrador, minimum width=32mm] (rg)  at (12.0, 0) {registradores\\de uso geral};
+
+  \node[moldura, fit=(pc)(rg), inner sep=3.5mm] (banco) {};
+  \node[rotulo peq, left=1.5mm of banco] {Regis-\\tradores};
+
+  % --- As duas unidades --------------------------------------------------
+  \node[bloco proc, minimum width=42mm, minimum height=14mm] (uc) at (1.45, 3.2)
+    {Unidade de controle\\[1pt]{\footnotesize busca, decodifica, aciona}};
+  \node[bloco proc, minimum width=48mm, minimum height=14mm] (ula) at (9.4, 3.2)
+    {Unidade lógica e aritmética\\[1pt]{\footnotesize soma, subtrai, compara}};
+
+  \draw[seta] (uc.east) -- node[rotulo peq, above, pos=0.5]
+    {sinais de controle} (ula.west);
+  \draw[seta] (ri.north) -- node[rotulo linha, pos=0.55] {instrução}
+    (uc.south east);
+  \draw[seta] (uc.south west) -- node[rotulo linha, pos=0.5] {avanço}
+    (pc.north);
+  \draw[seta dupla, shorten <=2pt] (ula.east) to[out=0, in=90]
+    node[rotulo linha, pos=0.72] {operandos\\e resultado} (rg.north);
+
+  % --- Moldura do processador -------------------------------------------
+  \node[moldura, line width=1pt, fit=(uc)(ula)(banco)(pc), inner sep=7mm]
+    (cpu) {};
+  \node[rotulo, above=1mm of cpu] {\textbf{Processador}};
+
+  % --- Memória principal e o caminho até ela ------------------------------
+  \node[bloco mem, minimum width=95mm, minimum height=12mm]
+    (mem) at (5.8, -3.6) {Memória principal};
+
+  \draw[seta]       (re.south) -- node[rotulo linha, pos=0.62] {endereço}
+    (re.south |- mem.north);
+  \draw[seta dupla] (rd.south) -- node[rotulo linha, pos=0.62] {dado}
+    (rd.south |- mem.north);
+
+\end{tikzpicture}
+\end{document}

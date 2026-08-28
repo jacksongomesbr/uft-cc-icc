@@ -26,4 +26,905 @@ title: "Organização básica do hardware"
 
 ## Leituras recomendadas
 
-Capítulos correspondentes em [@forouzan2011] e [@velloso2004].
+Capítulos correspondentes em [@forouzan2011] e [@velloso2004]. Quem quiser
+descer mais um degrau, até o circuito que executa as instruções, encontra o
+percurso completo em [@patterson2014] e em [@tanenbaum2013]; os dois são
+livros de disciplinas posteriores do curso, e aqui servem para consulta
+pontual.
+
+## O propósito deste capítulo
+
+A finalidade deste capítulo decide o que entra nele e o que fica de fora:
+
+> Ser capaz de explicar por onde um valor passa dentro do equipamento, do
+> registrador ao disco, e de usar essa explicação para prever onde o tempo de
+> uma operação vai ser gasto.
+
+O capítulo 3 descreveu o computador como sistema e deixou três caixas fechadas:
+o processador, a memória e o caminho entre eles. Este capítulo abre as três.
+Reparem no verbo do propósito: explicar. A descrição do capítulo anterior é o
+material; a explicação do percurso de um valor é o que vocês levam daqui.
+
+### Parem aqui e escrevam
+
+Antes de continuar a leitura, respondam por escrito. A resposta não vale nota,
+não é entregue e não pode ser consultada no restante do capítulo.
+
+Um programa precisa somar dois números que estão guardados na memória e gravar
+o resultado de volta. Escrevam, em ordem, tudo o que o equipamento faz entre o
+primeiro e o último instante dessa operação.
+
+Depois, respondam a mais duas perguntas na mesma folha. Onde vocês acham que os
+dois números ficam guardados enquanto a soma acontece? E qual das etapas que
+vocês listaram demora mais que as outras?
+
+Guardem a folha. Ela volta na última seção do capítulo.
+
+### Por que a lista de vocês vai ficar curta
+
+Quase todas as respostas a esse exercício têm três passos: buscar os dois
+números, somar, gravar o resultado. A lista está correta e é curta demais para
+prever qualquer coisa.
+
+O problema aparece na terceira pergunta. Com três passos, a resposta sobre qual
+demora mais costuma ser "a soma", porque somar é o passo que faz alguma coisa e
+os outros dois apenas movem valores. Neste capítulo vocês vão ver que a soma é o
+passo mais rápido dos três, com uma folga de várias ordens de grandeza, e que
+mover os valores é onde quase todo o tempo é gasto.
+
+Essa inversão é o assunto do capítulo. Ela não aparece na descrição do capítulo
+3 porque uma descrição em blocos trata todos os blocos como se custassem o
+mesmo. Abrir os blocos é o que revela que eles custam tempos muito diferentes.
+
+> Onde um valor está guardado em cada instante, quanto custa alcançá-lo em cada
+> um desses lugares, e por que caminho ele viaja entre eles?
+
+As quatro seções seguintes respondem a essas três perguntas, na ordem em que
+elas aparecem no equipamento: primeiro o processador, depois a memória, depois
+o caminho, e por fim o mundo ligado às pontas.
+
+## O processador por dentro
+
+A @fig-estrutura-funcional do capítulo 3 mostrou o processador como uma caixa
+com três blocos dentro. A @fig-cpu-interna abre essa caixa e acrescenta as
+ligações entre os blocos, que é o que o capítulo anterior deixou de fora.
+
+![O interior do processador, com as ligações entre a unidade de controle, a unidade lógica e aritmética e os registradores.](../diagrams/04/cpu-interna.svg){#fig-cpu-interna width=98% fig-alt="Uma moldura tracejada rotulada Processador contém, na parte de cima, dois blocos lado a lado: unidade de controle, que busca, decodifica e aciona, e unidade lógica e aritmética, que soma, subtrai e compara. Uma seta rotulada sinais de controle vai da primeira para a segunda. Na parte de baixo, dentro de outra moldura rotulada Registradores, cinco blocos em linha: contador de programa, registrador de instrução, registrador de endereço, registrador de dados e registradores de uso geral. Uma seta rotulada instrução vai do registrador de instrução para a unidade de controle; outra, rotulada avanço, vai da unidade de controle para o contador de programa; uma seta de duas pontas rotulada operandos e resultado liga a unidade lógica e aritmética aos registradores de uso geral. Abaixo da moldura do processador está a memória principal, ligada ao registrador de endereço por uma seta rotulada endereço, de sentido único, e ao registrador de dados por uma seta de duas pontas rotulada dado."}
+
+O conjunto desenhado dentro da moldura tem um nome próprio, que aparece na
+ementa e nos catálogos de equipamento: **unidade central de processamento**, ou
+processador. As três siglas em inglês que vocês vão encontrar para ela são CPU,
+core e die, e nenhuma das três significa exatamente a mesma coisa; a seção sobre
+a fotografia do processador volta a esse ponto.
+
+### A unidade de controle
+
+A **unidade de controle** decide o que o processador faz a cada instante. Ela
+executa sempre a mesma rotina, sem parar, enquanto o equipamento estiver ligado:
+busca a próxima instrução na memória, descobre o que ela manda fazer e aciona o
+bloco que vai fazê-lo.
+
+O verbo "decide" merece cuidado, porque o capítulo 1 avisou sobre atribuir
+intenção ao equipamento. A unidade de controle decide no sentido em que uma
+chave de luz decide: o que ela faz é determinado pelo padrão de bits da
+instrução que ela acabou de buscar, e o mesmo padrão produz sempre o mesmo
+acionamento.
+
+Nenhum bloco desenhado na @fig-cpu-interna sabe o que o programa está fazendo.
+A unidade de controle sabe qual é a instrução atual, e apenas ela.
+
+### A unidade lógica e aritmética
+
+A **unidade lógica e aritmética** executa as operações elementares sobre
+valores. Ela recebe um ou dois valores, um sinal que diz qual operação aplicar,
+e devolve um resultado.
+
+O repertório dela é curto: somar, subtrair, comparar dois valores, e um punhado
+de operações sobre os bits individuais. O capítulo 6 mostra como a multiplicação
+e a divisão são construídas a partir da soma e do deslocamento, e por que
+algumas máquinas trazem circuitos dedicados para elas.
+
+A unidade lógica e aritmética não busca nada e não guarda nada. Ela recebe
+valores prontos, produz um resultado e o entrega de volta. Quem foi buscar os
+valores e quem vai guardar o resultado são os registradores, e quem mandou a
+operação acontecer foi a unidade de controle.
+
+### Os registradores
+
+Um **registrador** é uma posição de memória dentro do processador, capaz de
+guardar um valor. Ele é o lugar mais rápido do equipamento e também o menor: um
+processador comum tem algumas dezenas de registradores, contra bilhões de
+posições na memória principal.
+
+Cinco registradores aparecem na @fig-cpu-interna, e quatro deles têm nome
+próprio porque cumprem sempre a mesma função.
+
+O **contador de programa** guarda o endereço da próxima instrução a executar.
+Ele foi apresentado no capítulo 3 e é o registrador que faz o programa avançar.
+
+O **registrador de instrução** guarda a instrução que está sendo executada
+agora, depois de ela ter sido trazida da memória. É dele que a unidade de
+controle lê o que precisa decodificar.
+
+O **registrador de endereço** guarda o endereço da posição de memória que o
+processador quer ler ou escrever. É o único registrador ligado ao barramento de
+endereços, e a seta de sentido único da @fig-cpu-interna mostra por quê: o
+processador informa endereços, e não os recebe.
+
+O **registrador de dados** guarda o valor que acabou de ser lido da memória, ou
+o valor que está prestes a ser escrito nela. A seta dele tem duas pontas porque
+o tráfego corre nos dois sentidos.
+
+Os **registradores de uso geral** são os demais, sem função fixa. O programa os
+usa para o que precisar: guardar um operando, acumular uma soma parcial, manter
+um contador de repetição. Eles são o rascunho do processador.
+
+### Por que os registradores existem
+
+A pergunta é razoável. Se a memória principal já guarda valores, por que
+duplicar essa função dentro do processador?
+
+A resposta é o tema da terceira seção deste capítulo, e vale adiantá-la aqui em
+uma frase: alcançar a memória principal custa cerca de cem vezes mais tempo que
+alcançar um registrador [@patterson2014]. Uma operação que lesse os dois
+operandos da memória, somasse e escrevesse o resultado de volta gastaria quase
+todo o seu tempo em espera.
+
+Os registradores existem para que uma sequência de operações sobre os mesmos
+valores aconteça sem tocar a memória. Um programa que soma cem números busca
+cada um deles uma vez, mantém a soma parcial em um registrador e escreve o
+resultado uma vez só, no fim.
+
+### Exemplo: uma soma, passo a passo
+
+Retomem a folha da abertura do capítulo. A @tbl-soma-passos mostra o que
+acontece de fato quando o programa soma o conteúdo de duas posições da memória e
+grava o resultado em uma terceira. Os endereços usados são $40$, $41$ e $42$, e
+os valores guardados neles são $12$, $30$ e um valor qualquer, que será
+substituído.
+
+| **Passo** | **Quem age** | **O que acontece** |
+|---|---|---|
+| 1 | Unidade de controle | Coloca $40$ no registrador de endereço e pede leitura |
+| 2 | Memória | Devolve $12$, que chega ao registrador de dados |
+| 3 | Unidade de controle | Copia $12$ para um registrador de uso geral |
+| 4 | Unidade de controle | Coloca $41$ no registrador de endereço e pede leitura |
+| 5 | Memória | Devolve $30$, que chega ao registrador de dados |
+| 6 | Unidade de controle | Copia $30$ para outro registrador de uso geral |
+| 7 | Unidade lógica e aritmética | Soma os dois registradores e devolve $42$ |
+| 8 | Unidade de controle | Coloca $42$ no registrador de endereço |
+| 9 | Unidade de controle | Coloca o resultado no registrador de dados e pede escrita |
+| 10 | Memória | Grava o valor na posição $42$ |
+
+: Os dez passos de uma soma entre dois valores guardados na memória. {#tbl-soma-passos}
+
+Dois pontos da @tbl-soma-passos costumam surpreender.
+
+O primeiro é a quantidade de passos. A lista de três passos da abertura está
+contida nesta, e os sete passos adicionais são todos movimentação de valores
+entre a memória e os registradores.
+
+O segundo é a coincidência entre o endereço $42$ do passo 8 e o resultado $42$
+da soma do passo 7. Os dois números são iguais por acaso, e a @tbl-soma-passos
+foi montada assim de propósito, porque essa confusão aparece com frequência: um
+número na memória é endereço ou é dado conforme o uso que se faz dele, e nada no
+número em si distingue os dois casos. O capítulo 3 fez essa observação sobre a
+@tbl-memoria-minima, e aqui ela reaparece com consequência prática.
+
+Dos dez passos, apenas o passo 7 é a soma. Os outros nove existem para levar os
+valores até onde a soma pode acontecer e para trazer o resultado de volta.
+
+### O que uma fotografia do processador mostra
+
+A @fig-die-zen2 é a fotografia de um processador sem o encapsulamento, tirada
+com iluminação que realça as camadas metálicas. O retângulo de silício
+fotografado tem alguns milímetros de lado.
+
+![Fotografia de um núcleo de processador AMD Zen 2, sem encapsulamento. Autoria de Fritzchens Fritz, em domínio público voluntário (CC0), obtida no Wikimedia Commons.](../diagrams/04/die-zen2.jpg){#fig-die-zen2 width=82% fig-alt="Fotografia em cores falsas de uma pastilha retangular de silício, vista em perspectiva. A superfície é dividida em blocos regulares de tamanhos diferentes. Regiões extensas mostram um padrão repetido de retângulos idênticos, em fileiras e colunas. Entre essas regiões há faixas estreitas com estruturas irregulares e miúdas, sem repetição visível."}
+
+Duas coisas na @fig-die-zen2 são visíveis a olho nu e valem a observação.
+
+As regiões extensas com padrão repetido são memória. Cada retângulo idêntico é
+uma célula que guarda um bit, e a repetição existe porque a memória é o mesmo
+circuito copiado milhões de vezes. As regiões de estrutura irregular são a
+lógica: a unidade de controle, a unidade lógica e aritmética e o que as liga.
+
+A proporção entre as duas áreas é o que interessa. A maior parte da superfície
+de um processador atual é ocupada por memória, e não por circuito de cálculo.
+A seção sobre a hierarquia de memória explica por que essa proporção foi ficando
+como está.
+
+Sobre as três palavras avisadas no início da seção: a pastilha fotografada é o
+*die*; cada conjunto completo de unidade de controle, unidade lógica e
+aritmética e registradores dentro dela é um **núcleo**, ou *core*; e um
+processador vendido no comércio costuma trazer vários núcleos na mesma pastilha.
+Um equipamento anunciado com oito núcleos tem oito conjuntos como o da
+@fig-cpu-interna, e não oito processadores.
+
+## O repertório de instruções
+
+O capítulo 3 afirmou que o conjunto de operações que um processador executa é
+pequeno e pobre. Esta seção mostra quão pequeno, e o que isso significa na
+prática.
+
+### O que uma instrução carrega
+
+Uma **instrução** é uma sequência de bits guardada na memória que a unidade de
+controle sabe interpretar. Ela se divide em campos, e cada campo responde a uma
+pergunta.
+
+O primeiro campo é o **código da operação**, que diz o que fazer. Os demais
+campos são os **operandos**, que dizem sobre o quê. A @tbl-campos-instrucao
+mostra a divisão para três instruções, com os campos escritos em português para
+que possam ser lidos.
+
+| **Instrução** | **Código da operação** | **Operando 1** | **Operando 2** | **Operando 3** |
+|---|---|---|---|---|
+| Somar dois registradores | somar | reg. 3 | reg. 1 | reg. 2 |
+| Ler da memória | carregar | reg. 1 | endereço $40$ | — |
+| Desviar se maior | desviar-se-maior | endereço $12$ | — | — |
+
+: Os campos de três instruções. A primeira soma o conteúdo dos registradores 1 e 2 e guarda em 3; a segunda traz para o registrador 1 o conteúdo da posição 40 da memória; a terceira faz a execução continuar na posição 12, se a última comparação deu maior. {#tbl-campos-instrucao}
+
+A instrução inteira, na memória, é uma sequência de bits e ocupa um espaço fixo
+na maioria das máquinas, tipicamente quatro bytes. Os campos são fatias dessa
+sequência, e a unidade de controle sabe onde cada fatia começa porque o formato
+é fixo.
+
+### As famílias de instrução
+
+Todo repertório de instruções, em qualquer máquina, se organiza em quatro
+famílias. A @tbl-familias-instrucao lista as quatro com exemplos.
+
+| **Família** | **O que faz** | **Exemplos** |
+|---|---|---|
+| Transferência de dados | Move valores entre memória e registradores | carregar, armazenar, copiar |
+| Aritmética e lógica | Combina valores e produz um resultado | somar, subtrair, comparar |
+| Controle de fluxo | Muda qual é a próxima instrução | desviar, desviar se igual, chamar |
+| Entrada e saída | Conversa com dispositivos fora do processador | ler porta, escrever porta |
+
+: As quatro famílias de instrução presentes em qualquer repertório. {#tbl-familias-instrucao}
+
+A família de transferência de dados costuma ser a mais usada nos programas
+reais, e a @tbl-soma-passos já indicou o motivo: nove dos dez passos daquela
+soma foram movimentação. É uma consequência direta da separação entre o lugar
+onde os valores ficam guardados e o lugar onde eles são combinados.
+
+A família de controle de fluxo é a que torna o computador programável no sentido
+forte. Sem ela, um programa seria uma lista de operações executadas uma vez, na
+ordem escrita. Com ela, a próxima instrução pode depender de um valor calculado,
+e é daí que saem a repetição e a decisão. O capítulo 3 percorreu um laço
+instrução a instrução, e é a essa família que a instrução de desvio pertence.
+
+### Exemplo: um programa mínimo no repertório
+
+A @tbl-programa-soma mostra um programa completo escrito nesse repertório. Ele
+soma os valores das posições $40$ a $49$ e grava o total na posição $50$.
+
+| **Endereço** | **Instrução** | **O que faz** |
+|---|---|---|
+| 0 | carregar reg. 1, valor $0$ | Zera o registrador que acumula a soma |
+| 1 | carregar reg. 2, endereço $40$ | Guarda em reg. 2 o endereço do próximo valor |
+| 2 | carregar reg. 3, conteúdo do endereço em reg. 2 | Traz o valor apontado por reg. 2 |
+| 3 | somar reg. 1, reg. 1, reg. 3 | Acumula o valor trazido |
+| 4 | somar reg. 2, reg. 2, valor $1$ | Faz reg. 2 apontar para o valor seguinte |
+| 5 | comparar reg. 2, valor $50$ | Já passou do último? |
+| 6 | desviar-se-menor endereço $2$ | Se ainda não passou, volta ao passo 2 |
+| 7 | armazenar reg. 1, endereço $50$ | Grava o total |
+| 8 | parar | Fim |
+
+: Um programa de nove instruções que soma dez valores guardados na memória. {#tbl-programa-soma}
+
+Três observações sobre a @tbl-programa-soma.
+
+A primeira é o tamanho. Somar dez números exigiu nove instruções, e somar mil
+números exigiria as mesmas nove: o que muda é o valor $50$ da instrução do
+endereço 5. O programa é curto porque as instruções dos endereços 2 a 6 são
+executadas dez vezes, e não porque o repertório seja poderoso.
+
+A segunda é a instrução do endereço 2. Ela usa o conteúdo de um registrador como
+endereço, e é isso que permite percorrer uma sequência de posições com um
+programa de tamanho fixo. Essa forma de indicar onde está o operando tem nome
+próprio, **endereçamento indireto**, e é a peça que torna possível tratar listas.
+
+A terceira é que nada aqui se parece com uma linguagem de programação. Não há
+nome de variável, não há laço escrito como laço e não há indentação. O capítulo
+7 mostra que percurso liga o programa que vocês vão escrever em Lógica de
+Programação a uma tabela como esta.
+
+### Repertório não é linguagem de programação
+
+O **repertório de instruções** de uma máquina é o conjunto de instruções que o
+processador dela sabe executar, com o formato exato de cada uma. Ele é uma
+característica do equipamento, fixada no circuito.
+
+Dois processadores de famílias diferentes têm repertórios diferentes. Um
+programa já traduzido para o repertório de um deles não executa no outro, mesmo
+que os dois equipamentos sejam igualmente capazes e o programa faça algo trivial.
+As duas famílias que vocês vão encontrar com mais frequência são a x86, comum em
+computadores de mesa e servidores, e a ARM, comum em telefones e em
+computadores portáteis recentes.
+
+Essa é a razão técnica por trás de um fato que vocês já observaram sem
+explicação: um aplicativo baixado para um telefone não roda em um computador de
+mesa, e um programa distribuído para uma família de processadores precisa ser
+distribuído de novo, em outra versão, para a outra família. O capítulo 7 mostra
+o que muda no arquivo entre as duas versões.
+
+## A hierarquia de memória
+
+O capítulo 3 apresentou dois lugares para guardar coisas: a memória principal e
+o armazenamento secundário. Esta seção mostra que existem cinco, que a diferença
+entre os extremos é enorme, e por que essa divisão em níveis foi inventada.
+
+### O problema que a hierarquia resolve
+
+Memória rápida é cara e memória barata é lenta, e essa relação vale para toda a
+faixa de tecnologias disponíveis. Um projetista que precisasse escolher um único
+tipo de memória para o equipamento inteiro teria que optar entre uma máquina com
+pouca memória rápida e uma máquina com muita memória lenta.
+
+O problema piorou ao longo de décadas. A velocidade dos processadores cresceu
+muito mais rápido que a velocidade de acesso à memória, e a distância entre as
+duas aumentou a cada geração; @wulf1995 chamaram esse afastamento de muro da
+memória, e argumentaram que ele acabaria limitando o desempenho do sistema
+inteiro, por mais rápido que ficasse o processador.
+
+A saída adotada foi não escolher. O equipamento usa vários tipos de memória ao
+mesmo tempo, organizados em níveis, com os valores em uso mantidos nos níveis
+rápidos e o restante nos níveis lentos. É essa organização em níveis que se
+chama **hierarquia de memória**.
+
+### Os cinco níveis
+
+A @fig-hierarquia-memoria mostra os cinco níveis, com a ordem de grandeza da
+capacidade e do tempo de acesso de cada um.
+
+![A hierarquia de memória em cinco níveis, com a ordem de grandeza da capacidade e do tempo de acesso. Números de [@patterson2014].](../diagrams/04/hierarquia-memoria.svg){#fig-hierarquia-memoria width=100% fig-alt="Cinco faixas horizontais empilhadas, de largura crescente de cima para baixo. De cima para baixo: registradores, com dezenas de valores e menos de 1 nanossegundo de acesso; memória cache, de kilobytes a dezenas de megabytes, de 1 a 30 nanossegundos; memória principal, de unidades a dezenas de gigabytes, cerca de 100 nanossegundos; disco de estado sólido, de centenas de gigabytes a terabytes, dezenas de microssegundos; e disco magnético, unidades de terabytes, cerca de 10 milissegundos. À esquerda, duas setas verticais indicam que a velocidade e o custo por byte crescem para cima e a capacidade cresce para baixo. Uma linha tracejada entre a memória principal e o disco de estado sólido separa os níveis voláteis, acima, dos não voláteis, abaixo."}
+
+Os números da @fig-hierarquia-memoria são ordens de grandeza, e servem para
+comparar níveis entre si. Nenhum deles caracteriza um equipamento específico: um
+telefone e um servidor têm valores diferentes em todos os níveis, e a distância
+entre os níveis é parecida nos dois.
+
+Os dois níveis do topo estão dentro do processador, e é a eles que a proporção de
+área observada na @fig-die-zen2 se refere. Os dois de baixo estão fora do
+processador e fora da memória principal, ligados por um barramento, e são o
+assunto da próxima seção.
+
+### Volátil e não volátil
+
+A linha tracejada da @fig-hierarquia-memoria marca uma diferença de natureza, e
+não de grau.
+
+Uma memória **volátil** perde o conteúdo quando a alimentação elétrica é
+interrompida. Registradores, cache e memória principal são voláteis: eles
+guardam o valor enquanto houver corrente, e o valor desaparece no instante em
+que ela cessa.
+
+Uma memória **não volátil** mantém o conteúdo sem alimentação. Discos
+magnéticos e discos de estado sólido são não voláteis, e é por isso que eles
+guardam arquivos.
+
+Duas experiências cotidianas vêm dessa linha. Um documento não salvo desaparece
+na queda de energia porque estava do lado de cima da linha. E um equipamento
+demora a ficar pronto depois de ligado porque tudo o que ele precisa para
+funcionar está do lado de baixo e precisa ser copiado para cima.
+
+### Por que a hierarquia funciona
+
+A hierarquia só resolve o problema se os valores procurados estiverem, quase
+sempre, no nível rápido. Se cada acesso tivesse que descer até o disco, os
+níveis de cima seriam esforço adicional sem retorno.
+
+O que garante a taxa de acerto é uma regularidade observada no comportamento dos
+programas, chamada **localidade**. Ela tem duas formas, e as duas são fáceis de
+reconhecer no programa da @tbl-programa-soma.
+
+A **localidade temporal** é a tendência de um valor recém-acessado ser acessado
+de novo em pouco tempo. O registrador 1 daquele programa é lido e escrito a cada
+volta do laço.
+
+A **localidade espacial** é a tendência de posições vizinhas àquela que acabou
+de ser acessada serem acessadas em seguida. O programa lê a posição $40$, depois
+a $41$, depois a $42$, e assim por diante.
+
+A ideia de manter uma memória pequena e rápida entre o processador e a memória
+principal foi proposta por @wilkes1965, que a chamou de memória escrava, e o
+levantamento de @smith1982 já a encontrou em uso generalizado, com as duas
+formas de localidade estabelecidas como a razão de ela funcionar.
+
+A localidade espacial explica uma decisão que parece estranha: quando o
+processador pede um valor à memória, ela devolve um bloco de valores vizinhos, e
+não apenas o pedido. Esse bloco tem nome, **linha de cache**, e costuma ter de
+$32$ a $128$ bytes. Trazer os vizinhos custa quase o mesmo que trazer só o
+pedido, e a aposta é que eles serão pedidos logo.
+
+### Exemplo: quanto a cache economiza
+
+Um cálculo simples mostra o efeito. Suponham uma máquina em que alcançar a cache
+custa $1$ ns e alcançar a memória principal custa $100$ ns.
+
+Quando o valor procurado está na cache, o caso se chama **acerto**. Quando não
+está, se chama **falta**, e o processador paga o acesso à memória principal. A
+proporção de acertos entre todos os acessos é a **taxa de acerto**.
+
+Com uma taxa de acerto de $95\%$, o tempo médio de um acesso é
+
+$$0{,}95 \times 1 \text{ ns} + 0{,}05 \times 100 \text{ ns} = 5{,}95 \text{ ns}.$$
+
+Sem cache nenhuma, todo acesso custaria $100$ ns. A cache tornou o acesso médio
+cerca de dezessete vezes mais rápido.
+
+Com uma taxa de acerto de $99\%$, o mesmo cálculo dá
+
+$$0{,}99 \times 1 \text{ ns} + 0{,}01 \times 100 \text{ ns} = 1{,}99 \text{ ns},$$
+
+isto é, mais três vezes de ganho para uma melhora de quatro pontos na taxa de
+acerto. É essa desproporção que justifica o tamanho das caches na
+@fig-die-zen2: os últimos pontos percentuais de acerto valem muito, e comprá-los
+exige muita área.
+
+O cálculo acima é simplificado de propósito. Ele ignora que existem três níveis
+de cache, cada um com o seu tempo e a sua taxa, e que uma falta traz uma linha
+inteira, e não um valor. A conta completa está em [@patterson2014]; a conclusão
+qualitativa é a mesma.
+
+### Exemplo: os mesmos tempos, em escala humana
+
+Nanossegundos e milissegundos são unidades sem intuição associada. A
+@fig-escala-de-tempo repete os tempos da @fig-hierarquia-memoria multiplicando
+todos por um mesmo fator, escolhido para que um ciclo do processador dure um
+segundo.
+
+![Os tempos de acesso da hierarquia em escala logarítmica, com a tradução para uma escala humana em que um ciclo do processador dura um segundo. Números de [@patterson2014].](../diagrams/04/escala-de-tempo.svg){#fig-escala-de-tempo width=100% fig-alt="Sete pontos dispostos sobre um eixo horizontal em escala logarítmica, com marcas em 1 nanossegundo, 1 microssegundo, 1 milissegundo e 1 segundo. Cada ponto tem à esquerda o nome do lugar onde o valor está e, junto de si, o tempo real e o tempo equivalente na escala humana. De baixo para cima: registrador, um ciclo do processador, um segundo; memória cache de nível 1, cerca de 1 nanossegundo, quatro segundos; memória cache de nível 3, cerca de 13 nanossegundos, quarenta segundos; memória principal, cerca de 100 nanossegundos, cinco minutos; disco de estado sólido, dezenas de microssegundos, dois dias; disco magnético, cerca de 10 milissegundos, um ano; ida e volta a outro continente pela rede, cerca de 150 milissegundos, catorze anos."}
+
+A leitura da @fig-escala-de-tempo responde à terceira pergunta da folha de vocês.
+Um valor que está no registrador chega em um segundo. O mesmo valor, se estiver
+no disco magnético, chega em um ano.
+
+Duas consequências práticas saem daí, e as duas voltam em disciplinas
+posteriores.
+
+A primeira é que o processador passa boa parte do tempo esperando, e o capítulo
+3 já tinha mencionado esse fato ao tratar do que ele faz enquanto espera. A
+@fig-escala-de-tempo mostra a dimensão da espera.
+
+A segunda é que a diferença entre um programa rápido e um programa lento
+raramente está na quantidade de contas que ele faz. Ela está em quantas vezes
+ele precisa descer na hierarquia. Um programa que percorre uma lista na ordem em
+que ela está guardada e outro que salta de um lugar a outro fazem a mesma
+quantidade de somas e podem diferir por uma ordem de grandeza no tempo total.
+
+### O que a memória principal parece por fora
+
+A @fig-modulo-ddr4 mostra um módulo de memória principal visto de frente, sem
+dissipador.
+
+![Módulo de memória principal DDR4, com oito pastilhas de memória e o contato de encaixe na borda inferior. Autoria de PantheraLeo1359531, licença CC BY 4.0, obtida no Wikimedia Commons.](../diagrams/04/modulo-ddr4.jpg){#fig-modulo-ddr4 width=95% fig-alt="Placa retangular verde e alongada, vista de frente. Sobre ela há oito pastilhas pretas retangulares idênticas, quatro à esquerda e quatro à direita, separadas ao centro por uma região de trilhas metálicas. A borda inferior é uma fileira de contatos dourados, interrompida por um encaixe fora do centro."}
+
+Três detalhes da @fig-modulo-ddr4 têm significado.
+
+As oito pastilhas pretas são a memória propriamente dita, e o restante da placa
+existe para ligá-las ao equipamento. A capacidade anunciada do módulo é a soma
+da capacidade das pastilhas.
+
+A fileira de contatos dourados na borda é por onde passam os barramentos da
+próxima seção. Cada contato é uma via, e a quantidade deles é o que limita
+quantos bits atravessam de uma vez.
+
+O encaixe que interrompe a fileira de contatos está fora do centro, e a posição
+dele muda entre gerações de memória. É o que impede fisicamente que um módulo
+seja instalado em um equipamento que não o aceita, e é um exemplo de decisão de
+projeto que transforma um defeito silencioso em uma peça que não entra.
+
+### Armazenamento secundário: dois modos de guardar
+
+Os dois níveis de baixo da @fig-hierarquia-memoria são não voláteis, cumprem a
+mesma função e usam princípios físicos completamente diferentes.
+
+A @fig-disco-magnetico mostra um disco magnético aberto. O valor fica guardado
+como uma orientação magnética em uma película sobre o prato, e a leitura exige
+que o prato gire até que a posição procurada passe sob a cabeça, e que o braço
+se desloque até a trilha certa.
+
+![Disco magnético com a tampa removida, mostrando o prato, o braço e a cabeça de leitura. Autoria de Zzubnik, em domínio público, obtida no Wikimedia Commons.](../diagrams/04/disco-rigido-aberto.jpg){#fig-disco-magnetico width=78% fig-alt="Interior de um disco rígido de 3,5 polegadas com a tampa retirada. Ao centro, um prato circular espelhado preso por um eixo. Sobre o prato, um braço metálico articulado termina em uma cabeça fina apoiada perto da borda. À direita do braço, uma placa de circuito flexível de cor amarela liga o conjunto ao conector na lateral."}
+
+Existem duas partes móveis nessa fotografia, e são elas que explicam o tempo de
+acesso de cerca de $10$ ms da @fig-hierarquia-memoria. Nenhum outro nível da
+hierarquia depende de algo mecânico, e nenhum outro nível é lento como este.
+
+A @fig-ssd mostra um disco de estado sólido no formato que se encaixa
+diretamente na placa. O valor fica guardado como carga elétrica presa dentro de
+uma célula, sem nada que gire ou se desloque.
+
+![Disco de estado sólido no formato M.2, com as pastilhas de memória e o contato de encaixe à direita. Autoria de D-Kuru, licença CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/04/ssd-m2.jpg){#fig-ssd width=95% fig-alt="Placa retangular estreita e alongada, vista de frente, com uma etiqueta escura cobrindo a maior parte da superfície. Na extremidade direita há uma fileira de contatos dourados com um encaixe. Não há partes móveis visíveis."}
+
+A ausência de partes móveis explica os três números que separam as duas
+tecnologias na @fig-hierarquia-memoria: o disco de estado sólido é cerca de
+quinhentas vezes mais rápido, custa mais por byte e, no mesmo preço, oferece
+menos capacidade.
+
+Uma diferença adicional não aparece na figura e importa para quem vai trabalhar
+com dados. A célula de um disco de estado sólido suporta um número limitado de
+escritas, na casa dos milhares, e depois deixa de reter carga. O equipamento
+distribui as escritas entre as células para adiar esse limite, e o assunto
+reaparece na disciplina de Sistemas Operacionais.
+
+A @tbl-armazenamento reúne a comparação entre os dois.
+
+| **Aspecto** | **Disco magnético** | **Disco de estado sólido** |
+|---|---|---|
+| Como guarda | Orientação magnética em um prato | Carga elétrica em uma célula |
+| Partes móveis | Prato e braço | Nenhuma |
+| Tempo de acesso | Cerca de $10$ ms | Dezenas de $\mu$s |
+| Custo por byte | Menor | Maior |
+| Efeito da posição do dado | Grande: o braço precisa se deslocar | Pequeno |
+| Limite de uso | Desgaste mecânico | Número de escritas por célula |
+
+: Os dois modos de armazenamento secundário, em comparação. {#tbl-armazenamento}
+
+A quinta linha da @tbl-armazenamento é a que tem consequência para quem escreve
+programas. Em um disco magnético, ler dois blocos vizinhos é muito mais barato
+que ler dois blocos distantes, porque o braço não precisa se deslocar entre eles.
+Em um disco de estado sólido, a diferença quase desaparece. Programas e bancos de
+dados projetados na época dos discos magnéticos gastam esforço considerável em
+manter dados relacionados próximos uns dos outros, e parte desse esforço deixou
+de ter retorno.
+
+## Os barramentos
+
+Os blocos vistos até aqui precisam trocar valores entre si. O caminho que eles
+usam se chama barramento, e o capítulo 3 o apresentou em uma frase. Esta seção
+abre a frase.
+
+### O que um barramento é
+
+Um **barramento** é um conjunto de vias condutoras compartilhado por vários
+blocos, pelo qual passam os valores trocados entre eles. Cada via transporta um
+bit por vez, e o conjunto das vias transporta um valor inteiro de uma vez só.
+
+A palavra "compartilhado" é a característica que distingue o barramento de um
+fio. Um fio liga dois pontos; um barramento é ligado a todos os blocos ao mesmo
+tempo, e qualquer um deles pode escrever nele ou ler dele. O ganho é econômico:
+ligar $n$ blocos dois a dois exigiria muito mais vias que ligar todos ao mesmo
+feixe.
+
+### As três funções
+
+A @fig-barramentos mostra o barramento do sistema com as três funções que ele
+cumpre. As três costumam ser chamadas de três barramentos, e é assim que a
+ementa as nomeia, ainda que fisicamente elas sejam um feixe só.
+
+![O barramento do sistema, com as três funções que ele cumpre e os blocos ligados a ele.](../diagrams/04/barramentos.svg){#fig-barramentos width=100% fig-alt="Quatro blocos em linha na parte de cima: processador, memória principal, controladora de disco e controladora de rede. Cada um se liga por uma seta de duas pontas a uma faixa horizontal abaixo, rotulada barramento do sistema. Dentro da faixa há três linhas paralelas: a de dados, com setas nas duas pontas, que leva o valor lido ou escrito; a de endereços, com seta em uma ponta só, que leva onde ler ou escrever; e a de controle, com setas nas duas pontas, que leva os comandos de ler, escrever e interromper."}
+
+O **barramento de dados** transporta o valor que está sendo lido ou escrito.
+Ele tem tráfego nos dois sentidos, porque o processador tanto envia valores para
+a memória quanto os recebe dela.
+
+O **barramento de endereços** transporta a indicação de onde ler ou escrever.
+Ele tem sentido único: quem escreve nele é sempre o processador, e a memória e
+as controladoras apenas leem. A seta de uma ponta só na @fig-barramentos é essa
+informação.
+
+O **barramento de controle** transporta os comandos e os avisos. É por ele que o
+processador diz se a operação é de leitura ou de escrita, e é por ele que uma
+controladora avisa que terminou, no mecanismo tratado adiante nesta seção.
+
+### Exemplo: o que a largura de um barramento limita
+
+A **largura** de um barramento é a quantidade de vias que ele tem. Ela limita
+duas coisas diferentes, conforme a função.
+
+No barramento de dados, a largura limita quantos bits atravessam por
+transferência. Um barramento de dados de $64$ vias transporta $8$ bytes de uma
+vez. Trazer uma linha de cache de $64$ bytes exige, então, oito transferências.
+Dobrar a largura para $128$ vias reduziria esse número para quatro.
+
+No barramento de endereços, a largura limita quantas posições diferentes podem
+ser indicadas, e o efeito é de outra natureza. Cada via acrescentada dobra a
+quantidade de endereços possíveis, porque cada via nova pode estar em dois
+estados e multiplica por dois as combinações das demais. Com $n$ vias, a
+quantidade de endereços é $2^{n}$.
+
+A @tbl-largura-endereco mostra o resultado para três larguras usadas em
+equipamentos reais.
+
+| **Vias de endereço** | **Endereços possíveis** | **Memória alcançável, a um byte por endereço** |
+|---|---|---|
+| $16$ | $65\,536$ | $64$ KB |
+| $32$ | $4\,294\,967\,296$ | $4$ GB |
+| $64$ | mais de $18$ quintilhões | muito além do fabricado hoje |
+
+: O efeito da largura do barramento de endereços sobre a memória alcançável. {#tbl-largura-endereco}
+
+A segunda linha da @tbl-largura-endereco explica um fato que muita gente
+encontrou sem entender: computadores de $32$ bits não reconheciam mais de $4$ GB
+de memória, por mais módulos que fossem instalados. O limite vinha da quantidade
+de endereços diferentes que cabiam no barramento, e trocar o módulo ou o sistema
+operacional não o deslocava.
+
+A terceira linha explica por que a mudança para $64$ bits encerrou o assunto.
+O limite passou a ser tão alto que deixou de ser alcançável, e é essa a razão de
+ele não voltar a aparecer.
+
+### O barramento é um recurso disputado
+
+Todos os blocos estão ligados ao mesmo feixe, e apenas um deles pode escrever
+nele por vez. Dois blocos que escrevessem ao mesmo tempo produziriam um valor
+sem sentido, com vias sendo puxadas para estados opostos.
+
+A regra que decide quem escreve em cada instante se chama **arbitragem**, e ela
+é implementada em circuito. O bloco que quer usar o barramento pede permissão
+pelo barramento de controle e espera até recebê-la.
+
+Duas consequências disso valem ser guardadas. A primeira é que aumentar a
+velocidade de um bloco não aumenta a velocidade do sistema quando o barramento
+já está saturado, e o capítulo 3 tratou desse tipo de erro de diagnóstico ao
+falar da escolha da camada. A segunda é que os equipamentos atuais deixaram de
+usar um barramento único justamente por esse motivo.
+
+### De um feixe único a vários caminhos
+
+A @fig-barramentos é a organização clássica, e é assim que os livros de
+introdução a apresentam [@stallings2016]. Um equipamento atual é organizado de
+forma diferente, e vale saber em que sentido.
+
+A memória principal ganhou um caminho próprio até o processador, sem
+compartilhamento com o resto. Os dispositivos passaram a se ligar por caminhos
+ponto a ponto, cada um com as suas vias, em vez de disputarem um feixe comum; é
+esse o arranjo do padrão PCI Express, encontrado em qualquer computador vendido
+hoje.
+
+A ideia do barramento permanece útil como modelo, e as três funções continuam
+existindo em qualquer arranjo: algo precisa dizer onde, algo precisa levar o
+valor e algo precisa dizer o que fazer. A disciplina de Arquitetura de
+Computadores trata das organizações reais.
+
+## Interfaces, portas e periféricos
+
+Falta ligar o equipamento ao mundo. O capítulo 3 chamou essa função de entrada e
+saída, e listou dispositivos; esta seção mostra por onde eles se ligam.
+
+### A controladora traduz
+
+Um teclado produz sinais elétricos no padrão do teclado, e o barramento espera
+sinais no padrão do barramento. Alguma coisa precisa traduzir entre os dois, e
+essa coisa é a controladora.
+
+Uma **controladora** é um circuito dedicado a um tipo de dispositivo, que
+converte entre a forma como o dispositivo se comunica e a forma como o
+barramento se comunica. Ela também guarda os valores em trânsito, porque o
+dispositivo e o processador trabalham em velocidades muito diferentes.
+
+A @fig-interface-controladora mostra a cadeia completa, do dispositivo ao
+processador.
+
+![O caminho de um dispositivo até o processador, com a porta e a controladora no meio.](../diagrams/04/interface-controladora.svg){#fig-interface-controladora width=100% fig-alt="Cinco blocos em linha, ligados por setas de duas pontas. Da esquerda para a direita: dispositivo, com os exemplos teclado, disco e câmera; porta, com conector e cabo; controladora, que traduz e armazena; barramento do sistema; e processador e memória. Uma linha tracejada vertical entre a porta e a controladora separa o que está fora do gabinete, à esquerda, do que está dentro, à direita. Abaixo da porta, a indicação padrão da interface, com os exemplos USB, HDMI e SATA; abaixo do barramento, a indicação padrão do barramento, com o exemplo PCI Express."}
+
+### Interface e porta
+
+Os dois termos são usados como sinônimos na linguagem comum, e o material os
+distingue.
+
+Uma **interface** é o conjunto de regras que define como dois lados se
+comunicam: quantas vias existem, que tensão representa cada valor, em que ordem
+os sinais aparecem e o que significa cada um. USB, HDMI e SATA são interfaces.
+
+Uma **porta** é o ponto físico em que um cabo se conecta ao equipamento, e ela
+implementa uma interface. O conector retangular da lateral do computador é uma
+porta USB, e o que faz um pendrive funcionar nele é o fato de os dois lados
+seguirem a mesma interface.
+
+A linha tracejada da @fig-interface-controladora explica por que existem duas
+camadas de padrão em série. Do lado de fora do gabinete, o padrão precisa valer
+entre fabricantes que não se conhecem, e por isso é publicado, estável e
+difícil de mudar. Do lado de dentro, o padrão só precisa valer naquele
+equipamento, e pode mudar a cada geração.
+
+### O que uma placa-mãe mostra
+
+A @fig-placa-mae reúne, em uma fotografia, quase tudo o que este capítulo tratou.
+
+![Placa-mãe de computador de mesa, com o soquete do processador ao centro, os encaixes de memória à direita e os encaixes de expansão na metade inferior. Autoria de Jacek Halicki, licença CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/04/placa-mae.jpg){#fig-placa-mae width=72% fig-alt="Placa de circuito retangular vista de cima. Na metade superior, ao centro, um soquete quadrado metálico com uma tampa articulada, destinado ao processador. À direita do soquete, quatro encaixes verticais estreitos e paralelos, para módulos de memória. Na metade inferior, encaixes horizontais alongados de expansão e duas chapas metálicas cobrindo compartimentos estreitos. À esquerda, uma tampa metálica cobre a região dos conectores externos."}
+
+O soquete quadrado ao centro recebe a pastilha da @fig-die-zen2, dentro do seu
+encapsulamento. Os quatro encaixes verticais à direita recebem módulos como o da
+@fig-modulo-ddr4, e a proximidade entre eles e o soquete tem razão de ser: o
+caminho até a memória principal é curto porque cada centímetro de trilha custa
+tempo.
+
+Os encaixes alongados da metade inferior são as ligações de expansão, e as
+chapas metálicas estreitas cobrem os encaixes que recebem discos como o da
+@fig-ssd. As controladoras estão distribuídas pela placa, em pastilhas pequenas
+que a fotografia não permite distinguir.
+
+Quase toda a superfície visível é ligação. A placa-mãe é, em grande parte, o
+barramento da @fig-barramentos desenhado em cobre.
+
+### Periféricos: entrada, saída ou ambos
+
+Um **periférico** é um dispositivo ligado ao computador que não faz parte do
+processador nem da memória principal. A classificação deles usa o sentido em que
+a informação corre, e a @tbl-perifericos mostra as três classes.
+
+| **Classe** | **Sentido** | **Exemplos** |
+|---|---|---|
+| Entrada | Do mundo para o sistema | Teclado, mouse, microfone, câmera, sensor |
+| Saída | Do sistema para o mundo | Monitor, alto-falante, impressora, motor |
+| Entrada e saída | Nos dois sentidos | Disco, placa de rede, tela sensível ao toque, fone com microfone |
+
+: Os periféricos, classificados pelo sentido em que a informação corre. {#tbl-perifericos}
+
+A terceira linha da @tbl-perifericos é a que costuma ser esquecida, e é a que
+tem mais casos importantes. Um disco recebe e devolve dados. Uma placa de rede
+envia e recebe mensagens. Uma tela sensível ao toque exibe e capta.
+
+Reparem que a classificação descreve o dispositivo, e não a peça. Um monitor com
+tela sensível ao toque é um dispositivo de saída e um dispositivo de entrada ao
+mesmo tempo, montados no mesmo objeto, e o sistema conversa com os dois por
+controladoras diferentes.
+
+### Como o processador conversa com um periférico
+
+Um periférico é lento na escala da @fig-escala-de-tempo. Ler um bloco do disco
+leva, na escala humana daquela figura, cerca de um ano. O processador precisa
+fazer alguma coisa durante esse tempo, e existem duas respostas.
+
+A primeira é a **espera ativa**: o processador pergunta repetidamente à
+controladora se ela já terminou, e não faz mais nada até que a resposta seja
+sim. A implementação é simples, e o custo é jogar fora todo o tempo de espera.
+
+A segunda é a **interrupção**: o processador pede a operação, passa a executar
+outro programa e é avisado pela controladora quando o resultado está pronto. A
+@fig-interrupcao mostra a sequência.
+
+```{mermaid}
+%%| label: fig-interrupcao
+%%| fig-cap: "A leitura de um bloco do disco, com interrupção. O processador executa outro programa durante a espera."
+%%| fig-width: 6
+%%| echo: false
+sequenceDiagram
+  participant P as Processador
+  participant C as Controladora
+  participant D as Disco
+  P->>C: pede o bloco 4711
+  Note over P: passa a executar<br/>outro programa
+  C->>D: posiciona e lê
+  D-->>C: conteúdo do bloco
+  C->>P: interrupção
+  Note over P: guarda o que estava<br/>fazendo e atende
+  P->>C: recolhe o conteúdo
+  Note over P: retoma o programa<br/>interrompido
+```
+
+O aviso da controladora percorre o barramento de controle da @fig-barramentos, e
+é a ele que se refere a palavra "interromper" naquela figura.
+
+A interrupção é o mecanismo que permite ao equipamento parecer fazer várias
+coisas ao mesmo tempo com um processador só, e o capítulo 3 já tinha mencionado
+esse efeito. A disciplina de Sistemas Operacionais trata do que acontece nos dois
+instantes marcados como notas na @fig-interrupcao, que é onde está a parte
+difícil.
+
+### Acesso direto à memória
+
+Falta um detalhe na @fig-interrupcao. Depois do aviso, o processador recolhe o
+conteúdo da controladora e o escreve na memória, valor a valor. Para um bloco de
+alguns milhares de bytes, isso ocupa o processador com movimentação pura.
+
+O **acesso direto à memória** resolve esse ponto: a controladora escreve
+diretamente na memória principal, usando o barramento, sem passar pelo
+processador. O processador informa onde escrever, libera a controladora e só é
+avisado quando o bloco inteiro já está na memória.
+
+O nome em inglês, DMA, aparece em catálogos de equipamento e em mensagens de
+erro. O mecanismo é a razão de ser possível copiar um arquivo grande enquanto se
+usa o computador normalmente.
+
+## Um mesmo trabalho em três equipamentos
+
+O capítulo 3 mostrou as quatro funções em sistemas de aparência muito diferente.
+A @tbl-tres-equipamentos faz o mesmo com a organização deste capítulo, e serve
+para separar o que é essencial do que é característica de um tipo de máquina.
+
+| **Aspecto** | **Computador de mesa** | **Telefone** | **Controlador de portão** |
+|---|---|---|---|
+| Repertório | Família x86 | Família ARM | Família própria, mais simples |
+| Registradores | Dezenas | Dezenas | Dezenas |
+| Níveis de cache | Três | Dois ou três | Nenhum |
+| Memória principal | Módulos removíveis, dezenas de GB | Soldada, alguns GB | Alguns KB, dentro da própria pastilha |
+| Armazenamento | Disco de estado sólido, TB | Memória soldada, centenas de GB | Alguns KB, não volátil |
+| Barramento | PCI Express, na placa-mãe | Ligações internas da pastilha | Vias internas da pastilha |
+| Periféricos | Muitos, conectáveis | Poucos, integrados | Um sensor e um motor |
+
+: A mesma organização em três equipamentos de porte muito diferente. {#tbl-tres-equipamentos}
+
+Duas leituras da @tbl-tres-equipamentos importam.
+
+A linha dos registradores é igual nas três colunas, e a das caches é a que mais
+varia. Registrador é parte da definição de processador, e cache é uma solução
+para um problema que só existe quando a memória é grande e distante. O
+controlador de portão tem a memória inteira dentro da própria pastilha, ao lado
+do processador, e não tem o problema que a cache resolve.
+
+A coluna da direita descreve um **microcontrolador**, que é um processador, uma
+memória e as controladoras de entrada e saída em uma única pastilha. Ele é o
+computador mais numeroso do mundo, com folga, e está dentro de eletrodomésticos,
+automóveis, medidores e brinquedos. Um automóvel atual tem dezenas deles.
+
+## A tarefa desta semana
+
+As três partes cobrem operações diferentes: aplicar o modelo ao caso trabalhado,
+aplicá-lo a um caso novo e verificar o que mudou na compreensão de vocês. As três
+compõem o piso definido na @tbl-piso-extensao do capítulo 1, e cada uma traz ao
+fim uma extensão para quem terminou sem esforço.
+
+### Aplicação: o percurso de um valor
+
+Um programa precisa multiplicar por dois o valor guardado na posição $80$ da
+memória e gravar o resultado na posição $81$. A máquina não tem instrução de
+multiplicação, e a multiplicação por dois é feita somando o valor a ele mesmo.
+
+Escrevam a sequência de passos dessa operação no formato da @tbl-soma-passos,
+com as três colunas. Marquem, ao lado de cada passo, se ele é transferência de
+dados, aritmética ou controle de fluxo, usando as famílias da
+@tbl-familias-instrucao.
+
+Fechem esta parte respondendo em duas frases: quantos dos seus passos tocam a
+memória principal, e o que aconteceria com o tempo total se o valor da posição
+$80$ já estivesse em um registrador?
+
+Extensão: refaçam a sequência supondo que a máquina tenha uma instrução que soma
+um valor da memória diretamente a um registrador, sem passar pelo registrador de
+dados de forma visível ao programa. Digam quantos passos foram economizados e o
+que essa instrução exige a mais do circuito.
+
+### Transferência: três queixas de lentidão
+
+Estas três queixas chegaram ao suporte de um laboratório. Nenhuma delas menciona
+memória, e é de vocês a decisão sobre onde procurar.
+
+1.  "O computador do laboratório 2 demora quase um minuto para abrir qualquer
+    programa, mas depois de aberto ele funciona normalmente."
+2.  "O programa de análise dos dados da turma leva quarenta minutos. O colega
+    rodou o mesmo programa, com os mesmos dados, na máquina dele, e levou seis."
+3.  "Quando abro o oitavo programa, todos ficam lentos ao mesmo tempo. Fechando
+    dois, tudo volta ao normal."
+
+Para cada queixa, digam em que nível da @fig-hierarquia-memoria vocês
+procurariam primeiro e por quê. Usem a @fig-escala-de-tempo para justificar a
+ordem de grandeza da demora: uma espera de um minuto é compatível com que
+nível?
+
+Uma das três não se resolve trocando de nível na hierarquia, e reconhecer isso é
+o objetivo do exercício.
+
+Extensão: para a queixa 2, listem três hipóteses que explicariam a diferença
+entre as duas máquinas, sendo uma delas fora da hierarquia de memória. Digam que
+medida distinguiria uma hipótese da outra.
+
+### Integração: comparem com o que vocês escreveram
+
+Recuperem a folha da abertura do capítulo, com a lista de passos da soma e as
+respostas às duas perguntas.
+
+Escrevam abaixo, sem apagar o que estava lá, as respostas a três perguntas.
+Quantos passos vocês previram, e quantos a @tbl-soma-passos acrescentou? A sua
+resposta sobre onde os dois números ficam guardados durante a soma mencionava
+registrador? E a sua resposta sobre qual etapa demora mais apontava a soma?
+
+A terceira pergunta é a que fecha o capítulo. A soma é a etapa mais rápida por
+uma margem de várias ordens de grandeza, e a intuição contrária vem de tratar o
+cálculo como o trabalho e a movimentação como preparação. A @fig-escala-de-tempo
+mostra a proporção real entre as duas, e é ela que vocês vão usar no capítulo 8
+para julgar afirmações sobre desempenho.
+
+O capítulo 5 desce mais um degrau e trata do que exatamente está guardado em
+cada uma das posições que este capítulo movimentou.
+
+Guardem as duas folhas.
+
+Extensão: escrevam uma frase dizendo o que vocês diriam hoje, e não conseguiriam
+dizer na primeira página, sobre por que um programa pode ser lento sem fazer
+nenhuma conta a mais que outro.

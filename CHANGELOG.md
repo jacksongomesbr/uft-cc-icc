@@ -7,12 +7,17 @@ e ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- Capítulo 4 e seus slides, sobre a organização básica do hardware: o interior
+  do processador, o repertório de instruções, a hierarquia de memória em cinco
+  níveis, os barramentos e o caminho até os periféricos.
 - TikZ como terceira ferramenta de diagrama, para figura que carrega uma
   grandeza — largura que significa capacidade, eixo logarítmico, moldura com
   título. As fontes ficam em `.tikz.tex` e geram SVG pelo `Makefile`, com o
   estilo comum em `diagrams/figuras.sty`.
 - Alvo `make site` no `Makefile`, que regenera os diagramas e renderiza livro e
   slides na ordem em que um não apaga o resultado do outro.
+- Cinco fotografias em licença permissiva do Wikimedia Commons no capítulo 4,
+  com a procedência e o tratamento registrados em `diagrams/04/PROCEDENCIA.md`.
 - Verificação automática da escrita depois de cada gravação: hook que roda os
   comandos do `ESCRITA.md` sobre os `.qmd` modificados e reporta sem alterar.
 - Estrutura do livro em Quarto, com 16 capítulos, apêndice de apresentações e

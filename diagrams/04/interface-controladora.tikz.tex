@@ -1,0 +1,44 @@
+% O caminho de um periférico até o barramento, com a interface e a
+% controladora no meio.
+%
+% A linha tracejada vertical marca a fronteira do gabinete, e é ela que explica
+% por que existem dois padrões em série: fora, o padrão da interface, que
+% precisa valer entre fabricantes; dentro, o padrão do barramento, que só
+% precisa valer naquele equipamento.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\begin{document}
+\begin{tikzpicture}[node distance=13mm]
+
+  \node[bloco es, minimum width=40mm, minimum height=15mm] (disp)
+    {Dispositivo\\[1pt]{\footnotesize teclado, disco, câmera}};
+  \node[bloco es, minimum width=34mm, minimum height=15mm, right=of disp]
+    (porta) {Porta\\[1pt]{\footnotesize conector e cabo}};
+  \node[bloco proc, minimum width=38mm, minimum height=15mm, right=of porta]
+    (ctrl) {Controladora\\[1pt]{\footnotesize traduz e armazena}};
+  \node[bloco dado, minimum width=30mm, minimum height=15mm, right=of ctrl]
+    (barr) {Barramento\\do sistema};
+  \node[bloco proc, minimum width=30mm, minimum height=15mm, right=of barr]
+    (cpu) {Processador\\e memória};
+
+  \foreach \a/\b in {disp/porta, porta/ctrl, ctrl/barr, barr/cpu} {
+    \draw[seta dupla] (\a) -- (\b);
+  }
+
+  % A fronteira do gabinete cai entre a porta e a controladora.
+  \draw[dash pattern=on 3pt off 2pt, draw=destaque, line width=1pt]
+    ($(porta.east)!0.5!(ctrl.west) + (0, 2.0)$) --
+    ($(porta.east)!0.5!(ctrl.west) - (0, 2.0)$);
+  \node[rotulo peq, text=destaque, anchor=south east]
+    at ($(porta.east)!0.5!(ctrl.west) + (-0.15, 1.4)$) {fora do gabinete};
+  \node[rotulo peq, text=destaque, anchor=south west]
+    at ($(porta.east)!0.5!(ctrl.west) + (0.15, 1.4)$) {dentro do gabinete};
+
+  % O padrão que vale de cada lado.
+  \node[rotulo peq, below=1.5mm of porta, anchor=north]
+    {padrão da interface\\[1pt]{\scriptsize USB, HDMI, SATA}};
+  \node[rotulo peq, below=1.5mm of barr, anchor=north]
+    {padrão do barramento\\[1pt]{\scriptsize PCI Express}};
+
+\end{tikzpicture}
+\end{document}

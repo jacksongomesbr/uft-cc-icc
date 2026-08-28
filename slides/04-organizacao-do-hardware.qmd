@@ -5,20 +5,634 @@ author: "Prof. Dr. Jackson Gomes de Souza"
 institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 ---
 
-## Roteiro
+## Objetivos de aprendizagem {.smaller}
 
-- Unidade central de processamento: unidade de controle, unidade lógica e
-  aritmética, registradores.
-- Hierarquia de memória: registradores, cache, memória principal e
-  armazenamento secundário.
-- Memória volátil e não volátil.
+- Identificar os componentes da unidade central de processamento e a função de
+  cada um.
+- Distinguir os tipos de memória pela velocidade, custo e volatilidade.
+- Explicar a função dos barramentos e das interfaces na comunicação entre
+  componentes.
+- Classificar periféricos e dispositivos por sua função de entrada, saída ou
+  ambas.
+
+## Roteiro {.smaller}
+
+- O processador por dentro: controle, cálculo e registradores.
+- O repertório de instruções de uma máquina.
+- A hierarquia de memória, do registrador ao disco.
 - Barramentos de dados, endereços e controle.
-- Interfaces e portas de comunicação.
+- Interfaces, portas, controladoras e periféricos.
 
-## Roteiro, continuação
+## O propósito deste capítulo {.smaller}
 
-- Periféricos e dispositivos de entrada e saída.
-- Tipos de instruções e o repertório de uma máquina.
+> Ser capaz de explicar por onde um valor passa dentro do equipamento, do
+> registrador ao disco, e de usar essa explicação para prever onde o tempo de
+> uma operação vai ser gasto.
+
+. . .
+
+O capítulo 3 deixou três caixas fechadas: o processador, a memória e o caminho
+entre eles.
+
+. . .
+
+Reparem no verbo: **explicar**.
+
+# Parem aqui {background-color="#1a1a1a"}
+
+## Escrevam agora {background-color="#1a1a1a" .r-fit-text}
+
+Um programa soma dois números guardados na memória e grava o resultado de volta.
+
+**Escrevam, em ordem, tudo o que o equipamento faz.**
+
+## Mais duas perguntas {background-color="#1a1a1a"}
+
+Onde os dois números ficam guardados enquanto a soma acontece?
+
+. . .
+
+Qual das etapas que vocês listaram demora mais que as outras?
+
+. . .
+
+Guardem a folha. Ela volta no fim da aula.
+
+# Por que a lista fica curta
+
+## A resposta típica tem três passos
+
+Buscar os dois números. Somar. Gravar o resultado.
+
+. . .
+
+Correta. E curta demais para prever qualquer coisa.
+
+## A pergunta que denuncia {.smaller}
+
+Com três passos, a resposta sobre qual demora mais costuma ser **a soma**.
+
+. . .
+
+Neste capítulo vocês vão ver que a soma é o passo mais rápido, com folga de
+várias ordens de grandeza.
+
+. . .
+
+> Onde um valor está guardado em cada instante, quanto custa alcançá-lo em cada
+> um desses lugares, e por que caminho ele viaja entre eles?
+
+# O processador por dentro
+
+## O interior do processador
+
+![](../diagrams/04/cpu-interna.svg){width=88% fig-alt="Dentro de uma moldura rotulada Processador, a unidade de controle e a unidade lógica e aritmética em cima, e cinco registradores em linha embaixo, ligados entre si e à memória principal."}
+
+## Unidade de controle {.smaller}
+
+Busca a próxima instrução, descobre o que ela manda fazer e aciona quem vai
+fazê-la.
+
+. . .
+
+Executa sempre a mesma rotina, sem parar, enquanto houver energia.
+
+. . .
+
+Nenhum bloco da figura sabe o que o programa está fazendo. A unidade de
+controle sabe qual é a instrução atual, e apenas ela.
+
+## Unidade lógica e aritmética {.smaller}
+
+Recebe um ou dois valores, recebe um sinal dizendo qual operação aplicar, e
+devolve um resultado.
+
+. . .
+
+Repertório curto: somar, subtrair, comparar, operar sobre bits.
+
+. . .
+
+Ela não busca nada e não guarda nada.
+
+## Registradores {.smaller}
+
+::: {.incremental}
+- **Contador de programa** — o endereço da próxima instrução.
+- **Registrador de instrução** — a instrução que está sendo executada.
+- **Registrador de endereço** — onde ler ou escrever na memória.
+- **Registrador de dados** — o valor lido ou a escrever.
+- **Registradores de uso geral** — o rascunho do processador.
+:::
+
+## Por que eles existem
+
+Alcançar a memória principal custa cerca de **cem vezes** mais tempo que
+alcançar um registrador [@patterson2014].
+
+. . .
+
+Um programa que soma cem números busca cada um uma vez, acumula em um
+registrador e escreve o resultado uma vez só.
+
+## Exemplo: uma soma, passo a passo {.smaller .scrollable}
+
+| Passo | Quem age | O que acontece |
+|---|---|---|
+| 1 | Unidade de controle | Coloca $40$ no registrador de endereço e pede leitura |
+| 2 | Memória | Devolve $12$, que chega ao registrador de dados |
+| 3 | Unidade de controle | Copia $12$ para um registrador de uso geral |
+| 4 | Unidade de controle | Coloca $41$ no registrador de endereço e pede leitura |
+| 5 | Memória | Devolve $30$, que chega ao registrador de dados |
+| 6 | Unidade de controle | Copia $30$ para outro registrador de uso geral |
+| 7 | Unidade lógica e aritmética | Soma os dois registradores |
+| 8 | Unidade de controle | Coloca $42$ no registrador de endereço |
+| 9 | Unidade de controle | Coloca o resultado no registrador de dados e pede escrita |
+| 10 | Memória | Grava o valor na posição $42$ |
+
+## Dez passos, uma soma
+
+Dos dez passos, **apenas o passo 7** é a soma.
+
+. . .
+
+Os outros nove levam os valores até onde a soma pode acontecer e trazem o
+resultado de volta.
+
+## Uma fotografia do processador
+
+![Fritzchens Fritz, CC0, Wikimedia Commons](../diagrams/04/die-zen2.jpg){width=62% fig-alt="Pastilha de silício em cores falsas, com regiões extensas de padrão repetido e faixas estreitas de estrutura irregular."}
+
+## O que a fotografia mostra {.smaller}
+
+::: {.incremental}
+- Regiões de padrão repetido: **memória**, o mesmo circuito copiado milhões de
+  vezes.
+- Regiões de estrutura irregular: **lógica**, o controle e o cálculo.
+- A maior parte da área é memória.
+:::
+
+. . .
+
+Pastilha é o *die*; cada conjunto de controle, cálculo e registradores dentro
+dela é um **núcleo**. Oito núcleos, e não oito processadores.
+
+# O repertório de instruções
+
+## O que uma instrução carrega {.smaller}
+
+| Instrução | Código da operação | Operando 1 | Operando 2 | Operando 3 |
+|---|---|---|---|---|
+| Somar dois registradores | somar | reg. 3 | reg. 1 | reg. 2 |
+| Ler da memória | carregar | reg. 1 | endereço $40$ | — |
+| Desviar se maior | desviar-se-maior | endereço $12$ | — | — |
+
+. . .
+
+Na memória, tudo isso é uma sequência de bits de tamanho fixo.
+
+## As quatro famílias {.smaller}
+
+| Família | O que faz | Exemplos |
+|---|---|---|
+| Transferência de dados | Move valores entre memória e registradores | carregar, armazenar |
+| Aritmética e lógica | Combina valores e produz um resultado | somar, comparar |
+| Controle de fluxo | Muda qual é a próxima instrução | desviar, chamar |
+| Entrada e saída | Conversa com dispositivos | ler porta, escrever porta |
+
+. . .
+
+A primeira é a mais usada. A terceira é a que torna o computador programável no
+sentido forte.
+
+## Exemplo: somar dez valores {.smaller .scrollable}
+
+| Endereço | Instrução | O que faz |
+|---|---|---|
+| 0 | carregar reg. 1, valor $0$ | Zera o acumulador |
+| 1 | carregar reg. 2, endereço $40$ | Guarda o endereço do próximo valor |
+| 2 | carregar reg. 3, conteúdo do endereço em reg. 2 | Traz o valor apontado |
+| 3 | somar reg. 1, reg. 1, reg. 3 | Acumula |
+| 4 | somar reg. 2, reg. 2, valor $1$ | Aponta para o seguinte |
+| 5 | comparar reg. 2, valor $50$ | Já passou do último? |
+| 6 | desviar-se-menor endereço $2$ | Se não, volta |
+| 7 | armazenar reg. 1, endereço $50$ | Grava o total |
+| 8 | parar | Fim |
+
+## Três observações {.smaller}
+
+::: {.incremental}
+- Somar mil números usaria as **mesmas nove instruções**. Muda o valor $50$.
+- A instrução do endereço 2 usa um registrador como endereço: **endereçamento
+  indireto**.
+- Nada aqui se parece com uma linguagem de programação.
+:::
+
+## Repertório não é linguagem {.smaller}
+
+O **repertório de instruções** é uma característica do equipamento, fixada no
+circuito.
+
+. . .
+
+Duas famílias que vocês vão encontrar: **x86** em computadores de mesa e
+servidores, **ARM** em telefones.
+
+. . .
+
+É por isso que um aplicativo de telefone não roda no computador de mesa.
+
+# A hierarquia de memória
+
+## O problema {.smaller}
+
+Memória rápida é cara. Memória barata é lenta.
+
+. . .
+
+A velocidade dos processadores cresceu muito mais rápido que a da memória.
+@wulf1995 chamaram esse afastamento de **muro da memória**.
+
+. . .
+
+A saída adotada foi não escolher: vários tipos ao mesmo tempo, em níveis.
+
+## Os cinco níveis
+
+![](../diagrams/04/hierarquia-memoria.svg){width=95% fig-alt="Cinco faixas de largura crescente: registradores, cache, memória principal, disco de estado sólido e disco magnético, com capacidade e tempo de acesso de cada uma."}
+
+## Volátil e não volátil {.smaller}
+
+**Volátil** perde o conteúdo sem alimentação elétrica: registradores, cache,
+memória principal.
+
+. . .
+
+**Não volátil** mantém o conteúdo: discos.
+
+. . .
+
+Documento não salvo desaparece na queda de energia. Equipamento demora a ficar
+pronto porque precisa copiar de baixo para cima.
+
+## Por que a hierarquia funciona {.smaller}
+
+A **localidade**, em duas formas:
+
+::: {.incremental}
+- **Temporal** — um valor recém-acessado costuma ser acessado de novo em pouco
+  tempo.
+- **Espacial** — posições vizinhas à última costumam ser acessadas em seguida.
+:::
+
+. . .
+
+@wilkes1965 propôs a memória pequena e rápida entre o processador e a memória
+principal; @smith1982 já a encontrou em uso generalizado.
+
+## Linha de cache
+
+Quando o processador pede um valor, a memória devolve um **bloco de vizinhos**,
+de $32$ a $128$ bytes.
+
+. . .
+
+Trazer os vizinhos custa quase o mesmo. A aposta é a localidade espacial.
+
+## Exemplo: quanto a cache economiza {.smaller}
+
+Cache a $1$ ns, memória principal a $100$ ns. Taxa de acerto de $95\%$:
+
+$$0{,}95 \times 1 + 0{,}05 \times 100 = 5{,}95 \text{ ns}$$
+
+. . .
+
+Sem cache, $100$ ns. Cerca de **dezessete vezes** mais rápido.
+
+. . .
+
+Com $99\%$ de acerto:
+
+$$0{,}99 \times 1 + 0{,}01 \times 100 = 1{,}99 \text{ ns}$$
+
+. . .
+
+Quatro pontos de acerto valem mais três vezes de ganho.
+
+## Os mesmos tempos, em escala humana
+
+![](../diagrams/04/escala-de-tempo.svg){width=95% fig-alt="Sete pontos em escala logarítmica, do registrador à ida e volta pela rede, com o tempo real e o tempo equivalente se um ciclo do processador durasse um segundo."}
+
+## Um segundo, ou um ano {.smaller}
+
+::: {.incremental}
+- Registrador: **1 segundo**
+- Memória principal: **5 minutos**
+- Disco de estado sólido: **2 dias**
+- Disco magnético: **1 ano**
+- Ida e volta a outro continente: **14 anos**
+:::
+
+## A consequência {.smaller}
+
+A diferença entre um programa rápido e um lento raramente está na quantidade de
+contas.
+
+. . .
+
+Está em **quantas vezes ele precisa descer na hierarquia**.
+
+. . .
+
+Dois programas com a mesma quantidade de somas podem diferir por uma ordem de
+grandeza no tempo total.
+
+## A memória principal, por fora
+
+![PantheraLeo1359531, CC BY 4.0, Wikimedia Commons](../diagrams/04/modulo-ddr4.jpg){width=92% fig-alt="Módulo de memória DDR4 com oito pastilhas pretas e uma fileira de contatos dourados na borda inferior, interrompida por um encaixe fora do centro."}
+
+## Três detalhes {.smaller}
+
+::: {.incremental}
+- As oito pastilhas são a memória. O resto da placa existe para ligá-las.
+- Os contatos dourados são por onde passam os barramentos.
+- O encaixe fora do centro muda entre gerações: **a peça errada não entra**.
+:::
+
+## Disco magnético
+
+![Zzubnik, domínio público, Wikimedia Commons](../diagrams/04/disco-rigido-aberto.jpg){width=52% fig-alt="Disco rígido aberto, com o prato circular espelhado, o braço articulado e a cabeça de leitura."}
+
+## Duas partes móveis
+
+Prato que gira. Braço que se desloca.
+
+. . .
+
+São elas que explicam os $10$ ms. Nenhum outro nível da hierarquia depende de
+algo mecânico.
+
+## Disco de estado sólido
+
+![D-Kuru, CC BY-SA 4.0, Wikimedia Commons](../diagrams/04/ssd-m2.jpg){width=92% fig-alt="Disco de estado sólido no formato M.2, uma placa estreita e alongada com contatos dourados em uma das extremidades e nenhuma parte móvel."}
+
+## Os dois, em comparação {.smaller}
+
+| Aspecto | Disco magnético | Disco de estado sólido |
+|---|---|---|
+| Como guarda | Orientação magnética | Carga elétrica |
+| Partes móveis | Prato e braço | Nenhuma |
+| Tempo de acesso | Cerca de $10$ ms | Dezenas de $\mu$s |
+| Custo por byte | Menor | Maior |
+| Posição do dado | Importa muito | Quase não importa |
+| Limite de uso | Desgaste mecânico | Escritas por célula |
+
+# Os barramentos
+
+## O que um barramento é {.smaller}
+
+Um conjunto de vias **compartilhado** por vários blocos.
+
+. . .
+
+Cada via transporta um bit por vez; o conjunto transporta um valor de uma vez
+só.
+
+. . .
+
+Um fio liga dois pontos. Um barramento é ligado a todos ao mesmo tempo.
+
+## As três funções
+
+![](../diagrams/04/barramentos.svg){width=95% fig-alt="Processador, memória principal e duas controladoras ligados a uma faixa com três linhas: dados, endereços e controle."}
+
+## Dados, endereços, controle {.smaller}
+
+::: {.incremental}
+- **Dados** — o valor lido ou escrito. Dois sentidos.
+- **Endereços** — onde ler ou escrever. **Sentido único**: quem escreve nele é
+  sempre o processador.
+- **Controle** — ler, escrever, interromper. Dois sentidos.
+:::
+
+## Exemplo: a largura do barramento {.smaller}
+
+No barramento de **dados**, a largura limita quantos bits atravessam por
+transferência. $64$ vias transportam $8$ bytes; uma linha de $64$ bytes exige
+oito transferências.
+
+. . .
+
+No barramento de **endereços**, cada via acrescentada **dobra** a quantidade de
+endereços possíveis. Com $n$ vias, são $2^{n}$ endereços.
+
+## O limite dos 4 GB {.smaller}
+
+| Vias de endereço | Endereços possíveis | Memória alcançável |
+|---|---|---|
+| $16$ | $65\,536$ | $64$ KB |
+| $32$ | $4\,294\,967\,296$ | $4$ GB |
+| $64$ | mais de $18$ quintilhões | além do fabricado hoje |
+
+. . .
+
+Computadores de $32$ bits não reconheciam mais de $4$ GB por mais módulos que
+fossem instalados.
+
+## Recurso disputado {.smaller}
+
+Apenas um bloco escreve por vez. A regra que decide se chama **arbitragem**.
+
+. . .
+
+Aumentar a velocidade de um bloco não aumenta a do sistema quando o barramento
+está saturado.
+
+. . .
+
+Os equipamentos atuais usam caminhos ponto a ponto, como o PCI Express. O modelo
+das três funções continua valendo.
+
+# Interfaces, portas e periféricos
+
+## O caminho até o processador
+
+![](../diagrams/04/interface-controladora.svg){width=98% fig-alt="Dispositivo, porta, controladora, barramento do sistema e processador em linha, com uma linha tracejada separando o que está fora do gabinete do que está dentro."}
+
+## Controladora {.smaller}
+
+Circuito dedicado a um tipo de dispositivo, que **traduz** entre o padrão do
+dispositivo e o padrão do barramento.
+
+. . .
+
+Também **armazena** os valores em trânsito: o dispositivo e o processador
+trabalham em velocidades muito diferentes.
+
+## Interface e porta {.smaller}
+
+**Interface** é o conjunto de regras: quantas vias, que tensão, em que ordem os
+sinais aparecem. USB, HDMI, SATA.
+
+. . .
+
+**Porta** é o ponto físico onde o cabo se conecta, e implementa uma interface.
+
+. . .
+
+Fora do gabinete, o padrão precisa valer entre fabricantes que não se conhecem.
+Dentro, só precisa valer naquele equipamento.
+
+## Uma placa-mãe
+
+![Jacek Halicki, CC BY-SA 4.0, Wikimedia Commons](../diagrams/04/placa-mae.jpg){width=42% fig-alt="Placa-mãe vista de cima, com o soquete do processador ao centro, quatro encaixes de memória à direita e encaixes de expansão na metade inferior."}
+
+## Quase tudo deste capítulo {.smaller}
+
+::: {.incremental}
+- O soquete central recebe a pastilha da fotografia do processador.
+- Os quatro encaixes à direita recebem os módulos de memória, e ficam perto do
+  soquete porque cada centímetro de trilha custa tempo.
+- Quase toda a superfície visível é ligação: o barramento desenhado em cobre.
+:::
+
+## Periféricos {.smaller}
+
+| Classe | Sentido | Exemplos |
+|---|---|---|
+| Entrada | Do mundo para o sistema | Teclado, microfone, câmera, sensor |
+| Saída | Do sistema para o mundo | Monitor, alto-falante, impressora, motor |
+| Entrada e saída | Nos dois sentidos | Disco, placa de rede, tela sensível ao toque |
+
+. . .
+
+A terceira linha é a esquecida, e é a que tem mais casos importantes.
+
+## Como conversar com algo lento {.smaller}
+
+**Espera ativa** — o processador pergunta repetidamente se já terminou. Simples,
+e joga fora todo o tempo de espera.
+
+. . .
+
+**Interrupção** — o processador pede, executa outro programa, e é avisado
+quando o resultado está pronto.
+
+## A leitura de um bloco, com interrupção
+
+```{mermaid}
+%%| fig-width: 6
+%%| echo: false
+sequenceDiagram
+  participant P as Processador
+  participant C as Controladora
+  participant D as Disco
+  P->>C: pede o bloco 4711
+  Note over P: passa a executar<br/>outro programa
+  C->>D: posiciona e lê
+  D-->>C: conteúdo do bloco
+  C->>P: interrupção
+  P->>C: recolhe o conteúdo
+  Note over P: retoma o programa<br/>interrompido
+```
+
+## Acesso direto à memória {.smaller}
+
+Sem ele, o processador recolhe o conteúdo da controladora e o escreve na
+memória, valor a valor.
+
+. . .
+
+Com ele, a **controladora escreve direto na memória** e só avisa quando o bloco
+inteiro chegou.
+
+. . .
+
+É a razão de ser possível copiar um arquivo grande enquanto se usa o computador.
+
+# Três equipamentos
+
+## A mesma organização, portes diferentes {.smaller .scrollable}
+
+| Aspecto | Computador de mesa | Telefone | Controlador de portão |
+|---|---|---|---|
+| Repertório | x86 | ARM | Família própria |
+| Registradores | Dezenas | Dezenas | Dezenas |
+| Níveis de cache | Três | Dois ou três | Nenhum |
+| Memória principal | Módulos, dezenas de GB | Soldada, alguns GB | Alguns KB, na pastilha |
+| Armazenamento | Estado sólido, TB | Soldado, centenas de GB | Alguns KB |
+| Barramento | PCI Express | Interno à pastilha | Interno à pastilha |
+| Periféricos | Muitos, conectáveis | Poucos, integrados | Um sensor e um motor |
+
+## Duas leituras {.smaller}
+
+A linha dos registradores é igual nas três colunas. A das caches é a que mais
+varia.
+
+. . .
+
+Registrador é parte da definição de processador. Cache resolve um problema que
+só existe quando a memória é grande e distante.
+
+. . .
+
+A coluna da direita é um **microcontrolador**: processador, memória e
+controladoras em uma pastilha só. É o computador mais numeroso do mundo.
+
+# A tarefa desta semana
+
+## Aplicação {.smaller}
+
+Multiplicar por dois o valor da posição $80$ e gravar em $81$, sem instrução de
+multiplicação.
+
+. . .
+
+Escrevam a sequência no formato da tabela dos dez passos, marcando a família de
+cada passo.
+
+. . .
+
+Quantos passos tocam a memória principal? E se o valor já estivesse em um
+registrador?
+
+## Transferência {.smaller}
+
+1. "Demora um minuto para abrir qualquer programa, mas depois funciona normal."
+2. "O mesmo programa levou quarenta minutos aqui e seis na máquina do colega."
+3. "Ao abrir o oitavo programa, todos ficam lentos. Fechando dois, normaliza."
+
+. . .
+
+Em que nível da hierarquia vocês procurariam primeiro, e por quê?
+
+. . .
+
+Uma das três não se resolve trocando de nível.
+
+## Integração {.smaller}
+
+Recuperem a folha da abertura.
+
+::: {.incremental}
+- Quantos passos vocês previram, e quantos a tabela acrescentou?
+- A sua resposta sobre onde os números ficam guardados mencionava registrador?
+- A sua resposta sobre a etapa mais demorada apontava a soma?
+:::
+
+## O que fecha o capítulo {.smaller}
+
+A soma é a etapa mais rápida, por várias ordens de grandeza.
+
+. . .
+
+A intuição contrária vem de tratar o cálculo como o trabalho e a movimentação
+como preparação.
+
+. . .
+
+O capítulo 5 desce mais um degrau: o que exatamente está guardado em cada
+posição que este capítulo movimentou.
 
 ## Referências {.scrollable}
 

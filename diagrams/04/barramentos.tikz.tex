@@ -1,0 +1,60 @@
+% Os três barramentos e o que corre em cada um.
+%
+% Os três são desenhados dentro de uma mesma faixa porque, no equipamento, eles
+% são o mesmo caminho físico: um feixe de vias paralelas ao qual todos os blocos
+% se ligam. Desenhá-los como três linhas separadas, cada uma com sua descida,
+% obrigaria as descidas a cruzar linhas às quais não se ligam.
+%
+% O sentido das setas é a informação principal da figura: o de endereços parte
+% sempre do processador, e os outros dois têm tráfego nos dois sentidos.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\begin{document}
+\begin{tikzpicture}
+
+  % --- Quem está ligado ao barramento ------------------------------------
+  \node[bloco proc, minimum width=34mm, minimum height=13mm] (cpu) at (0, 0)
+    {Processador};
+  \node[bloco mem, minimum width=34mm, minimum height=13mm] (mem) at (4.4, 0)
+    {Memória\\principal};
+  \node[bloco es, minimum width=34mm, minimum height=13mm] (cd) at (8.8, 0)
+    {Controladora\\de disco};
+  \node[bloco es, minimum width=34mm, minimum height=13mm] (cr) at (13.2, 0)
+    {Controladora\\de rede};
+
+  % --- A faixa do barramento ---------------------------------------------
+  \def\esq{-1.6}
+  \def\dir{14.8}
+  \fill[fill=black!4, rounded corners=4pt]
+    (\esq, -3.9) rectangle (\dir, -1.6);
+
+  \draw[barramento, draw=dadoborda,
+        {Stealth[length=3mm]}-{Stealth[length=3mm]}]
+    (\esq + 0.3, -2.0) -- (\dir - 0.3, -2.0);
+  \draw[barramento, draw=procborda, -{Stealth[length=3mm]}]
+    (\esq + 0.3, -2.75) -- (\dir - 0.3, -2.75);
+  \draw[barramento, draw=esborda,
+        {Stealth[length=3mm]}-{Stealth[length=3mm]}]
+    (\esq + 0.3, -3.5) -- (\dir - 0.3, -3.5);
+
+  \node[rotulo peq, anchor=west, text=dadoborda] at (\dir + 0.2, -2.0)
+    {dados\\{\scriptsize o valor lido ou escrito}};
+  \node[rotulo peq, anchor=west, text=procborda] at (\dir + 0.2, -2.75)
+    {endereços\\{\scriptsize onde ler ou escrever}};
+  \node[rotulo peq, anchor=west, text=esborda] at (\dir + 0.2, -3.5)
+    {controle\\{\scriptsize ler, escrever, interromper}};
+
+  \node[rotulo peq, anchor=north west] at (\esq, -4.05)
+    {\textbf{Barramento do sistema}};
+
+  % --- Ligação de cada bloco à faixa -------------------------------------
+  \foreach \n in {cpu, mem, cd, cr} {
+    \draw[seta dupla, line width=1.2pt] (\n.south) -- (\n.south |- 0,-1.6);
+  }
+
+  \node[rotulo peq, anchor=north east] at (\dir, -4.05)
+    {O barramento de endereços tem sentido único, do processador para os
+     demais.};
+
+\end{tikzpicture}
+\end{document}
