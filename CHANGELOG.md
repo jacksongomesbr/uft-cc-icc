@@ -7,6 +7,12 @@ e ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- TikZ como terceira ferramenta de diagrama, para figura que carrega uma
+  grandeza — largura que significa capacidade, eixo logarítmico, moldura com
+  título. As fontes ficam em `.tikz.tex` e geram SVG pelo `Makefile`, com o
+  estilo comum em `diagrams/figuras.sty`.
+- Alvo `make site` no `Makefile`, que regenera os diagramas e renderiza livro e
+  slides na ordem em que um não apaga o resultado do outro.
 - Verificação automática da escrita depois de cada gravação: hook que roda os
   comandos do `ESCRITA.md` sobre os `.qmd` modificados e reporta sem alterar.
 - Estrutura do livro em Quarto, com 16 capítulos, apêndice de apresentações e

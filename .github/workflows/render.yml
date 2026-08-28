@@ -32,6 +32,12 @@ jobs:
       # foi onde a renderização travou.
       - name: Instalar o navegador usado nos diagramas
         run: quarto install chrome-headless-shell --no-prompt
+      # As figuras TikZ entram no repositório como SVG. Para o PDF, o Quarto
+      # as converte com o rsvg-convert, que não vem na imagem do runner nem no
+      # pacote do Quarto; sem ele, o LuaLaTeX falha ao incluir a figura.
+      - name: Instalar o conversor de SVG usado no PDF
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
+
       - name: Render book
         run: quarto render
       - name: Render slides

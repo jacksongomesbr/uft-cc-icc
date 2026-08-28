@@ -39,22 +39,31 @@ exigiria alterar as células geradas pelo pandoc, que saem como `minipage`.
 
 ## Qual ferramenta de diagrama usar
 
-O projeto usa duas, e a escolha não é de gosto:
+O projeto usa três, e a escolha não é de gosto:
 
-- **Mermaid**, em célula executável no próprio `.qmd`, para fluxo, sequência,
-  estado e arquitetura. É o caso da maioria das figuras deste livro: o ciclo de
-  busca e execução, o percurso do código-fonte até a execução, o ciclo de vida
-  de um equipamento.
-- **Graphviz**, em arquivos `.dot`, quando a figura precisa ficar exatamente
-  onde foi colocada. É o caso dos diagramas de blocos de hardware, em que a
-  posição relativa de processador, memória e barramento carrega significado, e
-  dos diagramas que reaparecem em capítulos diferentes.
+- **Mermaid**, em célula executável no próprio `.qmd`, para fluxo, sequência e
+  estado. É o caso do ciclo de busca e execução, do percurso do código-fonte
+  até a execução e da troca de mensagens entre processador e controladora.
+- **Graphviz**, em arquivos `.dot`, para figura estrutural em que a posição
+  relativa dos blocos carrega significado e o layout automático basta. É o caso
+  dos diagramas dos capítulos 1 a 3.
+- **TikZ**, em arquivos `.tikz.tex`, quando o desenho pede posição deliberada,
+  eixo, escala, rótulo matemático, destaque de uma parte da figura ou
+  tipografia igual à do texto. É o caso das figuras do capítulo 4: a hierarquia
+  de memória, cuja largura codifica a capacidade, e a escala logarítmica de
+  tempos de acesso.
 
-Graphviz posiciona cada elemento por coordenada explícita, e Mermaid não
-oferece esse controle. Um diagrama de blocos que troca a posição da memória
+Graphviz e TikZ posicionam cada elemento por coordenada explícita, e Mermaid
+não oferece esse controle. Um diagrama de blocos que troca a posição da memória
 entre duas figuras faz o aluno duvidar de que seja o mesmo sistema. Um
 fluxograma, ao contrário, pode ser rearranjado sem perda, e aí o Mermaid
 compensa por ficar no próprio arquivo do capítulo.
+
+Entre Graphviz e TikZ, decide o quanto o desenho precisa de controle. Graphviz
+resolve um grafo de blocos e setas com pouca escrita, e é a escolha certa
+enquanto a figura for só isso. TikZ custa mais linhas e paga esse custo quando a
+figura carrega uma grandeza — uma largura que significa capacidade, um eixo
+logarítmico, um agrupamento com moldura e título.
 
 ## Diagramas Graphviz
 
@@ -119,6 +128,40 @@ Para diagramas extensos, mantenha a definição em um arquivo `.mmd` na pasta
 `diagrams/` e utilize a opção `file` no bloco Mermaid. Prefira rótulos curtos,
 alto contraste e um diagrama por ideia principal.
 
+## Diagramas TikZ
+
+A fonte fica em `diagrams/<capítulo>/<nome>.tikz.tex` e gera
+`diagrams/<capítulo>/<nome>.svg`, referenciado pelo `.qmd` como qualquer outra
+figura. O mesmo `make diagrams` cuida das duas famílias, e as regras de
+`fig-alt` e de commit conjunto valem igualmente aqui.
+
+O arquivo é um documento `standalone` compilado com LuaLaTeX, a mesma engine do
+PDF do livro, e carrega o estilo comum com `\usepackage{figuras}`.
+`diagrams/figuras.sty` concentra a paleta, os estilos de bloco, seta, moldura e
+rótulo, e as fontes do livro. A paleta continua a dos diagramas Graphviz dos
+capítulos anteriores: cada função do sistema tem a sua cor, e ela não muda de
+figura para figura. Um bloco de hardware reaparece em figuras de capítulos
+diferentes, e o aluno o reconhece pela cor e pela forma antes de ler o rótulo.
+
+A saída é SVG, e não PNG, por dois motivos. O desenho é vetorial na origem, de
+modo que o SVG preserva a resolução em tela e no papel; e o Quarto converte o
+SVG para PDF na renderização com `rsvg-convert`, que precisa estar no `PATH` do
+ambiente. A conversão intermediária de PDF para SVG usa `pdftocairo`, do
+Poppler, porque o `dvisvgm` distribuído aqui foi compilado sem leitura de PDF.
+
+Duas armadilhas, para quem for editar a regra do `Makefile` ou uma figura:
+
+- O LuaLaTeX nomeia a saída pelo *jobname*, que inclui o `.tikz` do nome. O PDF
+  intermediário sai como `<nome>.tikz.pdf`, e a regra remove esse arquivo junto
+  com o `.log` e o `.aux` ao final.
+- Dentro do texto de um nó, `\\` quebra a linha, e um grupo aberto com chaves
+  cancela esse mecanismo. `{\footnotesize a\\b}` produz erro de compilação;
+  escreva `a\\[1pt]{\footnotesize b}`, com a quebra fora do grupo.
+
+Quando uma figura migrar de Graphviz para TikZ, apague o `.dot` e o PNG no
+mesmo commit. Uma figura com duas fontes diverge em silêncio, já que nada na
+renderização acusa a divergência.
+
 ## Trechos de código
 
 Sempre indique a linguagem e, quando representar um arquivo, o nome do arquivo.
@@ -149,9 +192,16 @@ de linhas deve ser ativada localmente apenas quando for citada no texto.
 
 ## Validação
 
-Antes de publicar, renderize os dois projetos:
+Antes de publicar, regenere os diagramas e renderize os dois projetos:
 
 ```bash
+make site
+```
+
+O alvo cuida da ordem. Feito na mão, ele equivale a:
+
+```bash
+make diagrams
 quarto render
 (cd slides && quarto render)
 ```

@@ -1,0 +1,82 @@
+% Estilo comum das figuras TikZ do livro.
+%
+% Carregado pelas figuras via \usepackage{figuras}; o Makefile põe diagrams/ no
+% TEXINPUTS para que o arquivo seja encontrado a partir de qualquer capítulo.
+%
+% Concentrar cores e estilos aqui tem motivo pedagógico, e não só de
+% manutenção. Um bloco de hardware reaparece em figuras de capítulos
+% diferentes, e o aluno o reconhece pela cor e pela forma antes de ler o
+% rótulo. Processador azul na figura da CPU e processador verde na figura dos
+% barramentos fazem duas figuras do mesmo assunto parecerem dois assuntos.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{figuras}[2026/08/28 Estilo das figuras do livro]
+
+\RequirePackage{amsmath}
+\RequirePackage{fontspec}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, fit, backgrounds, shapes.geometric}
+
+% A mesma serifada do corpo do livro, para que rótulo de figura e texto
+% corrido tenham o mesmo desenho de letra.
+\setmainfont{XCharter}[
+  Extension   = .otf,
+  UprightFont = *-Roman,
+  ItalicFont  = *-Italic,
+  BoldFont    = *-Bold,
+]
+\setmonofont{FiraMono}[
+  Extension   = .otf,
+  UprightFont = *-Regular,
+  BoldFont    = *-Bold,
+  Scale       = 0.86,
+]
+
+% A paleta continua a dos diagramas Graphviz dos capítulos 1 a 3: cada função
+% do sistema tem a sua cor, e ela não muda de figura para figura.
+\definecolor{corborda}{HTML}{333333}
+\definecolor{corlinha}{HTML}{666666}
+\definecolor{corapagado}{HTML}{AAAAAA}
+
+\definecolor{procfundo}{HTML}{DCEDF7}
+\definecolor{procborda}{HTML}{2B6C8A}
+\definecolor{memfundo}{HTML}{F7E3DC}
+\definecolor{memborda}{HTML}{A8543A}
+\definecolor{esfundo}{HTML}{E3F0E3}
+\definecolor{esborda}{HTML}{3E7A4E}
+\definecolor{dadofundo}{HTML}{F7F3DC}
+\definecolor{dadoborda}{HTML}{8A7A2B}
+\definecolor{destaque}{HTML}{B4472A}
+
+\tikzset{
+  bloco/.style = {
+    draw = corborda, fill = white, line width = 0.8pt, rounded corners = 2pt,
+    align = center, inner sep = 4pt, minimum height = 8mm, font = \small
+  },
+  bloco proc/.style = {bloco, draw = procborda, fill = procfundo},
+  bloco mem/.style  = {bloco, draw = memborda,  fill = memfundo},
+  bloco es/.style   = {bloco, draw = esborda,   fill = esfundo},
+  bloco dado/.style = {bloco, draw = dadoborda, fill = dadofundo},
+  bloco apagado/.style = {bloco, draw = corapagado, text = corapagado},
+  % Bloco em foco: a mesma cor de destaque do texto que o comenta.
+  bloco marcado/.style = {bloco, draw = destaque, line width = 1.4pt},
+  registrador/.style = {
+    bloco proc, minimum width = 22mm, minimum height = 6mm,
+    font = \footnotesize, rounded corners = 1pt
+  },
+  seta/.style = {draw = corlinha, line width = 0.9pt,
+                 -{Stealth[length = 2.4mm, width = 1.8mm]}},
+  seta dupla/.style = {draw = corlinha, line width = 0.9pt,
+                       {Stealth[length = 2.4mm, width = 1.8mm]}-{Stealth[length = 2.4mm, width = 1.8mm]}},
+  seta destaque/.style = {seta, draw = destaque, line width = 1.5pt},
+  ligacao/.style = {draw = corlinha, line width = 0.9pt},
+  % Barramento: linha grossa que representa um feixe de vias, e não um fio.
+  barramento/.style = {line width = 3.2pt, rounded corners = 3pt},
+  rotulo/.style = {font = \small, align = center, inner sep = 2pt},
+  rotulo peq/.style = {font = \footnotesize, align = center, inner sep = 2pt},
+  % Rótulo sobre uma linha, com o fundo branco abrindo espaço nela.
+  rotulo linha/.style = {rotulo peq, fill = white, inner sep = 2pt},
+  moldura/.style = {draw = corlinha, line width = 0.7pt, rounded corners = 4pt,
+                    dash pattern = on 3pt off 2pt},
+}
+
+\endinput
