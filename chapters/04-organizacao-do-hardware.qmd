@@ -1125,8 +1125,8 @@ aborda monitor, projetor ou televisão ligados por HDMI ou DisplayPort. O grupo
 
 Cada grupo prepara uma pergunta sobre o tema que lhe foi atribuído na lista a
 seguir. A pergunta deve pedir explicação ou comparação, e não a repetição de uma
-sigla ou de um número. O grupo que apresenta responde à pergunta nos dois minutos
-reservados depois da exposição.
+sigla ou de um número. Nos dois minutos reservados depois da exposição, o grupo
+designado faz a pergunta e o grupo que apresentou responde.
 
 1.  O grupo 4 pergunta ao grupo 1, sobre processadores x86 e ARM.
 2.  O grupo 5 pergunta ao grupo 2, sobre processadores com vários núcleos.
@@ -1188,7 +1188,7 @@ usar uma fonte da apresentação ou uma comparação entre as aplicações discu
 ### Produto e apresentação
 
 Entreguem a apresentação em PDF. Cada grupo terá seis minutos para expor o tema
-e dois minutos para responder à pergunta do grupo designado. A apresentação
+e mais dois para a pergunta do grupo designado e a resposta. A apresentação
 precisa, no mínimo, explicar a tecnologia com os conceitos do capítulo, mostrar
 aplicações concretas, incluir um diagrama próprio e discutir uma decisão prática
 ou limitação. Acrescentem outras informações quando elas ajudarem a turma a
@@ -1199,17 +1199,16 @@ em ferramenta digital. Cada participante explica uma parte da apresentação.
 
 ### Sequência de trabalho
 
-A @tbl-sequencia-tecnologias organiza a atividade entre os encontros 4 e 8. O
-sorteio e o planejamento usam cinquenta minutos do encontro dedicado a este
-capítulo. As apresentações ocorrem no seminário técnico do encontro 8, associado
-ao marco de estudo de caso técnico da disciplina. A atividade não exige encontro
-adicional.
+A @tbl-sequencia-tecnologias organiza a atividade entre os encontros 4 e 5. O
+sorteio, o planejamento e o início do trabalho em grupo usam o tempo restante do
+encontro 4, depois do encerramento do capítulo 3 e da exposição do capítulo 4.
+As apresentações ocorrem no encontro 5. A atividade não exige encontro adicional.
 
 | **Momento** | **Tempo** | **O que acontece** |
 |---|---:|---|
-| Encontro 4: sorteio e planejamento | 50 min | O professor apresenta os critérios, sorteia os temas e as perguntas. Cada grupo define aplicações, divide tarefas e seleciona fontes iniciais. |
-| Pesquisa e produção | Entre os encontros 4 e 8 | O grupo estuda a fundo o tema sorteado, levanta o suficiente sobre o tema da pergunta, produz o diagrama e prepara a apresentação. |
-| Encontro 8: seminário técnico e síntese | 100 min | Os dez grupos apresentam, respondem às perguntas e a turma produz a síntese. |
+| Encontro 4: sorteio, planejamento e início | Tempo restante da aula | O professor apresenta os critérios, sorteia os temas e as perguntas. Cada grupo define aplicações, divide tarefas, seleciona fontes iniciais e começa a pesquisa. |
+| Pesquisa e produção | Entre os encontros 4 e 5 | O grupo estuda a fundo o tema sorteado, levanta o suficiente sobre o tema da pergunta, produz o diagrama e prepara a apresentação. |
+| Encontro 5: apresentações e síntese | 6 + 2 min por grupo | Cada grupo expõe em seis minutos. Nos dois minutos seguintes, o grupo designado faz a pergunta e o grupo que apresentou responde. Ao final, a turma produz a síntese. |
 
 : Sequência da atividade de pesquisa e apresentação. {#tbl-sequencia-tecnologias}
 

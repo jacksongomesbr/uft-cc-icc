@@ -763,8 +763,24 @@ processador, memória, armazenamento, barramento ou conexão.
 
 . . .
 
-Cada grupo prepara uma pergunta sobre outro tema, conforme a distribuição do
-capítulo.
+Cada grupo prepara uma pergunta sobre outro tema, conforme a tabela a seguir.
+
+## Temas e perguntas {.smaller}
+
+| Grupo | Tema | Pergunta ao grupo |
+|--:|---|--:|
+| 1 | Processadores x86 e ARM | 8 |
+| 2 | Processadores com vários núcleos | 9 |
+| 3 | Microcontroladores | 10 |
+| 4 | Memória principal DDR4 ou DDR5 | 1 |
+| 5 | Memória cache | 2 |
+| 6 | Disco magnético e SSD SATA | 3 |
+| 7 | SSD NVMe e PCI Express | 4 |
+| 8 | USB e USB-C | 5 |
+| 9 | HDMI e DisplayPort | 6 |
+| 10 | Ethernet | 7 |
+
+A pergunta pede explicação ou comparação, não uma sigla ou um número.
 
 ## Pesquisa e fontes {.smaller}
 
@@ -786,7 +802,8 @@ busca não contam como fonte.
 ## Produto, apresentação e síntese {.smaller}
 
 Entreguem a apresentação em PDF, com créditos das fontes e das imagens. Cada
-grupo apresenta por seis minutos e responde à pergunta em dois.
+grupo expõe por seis minutos. Nos dois seguintes, o grupo designado pergunta e o
+grupo que apresentou responde.
 
 . . .
 
@@ -795,9 +812,11 @@ a outro, usando um conceito do capítulo e uma aplicação ou limitação.
 
 ## Cronograma {.smaller}
 
-- Encontro 4: sorteio e planejamento, em 50 minutos.
-- Entre os encontros 4 e 8: pesquisa e produção em grupo.
-- Encontro 8: seminário técnico de 100 minutos, com apresentações e síntese.
+- Encontro 4: no tempo restante da aula, sorteio, planejamento e início do
+  trabalho em grupo.
+- Entre os encontros 4 e 5: pesquisa e produção em grupo.
+- Encontro 5: apresentações, com seis minutos por grupo mais dois de pergunta e
+  resposta, e síntese da turma.
 
 ## O que fecha o capítulo {.smaller}
 
