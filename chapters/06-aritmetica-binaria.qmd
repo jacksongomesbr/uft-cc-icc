@@ -9,6 +9,8 @@ title: "Aritmética binária e representação de dados"
 - Explicar como caracteres, imagens e sons são reduzidos a sequências de
   bits.
 - Relacionar a quantidade de bits ao intervalo de valores representáveis.
+- Explicar como um valor com parte fracionária é guardado em uma quantidade
+  fixa de bits.
 
 ## Conteúdo previsto
 
@@ -17,6 +19,8 @@ title: "Aritmética binária e representação de dados"
 - Números negativos: sinal e magnitude, complemento de um e complemento de
   dois.
 - Estouro de representação e seus efeitos.
+- Valores com parte fracionária: a distribuição dos bits entre sinal, expoente
+  e parte fracionária, retomando o capítulo 5.
 - Bit, byte e múltiplos.
 - Representação de texto, imagem e som.
 - Relação entre bits, instruções e processamento.

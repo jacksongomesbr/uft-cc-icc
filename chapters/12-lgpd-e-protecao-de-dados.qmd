@@ -13,6 +13,8 @@ title: "LGPD e proteção de dados"
 
 - O que a Lei nº 13.709/2018 regula e a quem ela se aplica.
 - Dado pessoal, dado sensível e dado anonimizado.
+- Identificadores: quantos valores distintos um identificador precisa ter para
+  não repetir, e o que isso tem a ver com a reidentificação de um titular.
 - Princípios: finalidade, adequação, necessidade, transparência e segurança.
 - Bases legais para o tratamento e o papel do consentimento.
 - Titular, controlador, operador e encarregado.

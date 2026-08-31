@@ -5,17 +5,719 @@ author: "Prof. Dr. Jackson Gomes de Souza"
 institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 ---
 
-## Roteiro
+## Objetivos de aprendizagem {.smaller}
 
-- Sistemas de numeração posicionais e a noção de base.
-- Sistema decimal, binário, octal e hexadecimal.
-- Conversão de uma base qualquer para decimal.
-- Conversão de decimal para uma base qualquer, por divisões sucessivas.
-- Conversões diretas entre binário, octal e hexadecimal.
+- Explicar o que caracteriza um sistema de numeração posicional.
+- Converter valores entre as bases decimal, binária, octal e hexadecimal.
+- Justificar por que o sistema binário é o adotado nos computadores.
+- Escolher a base adequada para representar um valor conforme o contexto.
+- Reconhecer quando a parte fracionária de um valor não cabe na representação
+  escolhida.
 
-## Roteiro, continuação
+## Roteiro {.smaller}
 
-- Representação de parte fracionária.
+- O que faz um sistema de numeração ser posicional.
+- As quatro bases da área: decimal, binária, octal e hexadecimal.
+- Por que o computador usa a base dois.
+- Conversão para decimal, e conversão a partir de decimal.
+- Conversão direta entre binário, octal e hexadecimal.
+- Parte fracionária, e quando a conta não termina.
+
+## O propósito deste capítulo {.smaller}
+
+> Ser capaz de escrever o mesmo valor em qualquer das quatro bases usadas na
+> área, converter entre elas com procedimento conferível, e dizer o que a
+> escolha da base muda e o que ela não muda.
+
+. . .
+
+O capítulo 4 movimentou os números $12$, $30$ e $42$ sem dizer em que forma eles
+estavam escritos.
+
+. . .
+
+Reparem no verbo: **converter**. Procedimento mecânico, com resultado
+conferível.
+
+# Parem aqui {background-color="#1a1a1a"}
+
+## Escrevam agora {background-color="#1a1a1a" .r-fit-text}
+
+Escrevam a sequência $1011$.
+
+**Quanto ela vale, e por que ela vale isso?**
+
+## Mais duas perguntas {background-color="#1a1a1a"}
+
+Quantos valores diferentes vocês escrevem com três dígitos, se cada dígito só
+pode ser $0$ ou $1$?
+
+. . .
+
+E qual é o maior deles?
+
+. . .
+
+Guardem a folha. Ela volta no fim da aula.
+
+# A resposta depende de uma convenção
+
+## $1011$ vale quatro coisas {.smaller}
+
+| Lida como | Vale |
+|---|---|
+| Decimal | $1\,011$ |
+| Binária | $11$ |
+| Octal | $521$ |
+| Hexadecimal | $4\,113$ |
+
+. . .
+
+As quatro estão certas. Nada na sequência escrita diz qual foi a pretendida.
+
+## O ponto de partida {.smaller}
+
+Uma sequência de dígitos não carrega o próprio valor. Ela carrega o valor
+**junto com a convenção** de leitura.
+
+. . .
+
+Quando a convenção é sempre a mesma, ela desaparece de vista.
+
+. . .
+
+> O que faz uma sequência de dígitos significar um valor, que convenções existem
+> além da decimal, e como se passa de uma para a outra?
+
+# O que faz um sistema ser posicional
+
+## Três elementos {.smaller}
+
+::: {.incremental}
+- **Base** — a quantidade de dígitos distintos disponíveis.
+- **Repertório de dígitos** — o conjunto desses símbolos.
+- **Peso** — a potência da base correspondente à posição.
+:::
+
+. . .
+
+Em um valor inteiro, a vírgula fica logo depois do dígito mais à direita, mesmo
+sem estar escrita.
+
+## O peso de cada posição
+
+![](../diagrams/05/decomposicao-posicional.svg){width=92% fig-alt="Duas linhas com a mesma estrutura: 3507 em base dez, com pesos 10³ a 10⁰ e produtos 3000, 500, 0 e 7; e 1011 em base dois, com pesos 2³ a 2⁰ e produtos 8, 0, 2 e 1."}
+
+## A regra inteira {.smaller}
+
+A posição mais à direita tem peso $1$. Cada posição à esquerda vale a anterior
+multiplicada pela base.
+
+. . .
+
+O valor é a soma dos produtos entre cada dígito e o peso da sua posição.
+
+. . .
+
+Vocês aplicam isso desde a alfabetização. Enunciar a regra é o que permite
+trocar a base sem trocar o método.
+
+## Um sistema sem posição {.smaller}
+
+| Valor | Romano | Decimal |
+|---|---|---|
+| catorze | XIV | $14$ |
+| quarenta e um | XLI | $41$ |
+| cento e quatro | CIV | $104$ |
+| mil e quarenta | MXL | $1\,040$ |
+
+. . .
+
+O X vale dez em qualquer lugar da sequência [@ifrah1997].
+
+## O que muda sem a posição {.smaller}
+
+::: {.incremental}
+- A quantidade de símbolos cresce com o valor, e não com a quantidade de
+  posições.
+- Cada nova ordem de grandeza exige um símbolo novo.
+- Somar exige um procedimento que muda conforme os números somados.
+:::
+
+. . .
+
+Em um sistema posicional, a soma é o mesmo algoritmo em qualquer base. É o
+capítulo 6.
+
+## O zero marca posição {.smaller}
+
+Sem um símbolo para a posição sem dígito, $307$ e $37$ ficam indistinguíveis
+[@ifrah1997].
+
+. . .
+
+O zero como quantidade nula veio depois, e é outra ideia.
+
+## Base sessenta, há quase quatro mil anos
+
+![A. Urcia, Yale Peabody Museum, CC0, Wikimedia Commons](../diagrams/05/tablete-ybc7289.jpg){width=68% fig-alt="Tablete de argila com um quadrado e suas diagonais, e os números 30, 1, 24, 51, 10, 42, 25 e 35 transcritos em decimal ao lado das cunhas."}
+
+## O que está escrito nele {.smaller}
+
+Os grupos sobre a diagonal são $1$, $24$, $51$ e $10$, cada um um dígito da base
+sessenta:
+
+$$1 + \tfrac{24}{60} + \tfrac{51}{3\,600} + \tfrac{10}{216\,000} \approx
+1{,}41421$$
+
+. . .
+
+Raiz de dois, com cinco casas decimais corretas. O grupo de baixo, $42$, $25$ e
+$35$, é esse valor vezes o lado $30$.
+
+. . .
+
+A base dez não tem nada de especial além do costume. A base sessenta sobreviveu
+nos minutos e nos segundos.
+
+# As quatro bases
+
+## Uma base $b$ tem $b$ dígitos {.smaller}
+
+| Nome | Base | Dígitos | Onde aparece |
+|---|---|---|---|
+| Decimal | $10$ | $0$ a $9$ | Uso diário, entrada e saída |
+| Binária | $2$ | $0$ e $1$ | Interior do equipamento |
+| Octal | $8$ | $0$ a $7$ | Permissões de arquivo em sistemas Unix |
+| Hexadecimal | $16$ | $0$ a $9$ e A a F | Endereços, cores, identificadores |
+
+. . .
+
+Não existe o dígito $b$ em nenhuma base.
+
+## As seis letras {.smaller}
+
+A base dezesseis precisa de dezesseis dígitos, e o repertório decimal tem dez
+símbolos.
+
+. . .
+
+A, B, C, D, E e F valem dez, onze, doze, treze, catorze e quinze. A escolha de
+letras é convenção.
+
+. . .
+
+Escrevam em maiúsculas, como no livro.
+
+## Contar nas quatro bases {.smaller .scrollable}
+
+| Decimal | Binária | Octal | Hexadecimal |
+|---|---|---|---|
+| $0$ | $0$ | $0$ | $0$ |
+| $1$ | $1$ | $1$ | $1$ |
+| $2$ | $10$ | $2$ | $2$ |
+| $3$ | $11$ | $3$ | $3$ |
+| $4$ | $100$ | $4$ | $4$ |
+| $5$ | $101$ | $5$ | $5$ |
+| $6$ | $110$ | $6$ | $6$ |
+| $7$ | $111$ | $7$ | $7$ |
+| $8$ | $1000$ | $10$ | $8$ |
+| $9$ | $1001$ | $11$ | $9$ |
+| $10$ | $1010$ | $12$ | $\mathrm{A}$ |
+| $11$ | $1011$ | $13$ | $\mathrm{B}$ |
+| $12$ | $1100$ | $14$ | $\mathrm{C}$ |
+| $13$ | $1101$ | $15$ | $\mathrm{D}$ |
+| $14$ | $1110$ | $16$ | $\mathrm{E}$ |
+| $15$ | $1111$ | $17$ | $\mathrm{F}$ |
+| $16$ | $10000$ | $20$ | $10$ |
+
+## A regra da contagem {.smaller}
+
+Incrementa-se o dígito da direita. Quando ele passa do último símbolo do
+repertório, volta a zero e o dígito à esquerda é incrementado.
+
+. . .
+
+A base decide apenas onde está esse limite.
+
+## Como escrever a base {.smaller}
+
+No livro, a base vai em subscrito, em algarismos decimais: $1011_2$, $234_8$,
+$9\mathrm{C}_{16}$, $156_{10}$.
+
+. . .
+
+Valor sem subscrito é decimal.
+
+. . .
+
+Em código vocês vão ver `0b1011`, `0o234` e `0x9C`. É assunto do capítulo 7.
+
+# Por que a base dois
+
+## A escolha vem do circuito
+
+Qualquer base funciona no papel.
+
+. . .
+
+A diferença aparece quando é preciso construir o dispositivo que guarda o
+dígito.
+
+## Dois níveis, ou dez
+
+![](../diagrams/05/dois-niveis.svg){width=88% fig-alt="Duas colunas cobrindo o mesmo eixo de tensão: à esquerda, duas faixas largas separadas por uma faixa sem significado; à direita, dez faixas estreitas encostadas."}
+
+## A folga é o argumento {.smaller}
+
+::: {.incremental}
+- Com dois níveis, sobra uma faixa larga que não é dígito nenhum. Tensão que
+  cai nela é ruído.
+- Com dez níveis, as faixas ficam encostadas, e a mesma flutuação troca o
+  dígito.
+:::
+
+. . .
+
+O dispositivo apenas decide de que lado da faixa a tensão está, sem precisar
+medi-la.
+
+## A matemática já estava pronta {.smaller}
+
+@shannon1938 mostrou que circuitos de chaves e relés executam a álgebra de dois
+valores apresentada no capítulo 2.
+
+. . .
+
+Quando a eletrônica precisou de uma representação, a base dois e a álgebra que
+opera sobre ela já existiam.
+
+. . .
+
+É desse ponto que parte Sistemas Digitais, no quarto período.
+
+## O ENIAC era decimal {.smaller}
+
+Cada dígito ficava em um anel de dez posições, com uma delas ativa por vez, e
+consumia trinta e seis válvulas [@weik1955].
+
+. . .
+
+Funcionava, e custava caro em componentes.
+
+## O relatório de 1946 {.smaller}
+
+@burks1946 recomendam a base dois por três razões:
+
+::: {.incremental}
+- A mesma precisão com menos dígitos e menos equipamento.
+- Multiplicar por um dígito binário devolve o multiplicando ou zero, contra dez
+  casos em decimal.
+- A lógica, que opera com sim e não, já é binária.
+:::
+
+. . .
+
+O custo declarado: converter na entrada e na saída, porque as pessoas escrevem
+em decimal.
+
+## A base dois em papel, em 1703
+
+![Leibniz, domínio público, Wikimedia Commons](../diagrams/05/leibniz-1703.png){width=44% fig-alt="Página impressa antiga com uma tabela de sequências de zeros e uns ao lado dos valores 0 a 32, e quatro blocos de contas armadas em base dois."}
+
+## O que a página mostra {.smaller}
+
+A coluna da esquerda é a contagem até trinta e dois. Os quatro blocos são
+adição, subtração, multiplicação e divisão em base dois [@leibniz1703].
+
+. . .
+
+Leibniz observa que a multiplicação binária dispensa a tabuada decorada.
+
+. . .
+
+O mesmo argumento reaparece em 1946, com outra finalidade.
+
+## Bits que se veem a olho nu
+
+![TedColes, domínio público, Wikimedia Commons](../diagrams/05/fita-perfurada.jpg){width=70% fig-alt="Dois rolos de fita de papel perfurado, um de cinco posições por linha e outro de oito."}
+
+## Furo, ou papel intacto {.smaller}
+
+Cada linha da fita guarda um caractere. Cada posição guarda um bit.
+
+. . .
+
+A fileira contínua de furos pequenos é a tração, e não guarda dado.
+
+. . .
+
+Cinco posições, ou oito. É a mesma conta: com $n$ bits, $2^n$ valores.
+
+## As potências de dois {.smaller .scrollable}
+
+| Expoente | Potência | Onde aparece |
+|---|---|---|
+| $2^3$ | $8$ | Um dígito octal |
+| $2^4$ | $16$ | Um dígito hexadecimal |
+| $2^7$ | $128$ | Peso do bit mais à esquerda de um byte |
+| $2^8$ | $256$ | Valores distintos de um byte |
+| $2^{10}$ | $1\,024$ | O "K" de kilobyte na contagem binária |
+| $2^{16}$ | $65\,536$ | Valores de dois bytes |
+| $2^{20}$ | $1\,048\,576$ | O "M" de megabyte |
+| $2^{32}$ | $4\,294\,967\,296$ | Endereços de uma máquina de 32 bits |
+
+## $2^n$ e $2^n - 1$ {.smaller}
+
+Com $n$ bits existem $2^n$ sequências, que representam os valores de $0$ até
+$2^n - 1$.
+
+. . .
+
+Com três bits: oito sequências, valores de $0$ a $7$, e o maior é $111_2$.
+
+. . .
+
+O erro comum é responder oito, por esquecer que a contagem começa em zero.
+
+# Conversão para decimal
+
+## O procedimento {.smaller}
+
+Atribuam a cada dígito o peso da sua posição, $b^0$, $b^1$, $b^2$, da direita
+para a esquerda.
+
+. . .
+
+Multipliquem cada dígito pelo seu peso e somem.
+
+. . .
+
+O resultado sai em decimal porque a conta é feita em decimal.
+
+## Três exemplos, um valor {.smaller}
+
+$$10011100_2 = 128 + 16 + 8 + 4 = 156_{10}$$
+
+. . .
+
+$$234_8 = 2 \times 64 + 3 \times 8 + 4 = 156_{10}$$
+
+. . .
+
+$$9\mathrm{C}_{16} = 9 \times 16 + 12 = 156_{10}$$
+
+. . .
+
+O $\mathrm{C}$ entra na conta como doze. É onde nascem quase todos os erros de
+conversão hexadecimal.
+
+# Conversão a partir de decimal
+
+## Divisões sucessivas {.smaller}
+
+Dividam pela base de destino, anotando quociente e resto. Repitam sobre o
+quociente, até ele chegar a zero.
+
+. . .
+
+Os restos, lidos **do último para o primeiro**, são os dígitos.
+
+. . .
+
+O resto de uma divisão por $b$ é sempre menor que $b$, e por isso é sempre um
+dígito válido.
+
+## $156_{10}$ em base dois {.smaller .scrollable}
+
+| Divisão | Quociente | Resto | Ordem de leitura |
+|---|---|---|---|
+| $156 \div 2$ | $78$ | $0$ | oitavo dígito |
+| $78 \div 2$ | $39$ | $0$ | sétimo dígito |
+| $39 \div 2$ | $19$ | $1$ | sexto dígito |
+| $19 \div 2$ | $9$ | $1$ | quinto dígito |
+| $9 \div 2$ | $4$ | $1$ | quarto dígito |
+| $4 \div 2$ | $2$ | $0$ | terceiro dígito |
+| $2 \div 2$ | $1$ | $0$ | segundo dígito |
+| $1 \div 2$ | $0$ | $1$ | primeiro dígito |
+
+## O erro mais frequente {.smaller}
+
+Lidos de baixo para cima: $10011100_2$.
+
+. . .
+
+Lidos na ordem em que foram escritos: $00111001_2$, que vale $57_{10}$.
+
+. . .
+
+Anotem o sentido da leitura na folha enquanto o procedimento não estiver
+automático.
+
+## As outras duas bases {.smaller}
+
+| Base | Divisões | Resultado |
+|---|---|---|
+| Octal | $156 \div 8 = 19$ resto $4$; $19 \div 8 = 2$ resto $3$; $2 \div 8 = 0$ resto $2$ | $234_8$ |
+| Hexadecimal | $156 \div 16 = 9$ resto $12$; $9 \div 16 = 0$ resto $9$ | $9\mathrm{C}_{16}$ |
+
+. . .
+
+O resto $12$ vira o dígito $\mathrm{C}$ na hora de escrever.
+
+. . .
+
+Oito divisões em base dois, duas em base dezesseis.
+
+## Conferir pelo caminho inverso {.smaller}
+
+Toda conversão por divisões se confere pela soma dos pesos.
+
+. . .
+
+Custa menos de um minuto e pega os dois erros comuns: a ordem dos restos e o
+valor de um dígito hexadecimal.
+
+# Entre binário, octal e hexadecimal
+
+## Por que existe caminho direto {.smaller}
+
+$8 = 2^3$ e $16 = 2^4$.
+
+. . .
+
+Cada dígito octal corresponde a três bits. Cada dígito hexadecimal, a quatro.
+
+## Grupos de três e de quatro
+
+![](../diagrams/05/agrupamento-bits.svg){width=98% fig-alt="Doze bits agrupados de quatro em quatro acima, dando D72 em hexadecimal, e de três em três abaixo, dando 6562 em octal."}
+
+## O agrupamento começa pela direita {.smaller}
+
+Com $10011100_2$: os grupos de quatro são $1001$ e $1100$, ou seja $9$ e
+$\mathrm{C}$.
+
+. . .
+
+Os grupos de três são $100$, $011$ e $10$. O último recebe um zero à esquerda e
+vira $010$: $234_8$.
+
+. . .
+
+No sentido inverso, $2_{16}$ vira $0010$, e não $10$.
+
+## Por que o hexadecimal aparece tanto {.smaller}
+
+Um byte tem oito bits, e portanto **exatamente dois dígitos hexadecimais**
+[@patterson2014].
+
+. . .
+
+A cor `#1E90FF` de uma página web é um trio de bytes: `1E` de vermelho, `90` de
+verde, `FF` de azul.
+
+. . .
+
+O endereço físico de uma placa de rede são seis bytes: `00:1A:2B:3C:4D:5E`.
+
+## Onde o octal paga {.smaller}
+
+Permissão de arquivo em sistemas Unix: três grupos de três bits, para o dono,
+para o grupo e para os demais.
+
+. . .
+
+Dentro de cada grupo, os bits dizem ler, escrever e executar.
+
+. . .
+
+O dono lê e escreve, os outros só leem: $110\,100\,100$, que agrupado dá
+$644_8$.
+
+# A parte fracionária
+
+## Pesos à direita da vírgula {.smaller}
+
+As posições valem $b^{-1}$, $b^{-2}$, $b^{-3}$. Em base dois, $\frac{1}{2}$,
+$\frac{1}{4}$, $\frac{1}{8}$.
+
+$$0{,}101_2 = 0{,}5 + 0{,}125 = 0{,}625_{10}$$
+
+## Multiplicações sucessivas {.smaller}
+
+| Multiplicação | Produto | Dígito | Resto fracionário |
+|---|---|---|---|
+| $0{,}625 \times 2$ | $1{,}25$ | $1$ | $0{,}25$ |
+| $0{,}25 \times 2$ | $0{,}5$ | $0$ | $0{,}5$ |
+| $0{,}5 \times 2$ | $1{,}0$ | $1$ | $0$ |
+
+. . .
+
+Os dígitos são lidos **de cima para baixo**, ao contrário dos restos da divisão.
+
+. . .
+
+$156{,}625_{10} = 10011100{,}101_2$: as duas partes são convertidas em separado
+e reunidas no fim.
+
+## Quando a conta não termina {.smaller}
+
+$$0{,}1_{10} = 0{,}0001100110011\ldots_2$$
+
+. . .
+
+Uma fração tem escrita finita quando o denominador reduzido só tem fatores
+primos que dividem a base.
+
+. . .
+
+A base dez tem os fatores dois e cinco. A base dois tem só o dois.
+
+## O que isso custa {.smaller}
+
+O valor guardado no lugar de $0{,}1$ é o mais próximo que os bits disponíveis
+permitem, e não é igual a $0{,}1$ [@goldberg1991].
+
+. . .
+
+Somar $0{,}1$ com $0{,}2$ não dá exatamente $0{,}3$. A norma que define esse
+comportamento é a IEEE 754 [@ieee754].
+
+. . .
+
+Daí vêm duas práticas: guardar dinheiro em centavos, como inteiro, e comparar
+fracionários por tolerância.
+
+# Escolher a base
+
+## Conforme o que se quer ler {.smaller}
+
+| Situação | Base | Motivo |
+|---|---|---|
+| Entrada e saída para pessoas | Decimal | É a convenção do leitor |
+| Mostrar os bits individuais | Binária | Cada bit fica visível |
+| Endereço, conteúdo de memória, byte | Hexadecimal | Dois dígitos por byte |
+| Permissão de arquivo em sistema Unix | Octal | Três bits por dígito |
+
+. . .
+
+Nenhuma linha fala em valor. Todas falam em leitura.
+
+## O erro que a tabela previne {.smaller}
+
+Tratar a base como propriedade do valor.
+
+. . .
+
+"Esse número está em binário?" costuma ser pergunta sobre exibição.
+
+. . .
+
+Dentro do equipamento, tudo está em base dois desde o capítulo 4.
+
+# Treino
+
+## Dez conversões, com resposta {.smaller .scrollable}
+
+| Exercício | Resposta |
+|---|---|
+| 1. $101101_2$ para decimal | $45_{10}$ |
+| 2. $57_8$ para decimal | $47_{10}$ |
+| 3. $\mathrm{B}4_{16}$ para decimal | $180_{10}$ |
+| 4. $89_{10}$ para base dois | $1011001_2$ |
+| 5. $89_{10}$ para octal e hexadecimal | $131_8$ e $59_{16}$ |
+| 6. $11010110_2$ para octal e hexadecimal | $326_8$ e $\mathrm{D}6_{16}$ |
+| 7. $2\mathrm{F}_{16}$ para base dois e octal | $101111_2$ e $57_8$ |
+| 8. $180_{10}$ para base dois | $10110100_2$ |
+| 9. $0{,}75_{10}$ para base dois | $0{,}11_2$ |
+| 10. $0{,}3_{10}$ para base dois, seis casas | $0{,}010011_2$, e não termina |
+
+. . .
+
+Não valem nota. Existem para vocês chegarem ao capítulo 6 sem reler este.
+
+# O que reter
+
+## Aqui, quase tudo é procedimento {.smaller .scrollable}
+
+| Assunto | Reter | Basta reconhecer |
+|---|---|---|
+| Sistema posicional | Base, dígito, peso da posição | Sistema não posicional, base sessenta |
+| Bases | As quatro bases e seus repertórios; $2^n$ valores com $n$ bits | Notação `0x`, `0b` e `0o` |
+| Para decimal | Soma dos dígitos multiplicados pelos pesos | |
+| De decimal | Divisões sucessivas, restos de baixo para cima | Subtração de potências |
+| Entre 2, 8 e 16 | Agrupamento de três e de quatro bits | |
+| Fracionário | Pesos à direita da vírgula; multiplicações sucessivas | Dízima em base dois, IEEE 754 |
+
+. . .
+
+As potências de dois até $2^{10}$ entram na coluna do meio. O capítulo 6 supõe
+essa fluência.
+
+# A tarefa desta semana
+
+## Aplicação {.smaller}
+
+Convertam $203_{10}$ para as bases dois, oito e dezesseis, mostrando as divisões
+sucessivas e o sentido de leitura.
+
+. . .
+
+Confiram de duas maneiras: pela soma dos pesos, e pelo agrupamento de bits.
+
+. . .
+
+Qual das três conversões exigiu menos passos, e por quê?
+
+. . .
+
+Extensão: $203{,}4_{10}$, com seis casas. Em qual das bases a parte fracionária
+termina?
+
+## Transferência {.smaller}
+
+Encontrem um valor em hexadecimal no equipamento de vocês: cor de página,
+endereço de placa de rede, identificador, mensagem de erro.
+
+. . .
+
+Quantos bits ele ocupa? Convertam um byte dele para decimal.
+
+. . .
+
+Por que quem escreveu escolheu hexadecimal? E por que o equipamento guarda esse
+valor em base dois?
+
+. . .
+
+Se a equipe já escolheu o objeto do trabalho integrador, procurem o valor dentro
+dele.
+
+## Integração {.smaller}
+
+Recuperem a folha da abertura.
+
+::: {.incremental}
+- A sua leitura de $1011$ dizia em que base ela estava?
+- A resposta sobre a quantidade de valores era oito, e a do maior deles era
+  sete?
+- Se as duas divergiram, qual das duas vocês erraram?
+:::
+
+## O que fecha o capítulo {.smaller}
+
+Contar sequências e nomear a maior delas são operações distintas.
+
+. . .
+
+A diferença entre $2^n$ e $2^n - 1$ reaparece no capítulo 6, no intervalo de um
+byte com sinal, e no capítulo 12, no identificador que precisa distinguir cada
+titular.
+
+. . .
+
+O capítulo 6 usa este como ferramenta: soma, subtrai, multiplica e representa
+negativos em base dois.
 
 ## Referências {.scrollable}
 

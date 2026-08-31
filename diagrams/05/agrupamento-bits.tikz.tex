@@ -1,0 +1,49 @@
+% O mesmo valor binário lido em grupos de três e em grupos de quatro bits.
+%
+% A figura existe para mostrar que octal e hexadecimal são leituras da mesma
+% sequência de bits, e não outras representações do valor: os bits do meio da
+% figura são os mesmos nas duas leituras, e só as chaves mudam de lugar.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm]
+
+  \def\passo{0.9}
+
+  % --- Os doze bits -------------------------------------------------------
+  \foreach \b [count=\i from 0] in {1,1,0,1,0,1,1,1,0,0,1,0} {
+    \node[bloco dado, minimum width=7mm, minimum height=8mm, font=\small]
+      at (\i*\passo, 0) {\b};
+  }
+  \node[rotulo peq, anchor=east, font=\footnotesize] at (-0.75, 0)
+    {$110101110010_2$};
+
+  % --- Grupos de quatro, acima: hexadecimal -------------------------------
+  \foreach \a/\z/\d in {0/3/\mathrm{D}, 4/7/7, 8/11/2} {
+    \draw[decorate, decoration={brace, amplitude=4pt}, draw=procborda,
+          line width=0.8pt]
+      (\a*\passo - 0.38, 0.62) -- (\z*\passo + 0.38, 0.62);
+    \node[rotulo, text=procborda]
+      at ({(\a+\z)/2*\passo}, 1.35) {$\d$};
+  }
+  \node[rotulo peq, anchor=west, font=\footnotesize, text=procborda]
+    at (11*\passo + 0.7, 1.35) {$=\;\mathrm{D}72_{16}$};
+  \node[rotulo peq, anchor=east, font=\footnotesize] at (-0.75, 1.35)
+    {grupos de quatro bits};
+
+  % --- Grupos de três, abaixo: octal --------------------------------------
+  \foreach \a/\z/\d in {0/2/6, 3/5/5, 6/8/6, 9/11/2} {
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}, draw=memborda,
+          line width=0.8pt]
+      (\a*\passo - 0.38, -0.62) -- (\z*\passo + 0.38, -0.62);
+    \node[rotulo, text=memborda]
+      at ({(\a+\z)/2*\passo}, -1.35) {$\d$};
+  }
+  \node[rotulo peq, anchor=west, font=\footnotesize, text=memborda]
+    at (11*\passo + 0.7, -1.35) {$=\;6562_8$};
+  \node[rotulo peq, anchor=east, font=\footnotesize] at (-0.75, -1.35)
+    {grupos de três bits};
+
+\end{tikzpicture}
+\end{document}

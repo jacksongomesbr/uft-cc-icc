@@ -11,6 +11,7 @@ title: "Organização básica do hardware"
   componentes.
 - Classificar periféricos e dispositivos por sua função de entrada, saída ou
   ambas.
+- Prever em que ponto do percurso de um valor o tempo de uma operação é gasto.
 
 ## Conteúdo previsto
 
@@ -93,9 +94,11 @@ ligações entre os blocos, que é o que o capítulo anterior deixou de fora.
 
 O conjunto desenhado dentro da moldura tem um nome próprio, que aparece na
 ementa e nos catálogos de equipamento: **unidade central de processamento**, ou
-processador. As três siglas em inglês que vocês vão encontrar para ela são CPU,
-core e die, e nenhuma das três significa exatamente a mesma coisa; a seção sobre
-a fotografia do processador volta a esse ponto.
+processador. Em inglês ele é *central processing unit*, abreviado como CPU, e é
+essa sigla que vocês vão encontrar na maioria dos textos e dos anúncios.
+
+Duas outras palavras em inglês aparecem junto dela e nomeiam coisas diferentes,
+*core* e *die*. A seção sobre a fotografia do processador separa as três.
 
 ### A unidade de controle
 
@@ -110,6 +113,12 @@ chave de luz decide: o que ela faz é determinado pelo padrão de bits da
 instrução que ela acabou de buscar, e o mesmo padrão produz sempre o mesmo
 acionamento.
 
+Um **bit** é a menor porção de informação que o equipamento guarda, e ela tem
+dois estados possíveis. Um **byte** é um grupo de oito bits, e é a unidade em
+que se mede capacidade: os KB, MB e GB dos anúncios são múltiplos dele. Os dois
+termos bastam assim por enquanto, e o capítulo 6 os retoma com o cuidado que
+eles merecem.
+
 Nenhum bloco desenhado na @fig-cpu-interna sabe o que o programa está fazendo.
 A unidade de controle sabe qual é a instrução atual, e apenas ela.
 
@@ -121,8 +130,7 @@ e devolve um resultado.
 
 O repertório dela é curto: somar, subtrair, comparar dois valores, e um punhado
 de operações sobre os bits individuais. O capítulo 6 mostra como a multiplicação
-e a divisão são construídas a partir da soma e do deslocamento, e por que
-algumas máquinas trazem circuitos dedicados para elas.
+e a divisão são construídas a partir da soma e do deslocamento.
 
 A unidade lógica e aritmética não busca nada e não guarda nada. Ela recebe
 valores prontos, produz um resultado e o entrega de volta. Quem foi buscar os
@@ -198,31 +206,29 @@ substituído.
 
 : Os dez passos de uma soma entre dois valores guardados na memória. {#tbl-soma-passos}
 
-Dois pontos da @tbl-soma-passos costumam surpreender.
-
-O primeiro é a quantidade de passos. A lista de três passos da abertura está
-contida nesta, e os sete passos adicionais são todos movimentação de valores
-entre a memória e os registradores.
-
-O segundo é a coincidência entre o endereço $42$ do passo 8 e o resultado $42$
-da soma do passo 7. Os dois números são iguais por acaso, e a @tbl-soma-passos
-foi montada assim de propósito, porque essa confusão aparece com frequência: um
-número na memória é endereço ou é dado conforme o uso que se faz dele, e nada no
-número em si distingue os dois casos. O capítulo 3 fez essa observação sobre a
+O endereço $42$ do passo 8 e o resultado $42$ da soma do passo 7 são iguais por
+acaso, e a @tbl-soma-passos foi montada assim de propósito. Um número na memória
+é endereço ou é dado conforme o uso que se faz dele, e nada no número em si
+distingue os dois casos. O capítulo 3 fez essa observação sobre a
 @tbl-memoria-minima, e aqui ela reaparece com consequência prática.
+
+A quantidade de passos é o que costuma surpreender. A lista de três passos da
+abertura está contida nesta, e os sete passos adicionais são todos movimentação
+de valores entre a memória e os registradores.
 
 Dos dez passos, apenas o passo 7 é a soma. Os outros nove existem para levar os
 valores até onde a soma pode acontecer e para trazer o resultado de volta.
 
 ### O que uma fotografia do processador mostra
 
-A @fig-die-zen2 é a fotografia de um processador sem o encapsulamento, tirada
-com iluminação que realça as camadas metálicas. O retângulo de silício
-fotografado tem alguns milímetros de lado.
+A @fig-die-zen2 é a fotografia de um processador sem o encapsulamento, em cores
+falsas, com a iluminação escolhida para realçar as camadas metálicas. O
+retângulo de silício fotografado tem cerca de um centímetro no lado maior.
 
-![Fotografia de um núcleo de processador AMD Zen 2, sem encapsulamento. Autoria de Fritzchens Fritz, em domínio público voluntário (CC0), obtida no Wikimedia Commons.](../diagrams/04/die-zen2.jpg){#fig-die-zen2 width=82% fig-alt="Fotografia em cores falsas de uma pastilha retangular de silício, vista em perspectiva. A superfície é dividida em blocos regulares de tamanhos diferentes. Regiões extensas mostram um padrão repetido de retângulos idênticos, em fileiras e colunas. Entre essas regiões há faixas estreitas com estruturas irregulares e miúdas, sem repetição visível."}
+![Fotografia, em cores falsas, da pastilha de um processador AMD Zen 2 sem o encapsulamento. Autoria de Fritzchens Fritz, em domínio público voluntário (CC0), obtida no Wikimedia Commons.](../diagrams/04/die-zen2.jpg){#fig-die-zen2 width=82% fig-alt="Fotografia em cores falsas de uma pastilha retangular de silício, vista em perspectiva. A superfície é dividida em blocos regulares de tamanhos diferentes. Regiões extensas mostram um padrão repetido de retângulos idênticos, em fileiras e colunas. Entre essas regiões há faixas estreitas com estruturas irregulares e miúdas, sem repetição visível."}
 
-Duas coisas na @fig-die-zen2 são visíveis a olho nu e valem a observação.
+Duas regiões de aparência diferente dividem a superfície da @fig-die-zen2, e a
+diferença entre elas é visível a olho nu.
 
 As regiões extensas com padrão repetido são memória. Cada retângulo idêntico é
 uma célula que guarda um bit, e a repetição existe porque a memória é o mesmo
@@ -244,8 +250,8 @@ Um equipamento anunciado com oito núcleos tem oito conjuntos como o da
 ## O repertório de instruções
 
 O capítulo 3 afirmou que o conjunto de operações que um processador executa é
-pequeno e pobre. Esta seção mostra quão pequeno, e o que isso significa na
-prática.
+pequeno e pobre. Tudo o que um computador faz é combinação de somas,
+comparações e cópias de um valor de um lugar para outro.
 
 ### O que uma instrução carrega
 
@@ -266,15 +272,16 @@ que possam ser lidos.
 
 : Os campos de três instruções. A primeira soma o conteúdo dos registradores 1 e 2 e guarda em 3; a segunda traz para o registrador 1 o conteúdo da posição 40 da memória; a terceira faz a execução continuar na posição 12, se a última comparação deu maior. {#tbl-campos-instrucao}
 
-A instrução inteira, na memória, é uma sequência de bits e ocupa um espaço fixo
-na maioria das máquinas, tipicamente quatro bytes. Os campos são fatias dessa
-sequência, e a unidade de controle sabe onde cada fatia começa porque o formato
-é fixo.
+A instrução inteira, na memória, é uma sequência de bits. Em muitas famílias de
+processador ela tem tamanho fixo, tipicamente quatro bytes, e a unidade de
+controle sabe onde cada campo começa porque o formato não varia. Em outras
+famílias, a x86 entre elas, a instrução tem comprimento variável, e descobrir
+onde ela termina faz parte do trabalho de decodificar.
 
 ### As famílias de instrução
 
-Todo repertório de instruções, em qualquer máquina, se organiza em quatro
-famílias. A @tbl-familias-instrucao lista as quatro com exemplos.
+Um repertório de instruções se organiza em quatro famílias, e a
+@tbl-familias-instrucao lista as quatro com exemplos.
 
 | **Família** | **O que faz** | **Exemplos** |
 |---|---|---|
@@ -283,7 +290,13 @@ famílias. A @tbl-familias-instrucao lista as quatro com exemplos.
 | Controle de fluxo | Muda qual é a próxima instrução | desviar, desviar se igual, chamar |
 | Entrada e saída | Conversa com dispositivos fora do processador | ler porta, escrever porta |
 
-: As quatro famílias de instrução presentes em qualquer repertório. {#tbl-familias-instrucao}
+: As quatro famílias em que as instruções de uma máquina se organizam. {#tbl-familias-instrucao}
+
+A quarta família tem existência menos garantida que as outras três. Várias
+máquinas, entre elas as da família ARM, alcançam o dispositivo pelas mesmas
+instruções de transferência de dados, sobre endereços reservados para ele, e
+dispensam por completo a instrução de entrada e saída. A seção sobre barramentos
+mostra como isso funciona.
 
 A família de transferência de dados costuma ser a mais usada nos programas
 reais, e a @tbl-soma-passos já indicou o motivo: nove dos dez passos daquela
@@ -315,7 +328,8 @@ soma os valores das posições $40$ a $49$ e grava o total na posição $50$.
 
 : Um programa de nove instruções que soma dez valores guardados na memória. {#tbl-programa-soma}
 
-Três observações sobre a @tbl-programa-soma.
+A @tbl-programa-soma tem três características que valem mais que o programa em
+si, porque valem para qualquer programa.
 
 A primeira é o tamanho. Somar dez números exigiu nove instruções, e somar mil
 números exigiria as mesmas nove: o que muda é o valor $50$ da instrução do
@@ -345,17 +359,20 @@ As duas famílias que vocês vão encontrar com mais frequência são a x86, com
 computadores de mesa e servidores, e a ARM, comum em telefones e em
 computadores portáteis recentes.
 
-Essa é a razão técnica por trás de um fato que vocês já observaram sem
-explicação: um aplicativo baixado para um telefone não roda em um computador de
-mesa, e um programa distribuído para uma família de processadores precisa ser
-distribuído de novo, em outra versão, para a outra família. O capítulo 7 mostra
-o que muda no arquivo entre as duas versões.
+Daí vem metade da explicação de um fato que vocês já observaram: um programa
+distribuído para uma família de processadores precisa ser distribuído de novo,
+em outra versão, para a outra família.
+
+A outra metade é o sistema operacional, que também difere entre os dois
+equipamentos e também precisa reconhecer o arquivo. Um aplicativo de telefone
+que não abre no computador de mesa costuma esbarrar nas duas coisas ao mesmo
+tempo, e separar uma da outra é assunto do capítulo 7.
 
 ## A hierarquia de memória
 
-O capítulo 3 apresentou dois lugares para guardar coisas: a memória principal e
-o armazenamento secundário. Esta seção mostra que existem cinco, que a diferença
-entre os extremos é enorme, e por que essa divisão em níveis foi inventada.
+O capítulo 3 apresentou dois lugares para guardar coisas, a memória principal e
+o armazenamento secundário. São cinco, e o mais rápido alcança um valor cerca de
+dez milhões de vezes mais depressa que o mais lento.
 
 ### O problema que a hierarquia resolve
 
@@ -381,6 +398,12 @@ A @fig-hierarquia-memoria mostra os cinco níveis, com a ordem de grandeza da
 capacidade e do tempo de acesso de cada um.
 
 ![A hierarquia de memória em cinco níveis, com a ordem de grandeza da capacidade e do tempo de acesso. Números de [@patterson2014].](../diagrams/04/hierarquia-memoria.svg){#fig-hierarquia-memoria width=100% fig-alt="Cinco faixas horizontais empilhadas, de largura crescente de cima para baixo. De cima para baixo: registradores, com dezenas de valores e menos de 1 nanossegundo de acesso; memória cache, de kilobytes a dezenas de megabytes, de 1 a 30 nanossegundos; memória principal, de unidades a dezenas de gigabytes, cerca de 100 nanossegundos; disco de estado sólido, de centenas de gigabytes a terabytes, dezenas de microssegundos; e disco magnético, unidades de terabytes, cerca de 10 milissegundos. À esquerda, duas setas verticais indicam que a velocidade e o custo por byte crescem para cima e a capacidade cresce para baixo. Uma linha tracejada entre a memória principal e o disco de estado sólido separa os níveis voláteis, acima, dos não voláteis, abaixo."}
+
+Três unidades de tempo aparecem na @fig-hierarquia-memoria, e a relação entre
+elas é o que dá sentido à figura. Um milissegundo (ms) é a milésima parte do
+segundo, um microssegundo ($\mu$s) é a milésima parte do milissegundo, e um
+nanossegundo (ns) é a milésima parte do microssegundo. Entre o topo e a base da
+figura, portanto, há um fator de cerca de dez milhões.
 
 Os números da @fig-hierarquia-memoria são ordens de grandeza, e servem para
 comparar níveis entre si. Nenhum deles caracteriza um equipamento específico: um
@@ -449,19 +472,21 @@ Quando o valor procurado está na cache, o caso se chama **acerto**. Quando não
 está, se chama **falta**, e o processador paga o acesso à memória principal. A
 proporção de acertos entre todos os acessos é a **taxa de acerto**.
 
-Com uma taxa de acerto de $95\%$, o tempo médio de um acesso é
+Com uma taxa de acerto de $95\%$, todo acesso paga $1$ ns para consultar a
+cache, e $5\%$ deles pagam também $100$ ns para buscar o valor na memória
+principal. O tempo médio de um acesso é
 
-$$0{,}95 \times 1 \text{ ns} + 0{,}05 \times 100 \text{ ns} = 5{,}95 \text{ ns}.$$
+$$1 \text{ ns} + 0{,}05 \times 100 \text{ ns} = 6 \text{ ns}.$$
 
 Sem cache nenhuma, todo acesso custaria $100$ ns. A cache tornou o acesso médio
 cerca de dezessete vezes mais rápido.
 
 Com uma taxa de acerto de $99\%$, o mesmo cálculo dá
 
-$$0{,}99 \times 1 \text{ ns} + 0{,}01 \times 100 \text{ ns} = 1{,}99 \text{ ns},$$
+$$1 \text{ ns} + 0{,}01 \times 100 \text{ ns} = 2 \text{ ns},$$
 
-isto é, mais três vezes de ganho para uma melhora de quatro pontos na taxa de
-acerto. É essa desproporção que justifica o tamanho das caches na
+isto é, um ganho adicional de três vezes para uma melhora de quatro pontos na
+taxa de acerto. É essa desproporção que justifica o tamanho das caches na
 @fig-die-zen2: os últimos pontos percentuais de acerto valem muito, e comprá-los
 exige muita área.
 
@@ -472,12 +497,19 @@ qualitativa é a mesma.
 
 ### Exemplo: os mesmos tempos, em escala humana
 
-Nanossegundos e milissegundos são unidades sem intuição associada. A
-@fig-escala-de-tempo repete os tempos da @fig-hierarquia-memoria multiplicando
-todos por um mesmo fator, escolhido para que um ciclo do processador dure um
-segundo.
+Nanossegundos e milissegundos são unidades sem intuição associada, mesmo com a
+escala da seção anterior à mão. A @fig-escala-de-tempo repete os tempos da
+@fig-hierarquia-memoria multiplicando todos por um mesmo fator, escolhido para
+que um ciclo de relógio dure um segundo.
 
-![Os tempos de acesso da hierarquia em escala logarítmica, com a tradução para uma escala humana em que um ciclo do processador dura um segundo. Números de [@patterson2014].](../diagrams/04/escala-de-tempo.svg){#fig-escala-de-tempo width=100% fig-alt="Sete pontos dispostos sobre um eixo horizontal em escala logarítmica, com marcas em 1 nanossegundo, 1 microssegundo, 1 milissegundo e 1 segundo. Cada ponto tem à esquerda o nome do lugar onde o valor está e, junto de si, o tempo real e o tempo equivalente na escala humana. De baixo para cima: registrador, um ciclo do processador, um segundo; memória cache de nível 1, cerca de 1 nanossegundo, quatro segundos; memória cache de nível 3, cerca de 13 nanossegundos, quarenta segundos; memória principal, cerca de 100 nanossegundos, cinco minutos; disco de estado sólido, dezenas de microssegundos, dois dias; disco magnético, cerca de 10 milissegundos, um ano; ida e volta a outro continente pela rede, cerca de 150 milissegundos, catorze anos."}
+O processador trabalha ao ritmo de um sinal elétrico regular, o **relógio**, e
+cada batida desse sinal é um **ciclo de relógio**. É esse o número que aparece
+em gigahertz no anúncio de um computador: $3$ GHz são três bilhões de batidas
+por segundo, e cada uma dura cerca de um terço de nanossegundo. O ciclo de
+relógio é a menor unidade de tempo do equipamento, e não se confunde com o ciclo
+de busca e execução do capítulo 3, que leva vários deles.
+
+![Os tempos de acesso da hierarquia em escala logarítmica, com a tradução para uma escala humana em que um ciclo de relógio dura um segundo. Os cinco níveis da hierarquia vêm de [@patterson2014]; a ida e volta pela rede é ordem de grandeza observada, e depende da distância e do percurso.](../diagrams/04/escala-de-tempo.svg){#fig-escala-de-tempo width=100% fig-alt="Sete pontos dispostos sobre um eixo horizontal em escala logarítmica, com marcas em 1 nanossegundo, 1 microssegundo, 1 milissegundo e 1 segundo. Cada ponto tem à esquerda o nome do lugar onde o valor está e, junto de si, o tempo real e o tempo equivalente na escala humana. De baixo para cima: registrador, um ciclo de relógio, um segundo; memória cache de nível 1, cerca de 1 nanossegundo, quatro segundos; memória cache de nível 3, cerca de 13 nanossegundos, quarenta segundos; memória principal, cerca de 100 nanossegundos, cinco minutos; disco de estado sólido, dezenas de microssegundos, dois dias; disco magnético, cerca de 10 milissegundos, um ano; ida e volta a outro continente pela rede, cerca de 150 milissegundos, catorze anos."}
 
 A leitura da @fig-escala-de-tempo responde à terceira pergunta da folha de vocês.
 Um valor que está no registrador chega em um segundo. O mesmo valor, se estiver
@@ -503,7 +535,8 @@ dissipador.
 
 ![Módulo de memória principal DDR4, com oito pastilhas de memória e o contato de encaixe na borda inferior. Autoria de PantheraLeo1359531, licença CC BY 4.0, obtida no Wikimedia Commons.](../diagrams/04/modulo-ddr4.jpg){#fig-modulo-ddr4 width=95% fig-alt="Placa retangular verde e alongada, vista de frente. Sobre ela há oito pastilhas pretas retangulares idênticas, quatro à esquerda e quatro à direita, separadas ao centro por uma região de trilhas metálicas. A borda inferior é uma fileira de contatos dourados, interrompida por um encaixe fora do centro."}
 
-Três detalhes da @fig-modulo-ddr4 têm significado.
+Três detalhes da @fig-modulo-ddr4 dizem como o módulo se liga ao restante do
+equipamento.
 
 As oito pastilhas pretas são a memória propriamente dita, e o restante da placa
 existe para ligá-las ao equipamento. A capacidade anunciada do módulo é a soma
@@ -540,16 +573,18 @@ uma célula, sem nada que gire ou se desloque.
 
 ![Disco de estado sólido no formato M.2, com as pastilhas de memória e o contato de encaixe à direita. Autoria de D-Kuru, licença CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/04/ssd-m2.jpg){#fig-ssd width=95% fig-alt="Placa retangular estreita e alongada, vista de frente, com uma etiqueta escura cobrindo a maior parte da superfície. Na extremidade direita há uma fileira de contatos dourados com um encaixe. Não há partes móveis visíveis."}
 
-A ausência de partes móveis explica os três números que separam as duas
-tecnologias na @fig-hierarquia-memoria: o disco de estado sólido é cerca de
-quinhentas vezes mais rápido, custa mais por byte e, no mesmo preço, oferece
-menos capacidade.
+A ausência de partes móveis explica o primeiro dos números que separam as duas
+tecnologias na @fig-hierarquia-memoria: o disco de estado sólido alcança um
+valor cerca de quinhentas vezes mais depressa. Os outros dois, o custo por byte
+maior e a capacidade menor no mesmo preço, vêm de outro lugar, que é o preço de
+fabricar a célula de silício comparado ao de revestir um prato de metal.
 
 Uma diferença adicional não aparece na figura e importa para quem vai trabalhar
 com dados. A célula de um disco de estado sólido suporta um número limitado de
-escritas, na casa dos milhares, e depois deixa de reter carga. O equipamento
-distribui as escritas entre as células para adiar esse limite, e o assunto
-reaparece na disciplina de Sistemas Operacionais.
+escritas, na casa dos milhares para as tecnologias de maior densidade, e depois
+deixa de reter carga [@patterson2014]. O equipamento distribui as escritas entre
+as células para adiar esse limite, e o assunto reaparece na disciplina de
+Sistemas Operacionais.
 
 A @tbl-armazenamento reúne a comparação entre os dois.
 
@@ -574,9 +609,9 @@ de ter retorno.
 
 ## Os barramentos
 
-Os blocos vistos até aqui precisam trocar valores entre si. O caminho que eles
-usam se chama barramento, e o capítulo 3 o apresentou em uma frase. Esta seção
-abre a frase.
+Os blocos vistos até aqui precisam trocar valores entre si, e o capítulo 3
+resolveu o caminho entre eles em uma frase: existe um barramento. A frase esconde
+três funções distintas e uma disputa.
 
 ### O que um barramento é
 
@@ -603,9 +638,10 @@ Ele tem tráfego nos dois sentidos, porque o processador tanto envia valores par
 a memória quanto os recebe dela.
 
 O **barramento de endereços** transporta a indicação de onde ler ou escrever.
-Ele tem sentido único: quem escreve nele é sempre o processador, e a memória e
-as controladoras apenas leem. A seta de uma ponta só na @fig-barramentos é essa
-informação.
+Na operação iniciada pelo processador que a @fig-barramentos representa, ele tem
+sentido único: o processador escreve o endereço, e a memória e as controladoras
+o leem. Em uma transferência por acesso direto à memória, a controladora que
+faz a transferência também pode colocar endereços no barramento.
 
 O **barramento de controle** transporta os comandos e os avisos. É por ele que o
 processador diz se a operação é de leitura ou de escrita, e é por ele que uma
@@ -639,10 +675,16 @@ equipamentos reais.
 : O efeito da largura do barramento de endereços sobre a memória alcançável. {#tbl-largura-endereco}
 
 A segunda linha da @tbl-largura-endereco explica um fato que muita gente
-encontrou sem entender: computadores de $32$ bits não reconheciam mais de $4$ GB
-de memória, por mais módulos que fossem instalados. O limite vinha da quantidade
-de endereços diferentes que cabiam no barramento, e trocar o módulo ou o sistema
-operacional não o deslocava.
+encontrou sem entender: um equipamento que usa endereços de $32$ bits não
+alcança mais de $4$ GB de memória nessa organização, por mais módulos que sejam
+instalados. O limite vem da quantidade de endereços diferentes que cabem no
+barramento, e trocar o módulo não o desloca.
+
+Houve arranjos que contornaram esse limite, acrescentando vias de endereço e
+dividindo a memória em faixas alcançadas uma de cada vez. Eles funcionaram e
+foram trabalhosos, e é isso que os torna interessantes: quando a saída para uma
+limitação de projeto custa caro em toda parte, o mais provável é que a próxima
+geração do equipamento mude o projeto.
 
 A terceira linha explica por que a mudança para $64$ bits encerrou o assunto.
 O limite passou a ser tão alto que deixou de ser alcançável, e é essa a razão de
@@ -658,11 +700,11 @@ A regra que decide quem escreve em cada instante se chama **arbitragem**, e ela
 é implementada em circuito. O bloco que quer usar o barramento pede permissão
 pelo barramento de controle e espera até recebê-la.
 
-Duas consequências disso valem ser guardadas. A primeira é que aumentar a
-velocidade de um bloco não aumenta a velocidade do sistema quando o barramento
-já está saturado, e o capítulo 3 tratou desse tipo de erro de diagnóstico ao
-falar da escolha da camada. A segunda é que os equipamentos atuais deixaram de
-usar um barramento único justamente por esse motivo.
+A disputa tem duas consequências. Aumentar a velocidade de um bloco não aumenta
+a velocidade do sistema quando o barramento já está saturado, e o capítulo 3
+tratou desse tipo de erro de diagnóstico ao falar da escolha da camada. E os
+equipamentos atuais deixaram de usar um barramento único justamente por esse
+motivo.
 
 ### De um feixe único a vários caminhos
 
@@ -673,18 +715,19 @@ forma diferente, e vale saber em que sentido.
 A memória principal ganhou um caminho próprio até o processador, sem
 compartilhamento com o resto. Os dispositivos passaram a se ligar por caminhos
 ponto a ponto, cada um com as suas vias, em vez de disputarem um feixe comum; é
-esse o arranjo do padrão PCI Express, encontrado em qualquer computador vendido
-hoje.
+esse o arranjo do padrão PCI Express, encontrado em computadores de mesa e
+portáteis atuais.
 
 A ideia do barramento permanece útil como modelo, e as três funções continuam
 existindo em qualquer arranjo: algo precisa dizer onde, algo precisa levar o
-valor e algo precisa dizer o que fazer. A disciplina de Arquitetura de
-Computadores trata das organizações reais.
+valor e algo precisa dizer o que fazer. A disciplina de Organização de
+Computadores, do 5º período, trata dos arranjos reais.
 
 ## Interfaces, portas e periféricos
 
 Falta ligar o equipamento ao mundo. O capítulo 3 chamou essa função de entrada e
-saída, e listou dispositivos; esta seção mostra por onde eles se ligam.
+saída e listou dispositivos, sem dizer por onde eles entram. Entre o teclado e o
+barramento existem duas peças com nome próprio.
 
 ### A controladora traduz
 
@@ -728,8 +771,14 @@ A @fig-placa-mae reúne, em uma fotografia, quase tudo o que este capítulo trat
 
 ![Placa-mãe de computador de mesa, com o soquete do processador ao centro, os encaixes de memória à direita e os encaixes de expansão na metade inferior. Autoria de Jacek Halicki, licença CC BY-SA 4.0, obtida no Wikimedia Commons.](../diagrams/04/placa-mae.jpg){#fig-placa-mae width=72% fig-alt="Placa de circuito retangular vista de cima. Na metade superior, ao centro, um soquete quadrado metálico com uma tampa articulada, destinado ao processador. À direita do soquete, quatro encaixes verticais estreitos e paralelos, para módulos de memória. Na metade inferior, encaixes horizontais alongados de expansão e duas chapas metálicas cobrindo compartimentos estreitos. À esquerda, uma tampa metálica cobre a região dos conectores externos."}
 
-O soquete quadrado ao centro recebe a pastilha da @fig-die-zen2, dentro do seu
-encapsulamento. Os quatro encaixes verticais à direita recebem módulos como o da
+O soquete quadrado ao centro recebe uma pastilha como a da @fig-die-zen2, dentro
+do seu encapsulamento. O soquete é ele próprio uma interface, no sentido que a
+seção anterior definiu, e por isso ele aceita uma família de processadores e
+recusa as demais: o desta placa recebe processadores Intel, e a pastilha da
+@fig-die-zen2 é AMD, de modo que os dois nunca se encontram em um mesmo
+equipamento.
+
+Os quatro encaixes verticais à direita recebem módulos como o da
 @fig-modulo-ddr4, e a proximidade entre eles e o soquete tem razão de ser: o
 caminho até a memória principal é curto porque cada centímetro de trilha custa
 tempo.
@@ -739,8 +788,8 @@ chapas metálicas estreitas cobrem os encaixes que recebem discos como o da
 @fig-ssd. As controladoras estão distribuídas pela placa, em pastilhas pequenas
 que a fotografia não permite distinguir.
 
-Quase toda a superfície visível é ligação. A placa-mãe é, em grande parte, o
-barramento da @fig-barramentos desenhado em cobre.
+A maior parte da superfície visível é ligação. A placa-mãe materializa em cobre
+as conexões que a @fig-barramentos simplifica.
 
 ### Periféricos: entrada, saída ou ambos
 
@@ -760,9 +809,9 @@ A terceira linha da @tbl-perifericos é a que costuma ser esquecida, e é a que
 tem mais casos importantes. Um disco recebe e devolve dados. Uma placa de rede
 envia e recebe mensagens. Uma tela sensível ao toque exibe e capta.
 
-Reparem que a classificação descreve o dispositivo, e não a peça. Um monitor com
-tela sensível ao toque é um dispositivo de saída e um dispositivo de entrada ao
-mesmo tempo, montados no mesmo objeto, e o sistema conversa com os dois por
+Reparem que a classificação descreve a função, e não o objeto que vocês pegam na
+mão. Um monitor com tela sensível ao toque reúne em um só objeto um dispositivo
+de saída e um dispositivo de entrada, e o sistema conversa com os dois por
 controladoras diferentes.
 
 ### Como o processador conversa com um periférico
@@ -809,9 +858,9 @@ difícil.
 
 ### Acesso direto à memória
 
-Falta um detalhe na @fig-interrupcao. Depois do aviso, o processador recolhe o
-conteúdo da controladora e o escreve na memória, valor a valor. Para um bloco de
-alguns milhares de bytes, isso ocupa o processador com movimentação pura.
+Na sequência da @fig-interrupcao, o processador recolhe o conteúdo da
+controladora e o escreve na memória, valor a valor. Para um bloco de alguns
+milhares de bytes, isso ocupa o processador com movimentação pura.
 
 O **acesso direto à memória** resolve esse ponto: a controladora escreve
 diretamente na memória principal, usando o barramento, sem passar pelo
@@ -832,7 +881,7 @@ para separar o que é essencial do que é característica de um tipo de máquina
 |---|---|---|---|
 | Repertório | Família x86 | Família ARM | Família própria, mais simples |
 | Registradores | Dezenas | Dezenas | Dezenas |
-| Níveis de cache | Três | Dois ou três | Nenhum |
+| Níveis de cache | Três | Dois ou três | Em geral, nenhum |
 | Memória principal | Módulos removíveis, dezenas de GB | Soldada, alguns GB | Alguns KB, dentro da própria pastilha |
 | Armazenamento | Disco de estado sólido, TB | Memória soldada, centenas de GB | Alguns KB, não volátil |
 | Barramento | PCI Express, na placa-mãe | Ligações internas da pastilha | Vias internas da pastilha |
@@ -840,36 +889,76 @@ para separar o que é essencial do que é característica de um tipo de máquina
 
 : A mesma organização em três equipamentos de porte muito diferente. {#tbl-tres-equipamentos}
 
-Duas leituras da @tbl-tres-equipamentos importam.
-
 A linha dos registradores é igual nas três colunas, e a das caches é a que mais
 varia. Registrador é parte da definição de processador, e cache é uma solução
 para um problema que só existe quando a memória é grande e distante. O
-controlador de portão tem a memória inteira dentro da própria pastilha, ao lado
-do processador, e não tem o problema que a cache resolve.
+controlador de portão do exemplo tem a memória inteira dentro da própria
+pastilha, ao lado do processador, e não tem o problema que a cache resolve.
 
 A coluna da direita descreve um **microcontrolador**, que é um processador, uma
-memória e as controladoras de entrada e saída em uma única pastilha. Ele é o
-computador mais numeroso do mundo, com folga, e está dentro de eletrodomésticos,
-automóveis, medidores e brinquedos. Um automóvel atual tem dezenas deles.
+memória e as controladoras de entrada e saída em uma única pastilha. Ele aparece
+em eletrodomésticos, automóveis, medidores e brinquedos.
 
-## A tarefa desta semana
+### Tempo e energia
 
-As três partes cobrem operações diferentes: aplicar o modelo ao caso trabalhado,
-aplicá-lo a um caso novo e verificar o que mudou na compreensão de vocês. As três
-compõem o piso definido na @tbl-piso-extensao do capítulo 1, e cada uma traz ao
-fim uma extensão para quem terminou sem esforço.
+Este capítulo mediu o percurso de um valor em tempo, porque tempo é o que o
+aluno percebe. A mesma assimetria vale para energia: alcançar um valor em um
+registrador consome muito menos que alcançá-lo na memória principal, e a
+diferença entre os níveis da @fig-hierarquia-memoria é grande também nessa conta
+[@patterson2014].
 
-### Aplicação: o percurso de um valor
+As duas medidas andam juntas e não são a mesma. Um programa que desce menos na
+hierarquia termina antes e gasta menos energia para terminar, e é por isso que a
+mesma decisão de projeto aparece nos dois lugares. O capítulo 14 retoma o
+assunto pelo outro lado, partindo do consumo de um equipamento e de um centro de
+dados, e a @fig-hierarquia-memoria é o que vocês vão levar deste capítulo para
+lá.
+
+## O que reter e o que reconhecer
+
+Este capítulo apresentou trinta e nove termos, e eles não têm todos o mesmo
+peso. Alguns sustentam o modelo, e sem eles nada do capítulo se sustenta. Outros
+são nome de coisa que vocês vão encontrar escrito em algum lugar, e para os
+quais basta saber a que se referem quando aparecerem. A @tbl-reter separa os
+dois grupos.
+
+| **Assunto** | **Reter** | **Basta reconhecer** |
+|---|---|---|
+| Processador | Unidade de controle, unidade lógica e aritmética, registrador | Núcleo, contador de programa, registrador de instrução |
+| Instruções | Instrução, código da operação, operando, repertório de instruções | Endereçamento indireto, as quatro famílias pelo nome |
+| Memória | Hierarquia de memória, volátil e não volátil, localidade, ciclo de relógio | Linha de cache, acerto, falta, taxa de acerto |
+| Barramento | Barramento de dados, de endereços e de controle; largura | Arbitragem, PCI Express |
+| Entrada e saída | Controladora, interface, porta, periférico, interrupção | Espera ativa, acesso direto à memória |
+
+: O que o capítulo pede que vocês retenham e o que basta reconhecer ao encontrar. {#tbl-reter}
+
+A coluna do meio é o piso da @tbl-piso-extensao do capítulo 1, e é dela que sai
+a tarefa desta semana. A coluna da direita é repertório: ninguém vai pedir a
+definição de arbitragem, e vocês vão precisar reconhecer a palavra no dia em que
+ela aparecer em um manual.
+
+Bit e byte não estão na tabela porque pertencem ao capítulo 6, e aqui eles
+entraram apenas com o que a leitura exigia.
+
+## Atividades e exercícios da semana
+
+Este instrumento reúne aplicação, transferência, integração e consolidação. Os
+três primeiros exercícios retomam o caso estudado no capítulo. Os exercícios 4
+a 9 usam situações mais curtas. Todos compõem o piso definido na
+@tbl-piso-extensao do capítulo 1.
+
+### Exercício 1: aplicação, o percurso de um valor
 
 Um programa precisa multiplicar por dois o valor guardado na posição $80$ da
 memória e gravar o resultado na posição $81$. A máquina não tem instrução de
 multiplicação, e a multiplicação por dois é feita somando o valor a ele mesmo.
 
 Escrevam a sequência de passos dessa operação no formato da @tbl-soma-passos,
-com as três colunas. Marquem, ao lado de cada passo, se ele é transferência de
-dados, aritmética ou controle de fluxo, usando as famílias da
-@tbl-familias-instrucao.
+com as mesmas três colunas, e acrescentem uma quarta. Nela, marquem se cada
+passo movimenta dados, realiza um cálculo aritmético ou coordena uma leitura ou
+escrita. Essa marcação
+descreve as ações do modelo. Ela não classifica as instruções que um processador
+real executa.
 
 Fechem esta parte respondendo em duas frases: quantos dos seus passos tocam a
 memória principal, e o que aconteceria com o tempo total se o valor da posição
@@ -880,17 +969,18 @@ um valor da memória diretamente a um registrador, sem passar pelo registrador d
 dados de forma visível ao programa. Digam quantos passos foram economizados e o
 que essa instrução exige a mais do circuito.
 
-### Transferência: três queixas de lentidão
+### Exercício 2: transferência, três queixas de lentidão
 
 Estas três queixas chegaram ao suporte de um laboratório. Nenhuma delas menciona
 memória, e é de vocês a decisão sobre onde procurar.
 
 1.  "O computador do laboratório 2 demora quase um minuto para abrir qualquer
-    programa, mas depois de aberto ele funciona normalmente."
-2.  "O programa de análise dos dados da turma leva quarenta minutos. O colega
-    rodou o mesmo programa, com os mesmos dados, na máquina dele, e levou seis."
-3.  "Quando abro o oitavo programa, todos ficam lentos ao mesmo tempo. Fechando
+    programa. Depois de aberto, o programa funciona normalmente."
+2.  "Quando abro o oitavo programa, todos ficam lentos ao mesmo tempo. Fechando
     dois, tudo volta ao normal."
+3.  "Instalei mais memória nessa máquina e o programa de análise continua
+    levando os mesmos quarenta minutos. Enquanto ele roda, o processador fica o
+    tempo todo ocupado e o disco fica parado."
 
 Para cada queixa, digam em que nível da @fig-hierarquia-memoria vocês
 procurariam primeiro e por quê. Usem a @fig-escala-de-tempo para justificar a
@@ -898,13 +988,16 @@ ordem de grandeza da demora: uma espera de um minuto é compatível com que
 nível?
 
 Uma das três não se resolve trocando de nível na hierarquia, e reconhecer isso é
-o objetivo do exercício.
+o objetivo do exercício. Cada queixa traz no próprio enunciado o sinal que
+permite decidir, e a linha do tempo de acesso da @tbl-armazenamento ajuda em
+uma delas.
 
-Extensão: para a queixa 2, listem três hipóteses que explicariam a diferença
-entre as duas máquinas, sendo uma delas fora da hierarquia de memória. Digam que
-medida distinguiria uma hipótese da outra.
+Extensão: para a queixa 1, digam que medida distinguiria um disco magnético de
+um disco de estado sólido como causa, sem abrir o gabinete. A
+@fig-escala-de-tempo e a @tbl-armazenamento dão os números de que vocês
+precisam.
 
-### Integração: comparem com o que vocês escreveram
+### Exercício 3: integração, comparem com o que vocês escreveram
 
 Recuperem a folha da abertura do capítulo, com a lista de passos da soma e as
 respostas às duas perguntas.
@@ -917,14 +1010,239 @@ registrador? E a sua resposta sobre qual etapa demora mais apontava a soma?
 A terceira pergunta é a que fecha o capítulo. A soma é a etapa mais rápida por
 uma margem de várias ordens de grandeza, e a intuição contrária vem de tratar o
 cálculo como o trabalho e a movimentação como preparação. A @fig-escala-de-tempo
-mostra a proporção real entre as duas, e é ela que vocês vão usar no capítulo 8
-para julgar afirmações sobre desempenho.
+mostra a proporção real entre as duas, e ela reaparece duas vezes no livro: no
+capítulo 8, para distinguir um problema lento de um problema sem algoritmo
+geral, e no capítulo 15, para separar o que uma tecnologia faz do que se anuncia
+que ela faz.
 
-O capítulo 5 desce mais um degrau e trata do que exatamente está guardado em
-cada uma das posições que este capítulo movimentou.
+Os capítulos 5 e 6 descem mais um degrau. O capítulo 5 trata do sistema de
+numeração em que os valores deste capítulo estão escritos, e o capítulo 6, do
+que exatamente está guardado em cada uma das posições que este capítulo
+movimentou.
 
 Guardem as duas folhas.
 
 Extensão: escrevam uma frase dizendo o que vocês diriam hoje, e não conseguiriam
 dizer na primeira página, sobre por que um programa pode ser lento sem fazer
 nenhuma conta a mais que outro.
+
+### Exercícios 4 a 9: consolidação
+
+Os exercícios de consolidação retomam o piso da @tbl-reter. Respondam com frases
+completas e usem as figuras e tabelas indicadas em cada item para justificar as
+respostas. As respostas-modelo para os exercícios 4 a 9 estão em
+@sec-respostas-lista-capitulo-4.
+
+4.  Um programa precisa somar os valores das posições $40$ e $41$ da memória e
+    gravar o resultado na posição $42$. A @tbl-soma-passos mostra uma sequência
+    possível. Expliquem por que os valores passam por registradores antes da
+    soma. Indiquem também qual bloco realiza a soma e qual bloco coordena as
+    leituras e a gravação.
+
+5.  Classifiquem cada item como volátil ou não volátil: registrador, cache,
+    memória principal, disco de estado sólido e disco magnético. Depois,
+    expliquem por que um arquivo salvo permanece depois de uma queda de energia,
+    enquanto uma alteração que ainda está apenas na memória principal pode se
+    perder. Usem a @fig-hierarquia-memoria.
+
+6.  Um equipamento tem barramento de dados de $64$ vias e precisa transferir uma
+    linha de cache de $64$ bytes. Quantas transferências são necessárias? Se o
+    barramento passar a ter $128$ vias, quantas transferências serão
+    necessárias? Mostrem o cálculo e usem a seção sobre largura de barramento.
+
+7.  Uma câmera conectada por USB envia uma fotografia ao computador. Organizem o
+    percurso entre câmera e memória principal, usando estes termos: porta,
+    interface, controladora, barramento e processador. Expliquem a função da
+    controladora nesse percurso. Consultem a @fig-interface-controladora.
+
+8.  Classifiquem teclado, impressora, disco, placa de rede e tela sensível ao
+    toque como periférico de entrada, saída ou entrada e saída. Em cada caso,
+    justifiquem pelo sentido em que a informação percorre o sistema. Usem a
+    @tbl-perifericos.
+
+9.  Dois programas somam o mesmo milhão de valores guardados na memória. O
+    primeiro percorre as posições na ordem em que elas estão guardadas. O
+    segundo salta, a cada valor, para uma posição distante. Os dois fazem a
+    mesma quantidade de somas. Expliquem por que o segundo pode levar bem mais
+    tempo, usando os termos localidade espacial e linha de cache. Usem a
+    @fig-hierarquia-memoria e a seção sobre por que a hierarquia funciona.
+
+## Atividade de pesquisa e apresentação: tecnologias e aplicações
+
+Esta atividade amplia o capítulo por meio de pesquisa e apresentação. Cada grupo
+estuda uma tecnologia e mostra como ela aparece em equipamentos ou serviços que
+as pessoas usam. O foco da apresentação é explicar a tecnologia com os conceitos
+do capítulo e relacioná-la a aplicações concretas.
+
+### Propósito
+
+Ao terminar a atividade, vocês serão capazes de explicar o papel de uma
+tecnologia de processador, memória, armazenamento, barramento ou conexão em um
+equipamento real. A explicação deve indicar os componentes envolvidos, uma ou
+mais aplicações e uma limitação prática relevante.
+
+### Organização e sorteio dos temas
+
+Trabalhem em grupos de três ou quatro participantes. Em uma turma de cerca de
+quarenta alunos, formem dez grupos e sorteiem um tema para cada grupo. A
+@tbl-temas-tecnologias distribui os temas entre os assuntos do capítulo.
+
+| **Grupo** | **Tema** |
+|---:|---|
+| 1 | Processadores x86 e ARM |
+| 2 | Processadores com vários núcleos |
+| 3 | Microcontroladores |
+| 4 | Memória principal DDR4 ou DDR5 |
+| 5 | Memória cache |
+| 6 | Disco magnético e SSD SATA |
+| 7 | SSD NVMe e PCI Express |
+| 8 | USB e USB-C |
+| 9 | HDMI e DisplayPort |
+| 10 | Ethernet |
+
+: Temas sorteados para a atividade de pesquisa e apresentação. {#tbl-temas-tecnologias}
+
+### Aplicações a pesquisar
+
+Os grupos 1, 2 e 3 pesquisam aplicações de processamento. O grupo 1 compara a
+presença de x86 e ARM em computadores de mesa, telefones e computadores
+portáteis. O grupo 2 mostra uma aplicação que aproveita vários núcleos. O grupo
+3 explica a aplicação de um microcontrolador em portão eletrônico,
+eletrodoméstico ou automóvel.
+
+Os grupos 4, 5, 6 e 7 pesquisam aplicações ligadas à hierarquia de memória. Os
+grupos 4 e 5 explicam como memória principal e cache influenciam a execução de
+programas. O grupo 6 compara a abertura de programas e a guarda de arquivos em
+disco magnético e SSD SATA. O grupo 7 mostra por que SSD NVMe e PCI Express
+aparecem em computadores que precisam de armazenamento de alto desempenho.
+
+Os grupos 8, 9 e 10 pesquisam aplicações de conexão. O grupo 8 aborda
+transferência de arquivos, energia e periféricos ligados por USB. O grupo 9
+aborda monitor, projetor ou televisão ligados por HDMI ou DisplayPort. O grupo
+10 explica uma rede local em laboratório, residência ou empresa.
+
+### Perguntas entre grupos
+
+Cada grupo prepara uma pergunta sobre o tema que lhe foi atribuído na lista a
+seguir. A pergunta deve pedir explicação ou comparação, e não a repetição de uma
+sigla ou de um número. O grupo que apresenta responde à pergunta nos dois minutos
+reservados depois da exposição.
+
+1.  O grupo 4 pergunta ao grupo 1, sobre processadores x86 e ARM.
+2.  O grupo 5 pergunta ao grupo 2, sobre processadores com vários núcleos.
+3.  O grupo 6 pergunta ao grupo 3, sobre microcontroladores.
+4.  O grupo 7 pergunta ao grupo 4, sobre memória principal DDR4 ou DDR5.
+5.  O grupo 8 pergunta ao grupo 5, sobre memória cache.
+6.  O grupo 9 pergunta ao grupo 6, sobre disco magnético e SSD SATA.
+7.  O grupo 10 pergunta ao grupo 7, sobre SSD NVMe e PCI Express.
+8.  O grupo 1 pergunta ao grupo 8, sobre USB e USB-C.
+9.  O grupo 2 pergunta ao grupo 9, sobre HDMI e DisplayPort.
+10. O grupo 3 pergunta ao grupo 10, sobre Ethernet.
+
+### Pesquisa
+
+Cada grupo pesquisa o tema sorteado e responde às perguntas abaixo. Consultem o
+capítulo 4 antes de procurar fontes externas, pois ele dá o vocabulário para a
+pesquisa.
+
+1.  O que é a tecnologia e qual problema de equipamento ela resolve?
+2.  Quais componentes do capítulo aparecem nela? Usem apenas os termos que se
+    aplicarem: unidade de controle, registrador, núcleo, cache, memória
+    principal, armazenamento secundário, barramento, controladora, interface,
+    porta e periférico.
+3.  Como a tecnologia participa das aplicações indicadas na seção anterior?
+4.  Qual decisão prática ela exige de usuário ou equipe técnica? A decisão pode
+    envolver compatibilidade, velocidade, capacidade, consumo de energia, custo
+    ou quantidade de dispositivos ligados.
+5.  Que limite ou incompatibilidade pode impedir o uso esperado?
+
+Usem pelo menos três fontes. Uma delas deve ser documentação de fabricante,
+entidade responsável pelo padrão ou manual técnico. As outras podem ser livros,
+artigos de divulgação técnica com autoria identificada ou documentação de
+equipamento. Registrem autor ou entidade, título, endereço e data de acesso.
+
+### Como escolher as fontes
+
+Antes de usar uma fonte, respondam a três perguntas. Quem responde pelo texto?
+Que informação ela sustenta? Quando ela foi publicada ou atualizada? Usem a
+fonte quando conseguirem responder às três perguntas e quando ela tratar da
+tecnologia ou da aplicação que vocês apresentam.
+
+Documentação de fabricante ou de entidade responsável por um padrão serve para
+especificações, compatibilidade e limites do equipamento. Livro, manual técnico
+ou artigo com autoria identificada serve para explicar conceitos e comparar
+tecnologias. Página de loja, trecho de resultado de busca, comentário em fórum e
+vídeo sem autoria identificada podem ajudar a encontrar uma fonte, mas não
+contam entre as três fontes da apresentação.
+
+Um exemplo do que conta como fonte secundária: um artigo assinado e datado, em
+revista de tecnologia ou no blog de engenharia de uma empresa, que explica como
+a memória cache reduz o tempo de acesso. Uma matéria sem assinatura do tipo "os
+dez melhores SSDs" não serve, porque não se sabe quem responde por ela nem em
+que informação ela se apoia.
+
+Levantem também o tema para o qual o grupo recebeu a responsabilidade de fazer
+uma pergunta, sem a profundidade exigida para o tema sorteado. A pergunta deve
+usar uma fonte da apresentação ou uma comparação entre as aplicações discutidas.
+
+### Produto e apresentação
+
+Entreguem a apresentação em PDF. Cada grupo terá seis minutos para expor o tema
+e dois minutos para responder à pergunta do grupo designado. A apresentação
+precisa, no mínimo, explicar a tecnologia com os conceitos do capítulo, mostrar
+aplicações concretas, incluir um diagrama próprio e discutir uma decisão prática
+ou limitação. Acrescentem outras informações quando elas ajudarem a turma a
+compreender o tema. Registrem as fontes e os créditos das imagens usadas.
+
+O diagrama pode ser desenhado à mão, fotografado e inserido no slide, ou feito
+em ferramenta digital. Cada participante explica uma parte da apresentação.
+
+### Sequência de trabalho
+
+A @tbl-sequencia-tecnologias organiza a atividade entre os encontros 4 e 8. O
+sorteio e o planejamento usam cinquenta minutos do encontro dedicado a este
+capítulo. As apresentações ocorrem no seminário técnico do encontro 8, associado
+ao marco de estudo de caso técnico da disciplina. A atividade não exige encontro
+adicional.
+
+| **Momento** | **Tempo** | **O que acontece** |
+|---|---:|---|
+| Encontro 4: sorteio e planejamento | 50 min | O professor apresenta os critérios, sorteia os temas e as perguntas. Cada grupo define aplicações, divide tarefas e seleciona fontes iniciais. |
+| Pesquisa e produção | Entre os encontros 4 e 8 | O grupo estuda a fundo o tema sorteado, levanta o suficiente sobre o tema da pergunta, produz o diagrama e prepara a apresentação. |
+| Encontro 8: seminário técnico e síntese | 100 min | Os dez grupos apresentam, respondem às perguntas e a turma produz a síntese. |
+
+: Sequência da atividade de pesquisa e apresentação. {#tbl-sequencia-tecnologias}
+
+### Critérios de avaliação
+
+A @tbl-rubrica-tecnologias define os critérios. O professor pode usar os pontos
+como nota ou como retorno antes da apresentação.
+
+| **Critério** | **Pontos** | **Evidência esperada** |
+|---|---:|---|
+| Uso dos conceitos do capítulo | 4 | A apresentação associa corretamente a tecnologia aos componentes e às funções do capítulo. |
+| Tecnologias e aplicações | 2 | As aplicações apresentadas mostram por que a tecnologia é usada. |
+| Diagrama e explicação | 2 | O diagrama mostra blocos, direção e função das ligações relevantes. |
+| Fontes, comunicação e pergunta | 2 | O grupo usa fontes verificáveis, credita imagens, explica uma parte e faz a pergunta atribuída. |
+
+: Critérios de avaliação da atividade. {#tbl-rubrica-tecnologias}
+
+### Síntese da turma
+
+Durante as apresentações, registrem uma relação entre o tema do próprio grupo e
+um tema apresentado por outro grupo. Anotem também uma aplicação e uma limitação
+que apareçam nessa apresentação. O grupo designado registra a resposta recebida
+para sua pergunta.
+
+Ao final, cada estudante entrega um texto curto com três partes. Na primeira,
+identifica a tecnologia de outro grupo que mais se relaciona com seu tema. Na
+segunda, explica a relação usando ao menos um conceito do capítulo. Na terceira,
+compara uma aplicação ou limitação dos dois temas. A pergunta feita pelo grupo ou
+a resposta recebida pode servir como evidência nessa comparação.
+
+Por exemplo, um estudante do grupo que pesquisou SSD NVMe pode relacionar seu
+tema ao grupo que pesquisou memória cache. Os dois reduzem o tempo de acesso a
+valores, mas atuam em níveis diferentes da hierarquia. Um SSD NVMe guarda
+arquivos em armazenamento não volátil, enquanto a cache mantém valores em uso
+próximos ao processador. A pergunta sobre por que adicionar memória cache não
+substitui um SSD pode ajudar a justificar essa diferença.

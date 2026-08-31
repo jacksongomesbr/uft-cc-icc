@@ -1,6 +1,11 @@
 project:
   type: book
   output-dir: _output
+  resources:
+    - diagrams/03/mars-climate-orbiter-testes.jpg
+    - diagrams/03/toque-em-tela.jpg
+    - diagrams/04/conector-usb-tipo-a.jpg
+    - diagrams/04/raspberry-pi-4.jpg
   render:
     - index.qmd
     - chapters/*.qmd
@@ -56,6 +61,7 @@ book:
     - chapters/referencias.qmd
   appendices:
     - apresentacoes.qmd
+    - apendices/A-respostas-lista-exercicios.qmd
 
 format:
   html:

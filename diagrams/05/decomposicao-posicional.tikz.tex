@@ -1,0 +1,43 @@
+% A decomposição posicional de um mesmo valor em duas bases.
+%
+% As duas linhas têm a mesma estrutura de propósito: peso acima, dígito no
+% meio, produto abaixo, soma à direita. O que muda entre elas é a base do
+% peso, e a figura existe para que essa seja a única diferença visível.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm]
+
+  % #1 y da linha, #2 cor do peso, #3 dígitos, #4 pesos, #5 produtos,
+  % #6 soma, #7 título da linha
+  \newcommand{\linhabase}[7]{%
+    \node[rotulo peq, anchor=west, font=\footnotesize\bfseries]
+      at (-2.9, #1 + 1.7) {#7};
+    \node[rotulo peq, anchor=east, font=\footnotesize] at (-0.8, #1 + 0.85)
+      {peso da posição};
+    \node[rotulo peq, anchor=east, font=\footnotesize] at (-0.8, #1)
+      {dígito};
+    \node[rotulo peq, anchor=east, font=\footnotesize] at (-0.8, #1 - 0.95)
+      {dígito $\times$ peso};
+    \foreach \d [count=\i from 0] in {#3} {
+      \node[bloco dado, minimum width=11mm, minimum height=9mm]
+        at (\i*1.6, #1) {$\d$};
+    }
+    \foreach \p [count=\i from 0] in {#4} {
+      \node[rotulo peq, text=#2] at (\i*1.6, #1 + 0.85) {$\p$};
+    }
+    \foreach \v [count=\i from 0] in {#5} {
+      \node[rotulo peq] at (\i*1.6, #1 - 0.95) {$\v$};
+    }
+    \draw[ligacao] (-0.55, #1 - 0.5) -- (5.35, #1 - 0.5);
+    \node[rotulo peq, anchor=west] at (5.6, #1 - 0.95) {$=\;#6$};
+  }
+
+  \linhabase{2.6}{procborda}{3, 5, 0, 7}{10^3, 10^2, 10^1, 10^0}%
+    {3\,000, 500, 0, 7}{3\,507_{10}}{Base dez, quatro dígitos}
+
+  \linhabase{-1.0}{memborda}{1, 0, 1, 1}{2^3, 2^2, 2^1, 2^0}%
+    {8, 0, 2, 1}{11_{10}}{Base dois, quatro dígitos}
+
+\end{tikzpicture}
+\end{document}

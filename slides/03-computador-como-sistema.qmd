@@ -5,7 +5,7 @@ author: "Prof. Dr. Jackson Gomes de Souza"
 institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 ---
 
-## Objetivos de aprendizagem {.smaller}
+## Objetivos de aprendizagem
 
 - Descrever um computador como um sistema com partes que interagem.
 - Distinguir os papéis de hardware, software, dados, usuários e redes.
@@ -13,7 +13,7 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 - Reconhecer que um mesmo problema pode ser resolvido em camadas diferentes do
   sistema.
 
-## Roteiro {.smaller}
+## Roteiro
 
 - A noção de sistema: partes, relações e fronteira.
 - Hardware, software, dados, usuários e redes.
@@ -21,7 +21,7 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 - O ciclo de busca e execução.
 - Camadas de abstração, e em qual delas atacar um problema.
 
-## O propósito deste capítulo {.smaller}
+## O propósito deste capítulo
 
 > Ser capaz de descrever um computador como um sistema, dizendo quais são as
 > partes, o que passa entre elas e onde está a fronteira, e de usar essa
@@ -33,7 +33,7 @@ Reparem no verbo: **descrever**.
 
 # Parem aqui {background-color="#1a1a1a"}
 
-## Escrevam agora {background-color="#1a1a1a" .r-fit-text}
+## Escrevam agora {background-color="#1a1a1a"}
 
 Vocês enviam uma mensagem. Segundos depois ela aparece no telefone de um colega,
 em outra cidade.
@@ -55,7 +55,7 @@ A folha será usada duas vezes: daqui a alguns minutos e no fim da aula.
 
 # Por que a lista não fecha
 
-## Comparem com dois colegas {.smaller}
+## Comparem com dois colegas
 
 ::: {.incremental}
 - Quem escreveu **quatro passos** pôs "envia pela internet" como um passo só.
@@ -102,20 +102,21 @@ das partes produz sozinha**.
 Serve ao corpo humano, a uma escola, a um carro e a um computador. É essa
 largura que a torna útil.
 
-## As quatro perguntas que descrevem um sistema {.smaller}
+## Duas perguntas sobre as partes
 
-| Pergunta | Elemento |
-|---|---|
-| 1. Quais são as partes? | Partes |
-| 2. O que cada uma faz? | Partes |
-| 3. O que passa de uma para outra? | Relações |
-| 4. Onde está a fronteira? | Fronteira |
+| Pergunta | Elemento | No sistema de matrícula |
+|---|---|---|
+| Quais são as partes? | Partes | Telas, regras, banco de dados |
+| O que cada uma faz? | Partes | Tela recebe; regra confere vaga |
 
-::: {.smaller}
-Três elementos e quatro perguntas: as partes rendem duas. No capítulo, a tabela
-"As quatro perguntas de uma descrição de sistema" traz uma resposta de exemplo
-para cada uma, e é esta a lista que a tarefa cobra.
-:::
+## Duas perguntas sobre a relação
+
+| Pergunta | Elemento | No sistema de matrícula |
+|---|---|---|
+| O que passa entre elas? | Relações | Pedido, consulta, resposta |
+| Onde está a fronteira? | Fronteira | Dentro: telas e regras; fora: correio |
+
+Há três elementos e quatro perguntas, porque as partes rendem duas.
 
 ## A fronteira é uma decisão
 
@@ -123,7 +124,7 @@ para cada uma, e é esta a lista que a tarefa cobra.
 
 O correio eletrônico está **fora**. A equipe entrega a mensagem e confia.
 
-## Quem traça a fronteira decide de quem é a culpa {.smaller}
+## Quem traça a fronteira decide de quem é a culpa
 
 Fronteira mais larga: mais controle e mais responsabilidade, sempre nas duas
 direções.
@@ -137,6 +138,12 @@ colocou lá.
 . . .
 
 O defeito morava na relação, que é o lugar que a lista de peças não mostra.
+
+## Mars Climate Orbiter
+
+![NASA, domínio público, Wikimedia Commons](../diagrams/03/mars-climate-orbiter-testes.jpg){width=35% fig-alt="Sonda Mars Climate Orbiter durante teste acústico, com três técnicos junto ao equipamento."}
+
+Uma fronteira mal definida deixa uma responsabilidade sem dono.
 
 ## Nenhuma peça sabe o que é uma letra
 
@@ -167,11 +174,11 @@ tinha sido feito antes.
 
 # Os cinco componentes
 
-## Hardware, software, dados, usuários e redes {.smaller}
+## Hardware, software, dados, usuários e redes
 
 ![](../diagrams/03/cinco-componentes.png){fig-align="center" width="72%"}
 
-## Cada um falha de um jeito {.smaller}
+## Cada um falha de um jeito
 
 | Componente | Como a falha se apresenta |
 |---|---|
@@ -206,7 +213,7 @@ Existe: somar, comparar, copiar, pular.
 
 **Tudo o mais é combinação dessas operações, em quantidade.**
 
-## Memória principal e armazenamento secundário {.smaller}
+## Memória principal e armazenamento secundário
 
 | Aspecto | Memória principal | Armazenamento secundário |
 |---|---|---|
@@ -226,22 +233,39 @@ A máquina fica lenta com muitos programas abertos porque falta memória
 principal: o sistema começa a mover para o armazenamento secundário o que não
 cabe, e o armazenamento secundário é lento.
 
-## A mesma estrutura fora do computador {.smaller}
+## A mesma estrutura: elevador e semáforo
 
-| Sistema | Entrada | Processamento | Saída |
+| Sistema | Entrada | Processamento | Armazenamento | Saída |
+|---|---|---|---|---|
+| Elevador | Botões, sensores | Ordem das chamadas | Chamadas e configuração | Motor, porta, visor |
+| Semáforo | Sensor, relógio | Tempo de cada fase | Programa de fases | Lâmpadas |
+
+## A mesma estrutura: telefone
+
+| Entrada | Processamento | Armazenamento | Saída |
 |---|---|---|---|
-| Elevador | Botões, sensores | Ordem das chamadas | Motor, porta, visor |
-| Semáforo | Sensor de fila, relógio | Tempo de cada fase | Lâmpadas |
-| Telefone | Tela, microfone, câmera | Dezenas de programas | Tela, som, rede |
+| Tela e microfone | Aplicativos | Memória e armazenamento | Tela, som e rede |
 
 . . .
 
 **Sistema embarcado.** Em número de unidades, é a maior parte dos computadores
 do mundo, e quase nenhum tem tela ou teclado.
 
+## Barramento
+
+O caminho físico compartilhado por onde os blocos trocam valores.
+
+. . .
+
+Por ele passam **endereços**, **dados** e **sinais de controle**.
+
+. . .
+
+Quando duas trocas precisam do barramento ao mesmo tempo, uma delas espera.
+
 # O ciclo de busca e execução
 
-## O computador faz uma coisa só, e a repete {.smaller}
+## O computador faz uma coisa só, e a repete
 
 ::: {.incremental}
 - **Buscar** a instrução do endereço apontado.
@@ -254,6 +278,33 @@ do mundo, e quase nenhum tem tela ou teclado.
 
 É a repetição, e não a complexidade de cada passo, que produz o que vocês veem
 na tela.
+
+## Programa armazenado
+
+Cada posição tem um **endereço**.
+
+. . .
+
+Instruções e dados dividem a mesma memória.
+
+. . .
+
+O papel de cada posição vem do uso que o processador faz dela.
+
+## Memória mínima
+
+::: {style="font-size: 0.95em;"}
+| Endereço | Conteúdo | Papel |
+|---:|---|---|
+| 0 | somar 4 + 5 → 6 | Instrução |
+| 1 | comparar 6 e 7 | Instrução |
+| 2 | se maior, ir para 0 | Instrução |
+| 3 | parar | Instrução |
+| 4 | 12 | Dado |
+| 5 | 30 | Dado |
+| 6 | 0 | Dado |
+| 7 | 100 | Dado |
+:::
 
 ## Contador de programa
 
@@ -268,13 +319,13 @@ consecutivas.
 
 Alterá-lo de propósito é o que produz repetição e decisão.
 
-## Um traçado, quatro ciclos {.smaller}
+## Um traçado, quatro ciclos
 
-| Ciclo | Contador | Instrução | O que ficou diferente |
+| Ciclo | CP | Instrução | Resultado |
 |---:|---:|---|---|
-| 1 | 0 | somar 4 e 5, guardar em 6 | Posição 6 passa de 0 para 42 |
-| 2 | 1 | comparar 6 com 7 | 42 é menor que 100 |
-| 3 | 2 | se maior, pular para 0 | Nada: o contador avança |
+| 1 | 0 | $4 + 5 \to 6$ | $6$: $0 \to 42$ |
+| 2 | 1 | comparar 6 e 7 | $42 < 100$ |
+| 3 | 2 | se maior, ir para 0 | CP avança |
 | 4 | 3 | parar | Termina |
 
 . . .
@@ -291,7 +342,7 @@ Ele somou $12$ com $30$ porque a instrução mandou.
 Se aqueles valores eram reais, gramas ou minutos, ele não sabe. O caso da sonda
 mostra o preço de a equipe também não saber.
 
-## Trocar um dado muda o programa {.smaller}
+## Trocar um dado muda o programa
 
 Troquem o limite da posição 7 de $100$ para $10$. Nenhuma instrução mudou.
 
@@ -307,7 +358,7 @@ E de novo, sem parar: a posição 6 recebe sempre o mesmo $42$.
 
 Um dado transformou um programa que termina em um que não termina.
 
-## Um laço, do jeito que a máquina faz {.smaller}
+## Um laço, do jeito que a máquina faz
 
 | End. | Conteúdo |
 |---:|---|
@@ -324,7 +375,7 @@ o limite
 O resultado da soma volta para a **mesma posição** que entrou na conta. Por isso
 o valor cresce a cada passagem.
 
-## Duas voltas, e a terceira é de vocês {.smaller}
+## Duas voltas, e a terceira é de vocês
 
 O contador de programa, ciclo a ciclo:
 
@@ -358,7 +409,7 @@ Resultado diferente em cada um, porque o dado da posição 4 mudou entre eles.
 
 O que Lógica de Programação escreve em uma linha é isto aqui embaixo.
 
-## Desvio e interrupção {.smaller}
+## Desvio e interrupção
 
 **Desvio** vem do programa: uma instrução manda continuar em outro endereço.
 
@@ -391,19 +442,55 @@ dado chega.
 
 Trocar o processador não acelera um programa que passa o tempo esperando.
 
+## O relógio marca o ritmo
+
+O relógio do processador libera os passos do ciclo em intervalos regulares.
+
+. . .
+
+Em uma fração de segundo, cabem milhões de ciclos. Por isso, operações simples
+formam uma imagem em movimento.
+
+. . .
+
+Uma demora pequena em cada volta se torna grande quando a volta se repete muitas
+vezes.
+
 # Do toque na tela ao pixel
 
-## O percurso completo {.smaller}
+## O toque começa como fenômeno físico
+
+![Intel Free Press, CC BY 2.0, Wikimedia Commons](../diagrams/03/toque-em-tela.jpg){width=82% fig-alt="Pessoa toca a tela sensível de um computador portátil."}
+
+O controlador mede a alteração física e a transforma em números para o
+processador.
+
+## O percurso completo
 
 ::: {.incremental}
-1. O toque vira um par de números e uma **interrupção**.
-2. O sistema operacional entrega o evento à janela ativa.
-3. O aplicativo monta a mensagem e pede o envio. Milhões de instruções, nada na
-   tela.
+1. O toque vira números e uma **interrupção**.
+2. O sistema operacional entrega o evento ao aplicativo certo.
+3. O aplicativo monta a mensagem na memória e pede o envio.
 4. O sistema operacional passa os dados à placa de rede.
-5. A mensagem atravessa equipamentos de terceiros e um servidor.
-6. A confirmação volta, produz interrupção, e o visto aparece.
+5. A mensagem cruza a rede, passa por um servidor e chega ao destinatário.
+6. A confirmação volta, produz interrupção e atualiza a tela.
 :::
+
+## O percurso, em camadas
+
+```{mermaid}
+%%| fig-width: 9
+%%| echo: false
+flowchart LR
+  T[Tela] -->|interrupção| SO[Sistema operacional]
+  SO -->|evento| A[Aplicativo]
+  A -->|mensagem| R[Rede]
+  R --> S[Servidor]
+  S -->|confirmação| R
+  R --> A
+  A -->|atualização| SO
+  SO -->|imagem| T
+```
 
 ## Onde o tempo é gasto
 
@@ -444,7 +531,7 @@ nem qual é o fabricante da placa.
 A camada de cima conhece a de baixo pelo serviço. A de baixo não conhece quem
 está acima.
 
-## Por que elas existem {.smaller}
+## Por que elas existem
 
 ::: {.incremental}
 - **Trocar a implementação** sem que a camada de cima perceba.
@@ -453,7 +540,7 @@ está acima.
   saber como o processador soma.
 :::
 
-## E o que elas custam {.smaller}
+## E o que elas custam
 
 ::: {.incremental}
 - **Esforço adicional**: a passagem consome tempo e memória.
@@ -478,15 +565,15 @@ real, sem que nenhuma mensagem de erro aponte a causa.
 
 ![](../diagrams/03/camada-da-solucao.png){fig-align="center" width="72%"}
 
-## Como escolher {.smaller}
+## Como escolher
 
 | Critério | O que perguntar |
 |---|---|
-| Causa | Remove a causa ou alivia o sintoma? |
-| Alcance | Quem mais é afetado? |
-| Custo | Quanto exige de dinheiro, tempo e gente? |
+| Causa | Remove a causa? |
+| Alcance | Quem mais muda? |
+| Custo | O que exige? |
 | Reversibilidade | Quanto custa desfazer? |
-| Durabilidade | Continua valendo quando o volume dobrar? |
+| Durabilidade | Vale com o volume dobrado? |
 
 . . .
 
@@ -509,7 +596,7 @@ Mesma origem: agir antes de medir.
 
 # Fechamento
 
-## A tarefa desta semana {.smaller}
+## A tarefa: aplicação e transferência
 
 **Aplicação.** Descrevam um sistema que vocês usam pelas **quatro perguntas**, e
 identifiquem nele os **cinco componentes**: hardware, software, dados, usuários e
@@ -520,17 +607,15 @@ redes.
 **Transferência.** Três queixas reais sobre o sistema de matrícula. Para cada
 uma: o instrumento das camadas ajuda? Uma delas não é problema de camada.
 
-. . .
+## A tarefa: integração
 
 **Integração.** Recuperem a folha da abertura. Quantos passos vocês previram?
 Quais dos omitidos pertencem a camadas que o sistema esconde de propósito?
 
 . . .
 
-::: {.smaller}
 O enunciado completo das três partes está no capítulo, na seção "A tarefa desta
 semana", com as tabelas a que cada uma se refere.
-:::
 
 ## A pergunta que fecha
 

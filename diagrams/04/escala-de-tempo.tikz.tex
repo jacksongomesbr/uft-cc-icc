@@ -4,7 +4,7 @@
 % A escala é logarítmica porque a diferença entre os extremos é de nove ordens
 % de grandeza: em escala linear, os cinco primeiros níveis cairiam todos sobre
 % o mesmo ponto. A coluna da direita reescala tudo por um fator único, tomando
-% um ciclo do processador como um segundo, e é o que torna a diferença
+% um ciclo de relógio como um segundo, e é o que torna a diferença
 % perceptível.
 \documentclass[border=5pt]{standalone}
 \usepackage{figuras}
@@ -38,12 +38,12 @@
   \nivel{3.77}{3.6}{memborda}{Memória principal}{cerca de 100 ns}{5 minutos}
   \nivel{2.49}{2.7}{procborda}{Memória cache, nível 3}{cerca de 13 ns}{40 segundos}
   \nivel{1.04}{1.8}{procborda}{Memória cache, nível 1}{cerca de 1 ns}{4 segundos}
-  \nivel{0.17}{0.9}{procborda}{Registrador}{um ciclo do processador}{1 segundo}
+  \nivel{0.17}{0.9}{procborda}{Registrador}{um ciclo de relógio}{1 segundo}
 
   \node[rotulo peq, anchor=east, font=\footnotesize\bfseries] at (-0.4, 7.1)
     {Onde o valor está};
   \node[rotulo peq, anchor=west, font=\footnotesize\bfseries] at (-0.2, 7.1)
-    {Se um ciclo do processador durasse um segundo};
+    {Se um ciclo de relógio durasse um segundo};
 
 \end{tikzpicture}
 \end{document}

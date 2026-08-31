@@ -1,0 +1,55 @@
+% Por que o circuito guarda dígitos de base dois, e não de base dez.
+%
+% As duas colunas cobrem o mesmo intervalo de tensão. À esquerda, dois
+% intervalos separados por uma faixa larga que não vale como dígito nenhum;
+% à direita, dez intervalos encostados uns nos outros. A mesma flutuação de
+% tensão, desenhada com a mesma altura nas duas colunas, cabe dentro de um
+% intervalo à esquerda e atravessa três à direita.
+\documentclass[border=5pt]{standalone}
+\usepackage{figuras}
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm]
+
+  % --- Coluna da esquerda: dois níveis ------------------------------------
+  \node[rotulo peq, font=\footnotesize\bfseries] at (1.1, 6.6)
+    {Dois níveis, dígitos $0$ e $1$};
+
+  \fill[procfundo, draw=procborda, line width=0.8pt] (0, 0) rectangle (2.2, 1.6);
+  \fill[procfundo, draw=procborda, line width=0.8pt] (0, 4.0) rectangle (2.2, 6.0);
+  \draw[draw=corapagado, line width=0.6pt, dash pattern=on 2pt off 2pt]
+    (0, 1.6) rectangle (2.2, 4.0);
+
+  \node[rotulo] at (1.1, 0.8) {dígito $0$};
+  \node[rotulo] at (1.1, 5.0) {dígito $1$};
+  \node[rotulo peq, text=corapagado, align=center] at (1.1, 2.8)
+    {faixa sem\\significado};
+
+  % --- Coluna da direita: dez níveis --------------------------------------
+  \node[rotulo peq, font=\footnotesize\bfseries] at (8.1, 6.6)
+    {Dez níveis, dígitos $0$ a $9$};
+
+  \foreach \i in {0,...,9} {
+    \fill[memfundo, draw=memborda, line width=0.6pt]
+      (7.0, \i*0.6) rectangle (9.2, \i*0.6 + 0.6);
+    \node[rotulo peq] at (8.1, \i*0.6 + 0.3) {\i};
+  }
+
+  % --- Eixo de tensão, comum às duas colunas ------------------------------
+  \foreach \y/\v in {0/0, 1.5/1{,}5, 3.0/3{,}0, 4.5/4{,}5, 6.0/6{,}0} {
+    \draw[ligacao] (5.5, \y) -- (5.7, \y);
+    \node[rotulo peq, anchor=west] at (5.7, \y) {\v\,V};
+  }
+  \draw[ligacao, -{Stealth[length=2.6mm]}] (5.5, -0.1) -- (5.5, 6.4);
+  \node[rotulo peq, anchor=south, rotate=90] at (5.15, 2.4) {tensão medida};
+
+  % --- A mesma flutuação nas duas colunas ---------------------------------
+  \draw[seta dupla, draw=destaque] (2.55, 4.4) -- (2.55, 5.6);
+  \node[rotulo peq, anchor=west, text=destaque, align=left] at (2.7, 5.0)
+    {flutuação de\\$1{,}2$\,V: mesmo\\dígito};
+
+  \draw[seta dupla, draw=destaque] (9.55, 4.4) -- (9.55, 5.6);
+  \node[rotulo peq, anchor=west, text=destaque, align=left] at (9.7, 5.0)
+    {a mesma flutuação:\\dois dígitos de\\diferença};
+
+\end{tikzpicture}
+\end{document}

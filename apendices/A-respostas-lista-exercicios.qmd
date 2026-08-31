@@ -1,0 +1,79 @@
+# Respostas aos exercícios de consolidação do capítulo 4 {#sec-respostas-lista-capitulo-4}
+
+Este apêndice apresenta respostas-modelo para os exercícios 4 a 9 do capítulo
+4. Os exercícios 1 a 3 pedem uma análise de percurso, transferência e revisão
+do registro inicial. Uma resposta pode usar exemplos diferentes quando mantiver
+os conceitos e a justificativa pedidos no enunciado.
+
+## Exercício 4
+
+Os valores passam por registradores porque a unidade lógica e aritmética opera
+sobre valores mantidos dentro do processador. A unidade de controle pede a
+leitura das posições $40$ e $41$, e os valores chegam pelo registrador de dados.
+Ela copia cada valor para um registrador de uso geral. A unidade lógica e
+aritmética soma os dois valores. A unidade de controle coordena a gravação do
+resultado na posição $42$.
+
+## Exercício 5
+
+Registrador, cache e memória principal são memórias voláteis. Disco de estado
+sólido e disco magnético são armazenamentos não voláteis.
+
+Um arquivo salvo permanece porque o equipamento o gravou em armazenamento não
+volátil. Uma alteração mantida somente na memória principal desaparece quando a
+alimentação elétrica é interrompida. A @fig-hierarquia-memoria separa esses dois
+grupos por uma linha tracejada.
+
+## Exercício 6
+
+Um barramento de dados de $64$ vias transfere $64$ bits por vez. Como oito bits
+formam um byte, ele transfere $8$ bytes por vez.
+
+$$
+\frac{64\ \text{bytes}}{8\ \text{bytes por transferência}} = 8
+\ \text{transferências}
+$$
+
+Com $128$ vias, o barramento transfere $16$ bytes por vez.
+
+$$
+\frac{64\ \text{bytes}}{16\ \text{bytes por transferência}} = 4
+\ \text{transferências}
+$$
+
+Dobrar a largura reduz pela metade a quantidade de transferências nesse caso.
+
+## Exercício 7
+
+A câmera produz a fotografia e a envia pelo cabo até uma porta USB. USB é a
+interface que define as regras de comunicação entre a câmera e a porta. A
+controladora recebe os sinais dessa interface, guarda os valores em trânsito e
+os traduz para o padrão usado no barramento do sistema. O barramento leva os
+valores até a memória principal, sob controle do processador.
+
+## Exercício 8
+
+A @tbl-respostas-perifericos reúne a classificação dos periféricos.
+
+| **Periférico** | **Classe** | **Justificativa** |
+|---|---|---|
+| Teclado | Entrada | Envia ao sistema as teclas digitadas pelo usuário. |
+| Impressora | Saída | Recebe do sistema os valores que serão marcados no papel. |
+| Disco | Entrada e saída | Recebe valores para gravar e devolve valores quando o sistema lê. |
+| Placa de rede | Entrada e saída | Envia e recebe mensagens pela rede. |
+| Tela sensível ao toque | Entrada e saída | Exibe valores e capta os toques do usuário. |
+
+: Classificação dos periféricos pelo sentido da informação. {#tbl-respostas-perifericos}
+
+## Exercício 9
+
+O segundo programa pode levar mais tempo porque desperdiça a localidade
+espacial. Quando o processador pede um valor à memória, ela devolve uma linha de
+cache inteira, com os valores vizinhos ao pedido. O primeiro programa usa esses
+vizinhos nos acessos seguintes, e a maior parte dos acessos vira acerto na
+cache. O segundo programa salta para longe a cada valor, raramente aproveita os
+vizinhos trazidos, e quase todo acesso desce até a memória principal.
+
+A @fig-hierarquia-memoria mostra a diferença de tempo entre a cache e a memória
+principal. Os dois programas fazem a mesma quantidade de somas, e é essa
+diferença de tempo de acesso que separa o tempo total de um do outro.

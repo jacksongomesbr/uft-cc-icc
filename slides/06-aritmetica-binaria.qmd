@@ -12,10 +12,11 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 - Números negativos: sinal e magnitude, complemento de um e complemento de
   dois.
 - Estouro de representação e seus efeitos.
-- Bit, byte e múltiplos.
+- Valores com parte fracionária, retomando o capítulo 5.
 
 ## Roteiro, continuação
 
+- Bit, byte e múltiplos.
 - Representação de texto, imagem e som.
 - Relação entre bits, instruções e processamento.
 

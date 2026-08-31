@@ -14,6 +14,7 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
   componentes.
 - Classificar periféricos e dispositivos por sua função de entrada, saída ou
   ambas.
+- Prever em que ponto do percurso de um valor o tempo de uma operação é gasto.
 
 ## Roteiro {.smaller}
 
@@ -115,6 +116,20 @@ Repertório curto: somar, subtrair, comparar, operar sobre bits.
 
 Ela não busca nada e não guarda nada.
 
+## Duas palavras antes de seguir {.smaller}
+
+Um **bit** é a menor porção de informação que o equipamento guarda, com dois
+estados possíveis.
+
+. . .
+
+Um **byte** é um grupo de oito bits. É a unidade em que se mede capacidade: os
+KB, MB e GB dos anúncios são múltiplos dele.
+
+. . .
+
+O capítulo 6 retoma os dois com o cuidado que eles merecem.
+
 ## Registradores {.smaller}
 
 ::: {.incremental}
@@ -174,8 +189,13 @@ resultado de volta.
 
 . . .
 
-Pastilha é o *die*; cada conjunto de controle, cálculo e registradores dentro
-dela é um **núcleo**. Oito núcleos, e não oito processadores.
+Em inglês, a unidade central de processamento é *central processing unit*, a
+sigla CPU. A pastilha é o *die*; cada conjunto de controle, cálculo e
+registradores dentro dela é um **núcleo**, ou *core*.
+
+. . .
+
+Oito núcleos, e não oito processadores.
 
 # O repertório de instruções
 
@@ -189,7 +209,8 @@ dela é um **núcleo**. Oito núcleos, e não oito processadores.
 
 . . .
 
-Na memória, tudo isso é uma sequência de bits de tamanho fixo.
+Na memória, tudo isso é uma sequência de bits. Em muitas famílias ela tem
+tamanho fixo, tipicamente quatro bytes; na x86, comprimento variável.
 
 ## As quatro famílias {.smaller}
 
@@ -204,6 +225,11 @@ Na memória, tudo isso é uma sequência de bits de tamanho fixo.
 
 A primeira é a mais usada. A terceira é a que torna o computador programável no
 sentido forte.
+
+. . .
+
+A quarta nem sempre existe: máquinas da família ARM alcançam o dispositivo pelas
+instruções de transferência de dados, sobre endereços reservados.
 
 ## Exemplo: somar dez valores {.smaller .scrollable}
 
@@ -240,7 +266,13 @@ servidores, **ARM** em telefones.
 
 . . .
 
-É por isso que um aplicativo de telefone não roda no computador de mesa.
+Daí vem metade da explicação de um programa precisar ser distribuído em duas
+versões.
+
+. . .
+
+A outra metade é o sistema operacional, que também difere. Separar as duas é
+assunto do capítulo 7.
 
 # A hierarquia de memória
 
@@ -256,6 +288,16 @@ A velocidade dos processadores cresceu muito mais rápido que a da memória.
 . . .
 
 A saída adotada foi não escolher: vários tipos ao mesmo tempo, em níveis.
+
+## Três unidades, e a relação entre elas {.smaller}
+
+- Um milissegundo (ms) é a milésima parte do segundo.
+- Um microssegundo ($\mu$s) é a milésima parte do milissegundo.
+- Um nanossegundo (ns) é a milésima parte do microssegundo.
+
+. . .
+
+Entre o topo e a base da hierarquia há um fator de cerca de **dez milhões**.
 
 ## Os cinco níveis
 
@@ -303,7 +345,7 @@ Trazer os vizinhos custa quase o mesmo. A aposta é a localidade espacial.
 
 Cache a $1$ ns, memória principal a $100$ ns. Taxa de acerto de $95\%$:
 
-$$0{,}95 \times 1 + 0{,}05 \times 100 = 5{,}95 \text{ ns}$$
+$$1 + 0{,}05 \times 100 = 6 \text{ ns}$$
 
 . . .
 
@@ -313,15 +355,30 @@ Sem cache, $100$ ns. Cerca de **dezessete vezes** mais rápido.
 
 Com $99\%$ de acerto:
 
-$$0{,}99 \times 1 + 0{,}01 \times 100 = 1{,}99 \text{ ns}$$
+$$1 + 0{,}01 \times 100 = 2 \text{ ns}$$
 
 . . .
 
-Quatro pontos de acerto valem mais três vezes de ganho.
+Quatro pontos de acerto valem um ganho adicional de três vezes.
+
+## O ciclo de relógio {.smaller}
+
+O processador trabalha ao ritmo de um sinal elétrico regular, o **relógio**.
+Cada batida é um **ciclo de relógio**.
+
+. . .
+
+É o número em gigahertz do anúncio: $3$ GHz são três bilhões de batidas por
+segundo, cerca de um terço de nanossegundo cada.
+
+. . .
+
+Não se confunde com o ciclo de busca e execução do capítulo 3, que leva vários
+deles.
 
 ## Os mesmos tempos, em escala humana
 
-![](../diagrams/04/escala-de-tempo.svg){width=95% fig-alt="Sete pontos em escala logarítmica, do registrador à ida e volta pela rede, com o tempo real e o tempo equivalente se um ciclo do processador durasse um segundo."}
+![](../diagrams/04/escala-de-tempo.svg){width=95% fig-alt="Sete pontos em escala logarítmica, do registrador à ida e volta pela rede, com o tempo real e o tempo equivalente se um ciclo de relógio durasse um segundo."}
 
 ## Um segundo, ou um ano {.smaller}
 
@@ -372,6 +429,11 @@ Prato que gira. Braço que se desloca.
 São elas que explicam os $10$ ms. Nenhum outro nível da hierarquia depende de
 algo mecânico.
 
+. . .
+
+O preço por byte e a capacidade vêm de outro lugar: o custo de fabricar a célula
+de silício comparado ao de revestir um prato de metal.
+
 ## Disco de estado sólido
 
 ![D-Kuru, CC BY-SA 4.0, Wikimedia Commons](../diagrams/04/ssd-m2.jpg){width=92% fig-alt="Disco de estado sólido no formato M.2, uma placa estreita e alongada com contatos dourados em uma das extremidades e nenhuma parte móvel."}
@@ -410,8 +472,8 @@ Um fio liga dois pontos. Um barramento é ligado a todos ao mesmo tempo.
 
 ::: {.incremental}
 - **Dados** — o valor lido ou escrito. Dois sentidos.
-- **Endereços** — onde ler ou escrever. **Sentido único**: quem escreve nele é
-  sempre o processador.
+- **Endereços** — onde ler ou escrever. Na figura, o processador envia o
+  endereço; em acesso direto à memória, a controladora também pode enviá-lo.
 - **Controle** — ler, escrever, interromper. Dois sentidos.
 :::
 
@@ -436,8 +498,8 @@ endereços possíveis. Com $n$ vias, são $2^{n}$ endereços.
 
 . . .
 
-Computadores de $32$ bits não reconheciam mais de $4$ GB por mais módulos que
-fossem instalados.
+Um equipamento que usa endereços de $32$ bits não alcança mais de $4$ GB nessa
+organização, por mais módulos que sejam instalados.
 
 ## Recurso disputado {.smaller}
 
@@ -450,8 +512,12 @@ está saturado.
 
 . . .
 
-Os equipamentos atuais usam caminhos ponto a ponto, como o PCI Express. O modelo
-das três funções continua valendo.
+Computadores de mesa e portáteis atuais usam caminhos ponto a ponto, como o PCI
+Express. O modelo das três funções continua valendo.
+
+. . .
+
+Organização de Computadores, no 5º período, trata dos arranjos reais.
 
 # Interfaces, portas e periféricos
 
@@ -483,6 +549,13 @@ sinais aparecem. USB, HDMI, SATA.
 Fora do gabinete, o padrão precisa valer entre fabricantes que não se conhecem.
 Dentro, só precisa valer naquele equipamento.
 
+## Uma porta USB, por fora
+
+![Grich, domínio público, Wikimedia Commons](../diagrams/04/conector-usb-tipo-a.jpg){width=56% fig-alt="Conector USB tipo A visto de frente, com a parte metálica e quatro contatos internos."}
+
+O conector é a parte visível. A interface inclui os sinais, as tensões e a ordem
+da comunicação.
+
 ## Uma placa-mãe
 
 ![Jacek Halicki, CC BY-SA 4.0, Wikimedia Commons](../diagrams/04/placa-mae.jpg){width=42% fig-alt="Placa-mãe vista de cima, com o soquete do processador ao centro, quatro encaixes de memória à direita e encaixes de expansão na metade inferior."}
@@ -493,7 +566,8 @@ Dentro, só precisa valer naquele equipamento.
 - O soquete central recebe a pastilha da fotografia do processador.
 - Os quatro encaixes à direita recebem os módulos de memória, e ficam perto do
   soquete porque cada centímetro de trilha custa tempo.
-- Quase toda a superfície visível é ligação: o barramento desenhado em cobre.
+- A maior parte da superfície visível é ligação: as conexões que o diagrama de
+  barramentos simplifica.
 :::
 
 ## Periféricos {.smaller}
@@ -558,11 +632,32 @@ inteiro chegou.
 |---|---|---|---|
 | Repertório | x86 | ARM | Família própria |
 | Registradores | Dezenas | Dezenas | Dezenas |
-| Níveis de cache | Três | Dois ou três | Nenhum |
+| Níveis de cache | Três | Dois ou três | Em geral, nenhum |
 | Memória principal | Módulos, dezenas de GB | Soldada, alguns GB | Alguns KB, na pastilha |
 | Armazenamento | Estado sólido, TB | Soldado, centenas de GB | Alguns KB |
 | Barramento | PCI Express | Interno à pastilha | Interno à pastilha |
 | Periféricos | Muitos, conectáveis | Poucos, integrados | Um sensor e um motor |
+
+## Um computador de placa única
+
+![Raspberry Pi, CC BY-SA 4.0, Wikimedia Commons](../diagrams/04/raspberry-pi-4.jpg){width=55% fig-alt="Computador de placa única Raspberry Pi 4 na mão de uma pessoa, mostrando processador, conectores USB, rede e outros componentes na mesma placa."}
+
+Processador, memória, controladoras e portas podem caber em uma placa pequena.
+
+## Tempo e energia {.smaller}
+
+Este capítulo mediu o percurso de um valor em **tempo**, porque tempo é o que
+vocês percebem.
+
+. . .
+
+A mesma assimetria vale para **energia**: alcançar um valor no registrador
+consome muito menos que alcançá-lo na memória principal [@patterson2014].
+
+. . .
+
+O capítulo 14 retoma pelo outro lado, partindo do consumo de um equipamento e de
+um centro de dados.
 
 ## Duas leituras {.smaller}
 
@@ -577,9 +672,31 @@ só existe quando a memória é grande e distante.
 . . .
 
 A coluna da direita é um **microcontrolador**: processador, memória e
-controladoras em uma pastilha só. É o computador mais numeroso do mundo.
+controladoras em uma pastilha só. Ele aparece em eletrodomésticos, automóveis,
+medidores e brinquedos.
 
-# A tarefa desta semana
+# O que reter
+
+## Nem todo termo tem o mesmo peso {.smaller .scrollable}
+
+| Assunto | Reter | Basta reconhecer |
+|---|---|---|
+| Processador | Unidade de controle, ULA, registrador | Núcleo, contador de programa |
+| Instruções | Instrução, código da operação, operando, repertório | Endereçamento indireto |
+| Memória | Hierarquia, volátil e não volátil, localidade, ciclo de relógio | Linha de cache, acerto, falta |
+| Barramento | Dados, endereços, controle; largura | Arbitragem, PCI Express |
+| Entrada e saída | Controladora, interface, porta, periférico, interrupção | Espera ativa, acesso direto à memória |
+
+## As duas colunas {.smaller}
+
+A do meio é o **piso**, e é dela que sai a tarefa desta semana.
+
+. . .
+
+A da direita é **repertório**: ninguém vai pedir a definição de arbitragem, e
+vocês vão precisar reconhecer a palavra no dia em que ela aparecer em um manual.
+
+# Atividades e exercícios da semana
 
 ## Aplicação {.smaller}
 
@@ -588,8 +705,13 @@ multiplicação.
 
 . . .
 
-Escrevam a sequência no formato da tabela dos dez passos, marcando a família de
-cada passo.
+Escrevam a sequência no formato da tabela dos dez passos. Marquem cada ação como
+movimentação de dados, cálculo aritmético ou coordenação de leitura e escrita.
+
+. . .
+
+Essa marcação descreve o modelo, e não classifica instruções de um processador
+real.
 
 . . .
 
@@ -598,9 +720,10 @@ registrador?
 
 ## Transferência {.smaller}
 
-1. "Demora um minuto para abrir qualquer programa, mas depois funciona normal."
-2. "O mesmo programa levou quarenta minutos aqui e seis na máquina do colega."
-3. "Ao abrir o oitavo programa, todos ficam lentos. Fechando dois, normaliza."
+1. "Demora um minuto para abrir qualquer programa. Depois, funciona normal."
+2. "Ao abrir o oitavo programa, todos ficam lentos. Fechando dois, normaliza."
+3. "Instalei mais memória e continua levando quarenta minutos. O processador
+   fica ocupado o tempo todo e o disco, parado."
 
 . . .
 
@@ -608,7 +731,8 @@ Em que nível da hierarquia vocês procurariam primeiro, e por quê?
 
 . . .
 
-Uma das três não se resolve trocando de nível.
+Uma das três não se resolve trocando de nível. Cada enunciado traz o sinal que
+permite decidir.
 
 ## Integração {.smaller}
 
@@ -619,6 +743,61 @@ Recuperem a folha da abertura.
 - A sua resposta sobre onde os números ficam guardados mencionava registrador?
 - A sua resposta sobre a etapa mais demorada apontava a soma?
 :::
+
+## Consolidação {.smaller}
+
+Os exercícios 4 a 9 retomam o piso: registradores, volatilidade, largura do
+barramento, percurso de uma câmera, periféricos e localidade.
+
+. . .
+
+Usem as figuras e tabelas indicadas em cada enunciado. As respostas-modelo estão
+no apêndice de exercícios.
+
+# Pesquisa e apresentação
+
+## Organização {.smaller}
+
+Dez grupos, com três ou quatro participantes, recebem por sorteio um tema de
+processador, memória, armazenamento, barramento ou conexão.
+
+. . .
+
+Cada grupo prepara uma pergunta sobre outro tema, conforme a distribuição do
+capítulo.
+
+## Pesquisa e fontes {.smaller}
+
+Pesquisem a fundo o tema do grupo. Levantem o tema da pergunta só o suficiente
+para formulá-la.
+
+. . .
+
+Usem ao menos três fontes, incluindo documentação de fabricante, entidade de
+padrão ou manual técnico.
+
+. . .
+
+Antes de usar uma fonte, confirmem autoria, informação sustentada e data de
+publicação ou atualização. Artigo assinado e datado conta; matéria sem
+assinatura do tipo "os dez melhores" não serve. Página de loja e resultado de
+busca não contam como fonte.
+
+## Produto, apresentação e síntese {.smaller}
+
+Entreguem a apresentação em PDF, com créditos das fontes e das imagens. Cada
+grupo apresenta por seis minutos e responde à pergunta em dois.
+
+. . .
+
+O grupo inclui um diagrama próprio. Ao final, cada estudante relaciona seu tema
+a outro, usando um conceito do capítulo e uma aplicação ou limitação.
+
+## Cronograma {.smaller}
+
+- Encontro 4: sorteio e planejamento, em 50 minutos.
+- Entre os encontros 4 e 8: pesquisa e produção em grupo.
+- Encontro 8: seminário técnico de 100 minutos, com apresentações e síntese.
 
 ## O que fecha o capítulo {.smaller}
 
@@ -631,8 +810,8 @@ como preparação.
 
 . . .
 
-O capítulo 5 desce mais um degrau: o que exatamente está guardado em cada
-posição que este capítulo movimentou.
+Os capítulos 5 e 6 descem mais um degrau: o sistema de numeração em que esses
+valores estão escritos, e o que exatamente está guardado em cada posição.
 
 ## Referências {.scrollable}
 

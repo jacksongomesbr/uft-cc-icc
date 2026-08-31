@@ -9,12 +9,13 @@ institute: "Curso de Ciência da Computação — UFT, Câmpus Palmas"
 
 - O que a Lei nº 13.709/2018 regula e a quem ela se aplica.
 - Dado pessoal, dado sensível e dado anonimizado.
+- Identificadores e reidentificação de um titular.
 - Princípios: finalidade, adequação, necessidade, transparência e segurança.
 - Bases legais para o tratamento e o papel do consentimento.
-- Titular, controlador, operador e encarregado.
 
 ## Roteiro, continuação
 
+- Titular, controlador, operador e encarregado.
 - Direitos do titular.
 - Incidentes de segurança e a responsabilidade de quem desenvolve.
 

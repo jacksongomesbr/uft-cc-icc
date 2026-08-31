@@ -25,6 +25,12 @@ Todas foram obtidas no Wikimedia Commons pela API do site, em 28/08/2026.
 | `disco-rigido-aberto.jpg` | Zzubnik | domínio público |
 | `ssd-m2.jpg` | D-Kuru | CC BY-SA 4.0 |
 | `placa-mae.jpg` | Jacek Halicki | CC BY-SA 4.0 |
+| `conector-usb-tipo-a.jpg` | Grich | domínio público |
+| `raspberry-pi-4.jpg` | Raspberry Pi | CC BY-SA 4.0 |
+
+As páginas de origem das duas imagens acrescentadas estão no Wikimedia Commons:
+[conector USB tipo A](https://commons.wikimedia.org/wiki/File:Type_A_USB.JPG) e
+[Raspberry Pi 4](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4.jpg).
 
 ## Arquivos de autoria própria
 

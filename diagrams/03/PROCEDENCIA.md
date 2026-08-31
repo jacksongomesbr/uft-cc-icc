@@ -4,9 +4,15 @@ Todos os arquivos `.dot` desta pasta são de autoria própria e seguem a licenç
 do livro. Os PNG correspondentes são gerados a partir deles pelo `Makefile` da
 raiz, a 200 DPI.
 
-O capítulo 3 não usa imagem de origem externa. As duas figuras restantes do
-capítulo são diagramas Mermaid definidos no próprio `.qmd`, conforme o critério
-de escolha de ferramenta descrito em `AUTHORING.md`.
+As fotografias abaixo vêm de fora, não têm arquivo-fonte correspondente e não
+são tocadas pelo `Makefile`. Foram obtidas no Wikimedia Commons pela API do site,
+em 31/08/2026, redimensionadas para no máximo 1200 px e recompostas sem os
+metadados da câmera.
+
+| Arquivo | Autoria | Licença | Origem |
+|---|---|---|---|
+| `mars-climate-orbiter-testes.jpg` | NASA | domínio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mars_Climate_Orbiter_during_tests.jpg) |
+| `toque-em-tela.jpg` | Intel Free Press | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Touch_on_Clamshell_Devices.jpg) |
 
 ## Arquivos
 
